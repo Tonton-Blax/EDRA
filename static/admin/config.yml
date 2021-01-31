@@ -17,6 +17,5 @@ collections:
       - { label: "Slug", name: "slug", widget: "string" }
       - { label: "Titre", name: "title", widget: "string"}
       - { label: "Image de couverture", name: "thumbnail", widget: "image"}
-      - { label: "Title", name: "title", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
       - { label: "Date de publication", name: "date", widget: "datetime"}
