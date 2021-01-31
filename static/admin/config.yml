@@ -19,4 +19,4 @@ collections:
       - { label: "Image de couverture", name: "thumbnail", widget: "image"}
       - { label: "Body", name: "body", widget: "markdown" }
       - { label: "Date de publication", name: "date", widget: "datetime"}
-      - { label: "Tableau (optionnel)", name: "tableau", widget: "list", allow_add: true }
+      - { label: "Tableau (optionnel, pour chaque ligne, séparer les colonnes par des virgules)", name: "tableau", widget: "list", allow_add: true, field: {label: ligne, name: ligne, widget: string} }
