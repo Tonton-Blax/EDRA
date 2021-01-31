@@ -16,6 +16,7 @@ collections:
       - { label: "Layout", name: "layout", widget: "hidden", default: "produits"}
       - { label: "Slug", name: "slug", widget: "string" }
       - { label: "Titre", name: "title", widget: "string"}
+      - { label: "Sous-titre", name: "subtitle", widget: "string"}
       - { label: "Image de couverture", name: "thumbnail", widget: "image"}
       - { label: "Bloc de contenu", name: "contenu", widget: "list", field: {label: "Corps", name: "body", widget: "markdown"} }
       - { label: "Date de publication", name: "date", widget: "datetime"}
