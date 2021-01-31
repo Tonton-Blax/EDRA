@@ -17,6 +17,6 @@ collections:
       - { label: "Slug", name: "slug", widget: "string" }
       - { label: "Titre", name: "title", widget: "string"}
       - { label: "Image de couverture", name: "thumbnail", widget: "image"}
-      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Bloc de contenu", name: "contenu", widget: "list", field: {label: "Corps", name: "body", widget: "markdown"} }
       - { label: "Date de publication", name: "date", widget: "datetime"}
-      - { label: "Tableau (optionnel, pour chaque ligne, séparer les colonnes par des virgules)", name: "tableau", widget: "list", allow_add: true, field: {label: ligne, name: ligne, widget: string} }
+      - { label: "Tableau (optionnel, pour chaque ligne, séparer les colonnes par des virgules)", name: "tableau", widget: "list", field: {label: ligne, name: ligne, widget: string} }
