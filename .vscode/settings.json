@@ -1,0 +1,17 @@
+{
+	"files.exclude": {
+		"**/node_modules/**": true,
+		"**/__sapper__/**": true
+	},
+	"files.watcherExclude": {
+		"**/node_modules**": true,
+		"**/__sapper__/**": true
+	},
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.codeActionsOnSave": {
+		"source.fixAll.prettier": true
+	},
+	"[typescript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	}
+}
