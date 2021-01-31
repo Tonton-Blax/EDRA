@@ -19,3 +19,4 @@ collections:
       - { label: "Image de couverture", name: "thumbnail", widget: "image"}
       - { label: "Body", name: "body", widget: "markdown" }
       - { label: "Date de publication", name: "date", widget: "datetime"}
+      - { label: "Tableau (optionnel)", name: "tableau", widget: "list", allow_add: true }
