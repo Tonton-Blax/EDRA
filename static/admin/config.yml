@@ -30,7 +30,7 @@ collections:
             default: 'Titre de la section'
             hint : 'Ligne 1 du titre de section sur FOND bleu'
           - label: "Sous-titre de section"
-            name: "sectiontitle"
+            name: "sectionsubtitle"
             widget: string
             default: 'Titre de la section'
             hint : 'Ligne 2 (+petite) du titre de section sur FOND bleu'
