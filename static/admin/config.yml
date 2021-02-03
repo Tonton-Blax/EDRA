@@ -29,30 +29,28 @@ collections:
             widget: object
             default: 'Titre de la section'
             fields: 
-              - { label : "Ligne 1", name : "sectiontitle", hint : 'Ligne 1 du titre de section sur FOND bleu'}
-              - { label : "Ligne 2", name : "sectionsubtitle", hint : 'Ligne 2 du titre de section sur FOND bleu'}
+              - { label : "Ligne 1", name : "sectiontitle", widget : string, hint : 'Ligne 1 du titre de section sur FOND bleu'}
+              - { label : "Ligne 2", name : "sectionsubtitle", widget : string, hint : 'Ligne 2 du titre de section sur FOND bleu'}
           - label: "Intertitre grand"
             name: "intertitrebigobject"
             widget: object
             field: 
-              - { label: "Intertitre grand", name: "interbig", widget: string }
+              - { label: "Intertitre grand", name: "interbig", widget: string, hint : "Interitre bleu SANS fond (grand)" }
           - label: "Intertitre petit"
             name: "intertitresmallobject"
             widget: object
             field: 
-              - { label: "Intertitre petit", name: "intersmall", widget: string }
+              - { label: "Intertitre petit", name: "intersmall", widget: string, hint : "Interitre bleu SANS fond (petit)" }
           - label: "Contenu"
             name: "contenu"
             widget: object
             field: 
               - { label: "Corps", name: "body", widget: "markdown" }
-
           - label: "Le +"
             name: "leplusobject"
             widget: object
             field: 
-              - { label: "Le +", name: "leplus", widget: text }
-
+              - { label: "Le +", name: "leplus", widget: text, hint : "ne pas écire 'le + ', il sera généré automatiquement"}
           - label: "Images"
             name: "imagesobject"
             widget: object
