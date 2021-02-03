@@ -12,6 +12,19 @@ collections:
     folder: "static/produits" # The path to the folder where our blog posts are stored
     create: true # Allow users to create new documents in this collection
     slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document
+      - { label: "Layout", name: "layout", widget: "hidden", default: "produits"}
+      - { label: "Slug", name: "slug", widget: "string" }
+      - { label: "Titre", name: "title", widget: "string"}
+      - { label: "Sous-titre", name: "subtitle", widget: "string"}
+      - { label: "Image de couverture", name: "thumbnail", widget: "image"}
+      - { label: "Bloc de contenu", name: "contenu", widget: "list", field: {label: "Corps", name: "body", widget: "markdown"} }
+      - { label: "Date de publication", name: "date", widget: "datetime"}
+      - { label: "Tableau (optionnel, pour chaque ligne, séparer les colonnes par des virgules)", name: "tableau", widget: "list", field: {label: ligne, name: ligne, widget: string} }
+
+  - label: 'Home Section'
+    name: 'sections'
+    widget: 'list'
     types:
     - label: 'Carousel'
       name: 'carousel'
@@ -31,11 +44,3 @@ collections:
         - { label: Header, name: header, widget: string, default: 'Spotlight' }
         - { label: Template, name: template, widget: string, default: 'spotlight.html' }
         - { label: Text, name: text, widget: text, default: 'Hello World' }
-    - { label: "Layout", name: "layout", widget: "hidden", default: "produits"}
-    - { label: "Slug", name: "slug", widget: "string" }
-    - { label: "Titre", name: "title", widget: "string"}
-    - { label: "Sous-titre", name: "subtitle", widget: "string"}
-    - { label: "Image de couverture", name: "thumbnail", widget: "image"}
-    - { label: "Bloc de contenu", name: "contenu", widget: "list", field: {label: "Corps", name: "body", widget: "markdown"} }
-    - { label: "Date de publication", name: "date", widget: "datetime"}
-    - { label: "Tableau (optionnel, pour chaque ligne, séparer les colonnes par des virgules)", name: "tableau", widget: "list", field: {label: ligne, name: ligne, widget: string} }
