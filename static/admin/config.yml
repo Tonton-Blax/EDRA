@@ -22,8 +22,8 @@ collections:
       - { label: "Date de publication", name: "date", widget: "datetime"}
       - { label: "Tableau (optionnel, pour chaque ligne, séparer les colonnes par des virgules)", name: "tableau", widget: "list", field: {label: ligne, name: ligne, widget: string} }
   
-  - name : "pouet"
-  label: 'Pouet'
+- label: 'Home Section'
+  name: 'sections'
   widget: 'list'
   types:
     - label: 'Carousel'
@@ -44,3 +44,4 @@ collections:
         - { label: Header, name: header, widget: string, default: 'Spotlight' }
         - { label: Template, name: template, widget: string, default: 'spotlight.html' }
         - { label: Text, name: text, widget: text, default: 'Hello World' }
+  
