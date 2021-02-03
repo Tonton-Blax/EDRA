@@ -1,64 +1,87 @@
-<script context="module" lang="ts">
-	export async function preload({ params }) {
-		// the `slug` parameter is available because
-		// this file is called [slug].svelte
-		const res = await this.fetch(`produits/${params.slug}.json`);
-		const data = await res.json();
-
-		if (res.status === 200) {
-			return { post: data };
-		} else {
-			this.error(res.status, data.message);
-		}
+<script context="module">                                                                                                                                                                                                                                                                   
+	export async function preload({ params, query }) {
+	  const res = await this.fetch(`produits/${params.slug}.md`);
+  	  if (res.status === 200) {
+		return { postMd: await res.text() };
+	  } else {
+		this.error(res.status, data.message);
+	  }
 	}
-</script>
+  </script>
+  
+  <script>
+	import fm from 'front-matter';
+	import marked from 'marked';
+	export let postMd;
+	let produit = fm(postMd).attributes;
+	const allTokens = produit.contenu.map(p => marked.lexer(p))
+	console.log(allTokens[0]);
+  </script>
 
-<script lang="ts">
-	export let post: { slug: string; title: string, html: any };
-</script>
+<div class="container">
+	<div class="columns is-gapless is-multiline">
+		<div class="column is-full">
+			<div class="edra-block no-padding has-text-white">
+				<div class="overblock">
+					<h3 class="title is-3 has-text-primary has-text-weight-bold">{produit.title}</h3>
+					<p class="has-text-primary has-text-left">{produit.subtitle}</p>
+				</div>
+				<div class="img-container image">
+					{#if produit.thumbnail.length}
+						<img src={produit.thumbnail} class="autoheight" alt="{produit.slug}" />
+					{/if}
+				</div>
+			</div>
+			{#each allTokens as tokens}
+			<div class="edra-contenu">
+				{#each tokens as token}
+					{#if token.type && token.type === 'blockquote'}
+					<div class="edra-heading has-background-primary">
+						{#each token.tokens as heading, index}
+							{#if heading.type !== 'space' && index == 0}
+								<h2 class="title has-text-white has-text-weight-bold is-3">{heading.text}</h2>
+							{:else if heading.type !== 'space' && index !== 0}
+								<h2 class="title has-text-white has-text-weight-normal is-55">{@html marked(heading.text)}</h2>
+							{/if}
+						{/each}
+					</div>
+					{/if}
+					{#if token.type && token.type === 'heading'}
+						<h3 class="title has-text-primary has-text-weight-normal is-{2+(token.depth)}">{token.text}</h3>
+					{/if}
+					{#if (token.type && token.type === 'paragraph') && (token.tokens && token.tokens[0] && token.tokens[0].type && token.tokens[0].type ==='text')}
+						<p>{@html marked(token.text)}</p>
+					{/if}
+				{/each}
+			</div>
+			{/each}
+		</div>
+	</div>
+</div>
+
 
 <style>
-	/*
-		By default, CSS is locally scoped to the component,
-		and any unused styles are dead-code-eliminated.
-		In this page, Svelte can't know which elements are
-		going to appear inside the {{{post.html}}} block,
-		so we have to use the :global(...) modifier to target
-		all elements inside .content
-	*/
-	.content :global(h2) {
-		font-size: 1.4em;
-		font-weight: 500;
-	}
 
-	.content :global(pre) {
-		background-color: #f9f9f9;
-		box-shadow: inset 1px 1px 5px rgba(0, 0, 0, 0.05);
-		padding: 0.5em;
-		border-radius: 2px;
-		overflow-x: auto;
-	}
-
-	.content :global(pre) :global(code) {
-		background-color: transparent;
-		padding: 0;
-	}
-
-	.content :global(ul) {
-		line-height: 1.5;
-	}
-
-	.content :global(li) {
-		margin: 0 0 0.5em 0;
-	}
+.edra-contenu {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	height: auto;
+	padding:1rem 2rem;
+	overflow-x:hidden;
+	overflow-y:auto;
+}
+.edra-heading {
+	width: fit-content;
+	padding:2.5rem;
+}
+.edra-heading > * {
+	line-height: 1rem;
+}
+:global(.edra-heading strong) {
+	font-weight:700;
+}
+.is-55 {
+	font-size:1.1rem;
+}
 </style>
-
-<svelte:head>
-	<title>{post.title}</title>
-</svelte:head>
-
-<h1>{post.title}</h1>
-
-<div class="content">
-	{@html post.html}
-</div>

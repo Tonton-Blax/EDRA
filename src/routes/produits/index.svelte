@@ -13,13 +13,6 @@
 <svelte:head>
 	<title>Produits EDRA Médical</title>
 </svelte:head>
-
-
-		<!-- we're using the non-standard `rel=prefetch` attribute to
-				tell Sapper to load the data for the page as soon as
-				the user hovers over the link or taps it, instead of
-				waiting for the 'click' event -->
-		<!--<li><a rel="prefetch" href="produits/{post.slug}">{post.title}</a></li>-->
 		<div class="container">
 			<div class="columns is-multiline is-gapless p-6 has-background-primary-light cols-produits">
 				{#each posts as post}
