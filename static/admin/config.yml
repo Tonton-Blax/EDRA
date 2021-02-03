@@ -31,7 +31,6 @@ collections:
         - { label: Header, name: header, widget: string, default: 'Spotlight' }
         - { label: Template, name: template, widget: string, default: 'spotlight.html' }
         - { label: Text, name: text, widget: text, default: 'Hello World' }
-    fields:        
     - { label: "Layout", name: "layout", widget: "hidden", default: "produits"}
     - { label: "Slug", name: "slug", widget: "string" }
     - { label: "Titre", name: "title", widget: "string"}
