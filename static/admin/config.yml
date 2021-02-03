@@ -20,8 +20,8 @@ collections:
       - { label: "Image de couverture", name: "thumbnail", widget: "image"}
       - { label: "Date de publication", name: "date", widget: "datetime"}
       - { label: "Tableau (optionnel, pour chaque ligne, séparer les colonnes par des virgules)", name: "tableau", widget: "list", field: {label: ligne, name: ligne, widget: string} }
-      - label: 'Section'
-        name: 'section'
+      - label: 'Le contenu'
+        name: 'contenu'
         widget: 'list'
         types:
           - label: "Titre de section"
@@ -41,8 +41,8 @@ collections:
             widget: object
             fields: 
               - { label: "Intertitre petit", name: "intersmall", widget: string, hint : "Interitre bleu SANS fond (petit)" }
-          - label: "Contenu"
-            name: "contenu"
+          - label: "Bloc de texte"
+            name: "textblock"
             widget: object
             fields: 
               - { label: "Corps", name: "body", widget: "markdown" }
