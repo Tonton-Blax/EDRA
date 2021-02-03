@@ -34,25 +34,25 @@ collections:
           - label: "Intertitre grand"
             name: "intertitrebigobject"
             widget: object
-            field: 
+            fields: 
               - { label: "Intertitre grand", name: "interbig", widget: string, hint : "Interitre bleu SANS fond (grand)" }
           - label: "Intertitre petit"
             name: "intertitresmallobject"
             widget: object
-            field: 
+            fields: 
               - { label: "Intertitre petit", name: "intersmall", widget: string, hint : "Interitre bleu SANS fond (petit)" }
           - label: "Contenu"
             name: "contenu"
             widget: object
-            field: 
+            fields: 
               - { label: "Corps", name: "body", widget: "markdown" }
           - label: "Le +"
             name: "leplusobject"
             widget: object
-            field: 
+            fields: 
               - { label: "Le +", name: "leplus", widget: text, hint : "ne pas écire 'le + ', il sera généré automatiquement"}
           - label: "Images"
             name: "imagesobject"
             widget: object
-            field: 
+            fields: 
               - { label: "Images", name: images, widget: list, field: { label: Image, name: image, widget: image }}
