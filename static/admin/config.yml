@@ -15,31 +15,31 @@ collections:
     fields: # The fields for each document
       - { label: "Layout", name: "layout", widget: "hidden", default: "produits"}
       - { label: "Slug", name: "slug", widget: "string" }
-      - { label: "Titre", name: "title", widget: "string"}
-      - { label: "Sous-titre", name: "subtitle", widget: "string"}
+      - { label: "Titre général", name: "title", widget: "string"}
+      - { label: "Sous-titre général", name: "subtitle", widget: "string"}
       - { label: "Image de couverture", name: "thumbnail", widget: "image"}
-      - { label: "Bloc de contenu", name: "contenu", widget: "list", field: {label: "Corps", name: "body", widget: "markdown"} }
       - { label: "Date de publication", name: "date", widget: "datetime"}
       - { label: "Tableau (optionnel, pour chaque ligne, séparer les colonnes par des virgules)", name: "tableau", widget: "list", field: {label: ligne, name: ligne, widget: string} }
-      - label: 'Home Section'
-        name: 'sections'
+      - label: 'Section'
+        name: 'section'
         widget: 'list'
         types:
-          - label: 'Carousel'
-            name: 'carousel'
+          - label: "Titre de section"
+            name: "sectiontitle"
+            widget: string
+            default: 'Titre de la section'
+            hint : 'Ligne 1 du titre de section sur FOND bleu'
+          - label: "Sous-titre de section"
+            name: "sectiontitle"
+            widget: string
+            default: 'Titre de la section'
+            hint : 'Ligne 2 (+petite) du titre de section sur FOND bleu'
+          - label: "Contenu"
+            name: "contenu"
             widget: object
-            summary: '{{fields.header}}'
-            fields:
-              - { label: Header, name: header, widget: string, default: 'Image Gallery' }
-              - { label: Template, name: template, widget: string, default: 'carousel.html' }
-              - label: Images
-                name: images
-                widget: list
-                field: { label: Image, name: image, widget: image }
-          - label: 'Spotlight'
-            name: 'spotlight'
-            widget: object
-            fields:
-              - { label: Header, name: header, widget: string, default: 'Spotlight' }
-              - { label: Template, name: template, widget: string, default: 'spotlight.html' }
-              - { label: Text, name: text, widget: text, default: 'Hello World' }
+            fields: 
+              - { label: "Intertitre grand", name: "interbig", widget: string }
+              - { label: "Intertitre petit", name: "intersmall", widget: string }
+              - { label: "Le +", name: "leplus", widget: text }
+              - { label: "Corps", name: "body", widget: "markdown" }
+              - { label: "Images", name: images, widget: list, field: { label: Image, name: image, widget: image }}
