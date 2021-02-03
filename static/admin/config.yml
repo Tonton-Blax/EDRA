@@ -12,7 +12,6 @@ collections:
     folder: "static/produits" # The path to the folder where our blog posts are stored
     create: true # Allow users to create new documents in this collection
     slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
-    widget: 'list'
     types:
     - label: 'Carousel'
       name: 'carousel'
