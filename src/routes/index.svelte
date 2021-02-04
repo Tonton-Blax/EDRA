@@ -58,7 +58,7 @@
 			</div>
 		</div>
 		<div class="column is-full">
-			<div class="edra-block no-padding has-background-white has-text-primary border-side">
+			<div class="edra-block no-padding has-background-white has-text-primary">
 				<h2 class="title is-2 has-text-centered has-text-primary has-text-weight-bold">EDRA, 30 ans <br>de qualité de Service</h2>
 				<div class="columns cols-picto">
 					<Saos animation={"slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both"}>
@@ -136,7 +136,7 @@
 			</div>
 		</div>
 		<div class="column is-half">
-			<div class="edra-block no-padding has-background-white has-text-primary" style="border-right: 1px var(--maincolor) solid;border-bottom: 1px var(--maincolor) solid;">
+			<div class="edra-block no-padding has-background-white has-text-primary" style="margin-left:1px;">
 				<!-- <img class="autoheight" src="../img/kerrock02.jpg" alt="Hall d'accueil avec revêtement en kerrock"> -->
 				<Carousel arrows={false} dots={false} autoplay={true} autoplayDuration={5000}>
 					{#each chunk(shuffleArray(imagesLogos), 3) as logos, chunkIndex (chunkIndex)}
@@ -224,12 +224,8 @@
 		background: white;
 		padding: 30px;		
 	}
-	:global(.border-side) {
-		border-left: 1px solid var(--maincolor);
-		border-right: 1px solid var(--maincolor)
-	}
 	.logosquare {
-		border: 0.1rem solid var(--maincolor);
+		border: 1px solid #efefef;
 		margin:0px;
 		padding:0px;
 		width:100%;
@@ -240,6 +236,7 @@
 	}
 	.logosquare img {
 		object-fit:contain;
+		margin:0em!important;
 	}
 	.col-picto img {
 		height: 128px;

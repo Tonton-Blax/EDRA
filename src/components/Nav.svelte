@@ -65,6 +65,11 @@
 	.navbar-burger {
 		border:none;
 	}
+	nav {
+		max-width:1344px;
+		margin-left:auto;
+		margin-right: auto;
+	}
 		
 	a {
 		color:var(--maincolor)!important;
