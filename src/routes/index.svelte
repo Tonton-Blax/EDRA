@@ -48,9 +48,13 @@
 		<div class="column is-full">
 			<div class="edra-block no-padding has-text-white">
 				<div class="overblock">
-					<h3 class="title is-3 has-text-primary has-text-weight-bold">Paillasses endoscopiques</h3>
-					<p class="has-text-primary has-text-left">Ut velit mauris, egestas sed, gravida nec, ornare ut, mi. Aenean ut orci vel massa suscipit pulvinar. Nulla sollicitudin fusce varius.</p>
-					<span class="button is-success" style="float:right;">Découvrir</span>
+					<div class="block-up">>
+						<h3 class="title is-3 has-text-primary has-text-weight-bold">Paillasses endoscopiques</h3>
+					</div>
+					<div class="block-in">
+						<p class="has-text-primary has-text-left">Ut velit mauris, egestas sed, gravida nec, ornare ut, mi. Aenean ut orci vel massa suscipit pulvinar. Nulla sollicitudin fusce varius.</p>
+						<span class="button is-success" style="float:right;">Découvrir</span>
+					</div>
 				</div>
 				<Carousel
 					let:loaded arrows={false} dots={true} autoplay={true} autoplayDuration={6000}
@@ -69,14 +73,12 @@
 			<div class="edra-block no-padding has-background-white has-text-primary">
 				<h2 class="title is-2 has-text-centered has-text-primary has-text-weight-bold">EDRA, 30 ans <br>de qualité de Service</h2>
 				<div class="columns cols-picto">
-					<Saos animation={"slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both"}>
-					<div class="column is-one-fourth has-text-centered col-picto">
-						<img src="../img/pictos/picto_demoulable.png" alt="Fabrication à partir d'un moule">
-						<h3 class="title is-4 has-text-primary">Fabrication à partir d’un moule</h3>
-						<p>Nulla sollicitudin. Fusce varius, ligula non tempus aliquam, nunc turpis ullamcorper nibh, in tempus sapien eros.</p>
-					</div></div>açabilité</h3>
-						<p>Busce varius, ligula non tempus aliquam, nunc turpis ullamcorper nibh, in tempus vitae ligula. Nulla sollicitudin. </p>
-					</div>
+					<Saos animation={"slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.2s both"}>
+						<div class="column is-one-fourth has-text-centered col-picto">
+							<img src="../img/pictos/picto_tracking.png" alt="Fabrication à partir d'un moule">
+							<h3 class="title is-4 has-text-primary">Module de traçabilité</h3>
+							<p>Busce varius, ligula non tempus aliquam, nunc turpis ullamcorper nibh, in tempus vitae ligula. Nulla sollicitudin. </p>
+						</div>
 					</Saos>
 					<Saos animation={"slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.4s both"}>
 					<div class="column is-one-fourth has-text-centered col-picto">
@@ -177,59 +179,7 @@
 	:global(:root) {
 		--maincolor : #005476;
 	}
-	:global(body) {
-		background:#efefef;
-	}
-	:global(.edra-block) {
-		display: flex;
-    	flex-flow: column nowrap;
-    	justify-content: center;
-		height:672px;
-		max-height:672px;
-		padding:10% 30%;
-		overflow:hidden;
-	}
-	:global(.edra-block .autoheight) {
-		max-width:100%!important;
-		object-fit: cover!important;
-		margin:0px 0px 0px 0px!important;
-		min-height:fill-available;
-		height:672px;
-	}
-	:global(.no-padding) {
-		padding:0px!important;
-	}
-	:global(.edra-block .sc-carousel__carousel-container) {
-		height:100%;
-	}
-	:global(.edra-block .sc-carousel-dots__container) {
-		margin-top:-70px;
-	}
-	:global(.edra-block .sc-carousel__content-container) {
-		max-height:100%;
-	}
-	:global(.edra-block .img-container) {
-		place-self : center;
-	}
-	:global(.overtop) {
-		position: absolute;
-		left: 50%;
-		z-index: 1;
-		width: fill-available;
-	}
-	:global(.overtop img) {
-    	transform: translateX(-50%);
-	}
-	:global(.overblock) {
-		position: absolute;
-		left: 50%;
-		height: auto;
-		z-index: 1;
-		max-width: 40%;
-		width: 35%;
-		background: white;
-		padding: 30px;		
-	}
+	
 	.logosquare {
 		border: 1px solid #efefef;
 		margin:0px;
@@ -252,19 +202,11 @@
 		padding:5% 10%;
 	}
 	
-	h1,
-	figure,
 	p {
 		text-align: center;
 		margin: 0 auto;
 	}
 
-	h1 {
-		font-size: 2.8em;
-		text-transform: uppercase;
-		font-weight: 700;
-		margin: 0 0 0.5em 0;
-	}
 	img {
 		width: 100%;
 		max-width: 400px;
@@ -296,8 +238,5 @@
 	}
 
 	@media (min-width: 480px) {
-		h1 {
-			font-size: 4em;
-		}
 	}
 </style>

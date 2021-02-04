@@ -14,10 +14,19 @@
 	<title>Produits EDRA Médical</title>
 </svelte:head>
 		<div class="container">
-			<div class="columns is-multiline is-gapless p-6 has-background-primary-light cols-produits">
+			<div class="columns is-multiline is-gapless p-0 has-background-primary-light cols-produits">
+
+				<div class="column is-full">
+					<div class="edra-block no-padding has-text-white">
+						<div class="img-container image">
+								<img src="../img/bloctop.jpg" class="autoheight" alt="nature" />
+						</div>			
+					</div>
+				</div>
+				
 				{#each posts as post}
-				<div class="column is-one-third">
-					<div class="card">
+				<div class="column is-one-third p-0 m-0">
+					<div class="card p-0 m-0">
 						<div class="card-image">
 							<figure class="image is-4by3">
 								<img src="https://bulma.io/images/placeholders/1280x960.png" alt="{post.title}">

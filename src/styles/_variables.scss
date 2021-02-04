@@ -9,3 +9,72 @@ $green : #ED0070;
 $white-ter: #F2E7DC;
 $site-width: 5px;
 $size-6 : 0.85rem;
+
+body {
+    background:#efefef;
+}
+.edra-block {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    height:672px;
+    max-height:672px;
+    padding:10% 30%;
+    overflow:hidden;
+}
+.edra-block .autoheight {
+    max-width:100%!important;
+    object-fit: cover!important;
+    margin:0px 0px 0px 0px!important;
+    min-height:fill-available;
+    height:672px;
+}
+.no-padding {
+    padding:0px!important;
+}
+.edra-block .sc-carousel__carousel-container {
+    height:100%;
+}
+.edra-block .sc-carousel-dots__container {
+    margin-top:-70px;
+}
+.edra-block .sc-carousel__content-container {
+    max-height:100%;
+}
+.edra-block .img-container {
+    place-self : center;
+}
+.overtop {
+    position: absolute;
+    left: 50%;
+    z-index: 1;
+    width: fill-available;
+}
+.overtop img {
+    transform: translateX(-50%);
+}
+.overblock {
+    position: absolute;
+    left: 50%;
+    height: 300px;
+    z-index: 1;
+    max-width: 40%;
+    width: 35%;
+    background: white;
+    padding: 30px;		
+}
+.block-up {
+    height:120px;
+    justify-content: flex-end;
+    margin-top:-15px;
+}
+.block-in, .block-up {
+    display:flex;
+    flex-flow:column wrap;
+}
+.block-in span, .block-in p {
+    align-self: flex-end;
+}
+.block-up h3 {
+    align-self: flex-end;
+}

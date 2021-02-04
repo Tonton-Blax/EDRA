@@ -27,7 +27,8 @@
 
 
 {#if isIdle}
-<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation" in:fly={{duration:1000, delay:350}} bind:this={navbar} >
+<div class="container">
+<nav class="navbar" role="navigation" aria-label="main navigation" in:fly={{duration:1000, delay:350}} bind:this={navbar} >
 	<div class="navbar-brand">
 	  <a class="navbar-item" href="/">
 			<img src="../img/logo-sigle.png" height="28" alt="logo EDRA">
@@ -57,7 +58,9 @@
 	</div>
 	{/if}
   </nav>
+</div>
 {/if}
+
 
 
 <style>
@@ -65,12 +68,17 @@
 	.navbar-burger {
 		border:none;
 	}
-	nav {
-		max-width:1344px;
-		margin-left:auto;
-		margin-right: auto;
+	.navbar {
+		overflow: hidden;
+	  	position: fixed;
+  		top: 0;
+		max-width: inherit;
+		width:fill-available;
+  		display: flex;
+  		align-items: center;
+  		justify-content: center;
 	}
-		
+
 	a {
 		color:var(--maincolor)!important;
 		position:relative;
@@ -97,6 +105,7 @@
 			visibility: visible;
 			width: 100%;
 		}
+		
 		/*
 		.navbar-burger {
 			display: block!important;

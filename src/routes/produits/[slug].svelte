@@ -23,11 +23,11 @@
 	<div class="columns is-gapless is-multiline">
 		<div class="column is-full">
 			
-					<div class="edra-block no-padding has-text-white">
-						<div class="img-container image">
-								<img src="../img/bloctop.jpg" class="autoheight" alt="nature" />
-						</div>			
-					</div>
+			<div class="edra-block no-padding has-text-white">
+				<div class="img-container image">
+						<img src="../img/bloctop.jpg" class="autoheight" alt="nature" />
+				</div>			
+			</div>
 				
 			<div class="edra-block no-padding has-text-white">
 				<div class="overblock">
