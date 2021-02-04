@@ -22,6 +22,13 @@
 <div class="container">
 	<div class="columns is-gapless is-multiline">
 		<div class="column is-full">
+			
+					<div class="edra-block no-padding has-text-white">
+						<div class="img-container image">
+								<img src="../img/bloctop.jpg" class="autoheight" alt="nature" />
+						</div>			
+					</div>
+				
 			<div class="edra-block no-padding has-text-white">
 				<div class="overblock">
 					<h3 class="title is-3 has-text-primary has-text-weight-bold">{produit.title}</h3>

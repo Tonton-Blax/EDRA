@@ -39,6 +39,14 @@
 	<div class="columns is-gapless is-multiline">
 		<div class="column is-full">
 			<div class="edra-block no-padding has-text-white">
+				<div class="img-container image">
+						<img src="../img/bloctop.jpg" class="autoheight" alt="nature" />
+				</div>			
+			</div>
+		</div>
+	
+		<div class="column is-full">
+			<div class="edra-block no-padding has-text-white">
 				<div class="overblock">
 					<h3 class="title is-3 has-text-primary has-text-weight-bold">Paillasses endoscopiques</h3>
 					<p class="has-text-primary has-text-left">Ut velit mauris, egestas sed, gravida nec, ornare ut, mi. Aenean ut orci vel massa suscipit pulvinar. Nulla sollicitudin fusce varius.</p>
@@ -66,12 +74,7 @@
 						<img src="../img/pictos/picto_demoulable.png" alt="Fabrication à partir d'un moule">
 						<h3 class="title is-4 has-text-primary">Fabrication à partir d’un moule</h3>
 						<p>Nulla sollicitudin. Fusce varius, ligula non tempus aliquam, nunc turpis ullamcorper nibh, in tempus sapien eros.</p>
-					</div>
-					</Saos>
-					<Saos animation={"slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.2s both"}>
-					<div class="column is-one-fourth has-text-centered col-picto">
-						<img src="../img/pictos/picto_tracking.png" alt="Fabrication à partir d'un moule">
-						<h3 class="title is-4 has-text-primary">Module de traçabilité</h3>
+					</div></div>açabilité</h3>
 						<p>Busce varius, ligula non tempus aliquam, nunc turpis ullamcorper nibh, in tempus vitae ligula. Nulla sollicitudin. </p>
 					</div>
 					</Saos>
@@ -274,6 +277,9 @@
 	:global(.button) {
 		text-transform: uppercase;
 		border-radius:0px!important;
+	}
+	:global(.container) {
+		background:white;
 	}
 
 	@keyframes -global-slide-in-bottom {

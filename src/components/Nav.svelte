@@ -97,6 +97,11 @@
 			visibility: visible;
 			width: 100%;
 		}
+		/*
+		.navbar-burger {
+			display: block!important;
+		}
+		*/		
 	}
 
 	@media only screen and (max-width: 1024px) {
@@ -105,6 +110,7 @@
 			height:auto;
 		}
 	}
+	
 
 </style>
 
