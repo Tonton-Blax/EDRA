@@ -7,16 +7,17 @@
 		this.error(res.status, data.message);
 	  }
 	}
-  </script>
+</script>
   
-  <script>
+<script>
 	import fm from 'front-matter';
 	import marked from 'marked';
 	export let postMd;
+	import Carousel from 'svelte-carousel/src/components/Carousel/Carousel.svelte'
+	import {chunk} from '../../utils/utils.js';
 	let produit = fm(postMd).attributes;
-	const allTokens = produit.contenu.map(p => marked.lexer(p))
-	console.log(allTokens[0]);
-  </script>
+	console.log(produit);
+</script>
 
 <div class="container">
 	<div class="columns is-gapless is-multiline">
@@ -32,28 +33,36 @@
 					{/if}
 				</div>
 			</div>
-			{#each allTokens as tokens}
-			<div class="edra-contenu">
-				{#each tokens as token}
-					{#if token.type && token.type === 'blockquote'}
-					<div class="edra-heading has-background-primary">
-						{#each token.tokens as heading, index}
-							{#if heading.type !== 'space' && index == 0}
-								<h2 class="title has-text-white has-text-weight-bold is-3">{heading.text}</h2>
-							{:else if heading.type !== 'space' && index !== 0}
-								<h2 class="title has-text-white has-text-weight-normal is-55">{@html marked(heading.text)}</h2>
+			
+			{#each produit.contenu as contenu, index}
+				<div class="edra-contenu">
+					{#if contenu.type && contenu.type == "sectionmeta"}
+						<div class="edra-heading has-background-primary">
+							{#if contenu.sectiontitle}
+								<h2 class="title has-text-white has-text-weight-bold is-3">{contenu.sectiontitle}</h2>
 							{/if}
-						{/each}
+							{#if contenu.sectionsubtitle}
+								<h2 class="title has-text-white has-text-weight-normal is-55">{contenu.sectionsubtitle}</h2>
+							{/if}
+						</div>
+					{:else if contenu.type == "imagesobject"}
+					<div class="content-image">
+						<Carousel arrows={false} dots={false} autoplay={contenu.images.length > 2} autoplayDuration={5000}>
+							{#each chunk(contenu.images, 3) as imgs, chunkIndex (chunkIndex)}
+							  <div style="display: flex;">
+								{#each imgs as img (img)}
+								<span class="logosquare"><img class="resize is-square" src={img} alt="illustration produit EDRA"/></span>
+								{/each}
+							  </div>
+							{/each}
+						</Carousel>
 					</div>
+					{:else if contenu.type && contenu.type == "intertitrebigobject"}
+						<h3 class="title has-text-primary has-text-weight-normal is-4">{contenu.interbig}</h3>
+					{:else if contenu.type && contenu.type == "textblock"}
+						<div class="content">{@html marked(contenu.body)}</div>
 					{/if}
-					{#if token.type && token.type === 'heading'}
-						<h3 class="title has-text-primary has-text-weight-normal is-{2+(token.depth)}">{token.text}</h3>
-					{/if}
-					{#if (token.type && token.type === 'paragraph') && (token.tokens && token.tokens[0] && token.tokens[0].type && token.tokens[0].type ==='text')}
-						<p>{@html marked(token.text)}</p>
-					{/if}
-				{/each}
-			</div>
+				</div>
 			{/each}
 		</div>
 	</div>
@@ -83,5 +92,32 @@
 }
 .is-55 {
 	font-size:1.1rem;
+}
+:global(.edra-contenu ul) {
+  list-style: none!important;
+  padding: 0;
+  margin: 0;
+  margin-left:10px;
+}
+:global(.edra-contenu ul li) {
+	position: relative;
+    padding-left: 10px;
+}
+:global(.edra-contenu ul li::before) {
+  content: " "; 
+  background-color: var(--maincolor);
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+  left:0;
+  height: 10px;
+  width: 10px;
+  margin-left: -10px;
+  margin-top:7px;
+}
+.content-image {
+	max-height:300px!important;
+	width:auto;
+	overflow-y:hidden;
 }
 </style>

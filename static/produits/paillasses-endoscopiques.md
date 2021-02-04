@@ -6,115 +6,78 @@ subtitle: Ut velit mauris, egestas sed, gravida nec, ornare ut, mi. Aenean ut
   orci vel massa suscipit pulvinar. Nulla sollicitudin. Fusce varius, ligula non
   tempus.
 thumbnail: ../img/uploads/endo1.jpg
+date: 2021-02-03T22:36:16.750Z
 contenu:
-  - >-
-    > Le module endoscopique
+  - type: sectionmeta
+    sectiontitle: Le module endoscopique
+    sectionsubtitle: Une solution adaptée à votre structure
+  - type: intertitrebigobject
+    interbig: Configuration de base de la paillasse
+  - type: textblock
+    body: >-
+      * plan de travail sur-mesure avec bacs gradués moulés dans le plan
+      :ensemble monobloc n Corian® de dupont de nemours, sans joint ni angle vif
 
-    >
+      * nombre et dimensions des bacs déterminés en fonction de l’activité
 
-    > Une solution **adaptée** à votre structure
+      * robinetterie adaptée et traitement de l’eau selon le niveau de désinfection requis
 
+      * support au choix : piètements ou mobilier autoporteur avec aménagements sur-mesure
+  - type: leplusobject
+    leplus: |-
+      Du sur-mesure pour répondre à vos besoins.
+      Nos experts sont à votre disposition pour vous conseiller
+  - type: imagesobject
+    images:
+      - ../img/uploads/endo2.jpg
+  - type: intertitrebigobject
+    interbig: Le traitement des vapeurs de désinfectant
+  - type: textblock
+    body: >-
+      * captation à la source sous le ou les bacs de désinfection pour un
+      traitement ciblé
 
-    # Configuration de base
+      * filtration par charbon actif
 
+      * Couvercle du bac de désinfection muni d’un capteur permettant un ajustement automatique de la vitesse d’extraction.
+  - type: leplusobject
+    leplus: Mesures des valeurs moyenne et limite d’exposition (VME et VLE) par un
+      laboratoire indépendant
+  - type: intertitrebigobject
+    interbig: Les accessoires – les options
+  - type: textblock
+    body: >-
+      **Les accessoires de base**
 
-    ## La paillasse
 
+      * trop-pleins amovibles et autoclavables
 
-    At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa
+      * Vanne d’arrêt sous le bac de désinfection pour éviter toute fuite accidentelle du produit
 
+      * Couvercles en polycarbonate avec poignée centrale
 
-    ![Paillasse endoscopique](../img/uploads/endo2.jpg "Paillasse endoscopique")
+      * Poissonnières moulées avec poignées rétractables permettant une immersion totale, pour le transport en toute sécurité des endoscopes de bac en bac
 
 
-    > Le module endoscopique
+      **Les accessoires optionnels**
 
-    >
 
-    > Une solution **adaptée** à votre structure
+      * Pour les sondes eto : support sur-mesure en Corian
 
+      * Pour le rinçage stérile : ceinture en acier inoxydable
 
-    # Configuration de base
+      * autour du bac de rinçage final pour permettre
+        l’adaptation de housses stériles à usage unique
+        bacs amovibles autoclavables
 
+      **Les autres options**
 
-    ## La paillasse
 
+      * Système de désinfection automatique des siphons
 
-    At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa
-
-
-    ![Paillasse endoscopique](../img/uploads/endo2.jpg "Paillasse endoscopique")
-
-
-    ## Le traitement des vapeurs de désinfectant
-
-
-    At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa
-
-
-    ## Les accessoires – les options
-
-
-    Qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore.
-
-
-    ![Module test](../img/uploads/endo03_01.jpg "Module test")
-
-
-    ![Une bouteille](../img/uploads/endo03_02.jpg "Une bouteille")
-  - >-
-    > Automatisation
-
-    >
-
-    > Sed ut enim ipsam per se **ipsam voluptatem**
-
-
-    # Automatisation du nettoyage
-
-
-    ## Les pompes péristaltiques
-
-
-    Cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est.
-
-
-    ## Le test d’étanchéité électronique
-
-
-    Cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est.
-
-
-    ![Paillasse endoscopique](../img/uploads/endo2.jpg "Paillasse endoscopique")
-
-
-    > Le module endoscopique
-
-    >
-
-    > Une solution **adaptée** à votre structure
-
-
-    # Configuration de base
-
-
-    ## La paillasse
-
-
-    At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa
-
-
-    ## Les coffrets mobiles : EDRASCOPE
-
-
-    Omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
-
-
-
-
-    ![ordinateur test](../img/uploads/endo04_01.jpg "ordinateur test")
-
-
-    ![endoscopique](../img/uploads/endo04_02.jpg "endoscopique")
-date: 2021-01-31T20:44:25.416Z
+      * Préfiltration adaptée à la qualité de l’eau
+  - type: imagesobject
+    images:
+      - ../img/uploads/endo03_01.jpg
+      - ../img/uploads/endo03_02.jpg
 ---
