@@ -174,6 +174,9 @@
 	:global(:root) {
 		--maincolor : #005476;
 	}
+	:global(body) {
+		background:#efefef;
+	}
 	:global(.edra-block) {
 		display: flex;
     	flex-flow: column nowrap;
