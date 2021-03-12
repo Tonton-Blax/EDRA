@@ -53,9 +53,11 @@
 				</div>			
 			</div>
 			-->
+			<Saos>
 			<div class="edra-block no-padding has-text-white">
 				<Header />
 			</div>
+			</Saos>
 		</div>
 	
 		<div class="column is-full">
@@ -70,7 +72,7 @@
 					</div>
 				</div>
 				<svelte:component this={Carousel} let:loaded arrows={false} dots={true} autoplay={true} autoplayDuration={6000}>
-					>
+					
 					{#each imagesPaillasses as src, imageIndex (src)}
 						<div class="img-container image">
 						{#if loaded.includes(imageIndex)}
@@ -186,10 +188,6 @@
 <style>
 	:global(:root) {
 		--maincolor : #005476;
-	}
-
-	.edra-block {
-		margin-top:46px;
 	}
 	
 	.logosquare {

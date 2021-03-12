@@ -8,6 +8,8 @@
 
 <script lang="ts">
 	export let posts: { slug: string; title: string, html: any }[];
+	import Header from '../../components/Header.svelte'
+	import Saos from "saos";
 </script>
 
 <svelte:head>
@@ -17,16 +19,23 @@
 		<div class="columns is-multiline is-gapless p-0 has-background-primary-light cols-produits">
 
 			<div class="column is-full">
+				<!--
 				<div class="edra-block no-padding has-text-white">
 					<div class="img-container image">
 							<img src="../img/bloctop.jpg" class="autoheight" alt="nature" />
 					</div>			
 				</div>
+				-->
+				<Saos>
+					<div class="edra-block no-padding has-text-white">
+						<Header />
+					</div>
+				</Saos>
 			</div>
 			
 			{#each posts as post}
-			<div class="column is-one-third p-0 m-0">
-				<div class="card p-0 m-0">
+			<div class="column is-one-third mt-6 mb-1">
+				<div class="card">
 					<div class="card-image">
 						<figure class="image is-4by3">
 							<img src="https://bulma.io/images/placeholders/1280x960.png" alt="{post.title}">
@@ -47,23 +56,11 @@
 	</div>
 
 <style>
-	.card-footer {
-		border-top: unset;
-		justify-content: flex-end;
-		padding-bottom:1.5em;
-		padding-right:1.5em;
-	}
-	.card {
-		margin : 30px 15px;
-		border-radius: 0px;
-	}
-	.card-content {
-		padding-bottom:0.5em;
-	}
-	.cols-produits {
-		padding: 25px 25px;
-	}
+
 	.button {
 		border-radius:0px;
+	}
+	.image img {
+		height : 100%;
 	}
 </style>

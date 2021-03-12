@@ -22,7 +22,7 @@ body {
     padding:10% 30%;
     overflow:hidden;
 }
-.edra-block .autoheight {
+.autoheight {
     max-width:100%!important;
     object-fit: cover!important;
     margin:0px 0px 0px 0px!important;
@@ -77,4 +77,22 @@ body {
 }
 .block-up h3 {
     align-self: flex-end;
+}
+
+.card-footer {
+    border-top: unset;
+    justify-content: flex-end;
+    padding-bottom:1.5em;
+    padding-right:1.5em;
+    border-top:none!important;
+}
+.card {
+    margin : 30px 15px;
+    border-radius: 0px;
+}
+.card-content {
+    padding-bottom:0.5em;
+}
+.cols-produits {
+    padding: 25px 25px;
 }

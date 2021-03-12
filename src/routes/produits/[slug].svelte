@@ -43,7 +43,7 @@
 				</div>
 				<div class="img-container image">
 					{#if produit.thumbnail.length}
-						<img src={produit.thumbnail} class="autoheight" alt="{produit.slug}" />
+						<img src={produit.thumbnail} class="autoheight" alt="{produit.slug}" style="width:100%;" />
 					{/if}
 				</div>
 			</div>
@@ -81,12 +81,13 @@
 		</div>
 	</div>
 </div>
+
 <div class="container">
 	<div class="columns is-multiline is-gapless p-0 has-background-primary-light cols-produits">
 		
 		{#each posts as post}
-		<div class="column is-one-third p-0 m-0">
-			<div class="card p-0 m-0">
+		<div class="column is-one-third">
+			<div class="card">
 				<div class="card-image">
 					<figure class="image is-4by3">
 						<img src="https://bulma.io/images/placeholders/1280x960.png" alt="{post.title}">
@@ -108,7 +109,9 @@
 
 
 <style>
-
+.container {
+	background:white!important;
+}
 .edra-contenu {
 	display: flex;
 	flex-flow: column nowrap;
@@ -157,5 +160,8 @@
 	max-height:300px!important;
 	width:auto;
 	overflow-y:hidden;
+}
+.logosquare img {
+	height:100%;
 }
 </style>

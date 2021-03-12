@@ -1,6 +1,6 @@
 <div class="svg-container">
     <div class="logo-container">
-        <img src="https://i.imgur.com/oXQW56S.png" alt="logo edra">
+        <img src="./img/logo.png" alt="logo edra">
     </div>
 
 	<svg height="820" width="720" id="svg">
