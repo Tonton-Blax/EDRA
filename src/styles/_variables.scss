@@ -13,6 +13,18 @@ $size-6 : 0.85rem;
 body {
     background:#efefef;
 }
+
+.fit-header {
+    height: 100%;
+    width: fill-available;
+    object-fit: cover !important;
+}
+.no-padding {
+    padding:0px!important;
+}
+
+// Blocs Edra
+
 .edra-block {
     display: flex;
     flex-flow: column nowrap;
@@ -29,9 +41,9 @@ body {
     min-height:fill-available;
     height:672px;
 }
-.no-padding {
-    padding:0px!important;
-}
+
+// Block > Images Carousel
+
 .edra-block .sc-carousel__carousel-container {
     height:100%;
 }
@@ -44,6 +56,7 @@ body {
 .edra-block .img-container {
     place-self : center;
 }
+
 .overtop {
     position: absolute;
     left: 50%;
@@ -79,6 +92,8 @@ body {
     align-self: flex-end;
 }
 
+// Card
+
 .card-footer {
     border-top: unset;
     justify-content: flex-end;
@@ -95,4 +110,12 @@ body {
 }
 .cols-produits {
     padding: 25px 25px;
+}
+
+.svelte-images-gallery img {
+    max-width: min-content!important;
+}
+
+.svelte-images-gallery {
+    justify-content: center;
 }

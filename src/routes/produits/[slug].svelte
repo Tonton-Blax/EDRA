@@ -16,34 +16,38 @@
 	import marked from 'marked';
 	export let postMd, posts;
 	import { onMount } from 'svelte';
-	import {chunk} from '../../utils/utils.js';
+	import Header from '../../components/Header.svelte'
+	import Saos from "saos";
+	
 	let produit = fm(postMd).attributes;
 
-	let Carousel;
+	let images;
+	let Images;
+	
 	onMount(async() => {
-		const comp = await import('svelte-carousel/src/components/Carousel/Carousel.svelte');
-		Carousel = comp.default;
+		const compImages = await import('svelte-images/src/Images/Images.svelte');
+		Images = compImages.default;
+		console.log(images);
 	});
 </script>
 
 <div class="container">
 	<div class="columns is-gapless is-multiline">
 		<div class="column is-full">
-			
-			<div class="edra-block no-padding has-text-white">
-				<div class="img-container image">
-						<img src="../img/bloctop.jpg" class="autoheight" alt="nature" />
-				</div>			
-			</div>
+			<Saos>
+				<div class="edra-block no-padding has-text-white">
+					<Header />
+				</div>
+			</Saos>
 				
 			<div class="edra-block no-padding has-text-white">
 				<div class="overblock">
 					<h3 class="title is-3 has-text-primary has-text-weight-bold">{produit.title}</h3>
 					<p class="has-text-primary has-text-left">{produit.subtitle}</p>
 				</div>
-				<div class="img-container image">
+				<div class="img-container fit-header">
 					{#if produit.thumbnail.length}
-						<img src={produit.thumbnail} class="autoheight" alt="{produit.slug}" style="width:100%;" />
+						<img src={produit.thumbnail} class="fit-header" alt="{produit.slug}"/>
 					{/if}
 				</div>
 			</div>
@@ -60,16 +64,8 @@
 							{/if}
 						</div>
 					{:else if contenu.type == "imagesobject"}
-					<div class="content-image">
-						<svelte:component this={Carousel} arrows={false} dots={false} autoplay={contenu.images.length > 2} autoplayDuration={5000}>
-							{#each chunk(contenu.images, 3) as imgs, chunkIndex (chunkIndex)}
-							  <div style="display: flex;">
-								{#each imgs as img (img)}
-								<span class="logosquare"><img class="resize is-square" src={img} alt="illustration produit EDRA"/></span>
-								{/each}
-							  </div>
-							{/each}
-						</svelte:component>
+					<div class="gallerie">
+						<svelte:component this={Images} images={contenu.images.map(c => c = {src : c})} gutter={5} />
 					</div>
 					{:else if contenu.type && contenu.type == "intertitrebigobject"}
 						<h3 class="title has-text-primary has-text-weight-normal is-4">{contenu.interbig}</h3>
@@ -107,7 +103,6 @@
 	</div>
 </div>
 
-
 <style>
 .container {
 	background:white!important;
@@ -124,6 +119,9 @@
 .edra-heading {
 	width: fit-content;
 	padding:2.5rem;
+}
+:global(.gallerie .nav) {
+	width:100%
 }
 .edra-heading > * {
 	line-height: 1rem;
@@ -156,12 +154,5 @@
   margin-left: -10px;
   margin-top:7px;
 }
-.content-image {
-	max-height:300px!important;
-	width:auto;
-	overflow-y:hidden;
-}
-.logosquare img {
-	height:100%;
-}
+
 </style>
