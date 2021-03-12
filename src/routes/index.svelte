@@ -3,7 +3,9 @@
 </svelte:head>
 
 <script>
-	import Carousel from 'svelte-carousel/src/components/Carousel/Carousel.svelte'
+	//import Carousel from 'svelte-carousel/src/components/Carousel/Carousel.svelte'
+	import {onMount} from 'svelte'
+	import Header from '../components/Header.svelte'
 	import 'svelte-carousel/dist/index.css'
 	import {chunk, shuffleArray} from '../utils/utils.js';
 	import Saos from "saos";
@@ -31,17 +33,28 @@
 		"../img/logos/fondation_rotschild.png",
 		"../img/logos/blueuts.png",
 		"../img/logos/foch.png"
-]
+	]
+
+	let Carousel
+	onMount(async() => {
+		const comp = await import('svelte-carousel/src/components/Carousel/Carousel.svelte');
+		Carousel = comp.default;
+	});
 
 </script>
 
 <div class="container">
 	<div class="columns is-gapless is-multiline">
 		<div class="column is-full">
+			<!--
 			<div class="edra-block no-padding has-text-white">
 				<div class="img-container image">
 						<img src="../img/bloctop.jpg" class="autoheight" alt="nature" />
 				</div>			
+			</div>
+			-->
+			<div class="edra-block no-padding has-text-white">
+				<Header />
 			</div>
 		</div>
 	
@@ -56,8 +69,7 @@
 						<span class="button is-success" style="float:right;">Découvrir</span>
 					</div>
 				</div>
-				<Carousel
-					let:loaded arrows={false} dots={true} autoplay={true} autoplayDuration={6000}
+				<svelte:component this={Carousel} let:loaded arrows={false} dots={true} autoplay={true} autoplayDuration={6000}>
 					>
 					{#each imagesPaillasses as src, imageIndex (src)}
 						<div class="img-container image">
@@ -66,7 +78,7 @@
 						{/if}
 						</div>
 					{/each}
-				</Carousel>
+				</svelte:component>
 			</div>
 		</div>
 		<div class="column is-full">
@@ -105,9 +117,7 @@
 		</div>
 		<div class="column is-half">
 			<div class="edra-block no-padding has-background-white has-text-primary">
-				<Carousel
-					let:loaded arrows={false} dots={true} autoplay={true} autoplayDuration={5000}
-					>
+				<svelte:component this={Carousel} let:loaded arrows={false} dots={true} autoplay={true} autoplayDuration={5000} >
 					{#each imagesKerrock as src, imageIndex (src)}
 						<div class="img-container image">
 						{#if loaded.includes(imageIndex)}
@@ -115,16 +125,14 @@
 						{/if}
 						</div>
 					{/each}
-				</Carousel>
+				</svelte:component>
 			</div>
 		</div>
 		<div class="column is-full">
 			<div class="edra-block no-padding has-text-white">
 				<div class="overtop"><img src="../img/svg/hexagone.svg" alt="hexagone" style="width: 214px!important;"></div>
 				<div class="overtop"><p class="has-text-left is-size-1 has-text-weight-bold" style="padding-left:150px;line-height:3.3rem;">Savoir-faire<br> et technicité</p></div>
-				<Carousel
-					let:loaded arrows={false} dots={true} autoplay={true} autoplayDuration={6000}
-					>
+				<svelte:component this={Carousel} let:loaded arrows={false} dots={true} autoplay={true} autoplayDuration={6000} >
 					{#each imagesEquipe as src, imageIndex (src)}
 						<div class="img-container image">
 						{#if loaded.includes(imageIndex)}
@@ -132,7 +140,7 @@
 						{/if}
 						</div>
 					{/each}
-				</Carousel>
+				</svelte:component>
 			</div>
 		</div>
 		<div class="column is-half">
@@ -143,7 +151,7 @@
 		<div class="column is-half">
 			<div class="edra-block no-padding has-background-white has-text-primary" style="margin-left:1px;">
 				<!-- <img class="autoheight" src="../img/kerrock02.jpg" alt="Hall d'accueil avec revêtement en kerrock"> -->
-				<Carousel arrows={false} dots={false} autoplay={true} autoplayDuration={5000}>
+				<svelte:component this={Carousel} arrows={false} dots={false} autoplay={true} autoplayDuration={5000}>
 					{#each chunk(shuffleArray(imagesLogos), 3) as logos, chunkIndex (chunkIndex)}
 					  <div style="display: flex;">
 						{#each logos as logo (logo)}
@@ -151,8 +159,8 @@
 						{/each}
 					  </div>
 					{/each}
-				</Carousel>
-				<Carousel arrows={false} dots={false} autoplay={true} autoplayDuration={5000}>
+				</svelte:component>
+				<svelte:component this={Carousel} arrows={false} dots={false} autoplay={true} autoplayDuration={5000}>
 					{#each chunk(shuffleArray(imagesLogos), 3) as logos, chunkIndex (chunkIndex)}
 					  <div style="display: flex;">
 						{#each logos as logo (logo)}
@@ -160,8 +168,8 @@
 						{/each}
 					  </div>
 					{/each}
-				</Carousel>
-				<Carousel arrows={false} dots={false} autoplay={true} autoplayDuration={5000}>
+				</svelte:component>
+				<svelte:component this={Carousel} arrows={false} dots={false} autoplay={true} autoplayDuration={5000}>
 					{#each chunk(shuffleArray(imagesLogos), 3) as logos, chunkIndex (chunkIndex)}
 					  <div style="display: flex;">
 						{#each logos as logo (logo)}
@@ -169,7 +177,7 @@
 						{/each}
 					  </div>
 					{/each}
-				</Carousel>
+				</svelte:component>
 			</div>
 		</div>
 	</div>
@@ -178,6 +186,10 @@
 <style>
 	:global(:root) {
 		--maincolor : #005476;
+	}
+
+	.edra-block {
+		margin-top:46px;
 	}
 	
 	.logosquare {

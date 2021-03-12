@@ -13,38 +13,38 @@
 <svelte:head>
 	<title>Produits EDRA Médical</title>
 </svelte:head>
-		<div class="container">
-			<div class="columns is-multiline is-gapless p-0 has-background-primary-light cols-produits">
+	<div class="container">
+		<div class="columns is-multiline is-gapless p-0 has-background-primary-light cols-produits">
 
-				<div class="column is-full">
-					<div class="edra-block no-padding has-text-white">
-						<div class="img-container image">
-								<img src="../img/bloctop.jpg" class="autoheight" alt="nature" />
-						</div>			
-					</div>
+			<div class="column is-full">
+				<div class="edra-block no-padding has-text-white">
+					<div class="img-container image">
+							<img src="../img/bloctop.jpg" class="autoheight" alt="nature" />
+					</div>			
 				</div>
-				
-				{#each posts as post}
-				<div class="column is-one-third p-0 m-0">
-					<div class="card p-0 m-0">
-						<div class="card-image">
-							<figure class="image is-4by3">
-								<img src="https://bulma.io/images/placeholders/1280x960.png" alt="{post.title}">
-							</figure>
-						</div>
-						<div class="card-content">		  
-							<div class="content">
-								<h2 class="title is-4 has-text-primary has-text-left has-text-weight-bold">{post.title}</h2>
-							</div>
-						</div>
-						<footer class="card-footer">
-							<a rel="prefetch" href="produits/{post.slug}" class="button is-success is-uppercase">découvrir</a>
-						</footer>
-					</div>
-				</div>
-				{/each}
 			</div>
+			
+			{#each posts as post}
+			<div class="column is-one-third p-0 m-0">
+				<div class="card p-0 m-0">
+					<div class="card-image">
+						<figure class="image is-4by3">
+							<img src="https://bulma.io/images/placeholders/1280x960.png" alt="{post.title}">
+						</figure>
+					</div>
+					<div class="card-content">		  
+						<div class="content">
+							<h2 class="title is-4 has-text-primary has-text-left has-text-weight-bold">{post.title}</h2>
+						</div>
+					</div>
+					<footer class="card-footer">
+						<a rel="prefetch" href="produits/{post.slug}" class="button is-success is-uppercase">découvrir</a>
+					</footer>
+				</div>
+			</div>
+			{/each}
 		</div>
+	</div>
 
 <style>
 	.card-footer {

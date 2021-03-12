@@ -1,22 +1,29 @@
 <script context="module">                                                                                                                                                                                                                                                                   
-	export async function preload({ params, query }) {
-	  const res = await this.fetch(`produits/${params.slug}.md`);
-  	  if (res.status === 200) {
-		return { postMd: await res.text() };
-	  } else {
-		this.error(res.status, data.message);
-	  }
+	export async function preload({ params }) {
+		const posts = await (await this.fetch(`produits.json`)).json();
+		
+		const res = await this.fetch(`produits/${params.slug}.md`);
+		if (res.status === 200) {
+			return { postMd: await res.text(), posts };
+		} else {
+			this.error(res.status, data.message);
+		}
 	}
 </script>
   
 <script>
 	import fm from 'front-matter';
 	import marked from 'marked';
-	export let postMd;
-	import Carousel from 'svelte-carousel/src/components/Carousel/Carousel.svelte'
+	export let postMd, posts;
+	import { onMount } from 'svelte';
 	import {chunk} from '../../utils/utils.js';
 	let produit = fm(postMd).attributes;
-	console.log(produit);
+
+	let Carousel;
+	onMount(async() => {
+		const comp = await import('svelte-carousel/src/components/Carousel/Carousel.svelte');
+		Carousel = comp.default;
+	});
 </script>
 
 <div class="container">
@@ -54,7 +61,7 @@
 						</div>
 					{:else if contenu.type == "imagesobject"}
 					<div class="content-image">
-						<Carousel arrows={false} dots={false} autoplay={contenu.images.length > 2} autoplayDuration={5000}>
+						<svelte:component this={Carousel} arrows={false} dots={false} autoplay={contenu.images.length > 2} autoplayDuration={5000}>
 							{#each chunk(contenu.images, 3) as imgs, chunkIndex (chunkIndex)}
 							  <div style="display: flex;">
 								{#each imgs as img (img)}
@@ -62,7 +69,7 @@
 								{/each}
 							  </div>
 							{/each}
-						</Carousel>
+						</svelte:component>
 					</div>
 					{:else if contenu.type && contenu.type == "intertitrebigobject"}
 						<h3 class="title has-text-primary has-text-weight-normal is-4">{contenu.interbig}</h3>
@@ -72,6 +79,30 @@
 				</div>
 			{/each}
 		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="columns is-multiline is-gapless p-0 has-background-primary-light cols-produits">
+		
+		{#each posts as post}
+		<div class="column is-one-third p-0 m-0">
+			<div class="card p-0 m-0">
+				<div class="card-image">
+					<figure class="image is-4by3">
+						<img src="https://bulma.io/images/placeholders/1280x960.png" alt="{post.title}">
+					</figure>
+				</div>
+				<div class="card-content">		  
+					<div class="content">
+						<h2 class="title is-4 has-text-primary has-text-left has-text-weight-bold">{post.title}</h2>
+					</div>
+				</div>
+				<footer class="card-footer">
+					<a rel="prefetch" href="produits/{post.slug}" class="button is-success is-uppercase">découvrir</a>
+				</footer>
+			</div>
+		</div>
+		{/each}
 	</div>
 </div>
 
