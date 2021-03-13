@@ -78,6 +78,6 @@ contenu:
       * Préfiltration adaptée à la qualité de l’eau
   - type: imagesobject
     images:
-      - ../img/uploads/endo03_01.jpg
+      - ../img/uploads/chat2.jpeg
       - ../img/uploads/endo03_02.jpg
 ---
