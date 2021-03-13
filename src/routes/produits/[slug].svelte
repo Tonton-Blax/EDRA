@@ -36,7 +36,7 @@
 		<div class="column is-full">
 			<Saos>
 				<div class="edra-block no-padding has-text-white">
-					<Header />
+					<Header bgColor={"#D9E7EC"} linesColor={"#005476"} />
 				</div>
 			</Saos>
 				
