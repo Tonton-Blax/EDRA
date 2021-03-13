@@ -69,7 +69,8 @@
 						</div>
 					{:else if contenu.type == "imagesobject"}
 					<div class="gallerie">
-						<svelte:component this={Images} images={contenu.images.map(c => c = {src : c})} gutter={5} />
+						<svelte:component this={Images} numCols={contenu.images && contenu.images.length >= 4 ? 4 : contenu.images.length} 
+						images={contenu.images.map(c => c = {src : c})} gutter={10} />
 					</div>
 					{:else if contenu.type && contenu.type == "intertitrebigobject"}
 						<h3 class="title has-text-primary has-text-weight-normal is-4">{contenu.interbig}</h3>
@@ -124,8 +125,15 @@
 	width: fit-content;
 	padding:2.5rem;
 }
-:global(.gallerie .nav) {
-	width:100%
+.gallerie {
+	width: 90%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    place-self: center;
+}
+:global(.gallerie img) {
+    place-self: center;
 }
 .edra-heading > * {
 	line-height: 1rem;

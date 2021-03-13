@@ -76,7 +76,7 @@
 		height:1079px;
 	}
 	.is-subtitle {
-		width: 65%;
+		width: 437px;
     	text-align: justify;
 	}
 	.logo-container {
