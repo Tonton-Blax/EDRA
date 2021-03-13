@@ -35,8 +35,12 @@
 	<div class="columns is-gapless is-multiline">
 		<div class="column is-full">
 			<Saos>
-				<div class="edra-block no-padding has-text-white">
-					<Header bgColor={"#D9E7EC"} linesColor={"#005476"} />
+				<div class="edra-block no-padding has-text-white" style="overflow-y:visible;">
+					<Header bgColor={"#D9E7EC"} linesColor={"#005476"} 
+					title={{
+						title : "Fiches Techniques", 
+						subTitle : "Ut velit mauris, egestas sed, gravida nec, ornare ut, mi. Aenean ut orci vel massa suscipit pulvinar. Nulla sollicitudin. Fusce varius, ligula non tempus."
+					}} />
 				</div>
 			</Saos>
 				

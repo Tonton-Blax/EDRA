@@ -1,11 +1,16 @@
 <script>
 	export let bgColor = "#005476";
-	export let linesColor = "white"
+	export let linesColor = "white";
+	export let title = undefined;
 </script>
 
 <div class="svg-container">
     <div class="logo-container">
-        <img src="./img/logo.png" alt="logo edra">
+		<img src="./img/logo.png" class="mb-5" alt="logo edra">
+		{#if title}
+		<h1 class="title is-2 has-text-weight-bold mb-4" style="color:{linesColor};text-transform:uppercase">{title.title}</h1>
+		<h3 class="title is-5 has-text-weight-normal is-subtitle" style="color:{linesColor};">{title.subTitle || ""}</h3>
+		{/if}
     </div>
 
 	<svg height="820" width="720" id="svg" style="background:{bgColor}">
@@ -70,12 +75,22 @@
 		width:fill-available;
 		height:1079px;
 	}
-	.logo-container {
-		position:absolute;
-		z-index:1;
-		left:46%;
-		top:48%;
+	.is-subtitle {
+		width: 65%;
+    	text-align: justify;
 	}
+	.logo-container {
+		position: absolute;
+		top: 53%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		z-index: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	
 	#svg {
 		position:absolute;
 		left:0;
