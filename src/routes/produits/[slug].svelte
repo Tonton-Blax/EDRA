@@ -23,7 +23,18 @@
 
 	let images;
 	let Images;
-	
+
+	async function navigate (url) {
+		const res = await fetch(url);
+		if (res && res.ok) {
+			const txt = await res.text();
+			if (txt) {
+				produit = fm(txt).attributes;
+				window.location.replace(url);
+			}
+		}
+	}
+
 	onMount(async() => {
 		const compImages = await import('svelte-images/src/Images/Images.svelte');
 		Images = compImages.default;
@@ -78,6 +89,30 @@
 					{/if}
 				</div>
 			{/each}
+			{#if produit.tableau}
+			<div class="center-block mb-6">
+				<table class="table is-responsive">
+					<thead>
+					<tr>
+						{#each produit.tableau[0].split(',') as thead}
+						<th>{thead.length ? thead.trim() : ""}</th>
+						{/each}
+					</tr>
+					</thead>
+					<tbody>
+						{#each produit.tableau as ligne, idx}
+						{#if idx >= 1}
+							<tr>
+								{#each ligne.split(',') as td}
+										<td>{td.length ? td.trim() : ""}</td>
+								{/each}
+							</tr>
+						{/if}
+						{/each}
+					</tbody>
+			  	</table>
+			</div>
+			{/if}
 		</div>
 	</div>
 </div>
@@ -99,7 +134,7 @@
 					</div>
 				</div>
 				<footer class="card-footer">
-					<a rel="prefetch" href="produits/{post.slug}" class="button is-success is-uppercase">découvrir</a>
+					<button on:click={() => navigate(`/produits/${post.slug}`)} class="button is-success is-uppercase">découvrir</button>
 				</footer>
 			</div>
 		</div>

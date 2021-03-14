@@ -7,7 +7,7 @@
 <div class="svg-container">
     <div class="logo-container">
 		<img src="./img/logo.png" class="mb-5" alt="logo edra">
-		{#if title}
+		{#if title && title.subTitle}
 		<h1 class="title is-2 has-text-weight-bold mb-4" style="color:{linesColor};text-transform:uppercase">{title.title}</h1>
 		<h3 class="title is-5 has-text-weight-normal is-subtitle" style="color:{linesColor};">{title.subTitle || ""}</h3>
 		{/if}
