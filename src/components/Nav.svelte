@@ -45,7 +45,7 @@
 	<div class="navbar-end is-hidden-touch">
 		<a class="navbar-item" aria-current={segment === undefined ? 'page' : undefined} href="." on:click={() => menuIsActive = false}>EDRA</a>
 		<a rel="prefetch" class="navbar-item" aria-current={segment === 'produits' ? 'page' : undefined} href="produits" on:click={() => menuIsActive = false}>Produits</a>
-		<a class="navbar-item" aria-current={segment === 'about' ? 'page' : undefined} on:click={() => menuIsActive = false} href="about">Contact</a>
+		<a class="navbar-item" aria-current={segment === 'contact' ? 'page' : undefined} on:click={() => menuIsActive = false} href="contact">Contact</a>
 
 	</div>  
 	{#if menuIsActive}
@@ -53,7 +53,7 @@
 	  <div class="navbar-start">
 		<a rel="prefetch" class="navbar-item" aria-current={segment === 'produits' ? 'page' : undefined} href="produits" on:click={() => menuIsActive = false}>Produits</a>
 		<a class="navbar-item" aria-current={segment === undefined ? 'page' : undefined} href="." on:click={() => menuIsActive = false}>EDRA</a>
-		<a class="navbar-item" aria-current={segment === 'about' ? 'page' : undefined} on:click={() => menuIsActive = false} href="about">Contact</a>
+		<a class="navbar-item" aria-current={segment === 'contact' ? 'page' : undefined} on:click={() => menuIsActive = false} href="contact">Contact</a>
 	  </div>  
 	</div>
 	{/if}

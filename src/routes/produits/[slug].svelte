@@ -44,6 +44,7 @@
 <div class="container">
 	<div class="columns is-gapless is-multiline">
 		<div class="column is-full">
+
 			<Saos>
 				<div class="edra-block no-padding has-text-white" style="overflow-y:visible;">
 					<Header bgColor={"#D9E7EC"} linesColor={"#005476"} 
@@ -117,9 +118,18 @@
 	</div>
 </div>
 
+
 <div class="container">
-	<div class="columns is-multiline is-gapless p-0 has-background-primary-light cols-produits">
-		
+
+	<div class="columns has-background-primary ml-0 mr-0 mb-0">	
+		<div class="column is-full centered-block">
+			<h1 class="title is-1 has-text-white has-text-centered p-8">
+				Découvrir le reste de la gamme
+			</h1>
+		</div>
+	</div>
+
+	<div class="columns is-multiline is-gapless p-0 has-background-primary-light cols-produits">	
 		{#each posts as post}
 		<div class="column is-one-third">
 			<div class="card">
