@@ -26,6 +26,7 @@ async function submitForm () {
 	
 	if (Object.values(formessage).every(item => item === false)) {
 		let formdata = new FormData();
+		formdata.append('data-netlify', "true")
 		formdata.append('nom',form.nom);
 		formdata.append('prenom',form.prenom);
 		formdata.append('message',form.message);
@@ -35,7 +36,7 @@ async function submitForm () {
 		fetch("/contact/", {
 			method: "POST",
 			headers: { "Content-Type": "application/x-www-form-urlencoded" },
-			body: formdata,
+			body: new URLSearchParams(formdata).toString()
 		})
 			.then(() => 
 				Toast.create({message : "Votre message a bien été envoyé", background : 'has-background-primary', duration:4000})
@@ -47,7 +48,7 @@ async function submitForm () {
 </script>
 
 <div class="container has-background-white">
-	<div class="columns is-gapless is-multiline">
+	<div class="columns is-gapless is-multiline	">
 		<div class="column is-full">
 			<Saos>
 				<div class="edra-block no-padding has-text-white">
