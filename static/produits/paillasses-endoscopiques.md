@@ -7,6 +7,10 @@ subtitle: Ut velit mauris, egestas sed, gravida nec, ornare ut, mi. Aenean ut
   tempus.
 thumbnail: ../img/uploads/endo1.jpg
 date: 2021-02-03T22:36:16.750Z
+tableau:
+  - Titre Col1, Titre Col 2, Titre Col 3
+  - L1C1, l1c2, l1c3
+  - l2c1, l2c2, l2c3
 contenu:
   - type: sectionmeta
     sectiontitle: Le module endoscopique
