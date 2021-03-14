@@ -27,7 +27,6 @@
 	onMount(async() => {
 		const compImages = await import('svelte-images/src/Images/Images.svelte');
 		Images = compImages.default;
-		console.log(images);
 	});
 </script>
 
