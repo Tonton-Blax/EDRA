@@ -96,7 +96,9 @@ async function submitForm (event) {
 
 
 	<form class="p-6" method='POST' name='formcontact' data-netlify="true" id="formcontact">
-		<input type="hidden" name="form-name" value="formcontact">
+		
+			<input type="hidden" name="form-name" value="formcontact">
+		<div class="columns">
 			<div class="column">
 				<div class="field">
 					<div class="control has-icons-left">
@@ -186,6 +188,8 @@ async function submitForm (event) {
 				type="submit" form="formcontact" class="button is-primary">Envoyer</button>
 			</div>
 		</div>
+	
+
 	</form>
 
 </div>
