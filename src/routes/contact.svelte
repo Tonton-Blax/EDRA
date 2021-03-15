@@ -30,31 +30,21 @@ async function submitForm (event) {
 	formessage.prenom = form.prenom.length < 2;
 	
 	if (Object.values(formessage).every(item => item === false)) {
-		let myForm = document.getElementById('formcontact');
-		let formData = new FormData(myForm)
-		fetch('/', {
-			method: 'POST',
-			headers: { "Content-Type": "application/x-www-form-urlencoded" },
-			body: new URLSearchParams(formData).toString()
-		}).then(() => 
-			Toast.create({message : "Votre message a bien été envoyé", background : 'has-background-primary', duration:4000})
-		)
-		.catch((error) =>
-			Toast.create({message : "Votre message n'a pas pu être envoyé" + error, background : 'has-background-danger', duration:4000})
-		)
-		/*
-		let formdata = new FormData();
+		let fo = document.getElementById('formcontact');
+		let formdata = new FormData(fo);
 		//formdata.append('data-netlify', 'true')
+		//formdata.append('form-name', 'formcontact');
+		/*
 		formdata.append('nom',`${form.nom}`);
 		formdata.append('prenom',`${form.prenom}`);
 		formdata.append('message',`${form.message}`);
 		formdata.append('email',`${form.email}`);
 		formdata.append('telephone',`${form.tel}`);
-		
+		*/
 		fetch("/contact/", {
 			method: "POST",
 			headers: { "Content-Type": "application/x-www-form-urlencoded" },
-			body: formdata
+			body: new URLSearchParams(formdata).toString()
 		})
 			.then(() => 
 				Toast.create({message : "Votre message a bien été envoyé", background : 'has-background-primary', duration:4000})
@@ -62,7 +52,7 @@ async function submitForm (event) {
 			.catch(error => Toast.create({message : "Votre message n'a pas pu être envoyé" + error, background : 'has-background-danger', duration:4000}));
 		
 		event.preventDefault();
-		*/
+		
     }
 	
 }
@@ -105,8 +95,8 @@ async function submitForm (event) {
 	</div>
 
 
-	<form class="p-6" method='POST' name='contact' data-netlify="true" id="formcontact">
-		<div class="columns">
+	<form class="p-6" method='POST' name='formcontact' data-netlify="true" id="formcontact">
+		<input type="hidden" name="form-name" value="formcontact">
 			<div class="column">
 				<div class="field">
 					<div class="control has-icons-left">
