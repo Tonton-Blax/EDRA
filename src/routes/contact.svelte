@@ -30,6 +30,19 @@ async function submitForm (event) {
 	formessage.prenom = form.prenom.length < 2;
 	
 	if (Object.values(formessage).every(item => item === false)) {
+		let myForm = document.getElementById('formcontact');
+		let formData = new FormData(myForm)
+		fetch('/', {
+			method: 'POST',
+			headers: { "Content-Type": "application/x-www-form-urlencoded" },
+			body: new URLSearchParams(formData).toString()
+		}).then(() => 
+			Toast.create({message : "Votre message a bien été envoyé", background : 'has-background-primary', duration:4000})
+		)
+		.catch((error) =>
+			Toast.create({message : "Votre message n'a pas pu être envoyé" + error, background : 'has-background-danger', duration:4000})
+		)
+		/*
 		let formdata = new FormData();
 		//formdata.append('data-netlify', 'true')
 		formdata.append('nom',`${form.nom}`);
@@ -49,7 +62,9 @@ async function submitForm (event) {
 			.catch(error => Toast.create({message : "Votre message n'a pas pu être envoyé" + error, background : 'has-background-danger', duration:4000}));
 		
 		event.preventDefault();
+		*/
     }
+	
 }
 
 </script>
@@ -177,7 +192,7 @@ async function submitForm (event) {
 		  
 		<div class="field is-grouped">
 			<div class="control">
-				<button on:click={submitForm}
+				<button on:click|preventDefault={submitForm}
 				type="submit" form="formcontact" class="button is-primary">Envoyer</button>
 			</div>
 		</div>
