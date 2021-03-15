@@ -21,7 +21,7 @@ let form = {
 }
 let formessage = {...form};
 
-async function submitForm () {
+async function submitForm (event) {
 	formessage.tel = !(/^(?:(?:\+|00)33[\s.-]{0,3}(?:\(0\)[\s.-]{0,3})?|0)[1-9](?:(?:[\s.-]?\d{2}){4}|\d{2}(?:[\s.-]?\d{3}){2})$/.test(form.tel));
 	formessage.email = !(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(form.email));
 	formessage.checked = form.checked === false;
@@ -32,21 +32,23 @@ async function submitForm () {
 	if (Object.values(formessage).every(item => item === false)) {
 		let formdata = new FormData();
 		//formdata.append('data-netlify', 'true')
-		formdata.append('nom',form.nom);
-		formdata.append('prenom',form.prenom);
-		formdata.append('message',form.message);
-		formdata.append('email',form.email);
-		formdata.append('telephone',form.tel);
+		formdata.append('nom',`${form.nom}`);
+		formdata.append('prenom',`${form.prenom}`);
+		formdata.append('message',`${form.message}`);
+		formdata.append('email',`${form.email}`);
+		formdata.append('telephone',`${form.tel}`);
 		
-		fetch("/", {
+		fetch("/contact/", {
 			method: "POST",
 			headers: { "Content-Type": "application/x-www-form-urlencoded" },
-			body: encode({ "form-name": "formcontact", "data-netlify" : true, ...formdata })
+			body: formdata
 		})
 			.then(() => 
 				Toast.create({message : "Votre message a bien été envoyé", background : 'has-background-primary', duration:4000})
 			)
 			.catch(error => Toast.create({message : "Votre message n'a pas pu être envoyé" + error, background : 'has-background-danger', duration:4000}));
+		
+		event.preventDefault();
     }
 }
 
@@ -175,7 +177,7 @@ async function submitForm () {
 		  
 		<div class="field is-grouped">
 			<div class="control">
-				<button on:click|preventDefault={submitForm}
+				<button on:click={submitForm}
 				type="submit" form="formcontact" class="button is-primary">Envoyer</button>
 			</div>
 		</div>
