@@ -38,6 +38,7 @@
 	onMount(async() => {
 		const compImages = await import('svelte-images/src/Images/Images.svelte');
 		Images = compImages.default;
+		console.log(produit.contenu)
 	});
 </script>
 
@@ -87,6 +88,8 @@
 						<h3 class="title has-text-primary has-text-weight-normal is-4">{contenu.interbig}</h3>
 					{:else if contenu.type && contenu.type == "textblock"}
 						<div class="content">{@html marked(contenu.body)}</div>
+					{:else if contenu.type && contenu.type == "leplusobject"}
+						<p class="content has-text-primary has-text-weight-bold"><span class="has-text-success">Le + : </span>{@html contenu.leplus}</p>
 					{/if}
 				</div>
 			{/each}
@@ -178,6 +181,8 @@
 }
 :global(.gallerie img) {
     place-self: center;
+	max-height:300px;
+	object-fit:contain;
 }
 .edra-heading > * {
 	line-height: 1rem;
