@@ -6,6 +6,11 @@ import  {Toast} from 'svelma'
 import Header from '../components/Header.svelte'
 import Saos from "saos";
 
+const encode = (data) => {
+    return Object.keys(data)
+        .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+        .join("&");
+};
 let form = {
 	tel : '',
 	email : '',
@@ -26,8 +31,7 @@ async function submitForm () {
 	
 	if (Object.values(formessage).every(item => item === false)) {
 		let formdata = new FormData();
-		formdata.append('form-name', 'contact')
-		formdata.append('data-netlify', 'true')
+		//formdata.append('data-netlify', 'true')
 		formdata.append('nom',form.nom);
 		formdata.append('prenom',form.prenom);
 		formdata.append('message',form.message);
@@ -37,7 +41,7 @@ async function submitForm () {
 		fetch("/", {
 			method: "POST",
 			headers: { "Content-Type": "application/x-www-form-urlencoded" },
-			body: formdata
+			body: encode({ "form-name": "formcontact", "data-netlify" : true, ...formdata })
 		})
 			.then(() => 
 				Toast.create({message : "Votre message a bien été envoyé", background : 'has-background-primary', duration:4000})
