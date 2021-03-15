@@ -26,17 +26,18 @@ async function submitForm () {
 	
 	if (Object.values(formessage).every(item => item === false)) {
 		let formdata = new FormData();
-		formdata.append('data-netlify', "true")
+		formdata.append('form-name', 'contact')
+		formdata.append('data-netlify', 'true')
 		formdata.append('nom',form.nom);
 		formdata.append('prenom',form.prenom);
 		formdata.append('message',form.message);
 		formdata.append('email',form.email);
 		formdata.append('telephone',form.tel);
 		
-		fetch("/contact/", {
+		fetch("/", {
 			method: "POST",
 			headers: { "Content-Type": "application/x-www-form-urlencoded" },
-			body: new URLSearchParams(formdata).toString()
+			body: formdata
 		})
 			.then(() => 
 				Toast.create({message : "Votre message a bien été envoyé", background : 'has-background-primary', duration:4000})
@@ -148,7 +149,7 @@ async function submitForm () {
 		  
 		<div class="field">
 			<div class="control">
-			  <textarea class="textarea is-primary" placeholder="Message" 
+			  <textarea class="textarea is-primary" placeholder="Message" name="message"
 			  bind:value={form.message}></textarea>
 			</div>
 			{#if formessage.message}
@@ -159,7 +160,7 @@ async function submitForm () {
 		<div class="field">
 			<div class="control">
 			  <label class="checkbox">
-				<input type="checkbox" bind:checked={form.checked}>
+				<input type="checkbox" bind:checked={form.checked} name="checked">
 				J'accepte d'être recontacté par EDRA (requis)
 			  </label>
 			</div>
