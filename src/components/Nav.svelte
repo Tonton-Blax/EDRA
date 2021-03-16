@@ -22,6 +22,7 @@
 		}, 300);
 	}
 
+
 </script>
 
 
@@ -37,9 +38,9 @@
 	  	<button
 			on:click={() => menuIsActive = !menuIsActive}
 			class="navbar-burger burger" aria-label="menu" aria-expanded="false" class:is-active={menuIsActive}>
-			<span aria-hidden="true"></span>
-			<span aria-hidden="true"></span>
-			<span aria-hidden="true"></span>
+				<span aria-hidden="true"></span>
+				<span aria-hidden="true"></span>
+				<span aria-hidden="true"></span>
 		</button>
 	</div>
 	<div class="navbar-end is-hidden-touch">

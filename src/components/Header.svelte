@@ -8,8 +8,8 @@
     <div class="logo-container">
 		<img src="./img/logo.png" class="mb-5" alt="logo edra">
 		{#if title && title.subTitle}
-		<h1 class="title is-2 has-text-weight-bold mb-4" style="color:{linesColor};text-transform:uppercase">{title.title}</h1>
-		<h3 class="title is-5 has-text-weight-normal is-subtitle" style="color:{linesColor};">{title.subTitle || ""}</h3>
+			<h1 class="title is-2 has-text-weight-bold mb-4" style="color:{linesColor};text-transform:uppercase">{title.title}</h1>
+			<h3 class="title is-5 has-text-weight-normal is-subtitle" style="color:{linesColor};">{title.subTitle || ""}</h3>
 		{/if}
     </div>
 
@@ -65,8 +65,12 @@
 			<animate id="l5anim4" begin="l5anim2.end" attributeType="XML" attributeName="y1" from="274" to="1645" dur="10s" fill="freeze" />
 				
 		</line>
-			<circle class="circle-path" cy="310" cx="20" r="240" stroke={linesColor}></circle>
-		 	<circle class="circle-path delay" cy="410" cx="809" r="100" stroke={linesColor} ></circle>
+			<circle class="circle-path" cy="310" cx="20" r="240" stroke={linesColor} opacity="1">
+				<animate id="canim1" attributeType="XML" attributeName="opacity" from="1" to="0" dur="2s" begin="9s" fill="freeze"/>
+			</circle>
+		 	<circle class="circle-path delay" cy="410" cx="809" r="100" stroke={linesColor} >
+				<animate id="canim2" attributeType="XML" attributeName="opacity" from="1" to="0" dur="2s" begin="10s" fill="freeze"/>
+			</circle>
 	</svg>
 </div>
 <style>
@@ -100,29 +104,29 @@
 		transform:rotateX(45deg);
 	}
 	.circle-path {
-  	stroke-dashoffset: 628.3;
-  	animation: dashed-line 5s linear alternate infinite;
+  		stroke-dashoffset: 628.3;
+  		animation: dashed-line 5s linear alternate infinite;
 	}
 	.delay {
 		animation-delay : 3s
 	}
 	
 	@keyframes dashed-line {
-  	to {
-    	stroke-dashoffset: 0;
-  	}
+  		to {
+    		stroke-dashoffset: 0;
+	  	}
 	}
 
 	circle {
-  	stroke-width: 1;
-  	stroke-opacity: 1;
-  	stroke-dasharray: 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5
-											5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5
-      	              5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5
-        	            5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5
-          	          5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5
-            	        5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5
-              	      5 5 5 5 5 5 0 630;
-  	fill: none;
+		stroke-width: 1;
+		stroke-opacity: 1;
+		stroke-dasharray: 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5
+												5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5
+						5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5
+							5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5
+						5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5
+							5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5
+						5 5 5 5 5 5 0 630;
+		fill: none;
 	}
 </style>
