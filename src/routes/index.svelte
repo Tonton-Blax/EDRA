@@ -9,6 +9,8 @@
 	import 'svelte-carousel/dist/index.css'
 	import {chunk, shuffleArray} from '../utils/utils.js';
 	import Saos from "saos";
+	import { fly } from 'svelte/transition';
+	
 
 	let imagesKerrock = [
 			'../img/kerrock02.jpg',
@@ -34,6 +36,16 @@
 		"../img/logos/blueuts.png",
 		"../img/logos/foch.png"
 	]
+
+	let overBlocks = [{
+		index : 0,
+		titre : ["Paillasses endoscopiques", "Titre n°2 exemple", "Titre n°3 exemple"],
+		sousTitre : [
+			"Ut velit mauris, egestas sed, gravida nec, ornare ut, mi. Aenean ut orci vel massa suscipit pulvinar. Nulla sollicitudin fusce varius.",
+			"sous-titre n°2 exemple",
+			"sous-titre n°3 exemple"
+		]
+	}]
 
 	let Carousel
 	onMount(async() => {
@@ -62,16 +74,21 @@
 	
 		<div class="column is-full">
 			<div class="edra-block no-padding has-text-white">
-				<div class="overblock">
-					<div class="block-up">>
-						<h3 class="title is-3 has-text-primary has-text-weight-bold">Paillasses endoscopiques</h3>
-					</div>
+				{#key overBlocks[0].index}
+				<div class="overblock" in:fly={{x:-1000, duration:200}} out:fly={{x:1000, delay:200}}>
+						<div class="block-up">
+							<h3 class="title is-3 has-text-primary has-text-weight-bold">{overBlocks[0].titre[overBlocks[0].index]}</h3>
+						</div>
 					<div class="block-in">
-						<p class="has-text-primary has-text-left">Ut velit mauris, egestas sed, gravida nec, ornare ut, mi. Aenean ut orci vel massa suscipit pulvinar. Nulla sollicitudin fusce varius.</p>
+						<p class="has-text-primary has-text-left">{overBlocks[0].sousTitre[overBlocks[0].index]}</p>
 						<span class="button is-success" style="float:right;">Découvrir</span>
 					</div>
 				</div>
-				<svelte:component this={Carousel} let:loaded arrows={false} dots={true} autoplay={true} autoplayDuration={6000}>
+				{/key}
+				<svelte:component 				
+					this={Carousel} let:loaded arrows={false} dots={true} autoplay={true} autoplayDuration={6000}
+					on:pageChange={ e => overBlocks[0].index = e.detail } 
+					>
 					
 					{#each imagesPaillasses as src, imageIndex (src)}
 						<div class="img-container image">
