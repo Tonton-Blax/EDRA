@@ -16,6 +16,8 @@
 	import marked from 'marked';
 	import { onMount } from 'svelte';
 	import Header from '../../components/Header.svelte'
+	import { fly } from 'svelte/transition';
+    import { quadInOut } from 'svelte/easing';
 	import Saos from "saos";
 	import { observing } from '../../utils/stores.js';
 
@@ -43,13 +45,16 @@
 		console.log(produit.contenu)
 	});
 </script>
-
-<div class="container">
+{#key produit.title}
+<div class="container" 
+	in:fly="{{ y: -1000, duration: 350, delay: 250,  easing: quadInOut }}"
+	out:fly="{{ y: 1000, duration: 350, easing: quadInOut }}" 
+>
 	<div class="columns is-gapless is-multiline">
 		<div class="column is-full">
 
+			<div class="edra-block no-padding has-text-white" style="overflow-y:visible;">
 			<Saos bind:observing={$observing}>
-				<div class="edra-block no-padding has-text-white" style="overflow-y:visible;">
 					<Header bgColor={"#D9E7EC"} linesColor={"#005476"} 
 					title={{
 						title : "Fiches Techniques", 
@@ -156,7 +161,7 @@
 		{/each}
 	</div>
 </div>
-
+{/key}
 <style>
 .container {
 	background:white!important;

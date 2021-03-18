@@ -1,16 +1,13 @@
 <svelte:head>
-	<title>About</title>
+	<title>Contact</title>
 </svelte:head>
 <script>
 import  {Toast} from 'svelma'
 import Header from '../components/Header.svelte'
+import {observing} from '../utils/stores.js';
 import Saos from "saos";
 
-const encode = (data) => {
-    return Object.keys(data)
-        .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-        .join("&");
-};
+
 let form = {
 	tel : '',
 	email : '',
@@ -32,15 +29,6 @@ async function submitForm (event) {
 	if (Object.values(formessage).every(item => item === false)) {
 		let fo = document.getElementById('formcontact');
 		let formdata = new FormData(fo);
-		//formdata.append('data-netlify', 'true')
-		//formdata.append('form-name', 'formcontact');
-		/*
-		formdata.append('nom',`${form.nom}`);
-		formdata.append('prenom',`${form.prenom}`);
-		formdata.append('message',`${form.message}`);
-		formdata.append('email',`${form.email}`);
-		formdata.append('telephone',`${form.tel}`);
-		*/
 		fetch("/contact/", {
 			method: "POST",
 			headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -60,136 +48,143 @@ async function submitForm (event) {
 </script>
 
 <div class="container has-background-white">
+	
 	<div class="columns is-gapless is-multiline	">
 		<div class="column is-full">
-			<Saos>
+			<Saos bind:observing={$observing}>
 				<div class="edra-block no-padding has-text-white">
 					<Header/>
 				</div>
 			</Saos>
 		</div>
 	</div>
-	<div class="columns is-gapless mt-6 pt-6 is-vcentered">
-		<div class="column is-full has-text-centered"
-			style="display:flex;place-content:center;">
-			<p class="p-6 is-size-4 has-text-weight-bold has-text-primary" style="width:64%">
-				Marquage CE dispositif médical classe IIb
-				conforme à la circulaire DGS/DH № 591 du 17 décembre 2003 
-				EDRA MEDICAL est certifiée ISO 9001 et ISO 13485
-				(dispositif médical)
-			</p>		
+
+	<div class="subcontainer">
+
+		<div class="columns mt-6 pt-6 is-vcentered">
+			<div class="column is-full has-text-left">
+				<p class="p-6 is-size-4 has-text-weight-bold has-text-primary" style="width:64%">
+					Marquage CE dispositif médical classe IIb
+					conforme à la circulaire DGS/DH № 591 du 17 décembre 2003 
+					EDRA MEDICAL est certifiée ISO 9001 et ISO 13485
+					(dispositif médical)
+				</p>		
+			</div>
 		</div>
-	</div>
-	<div class="columns is-gapless is-multiline mt-2 is-vcentered">
-		<div class="column is-one-fifth has-text-centered">
-			<img src="./img/sigle-min.svg" alt="Sigle EDRA-MEDICAL" width="64">
+
+		<div class="columns mt-2 is-vcentered">
+			<div class="column is-two-thirds has-text-left pl-6" style="display:flex;">
+				<img src="./img/sigle-min.svg" alt="Sigle EDRA-MEDICAL" width="128" class="ml-3">
+				<h1 class="title has-text-primary has-text-centererd pl-5" style="align-self:center;">
+					Besoin d'informations complémentaires ?
+				</h1>
+			</div>
+			<div class="column has-text-right pr-6">
+				<button class="button is-primary is-large has-text-weight-bold mr-3">Contactez-nous</button>
+			</div>
 		</div>
-		<div class="column is-two-fifths">
-			<h1 class="title is-3 has-text-primary has-text-centererd">
-				Besoin d'informations complémentaires ?
-			</h1>
-		</div>
-		<div class="column is two-fifths has-text-centered">
-			<button class="button is-primary is-large has-text-weight-bold">Contactez-nous</button>
-		</div>
-	</div>
 
 
-	<form class="p-6" method='POST' name='formcontact' data-netlify="true" id="formcontact">
-		
+		<form class="p-6" method='POST' name='formcontact' data-netlify="true" id="formcontact">
+			
 			<input type="hidden" name="form-name" value="formcontact">
-		<div class="columns">
-			<div class="column">
-				<div class="field">
-					<div class="control has-icons-left">
-						<input bind:value={form.nom}
-						class="input is-primary" name="nom" type="text" placeholder="Votre nom">
-						<span class="icon is-small is-left">
-							<i class="fas fa-user"></i>
-						</span>
+			<div class="columns mb-0">
+				<div class="column">
+					<div class="field">
+						<div class="control has-icons-left">
+							<input bind:value={form.nom}
+							class="input is-primary" name="nom" type="text" placeholder="Votre nom">
+							
+						</div>
+						{#if formessage.nom}
+						<p class="help is-danger">Veuillez saisir votre nom</p>
+						{/if}
 					</div>
-					{#if formessage.nom}
-					<p class="help is-danger">Veuillez saisir votre nom</p>
-					{/if}
 				</div>
-			</div>
-			<div class="column">
-				<div class="field">
-					<div class="control has-icons-left">
-						<input bind:value={form.prenom}
-						class="input is-primary" type="text" name="prenom" placeholder="Votre prénom">
-						<span class="icon is-small is-left">
-							<i class="fas fa-user"></i>
-						</span>
+				<div class="column">
+					<div class="field">
+						<div class="control has-icons-left">
+							<input bind:value={form.prenom}
+							class="input is-primary" type="text" name="prenom" placeholder="Votre prénom">
+							
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		  
-		<div class="field">
-			<div class="control has-icons-left has-icons-right">
-				<input class="input is-primary" type="email" bind:value={form.email} name="email" required />	
-				<span class="icon is-small is-left">
-					<i class="fas fa-envelope"></i>
-			  	</span>
-			{#if formessage.email}
-			  <span class="icon is-small is-right">
-				<i class="fas fa-exclamation-triangle"></i>
-			  </span>
-			{/if}
+			
+			<div class="field">
+				<div class="control has-icons-left has-icons-right">
+					<input class="input is-primary" placeholder="email"
+						type="email" bind:value={form.email} name="email" required />	
+				
+				{#if formessage.email}
+				<span class="icon is-small is-right">
+					<i class="fas fa-exclamation-triangle"></i>
+				</span>
+				{/if}
+				</div>
+				{#if formessage.email}
+				<p class="help is-danger">e-mail nonvalide</p>
+				{/if}
 			</div>
-			{#if formessage.email}
-			<p class="help is-danger">e-mail nonvalide</p>
-			{/if}
-		</div>
-		  
-		<div class="field">
-			<div class="control has-icons-left has-icons-right">
-			  <input class="input is-primary" name="tel" placeholder="Téléphone" bind:value={form.tel} type="tel" >
-			  <span class="icon is-small is-left">
-				<i class="fas fa-phone"></i>
-			  </span>
-			  {#if formessage.tel}
-			  <span class="icon is-small is-right">
-				<i class="fas fa-exclamation-triangle"></i>
-			  </span>
-			  {/if}
+			
+			<div class="field">
+				<div class="control has-icons-left has-icons-right">
+				<input class="input is-primary" name="tel" placeholder="Téléphone" bind:value={form.tel} type="tel" >
+				
+				{#if formessage.tel}
+				<span class="icon is-small is-right">
+					<i class="fas fa-exclamation-triangle"></i>
+				</span>
+				{/if}
+				</div>
+				{#if formessage.tel}
+				<p class="help is-danger">N° non valide</p>
+				{/if}
 			</div>
-			{#if formessage.tel}
-			<p class="help is-danger">N° non valide</p>
-			{/if}
-		</div>
-		  
-		<div class="field">
-			<div class="control">
-			  <textarea class="textarea is-primary" placeholder="Message" name="message"
-			  bind:value={form.message}></textarea>
+			
+			<div class="field">
+				<div class="control">
+				<textarea class="textarea is-primary" placeholder="Message" name="message"
+				bind:value={form.message}></textarea>
+				</div>
+				{#if formessage.message}
+				<p class="help is-danger">Veuillez saisir un message</p>
+				{/if}
 			</div>
-			{#if formessage.message}
-			<p class="help is-danger">Veuillez saisir un message</p>
-			{/if}
-		</div>
-		  
-		<div class="field">
-			<div class="control">
-			  <label class="checkbox">
-				<input type="checkbox" bind:checked={form.checked} name="checked">
-				J'accepte d'être recontacté par EDRA (requis)
-			  </label>
+			
+			<div class="field">
+				<div class="control">
+				<label class="checkbox">
+					<input type="checkbox" bind:checked={form.checked} name="checked">
+					J'accepte d'être recontacté par EDRA (requis)
+				</label>
+				</div>
+				{#if formessage.checked}
+				<p class="help is-danger">Veuillez cocher la case</p>
+				{/if}
 			</div>
-			{#if formessage.checked}
-			<p class="help is-danger">Veuillez cocher la case</p>
-			{/if}
-		</div>
-		  
-		<div class="field is-grouped">
-			<div class="control">
-				<button on:click|preventDefault={submitForm}
-				type="submit" form="formcontact" class="button is-primary">Envoyer</button>
+			
+			<div class="field is-grouped">
+				<div class="control">
+					<button on:click|preventDefault={submitForm}
+					type="submit" form="formcontact" class="button is-primary">Envoyer</button>
+				</div>
 			</div>
-		</div>
-	
+		
 
-	</form>
-
+		</form>
+	</div>
 </div>
+
+<style>
+	input::placeholder, textarea::placeholder {
+		color:var(--maincolor);
+	}
+	.textarea:not([rows]) {
+		padding-left:2rem;
+	}
+	.subcontainer {
+		padding:0% 10%;
+	}
+</style>

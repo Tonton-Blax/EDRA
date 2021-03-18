@@ -3,6 +3,7 @@
 	import Footer from '../components/Footer.svelte'
 	import Transition from '../components/Transition.svelte';
 	export let segment;
+
 </script>
 
 <Nav {segment} />

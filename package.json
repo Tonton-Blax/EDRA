@@ -51,7 +51,7 @@
 		"sapper": "^0.29.1",
 		"sass": "^1.32.8",
 		"svelte": "^3.35.0",
-		"svelte-carousel": "^1.0.2",
+		"svelte-carousel": "Tonton-Blax/svelte-carousel",
 		"svelte-check": "^1.2.2",
 		"svelte-images": "Tonton-Blax/svelte-images#master",
 		"svelte-preprocess": "^4.6.9",

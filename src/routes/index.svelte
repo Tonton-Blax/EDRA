@@ -3,15 +3,13 @@
 </svelte:head>
 
 <script>
-	//import Carousel from 'svelte-carousel/src/components/Carousel/Carousel.svelte'
 	import {onMount} from 'svelte'
 	import Header from '../components/Header.svelte'
-	import 'svelte-carousel/dist/index.css'
 	import {chunk, shuffleArray} from '../utils/utils.js';
 	import {observing} from '../utils/stores.js';
 	import Saos from "saos";
 	import { fly } from 'svelte/transition';
-	
+	import { quadInOut } from 'svelte/easing';
 
 	let imagesKerrock = [
 			'../img/kerrock02.jpg',
@@ -38,7 +36,8 @@
 		"../img/logos/foch.png"
 	]
 
-	let overBlocks = [{
+	let overBlocks = [
+	{
 		index : 0,
 		titre : ["Paillasses endoscopiques", "Titre n°2 exemple", "Titre n°3 exemple"],
 		sousTitre : [
@@ -46,7 +45,13 @@
 			"sous-titre n°2 exemple",
 			"sous-titre n°3 exemple"
 		]
-	}]
+	},
+	{
+		index : 0,
+		titre : ["Savoir-faire<br>et technicité", "Conceptions<br>sur-mesure"],
+	}
+
+	];
 
 	let Carousel
 	onMount(async() => {
@@ -76,7 +81,7 @@
 		<div class="column is-full">
 			<div class="edra-block no-padding has-text-white">
 				{#key overBlocks[0].index}
-				<div class="overblock" in:fly={{x:-1000, duration:200}} out:fly={{x:1000, delay:200}}>
+				<div class="overblock" in:fly={{x:-1000, duration:500}} out:fly={{x:1000, delay:100, easing:quadInOut}}>
 					<div class="block-up">
 							<h3 class="title is-3 has-text-primary has-text-weight-bold">{overBlocks[0].titre[overBlocks[0].index]}</h3>
 						</div>
@@ -89,7 +94,9 @@
 				</div>
 				{/key}
 				<svelte:component 				
-					this={Carousel} let:loaded arrows={false} dots={true} autoplay={true} autoplayDuration={6000}
+					this={Carousel} let:loaded arrows={false} dots={true} autoplay={true} autoplayDuration={5000}
+					duration={1000}
+					timingFunction={'cubic-bezier(.86,.01,0,1.01)'}
 					on:pageChange={ e => overBlocks[0].index = e.detail } 
 					>
 					
@@ -105,26 +112,33 @@
 		</div>
 		<div class="column is-full">
 			<div class="edra-block no-padding has-background-white has-text-primary">
-				<h2 class="title is-2 has-text-centered has-text-primary has-text-weight-bold">EDRA, 30 ans <br>de qualité de Service</h2>
+				<h2 class="title is-2 has-text-centered has-text-primary has-text-weight-bold mb-6">EDRA, 30 ans <br>de qualité de Service</h2>
 				<div class="columns cols-picto">
-					<Saos animation={"slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.2s both"}>
+					<Saos animation={"slide-in-bottom 0.5s cubic-bezier(.86,.01,0,1.01) 0.2s both"}>
+						<div class="column is-one-fourth has-text-centered col-picto">
+							<img src="../img/pictos/picto_demoulable.png" alt="Fabrication à partir d'un moule">
+							<h3 class="title is-4 has-text-primary">Fabrication<br>à partir d'un moule</h3>
+							<p>Nulla sollicitudin. Fusce varius, ligula non tempus aliquam, nunc turpis ullamcorper nibh, in tempus sapien eros.</p>
+						</div>
+					</Saos>
+					<Saos animation={"slide-in-bottom 0.5s cubic-bezier(.86,.01,0,1.01) 0.4s both"}>
 						<div class="column is-one-fourth has-text-centered col-picto">
 							<img src="../img/pictos/picto_tracking.png" alt="Fabrication à partir d'un moule">
-							<h3 class="title is-4 has-text-primary">Module de traçabilité</h3>
+							<h3 class="title is-4 has-text-primary">Module<br> de traçabilité</h3>
 							<p>Busce varius, ligula non tempus aliquam, nunc turpis ullamcorper nibh, in tempus vitae ligula. Nulla sollicitudin. </p>
 						</div>
 					</Saos>
-					<Saos animation={"slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.4s both"}>
+					<Saos animation={"slide-in-bottom 0.5s cubic-bezier(.86,.01,0,1.01) 0.6s both"}>
 					<div class="column is-one-fourth has-text-centered col-picto">
 						<img src="../img/pictos/picto_madeinfrance.png" alt="Fabrication à partir d'un moule">
-						<h3 class="title is-4 has-text-primary">Fabrication française</h3>
+						<h3 class="title is-4 has-text-primary">Fabrication<br> française</h3>
 						<p>Ullamcorper nibh, in tempus sapien eros vitae ligula. Nulla sollicitudin. Fusce varius, ligula non tempu.</p>
 					</div>
 					</Saos>
-					<Saos animation={"slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.6s both"}>
+					<Saos animation={"slide-in-bottom 0.5s cubic-bezier(.86,.01,0,1.01) 0.8s both"}>
 					<div class="column is-one-fourth has-text-centered col-picto">
 						<img src="../img/pictos/picto_livraison.png" alt="Fabrication à partir d'un moule">
-						<h3 class="title is-4 has-text-primary">Intervention dans toute la france</h3>
+						<h3 class="title is-4 has-text-primary">Intervention<br> dans toute la france</h3>
 						<p>Tempus aliquam, nunc turpis ullamcorper nibh, in tempus sapien eros vitae ligula. Nulla sollicitudin. Fusce varius.</p>
 					</div>
 					</Saos>
@@ -139,7 +153,7 @@
 		</div>
 		<div class="column is-half">
 			<div class="edra-block no-padding has-background-white has-text-primary">
-				<svelte:component this={Carousel} let:loaded arrows={false} dots={true} autoplay={true} autoplayDuration={5000} >
+				<svelte:component this={Carousel} let:loaded arrows={false} dots={true} autoplay={true} autoplayDuration={5000} timingFunction={'cubic-bezier(.86,.01,0,1.01)'}>
 					{#each imagesKerrock as src, imageIndex (src)}
 						<div class="img-container image">
 						{#if loaded.includes(imageIndex)}
@@ -153,8 +167,15 @@
 		<div class="column is-full">
 			<div class="edra-block no-padding has-text-white">
 				<div class="overtop"><img src="../img/svg/hexagone.svg" alt="hexagone" style="width: 214px!important;"></div>
-				<div class="overtop"><p class="has-text-left is-size-1 has-text-weight-bold" style="padding-left:150px;line-height:3.3rem;">Savoir-faire<br> et technicité</p></div>
-				<svelte:component this={Carousel} let:loaded arrows={false} dots={true} autoplay={true} autoplayDuration={6000} >
+				{#key overBlocks[1].index}
+					<div in:fly={{x:-1000, duration:500}} out:fly={{x:1000, delay:100, easing:quadInOut}} class="overtop">
+							<p class="has-text-left is-size-1 has-text-weight-bold" style="padding-left:150px;line-height:3.3rem;">
+								{@html overBlocks[1].titre[overBlocks[1].index]}
+							</p>
+					</div>
+				{/key}
+				<svelte:component this={Carousel} let:loaded arrows={false} dots={true} autoplay={true} autoplayDuration={6000}
+				on:pageChange={ e => overBlocks[1].index = e.detail } >
 					{#each imagesEquipe as src, imageIndex (src)}
 						<div class="img-container image">
 						{#if loaded.includes(imageIndex)}
@@ -173,7 +194,7 @@
 		<div class="column is-half">
 			<div class="edra-block no-padding has-background-white has-text-primary" style="margin-left:1px;">
 				<!-- <img class="autoheight" src="../img/kerrock02.jpg" alt="Hall d'accueil avec revêtement en kerrock"> -->
-				<svelte:component this={Carousel} arrows={false} dots={false} autoplay={true} autoplayDuration={5000}>
+				<svelte:component this={Carousel} arrows={false} dots={false} autoplay={true} autoplayDuration={5000} timingFunction={'cubic-bezier(.86,.01,0,1.01)'}>
 					{#each chunk(shuffleArray(imagesLogos), 3) as logos, chunkIndex (chunkIndex)}
 					  <div style="display: flex;">
 						{#each logos as logo (logo)}
@@ -182,7 +203,7 @@
 					  </div>
 					{/each}
 				</svelte:component>
-				<svelte:component this={Carousel} arrows={false} dots={false} autoplay={true} autoplayDuration={5000}>
+				<svelte:component this={Carousel} arrows={false} dots={false} autoplay={true} autoplayDuration={5000} timingFunction={'cubic-bezier(.86,.01,0,1.01)'}>
 					{#each chunk(shuffleArray(imagesLogos), 3) as logos, chunkIndex (chunkIndex)}
 					  <div style="display: flex;">
 						{#each logos as logo (logo)}
@@ -191,7 +212,7 @@
 					  </div>
 					{/each}
 				</svelte:component>
-				<svelte:component this={Carousel} arrows={false} dots={false} autoplay={true} autoplayDuration={5000}>
+				<svelte:component this={Carousel} arrows={false} dots={false} autoplay={true} autoplayDuration={5000} timingFunction={'cubic-bezier(.86,.01,0,1.01)'}>
 					{#each chunk(shuffleArray(imagesLogos), 3) as logos, chunkIndex (chunkIndex)}
 					  <div style="display: flex;">
 						{#each logos as logo (logo)}
@@ -206,9 +227,6 @@
 </div>
 
 <style>
-	:global(:root) {
-		--maincolor : #005476;
-	}
 	
 	.logosquare {
 		border: 1px solid #efefef;
@@ -229,7 +247,7 @@
 		width:auto;
 	}
 	.cols-picto {
-		padding:5% 10%;
+		padding:0% 10%;
 	}
 	
 	p {
