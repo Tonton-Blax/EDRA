@@ -1,7 +1,9 @@
 <svelte:window on:scroll={handleScroll} on:click={handleClick} />
 
 <script>
-	import { fly, slide } from 'svelte/transition';
+	import { fade, slide } from 'svelte/transition';
+	import { quadInOut } from 'svelte/easing';
+	import {observing} from '../utils/stores.js';
 	export let segment;
 	let isScrolling;
 	let isIdle = true;
@@ -29,7 +31,7 @@
 
 {#if isIdle}
 <div class="container">
-<nav class="navbar" role="navigation" aria-label="main navigation" in:fly={{duration:1000, delay:350}} bind:this={navbar} >
+<nav class="navbar {$observing ? "is-transparent" : "is-white"}" role="navigation" aria-label="main navigation" in:fade={{duration:1000, delay:50, easing: quadInOut}} out:fade={{duration:400, delay:0, easing: quadInOut}} bind:this={navbar} >
 	<div class="navbar-brand">
 	  <a class="navbar-item" href="/">
 			<img src="../img/logo-sigle.png" height="28" alt="logo EDRA">
@@ -50,7 +52,7 @@
 
 	</div>  
 	{#if menuIsActive}
-	<div class="navbar-menu" class:is-active={menuIsActive} transition:slide >
+	<div class="navbar-menu" class:is-active={menuIsActive} transition:slide={{easing: quadInOut}} >
 	  <div class="navbar-start">
 		<a rel="prefetch" class="navbar-item" aria-current={segment === 'produits' ? 'page' : undefined} href="produits" on:click={() => menuIsActive = false}>Produits</a>
 		<a class="navbar-item" aria-current={segment === undefined ? 'page' : undefined} href="." on:click={() => menuIsActive = false}>EDRA</a>
@@ -69,6 +71,17 @@
 	.navbar-burger {
 		border:none;
 	}
+
+	.is-transparent a {
+		color:white;
+	}
+	.is-transparent {
+		background:none;
+	}
+	.is-white a {
+		color:var(--maincolor)!important;
+	}
+
 	.navbar {
 		overflow: hidden;
 	  	position: fixed;
@@ -81,7 +94,6 @@
 	}
 
 	a {
-		color:var(--maincolor)!important;
 		position:relative;
 	}
 

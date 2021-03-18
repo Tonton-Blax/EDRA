@@ -8,6 +8,7 @@
 	import Header from '../components/Header.svelte'
 	import 'svelte-carousel/dist/index.css'
 	import {chunk, shuffleArray} from '../utils/utils.js';
+	import {observing} from '../utils/stores.js';
 	import Saos from "saos";
 	import { fly } from 'svelte/transition';
 	
@@ -65,7 +66,7 @@
 				</div>			
 			</div>
 			-->
-			<Saos>
+			<Saos bind:observing={$observing}>
 			<div class="edra-block no-padding has-text-white">
 				<Header />
 			</div>
@@ -76,12 +77,14 @@
 			<div class="edra-block no-padding has-text-white">
 				{#key overBlocks[0].index}
 				<div class="overblock" in:fly={{x:-1000, duration:200}} out:fly={{x:1000, delay:200}}>
-						<div class="block-up">
+					<div class="block-up">
 							<h3 class="title is-3 has-text-primary has-text-weight-bold">{overBlocks[0].titre[overBlocks[0].index]}</h3>
 						</div>
 					<div class="block-in">
 						<p class="has-text-primary has-text-left">{overBlocks[0].sousTitre[overBlocks[0].index]}</p>
-						<span class="button is-success" style="float:right;">Découvrir</span>
+					</div>
+					<div class="block-bouton">
+						<div class="button is-success">Découvrir</div>
 					</div>
 				</div>
 				{/key}

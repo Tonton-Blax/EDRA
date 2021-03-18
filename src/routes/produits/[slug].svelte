@@ -14,10 +14,12 @@
 <script>
 	import fm from 'front-matter';
 	import marked from 'marked';
-	export let postMd, posts;
 	import { onMount } from 'svelte';
 	import Header from '../../components/Header.svelte'
 	import Saos from "saos";
+	import { observing } from '../../utils/stores.js';
+
+	export let postMd, posts;
 	
 	let produit = fm(postMd).attributes;
 
@@ -46,7 +48,7 @@
 	<div class="columns is-gapless is-multiline">
 		<div class="column is-full">
 
-			<Saos>
+			<Saos bind:observing={$observing}>
 				<div class="edra-block no-padding has-text-white" style="overflow-y:visible;">
 					<Header bgColor={"#D9E7EC"} linesColor={"#005476"} 
 					title={{

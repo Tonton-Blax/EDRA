@@ -90,15 +90,16 @@ body {
     justify-content: flex-end;
     margin-top:-15px;
 }
-.block-in, .block-up {
+.block-in, .block-up, .block-bouton {
     display:flex;
     flex-flow:column wrap;
 }
-.block-in span, .block-in p {
-    align-self: flex-end;
+.block-up, .block-in {
+    align-content: flex-start;
 }
-.block-up h3 {
-    align-self: flex-end;
+
+.block-bouton {
+    float:right;
 }
 
 // Card

@@ -9,6 +9,7 @@
 <script lang="ts">
 	export let posts: { slug: string; title: string, html: any }[];
 	import Header from '../../components/Header.svelte'
+	import { observing } from '../../utils/stores.js';
 	import Saos from "saos";
 </script>
 
@@ -26,7 +27,7 @@
 					</div>			
 				</div>
 				-->
-				<Saos>
+				<Saos bind:observing={$observing}>
 					<div class="edra-block no-padding has-text-white">
 						<Header />
 					</div>
