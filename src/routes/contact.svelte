@@ -5,8 +5,9 @@
 import  {Toast} from 'svelma'
 import Header from '../components/Header.svelte'
 import {observing} from '../utils/stores.js';
-import Saos from "saos";
+import IntersectionObserver from "svelte-intersection-observer";
 
+let headerEl;
 
 let form = {
 	tel : '',
@@ -51,11 +52,11 @@ async function submitForm (event) {
 	
 	<div class="columns is-gapless is-multiline	">
 		<div class="column is-full">
-			<Saos bind:observing={$observing}>
-				<div class="edra-block no-padding has-text-white">
+			<IntersectionObserver bind:intersecting={$observing} element={headerEl}>
+				<div class="edra-block no-padding has-text-white" bind:this={headerEl}>
 					<Header/>
 				</div>
-			</Saos>
+			</IntersectionObserver>
 		</div>
 	</div>
 

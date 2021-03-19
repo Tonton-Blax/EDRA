@@ -47,13 +47,13 @@
 		"rollup-plugin-copy": "^3.4.0",
 		"rollup-plugin-svelte": "^7.1.0",
 		"rollup-plugin-terser": "^7.0.2",
-		"saos": "Tonton-Blax/saos",
 		"sapper": "^0.29.1",
 		"sass": "^1.32.8",
 		"svelte": "^3.35.0",
 		"svelte-carousel": "Tonton-Blax/svelte-carousel",
 		"svelte-check": "^1.2.2",
 		"svelte-images": "Tonton-Blax/svelte-images#master",
+		"svelte-intersection-observer": "^0.6.0",
 		"svelte-preprocess": "^4.6.9",
 		"tslib": "^2.1.0"
 	}

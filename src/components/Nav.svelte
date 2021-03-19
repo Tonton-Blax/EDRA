@@ -27,8 +27,6 @@
 
 </script>
 
-
-
 {#if isIdle}
 <div class="container">
 <nav class="navbar {$observing ? "is-transparent" : "is-white"}" role="navigation" aria-label="main navigation" in:fade={{duration:1000, delay:50, easing: quadInOut}} out:fade={{duration:400, delay:0, easing: quadInOut}} bind:this={navbar} >

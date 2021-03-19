@@ -10,7 +10,9 @@
 	export let posts: { slug: string; title: string, html: any }[];
 	import Header from '../../components/Header.svelte'
 	import { observing } from '../../utils/stores.js';
-	import Saos from "saos";
+	import IntersectionObserver from "svelte-intersection-observer";
+	let headerEl;
+
 </script>
 
 <svelte:head>
@@ -20,22 +22,17 @@
 		<div class="columns is-multiline is-gapless p-0 has-background-primary-light cols-produits">
 
 			<div class="column is-full">
-				<!--
-				<div class="edra-block no-padding has-text-white">
-					<div class="img-container image">
-							<img src="../img/bloctop.jpg" class="autoheight" alt="nature" />
-					</div>			
-				</div>
-				-->
-				<Saos bind:observing={$observing}>
-					<div class="edra-block no-padding has-text-white">
+				<IntersectionObserver bind:intersecting={$observing} element={headerEl} >
+					<div class="edra-block no-padding has-text-white" bind:this={headerEl}>
 						<Header />
 					</div>
-				</Saos>
+				</IntersectionObserver>
 			</div>
-			
+		</div>
+		<div class="columns is-multiline has-background-primary-light cols-produits ml-0 mr-0">
+
 			{#each posts as post}
-			<div class="column is-one-third mt-6 mb-1">
+			<div class="column is-one-third mt-5 mb-1 ml-1 mr-1">
 				<div class="card">
 					<div class="card-image">
 						<figure class="image is-4by3">

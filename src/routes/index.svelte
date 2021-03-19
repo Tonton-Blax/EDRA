@@ -7,9 +7,16 @@
 	import Header from '../components/Header.svelte'
 	import {chunk, shuffleArray} from '../utils/utils.js';
 	import {observing} from '../utils/stores.js';
-	import Saos from "saos";
+	import IntersectionObserver from "svelte-intersection-observer";
+
 	import { fly } from 'svelte/transition';
-	import { quadInOut } from 'svelte/easing';
+	import { quadInOut, quadOut } from 'svelte/easing';
+
+	let pictoEl, headerEl;
+	let intersectings = {
+		pictos : undefined,
+		header : undefined
+	}
 
 	let imagesKerrock = [
 			'../img/kerrock02.jpg',
@@ -40,6 +47,7 @@
 	{
 		index : 0,
 		titre : ["Paillasses endoscopiques", "Titre n°2 exemple", "Titre n°3 exemple"],
+		liens : ["/produits/paillasses-endoscopiques", "/", "/"],
 		sousTitre : [
 			"Ut velit mauris, egestas sed, gravida nec, ornare ut, mi. Aenean ut orci vel massa suscipit pulvinar. Nulla sollicitudin fusce varius.",
 			"sous-titre n°2 exemple",
@@ -64,18 +72,13 @@
 <div class="container">
 	<div class="columns is-gapless is-multiline">
 		<div class="column is-full">
-			<!--
-			<div class="edra-block no-padding has-text-white">
-				<div class="img-container image">
-						<img src="../img/bloctop.jpg" class="autoheight" alt="nature" />
-				</div>			
-			</div>
-			-->
-			<Saos bind:observing={$observing}>
-			<div class="edra-block no-padding has-text-white">
+		{#key $observing}
+		<IntersectionObserver element={headerEl} bind:intersecting={$observing}>
+			<div class="edra-block no-padding has-text-white" bind:this={headerEl}>
 				<Header />
 			</div>
-			</Saos>
+		</IntersectionObserver>
+		{/key}
 		</div>
 	
 		<div class="column is-full">
@@ -89,15 +92,15 @@
 						<p class="has-text-primary has-text-left">{overBlocks[0].sousTitre[overBlocks[0].index]}</p>
 					</div>
 					<div class="block-bouton">
-						<div class="button is-success">Découvrir</div>
+						<a class="button is-success" rel="prefetch" href={overBlocks[0].liens[overBlocks[0].index]}>Découvrir</a>
 					</div>
 				</div>
 				{/key}
 				<svelte:component 				
-					this={Carousel} let:loaded arrows={false} dots={true} autoplay={true} autoplayDuration={5000}
-					duration={1000}
+					this={Carousel} let:loaded arrows={false} dots={true} autoplay={true} 
+					autoplayDuration={5000} duration={1000}
 					timingFunction={'cubic-bezier(.86,.01,0,1.01)'}
-					on:pageChange={ e => overBlocks[0].index = e.detail } 
+					on:pageChange={ e => overBlocks[0].index = e.detail }
 					>
 					
 					{#each imagesPaillasses as src, imageIndex (src)}
@@ -111,37 +114,33 @@
 			</div>
 		</div>
 		<div class="column is-full">
-			<div class="edra-block no-padding has-background-white has-text-primary">
+			<div class="edra-block no-padding has-background-white has-text-primary" bind:this={pictoEl}>
 				<h2 class="title is-2 has-text-centered has-text-primary has-text-weight-bold mb-6">EDRA, 30 ans <br>de qualité de Service</h2>
 				<div class="columns cols-picto">
-					<Saos animation={"slide-in-bottom 0.5s cubic-bezier(.86,.01,0,1.01) 0.2s both"}>
-						<div class="column is-one-fourth has-text-centered col-picto">
+					<IntersectionObserver bind:intersecting={intersectings.pictos} element={pictoEl}>
+						{#if intersectings.pictos}
+						<div transition:fly={{y:-200, delay:300, easing:quadOut}} class="column is-one-fourth has-text-centered col-picto">
 							<img src="../img/pictos/picto_demoulable.png" alt="Fabrication à partir d'un moule">
 							<h3 class="title is-4 has-text-primary">Fabrication<br>à partir d'un moule</h3>
 							<p>Nulla sollicitudin. Fusce varius, ligula non tempus aliquam, nunc turpis ullamcorper nibh, in tempus sapien eros.</p>
 						</div>
-					</Saos>
-					<Saos animation={"slide-in-bottom 0.5s cubic-bezier(.86,.01,0,1.01) 0.4s both"}>
-						<div class="column is-one-fourth has-text-centered col-picto">
+						<div transition:fly={{y:-200, delay:450, easing:quadOut}} class="column is-one-fourth has-text-centered col-picto">
 							<img src="../img/pictos/picto_tracking.png" alt="Fabrication à partir d'un moule">
 							<h3 class="title is-4 has-text-primary">Module<br> de traçabilité</h3>
 							<p>Busce varius, ligula non tempus aliquam, nunc turpis ullamcorper nibh, in tempus vitae ligula. Nulla sollicitudin. </p>
 						</div>
-					</Saos>
-					<Saos animation={"slide-in-bottom 0.5s cubic-bezier(.86,.01,0,1.01) 0.6s both"}>
-					<div class="column is-one-fourth has-text-centered col-picto">
-						<img src="../img/pictos/picto_madeinfrance.png" alt="Fabrication à partir d'un moule">
-						<h3 class="title is-4 has-text-primary">Fabrication<br> française</h3>
-						<p>Ullamcorper nibh, in tempus sapien eros vitae ligula. Nulla sollicitudin. Fusce varius, ligula non tempu.</p>
-					</div>
-					</Saos>
-					<Saos animation={"slide-in-bottom 0.5s cubic-bezier(.86,.01,0,1.01) 0.8s both"}>
-					<div class="column is-one-fourth has-text-centered col-picto">
-						<img src="../img/pictos/picto_livraison.png" alt="Fabrication à partir d'un moule">
-						<h3 class="title is-4 has-text-primary">Intervention<br> dans toute la france</h3>
-						<p>Tempus aliquam, nunc turpis ullamcorper nibh, in tempus sapien eros vitae ligula. Nulla sollicitudin. Fusce varius.</p>
-					</div>
-					</Saos>
+						<div transition:fly={{y:-200, delay:600, easing:quadOut}} class="column is-one-fourth has-text-centered col-picto">
+							<img src="../img/pictos/picto_madeinfrance.png" alt="Fabrication à partir d'un moule">
+							<h3 class="title is-4 has-text-primary">Fabrication<br> française</h3>
+							<p>Ullamcorper nibh, in tempus sapien eros vitae ligula. Nulla sollicitudin. Fusce varius, ligula non tempu.</p>
+						</div>
+						<div transition:fly={{y:-200, delay:750, easing:quadOut}} class="column is-one-fourth has-text-centered col-picto">
+							<img src="../img/pictos/picto_livraison.png" alt="Fabrication à partir d'un moule">
+							<h3 class="title is-4 has-text-primary">Intervention<br> dans toute la france</h3>
+							<p>Tempus aliquam, nunc turpis ullamcorper nibh, in tempus sapien eros vitae ligula. Nulla sollicitudin. Fusce varius.</p>
+						</div>
+						{/if}
+					</IntersectionObserver>
 				</div>
 			</div>
 		</div>
@@ -175,14 +174,14 @@
 					</div>
 				{/key}
 				<svelte:component this={Carousel} let:loaded arrows={false} dots={true} autoplay={true} autoplayDuration={6000}
-				on:pageChange={ e => overBlocks[1].index = e.detail } >
-					{#each imagesEquipe as src, imageIndex (src)}
-						<div class="img-container image">
-						{#if loaded.includes(imageIndex)}
-							<img {src} class="autoheight" alt="nature" />
-						{/if}
-						</div>
-					{/each}
+					on:pageChange={ e => overBlocks[1].index = e.detail } >
+						{#each imagesEquipe as src, imageIndex (src)}
+							<div class="img-container image">
+							{#if loaded.includes(imageIndex)}
+								<img {src} class="autoheight" alt="nature" />
+							{/if}
+							</div>
+						{/each}
 				</svelte:component>
 			</div>
 		</div>

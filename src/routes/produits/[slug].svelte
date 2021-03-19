@@ -18,14 +18,15 @@
 	import Header from '../../components/Header.svelte'
 	import { fly } from 'svelte/transition';
     import { quadInOut } from 'svelte/easing';
-	import Saos from "saos";
 	import { observing } from '../../utils/stores.js';
+	import IntersectionObserver from "svelte-intersection-observer";
+
+	let headerEl;
 
 	export let postMd, posts;
 	
 	let produit = fm(postMd).attributes;
 
-	let images;
 	let Images;
 
 	async function navigate (url) {
@@ -45,6 +46,7 @@
 		console.log(produit.contenu)
 	});
 </script>
+
 {#key produit.title}
 <div class="container" 
 	in:fly="{{ y: -1000, duration: 350, delay: 250,  easing: quadInOut }}"
@@ -52,17 +54,22 @@
 >
 	<div class="columns is-gapless is-multiline">
 		<div class="column is-full">
-
-			<div class="edra-block no-padding has-text-white" style="overflow-y:visible;">
-			<Saos bind:observing={$observing}>
-					<Header bgColor={"#D9E7EC"} linesColor={"#005476"} 
-					title={{
-						title : "Fiches Techniques", 
-						subTitle : "Ut velit mauris, egestas sed, gravida nec, ornare ut, mi. Aenean ut orci vel massa suscipit pulvinar. Nulla sollicitudin. Fusce varius, ligula non tempus."
-					}} />
+			<IntersectionObserver bind:intersecting={$observing} element={headerEl} >
+				<div class="edra-block no-padding has-text-white" bind:this={headerEl}>
+					<Header 
+						siglePointilles={true}
+						bgColor={"#D9E7EC"} linesColor={"#005476"} 
+						title={{
+							title : "Fiches Techniques", 
+							subTitle : "Ut velit mauris, egestas sed, gravida nec, ornare ut, mi. Aenean ut orci vel massa suscipit pulvinar. Nulla sollicitudin. Fusce varius, ligula non tempus."
+						}}
+					/>
 				</div>
-			</Saos>
-				
+			</IntersectionObserver>
+		</div>
+
+	
+		<div class="column is-full">
 			<div class="edra-block no-padding has-text-white">
 				<div class="overblock">
 					<h3 class="title is-3 has-text-primary has-text-weight-bold">{produit.title}</h3>
@@ -74,56 +81,67 @@
 					{/if}
 				</div>
 			</div>
+		</div>
+		<div class="column is-full mt-6">
+			<div class="subcontainer">
 			
-			{#each produit.contenu as contenu, index}
-				<div class="edra-contenu">
-					{#if contenu.type && contenu.type == "sectionmeta"}
-						<div class="edra-heading has-background-primary">
-							{#if contenu.sectiontitle}
-								<h2 class="title has-text-white has-text-weight-bold is-3">{contenu.sectiontitle}</h2>
-							{/if}
-							{#if contenu.sectionsubtitle}
-								<h2 class="title has-text-white has-text-weight-normal is-55">{contenu.sectionsubtitle}</h2>
-							{/if}
-						</div>
-					{:else if contenu.type == "imagesobject"}
-					<div class="gallerie">
-						<svelte:component this={Images} numCols={contenu.images && contenu.images.length >= 4 ? 4 : contenu.images.length} 
-						images={contenu.images.map(c => c = {src : c})} gutter={10} />
-					</div>
-					{:else if contenu.type && contenu.type == "intertitrebigobject"}
-						<h3 class="title has-text-primary has-text-weight-normal is-4">{contenu.interbig}</h3>
-					{:else if contenu.type && contenu.type == "textblock"}
-						<div class="content">{@html marked(contenu.body)}</div>
-					{:else if contenu.type && contenu.type == "leplusobject"}
-						<p class="content has-text-primary has-text-weight-bold"><span class="has-text-success">Le + : </span>{@html contenu.leplus}</p>
-					{/if}
-				</div>
-			{/each}
-			{#if produit.tableau}
-			<div class="center-block mb-6">
-				<table class="table is-responsive">
-					<thead>
-					<tr>
-						{#each produit.tableau[0].split(',') as thead}
-						<th>{thead.length ? thead.trim() : ""}</th>
-						{/each}
-					</tr>
-					</thead>
-					<tbody>
-						{#each produit.tableau as ligne, idx}
-						{#if idx >= 1}
-							<tr>
-								{#each ligne.split(',') as td}
-										<td>{td.length ? td.trim() : ""}</td>
-								{/each}
-							</tr>
+				{#each produit.contenu as contenu, index}
+					<div class="edra-contenu">
+						{#if contenu.type && contenu.type == "sectionmeta"}
+							<div class="edra-heading has-background-primary">
+								{#if contenu.sectiontitle}
+									<h2 class="title has-text-white has-text-weight-bold is-3">{contenu.sectiontitle}</h2>
+								{/if}
+								{#if contenu.sectionsubtitle}
+									<h2 class="title has-text-white has-text-weight-normal is-55">{contenu.sectionsubtitle}</h2>
+								{/if}
+							</div>
+
+						{:else if contenu.type == "imagesobject"}
+							<div class="gallerie">
+								<svelte:component this={Images} 
+								numCols={contenu.images && contenu.images.length >= 4 ? 4 : contenu.images.length} 
+								images={contenu.images.map(c => c = {src : c})} gutter={10} />
+							</div>
+
+						{:else if contenu.type && contenu.type == "intertitrebigobject"}
+							<h3 class="title has-text-primary has-text-weight-normal is-4">{contenu.interbig}</h3>
+
+						{:else if contenu.type && contenu.type == "textblock"}
+							<div class="content">{@html marked(contenu.body)}</div>
+
+						{:else if contenu.type && contenu.type == "leplusobject"}
+							<p class="content has-text-primary has-text-weight-bold">
+								<span class="has-text-success">Le + : </span>{@html contenu.leplus}</p>
+
 						{/if}
-						{/each}
-					</tbody>
-			  	</table>
+					</div>
+				{/each}
+				{#if produit.tableau}
+				<div class="center-block mb-6">
+					<table class="table is-responsive">
+						<thead>
+						<tr>
+							{#each produit.tableau[0].split(',') as thead}
+							<th>{thead.length ? thead.trim() : ""}</th>
+							{/each}
+						</tr>
+						</thead>
+						<tbody>
+							{#each produit.tableau as ligne, idx}
+							{#if idx >= 1}
+								<tr>
+									{#each ligne.split(',') as td}
+											<td>{td.length ? td.trim() : ""}</td>
+									{/each}
+								</tr>
+							{/if}
+							{/each}
+						</tbody>
+					</table>
+				</div>
+				{/if}
 			</div>
-			{/if}
 		</div>
 	</div>
 </div>
@@ -139,9 +157,9 @@
 		</div>
 	</div>
 
-	<div class="columns is-multiline is-gapless p-0 has-background-primary-light cols-produits">	
+	<div class="columns is-multiline has-background-primary-light cols-produits  ml-0 mr-0">
 		{#each posts as post}
-		<div class="column is-one-third">
+		<div class="column is-one-third mt-0 mb-1 ml-1 mr-1">
 			<div class="card">
 				<div class="card-image">
 					<figure class="image is-4by3">
@@ -165,6 +183,9 @@
 <style>
 .container {
 	background:white!important;
+}
+.subcontainer {
+	padding: 0% 10%;
 }
 .edra-contenu {
 	display: flex;
