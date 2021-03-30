@@ -16,6 +16,7 @@
 	import marked from 'marked';
 	import { onMount } from 'svelte';
 	import Header from '../../components/Header.svelte'
+	import Posts from '../../components/Posts.svelte'
 	import ContactForm from '../../components/ContactForm.svelte'
 	import { fly } from 'svelte/transition';
     import { quadInOut } from 'svelte/easing';
@@ -44,7 +45,6 @@
 	onMount(async() => {
 		const compImages = await import('svelte-images/src/Images/Images.svelte');
 		Images = compImages.default;
-		console.log(produit.contenu)
 	});
 </script>
 
@@ -102,7 +102,7 @@
 							<div class="gallerie">
 								<svelte:component this={Images} 
 								numCols={contenu.images && contenu.images.length >= 4 ? 4 : contenu.images.length} 
-								images={contenu.images.map(c => c = {src : c})} gutter={10} />
+								images={contenu.images.map(c => c = {src : c})} gutter={0} />
 							</div>
 
 						{:else if contenu.type && contenu.type == "intertitrebigobject"}
@@ -159,27 +159,8 @@
 		</div>
 	</div>
 
-	<div class="columns is-multiline has-background-primary-light cols-produits  ml-0 mr-0">
-		{#each posts as post}
-		<div class="column is-one-third mt-0 mb-1 ml-1 mr-1">
-			<div class="card">
-				<div class="card-image">
-					<figure class="image is-4by3">
-						<img src="https://bulma.io/images/placeholders/1280x960.png" alt="{post.title}">
-					</figure>
-				</div>
-				<div class="card-content">		  
-					<div class="content">
-						<h2 class="title is-4 has-text-primary has-text-left has-text-weight-bold">{post.title}</h2>
-					</div>
-				</div>
-				<footer class="card-footer">
-					<button on:click={() => navigate(`/produits/${post.slug}`)} class="button is-success is-uppercase">découvrir</button>
-				</footer>
-			</div>
-		</div>
-		{/each}
-	</div>
+	
+	<Posts {posts} programatic={true} on:navigate={(e)=>navigate(e.detail.url)} />
 </div>
 {/key}
 <style>
@@ -203,8 +184,7 @@
 	padding:2.5rem;
 }
 .gallerie {
-	width: 90%;
-    justify-content: center;
+	width: 100%;
     display: flex;
     align-items: center;
     place-self: center;

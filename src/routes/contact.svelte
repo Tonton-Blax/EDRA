@@ -14,7 +14,7 @@ let headerEl;
 
 <div class="container has-background-white">
 	
-	<div class="columns is-gapless is-multiline	">
+	<div class="columns is-gapless is-multiline	mb-6 pb-6">
 		<div class="column is-full">
 			<IntersectionObserver bind:intersecting={$observing} element={headerEl}>
 				<div class="edra-block no-padding has-text-white" bind:this={headerEl}>
