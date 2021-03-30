@@ -5,7 +5,7 @@ title: Lorem Ipsum
 subtitle: Ut velit mauris, egestas sed, gravida nec, ornare ut, mi. Aenean ut
   orci vel massa suscipit pulvinar. Nulla sollicitudin. Fusce varius, ligula non
   tempus.
-thumbnail: ../img/uploads/endo1.jpg
+thumbnail: ../img/uploads/1_5xm6wgcknu5ww-zmwojiuq.jpeg
 date: 2021-03-30T14:16:46.867Z
 tableau:
   - Titre Col1, Titre Col 2, Titre Col 3
