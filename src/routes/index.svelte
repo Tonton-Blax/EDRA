@@ -119,22 +119,22 @@
 				<div class="columns cols-picto">
 					<IntersectionObserver bind:intersecting={intersectings.pictos} element={pictoEl}>
 						{#if intersectings.pictos}
-						<div transition:fly={{y:-200, delay:300, easing:quadOut}} class="column is-one-fourth has-text-centered col-picto">
+						<div out:fly in:fly={{y:200, delay:300, easing:quadOut}} class="column is-one-fourth has-text-centered col-picto">
 							<img src="../img/pictos/picto_demoulable.png" alt="Fabrication à partir d'un moule">
 							<h3 class="title is-4 has-text-primary">Fabrication<br>à partir d'un moule</h3>
 							<p>Nulla sollicitudin. Fusce varius, ligula non tempus aliquam, nunc turpis ullamcorper nibh, in tempus sapien eros.</p>
 						</div>
-						<div transition:fly={{y:-200, delay:450, easing:quadOut}} class="column is-one-fourth has-text-centered col-picto">
+						<div out:fly in:fly={{y:200, delay:450, easing:quadOut}} class="column is-one-fourth has-text-centered col-picto">
 							<img src="../img/pictos/picto_tracking.png" alt="Fabrication à partir d'un moule">
 							<h3 class="title is-4 has-text-primary">Module<br> de traçabilité</h3>
 							<p>Busce varius, ligula non tempus aliquam, nunc turpis ullamcorper nibh, in tempus vitae ligula. Nulla sollicitudin. </p>
 						</div>
-						<div transition:fly={{y:-200, delay:600, easing:quadOut}} class="column is-one-fourth has-text-centered col-picto">
+						<div out:fly  in:fly={{y:200, delay:600, easing:quadOut}} class="column is-one-fourth has-text-centered col-picto">
 							<img src="../img/pictos/picto_madeinfrance.png" alt="Fabrication à partir d'un moule">
 							<h3 class="title is-4 has-text-primary">Fabrication<br> française</h3>
 							<p>Ullamcorper nibh, in tempus sapien eros vitae ligula. Nulla sollicitudin. Fusce varius, ligula non tempu.</p>
 						</div>
-						<div transition:fly={{y:-200, delay:750, easing:quadOut}} class="column is-one-fourth has-text-centered col-picto">
+						<div out:fly  in:fly={{y:200, delay:750, easing:quadOut}} class="column is-one-fourth has-text-centered col-picto">
 							<img src="../img/pictos/picto_livraison.png" alt="Fabrication à partir d'un moule">
 							<h3 class="title is-4 has-text-primary">Intervention<br> dans toute la france</h3>
 							<p>Tempus aliquam, nunc turpis ullamcorper nibh, in tempus sapien eros vitae ligula. Nulla sollicitudin. Fusce varius.</p>

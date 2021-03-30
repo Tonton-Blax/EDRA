@@ -3,7 +3,7 @@
 <script>
 	import { fade, slide } from 'svelte/transition';
 	import { quadInOut } from 'svelte/easing';
-	import {observing} from '../utils/stores.js';
+	import { observing, colors } from '../utils/stores.js';
 	export let segment;
 	let isScrolling;
 	let isIdle = true;
@@ -25,11 +25,26 @@
 	}
 
 
+	let indicator; let navItems = [];
+
+	function handleIndicator(idx) {
+		navItems.forEach(function (item) {
+			item.classList.remove('active-item');
+			item.removeAttribute('style');
+		});
+		indicator.style.width = "".concat(navItems[idx].offsetWidth, "px");
+		indicator.style.left = "".concat(navItems[idx].offsetLeft, "px");
+		indicator.style.backgroundColor = $observing ? "white" : $colors.tertiary;
+		navItems[idx].classList.add('active-item');
+		navItems[idx].style.color = $observing ? "white" : $colors.main;
+	}
+
+
 </script>
 
 {#if isIdle}
 <div class="container">
-<nav class="navbar {$observing ? "is-transparent" : "is-white"}" role="navigation" aria-label="main navigation" in:fade={{duration:1000, delay:50, easing: quadInOut}} out:fade={{duration:400, delay:0, easing: quadInOut}} bind:this={navbar} >
+<nav class="navbar {$observing ? "is-transparent" : "iswhite"}" role="navigation" aria-label="main navigation" in:fade={{duration:1000, delay:50, easing: quadInOut}} out:fade={{duration:400, delay:0, easing: quadInOut}} bind:this={navbar} >
 	<div class="navbar-brand">
 	  <a class="navbar-item" href="/">
 			<img src="../img/logo-sigle.png" height="28" alt="logo EDRA">
@@ -44,9 +59,11 @@
 		</button>
 	</div>
 	<div class="navbar-end is-hidden-touch">
-		<a class="navbar-item" aria-current={segment === undefined ? 'page' : undefined} href="." on:click={() => menuIsActive = false}>EDRA</a>
-		<a rel="prefetch" class="navbar-item" aria-current={segment === 'produits' ? 'page' : undefined} href="produits" on:click={() => menuIsActive = false}>Produits</a>
-		<a class="navbar-item" aria-current={segment === 'contact' ? 'page' : undefined} on:click={() => menuIsActive = false} href="contact">Contact</a>
+		<a bind:this={navItems[0]} on:mouseenter={()=>handleIndicator(0)} class="navbar-item active-item" aria-current={segment === undefined ? 'page' : undefined} href="." on:click={() => menuIsActive = false}>EDRA</a>
+		<a bind:this={navItems[1]} on:mouseenter={()=>handleIndicator(1)} rel="prefetch" class="navbar-item" aria-current={segment === 'produits' ? 'page' : undefined} href="produits" on:click={() => menuIsActive = false}>Produits</a>
+		<a bind:this={navItems[2]} on:mouseenter={()=>handleIndicator(2)} class="navbar-item" aria-current={segment === 'contact' ? 'page' : undefined} on:click={() => menuIsActive = false} href="contact">Contact</a>
+		<span class="navbar-indicator" bind:this={indicator}></span>
+
 
 	</div>  
 	{#if menuIsActive}
@@ -55,6 +72,8 @@
 		<a rel="prefetch" class="navbar-item" aria-current={segment === 'produits' ? 'page' : undefined} href="produits" on:click={() => menuIsActive = false}>Produits</a>
 		<a class="navbar-item" aria-current={segment === undefined ? 'page' : undefined} href="." on:click={() => menuIsActive = false}>EDRA</a>
 		<a class="navbar-item" aria-current={segment === 'contact' ? 'page' : undefined} on:click={() => menuIsActive = false} href="contact">Contact</a>
+		<span class="navbar-indicator"></span>
+
 	  </div>  
 	</div>
 	{/if}
@@ -66,71 +85,112 @@
 
 <style>
 
-	.navbar-burger {
-		border:none;
-	}
+* {
+	 box-sizing: border-box;
+}
 
-	.is-transparent a {
-		color:white;
-	}
-	.is-transparent {
-		background:none;
-	}
-	.is-white a {
-		color:var(--maincolor)!important;
-	}
+.navbar-burger {
+	border:none;
+}
 
-	.navbar {
-		overflow: hidden;
-	  	position: fixed;
-  		top: 0;
-		max-width: inherit;
-		width:fill-available;
-  		display: flex;
-  		align-items: center;
-  		justify-content: center;
-	}
+.is-transparent a {
+	color:white;
+}
+.is-transparent {
+	background:none;
+}
+.iswhite {
+	background:white;
+	box-shadow : 0px 1px 10px rgba(127,127,127,0.25);
+}
+.iswhite a {
+	color:var(--maincolor)!important;
+}
 
-	a {
-		position:relative;
-	}
+.navbar {
+	overflow: hidden;
+	position: fixed;
+	top: 0;
+	max-width: inherit;
+	width:fill-available;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
 
-	@media screen and (min-width: 1024px) {
-		.navbar {
-			min-height: 4.87rem;
-			padding-left:1.5rem;
-			padding-right: 1.5rem;
-		}
-		a:before {    
-			content: "";
-			position: absolute;
-			width: 0;
-			height: 2px;
-			bottom: 0;
-			left: 0;
-			background-color: var(--secondary);
-			visibility: hidden;
-			transition: all 0.3s ease-in-out;
-		}
-		a:hover:before {
-			visibility: visible;
-			width: 100%;
-		}
-		
-		/*
-		.navbar-burger {
-			display: block!important;
-		}
-		*/		
-	}
+a {
+	position:relative;
+}
 
-	@media only screen and (max-width: 1024px) {
-        .navbar-brand {
-			min-height: unset!important;
-			height:auto;
-		}
+.navbar-item {
+	z-index: 1;
+}
+.navbar-item:hover {
+	background-color:unset!important;
+}
+.navbar-item:before {
+	content: "";
+	position: absolute;
+	bottom: -6px;
+	left: 0;
+	width: 100%;
+	height: 5px;
+	background-color: #dfe2ea;
+	border-radius: 8px 8px 0 0;
+	opacity: 0;
+	transition: 0.3s;
+}
+.navbar-item:not(.active-item):hover:before {
+	opacity: 1;
+	bottom: 0;
+}
+.navbar-item:not(.active-item):hover {
+	color: #333;
+}
+.navbar-indicator {
+	position: absolute;
+	left: 0;
+	bottom: 15px;
+	transition: 0.4s;
+	height: 2px;
+	z-index: 1;
+}
+
+@media (max-width: 768px) {
+	 .navbar {
+		 overflow: auto;
 	}
+}
+
+@media only screen and (max-width: 1024px) {
+	.navbar-brand {
+		min-height: unset!important;
+		height:auto;
+	}
+}
+ 
+@media screen and (min-width: 1024px) {
 	
-
+	.navbar {
+		min-height: 4.87rem;
+		padding-left:1.5rem;
+		padding-right: 1.5rem;
+	}
+	a:before {    
+		content: "";
+		position: absolute;
+		width: 0;
+		height: 2px;
+		bottom: 0;
+		left: 0;
+		background-color: var(--secondary);
+		visibility: hidden;
+		transition: all 0.3s ease-in-out;
+	}
+	a:hover:before {
+		visibility: visible;
+		width: 100%;
+	}		
+}
 </style>
 

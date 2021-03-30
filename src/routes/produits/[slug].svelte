@@ -16,6 +16,7 @@
 	import marked from 'marked';
 	import { onMount } from 'svelte';
 	import Header from '../../components/Header.svelte'
+	import ContactForm from '../../components/ContactForm.svelte'
 	import { fly } from 'svelte/transition';
     import { quadInOut } from 'svelte/easing';
 	import { observing } from '../../utils/stores.js';
@@ -118,7 +119,7 @@
 					</div>
 				{/each}
 				{#if produit.tableau}
-				<div class="center-block mb-6">
+				<div class="center-block mb-2">
 					<table class="table is-responsive">
 						<thead>
 						<tr>
@@ -144,6 +145,7 @@
 			</div>
 		</div>
 	</div>
+	<ContactForm />
 </div>
 
 
