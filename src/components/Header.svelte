@@ -1,6 +1,6 @@
 <script>
 	import { draw } from 'svelte/transition';
-	import { onMount } from 'svelte';
+	import { onMount, tick } from 'svelte';
 	export let bgColor = "#005476";
 	export let linesColor = "white";
 	export let siglePointilles = false;
@@ -234,6 +234,7 @@
 
 	let svgs = []; 
 	let cerclesEls = [];
+	let headerReady = false;
 	
 	for (let cercle of cercles ) {
 		cercle.peri = Math.ceil(Math.PI * 2 * cercle.rayon);
@@ -243,7 +244,9 @@
 		cercle.stroke = ([...cercle.stroke, 0, cercle.peri]).join(' ');
 	}
 
-	onMount(() => {
+	onMount( async() => {
+		headerReady=true;
+		await tick();
 		svgs.forEach(s => { s.beginElement()});
 		cerclesEls.forEach(c=> c.style.animationDuration = `${c.duree}s`);
 	});
@@ -252,7 +255,6 @@
 	}
 
 </script>
-
 <div class="svg-container">
     <div class="logo-container" style="transform:translate(-50%, -{siglePointilles ? "50" : "77"}%)">
 	{#if siglePointilles}
@@ -277,9 +279,10 @@
 		<h3 class="title is-5 has-text-weight-normal is-subtitle" style="color:{linesColor};">{title.subTitle || ""}</h3>
 	{/if}
     </div>
-
+	{#if headerReady === true}	
 	<svg height="820" width="720" id="svg" xmlns="http://www.w3.org/2000/svg"  version="1.1" style="background:{bgColor}">
 		
+
 
 		{#each lignes as ligne, index(ligne.id)}
 				<line id={ligne.id} stroke-dasharray={ligne.tirets}
@@ -333,8 +336,9 @@
 			cx={cercle.x}
 			r={cercle.rayon}></circle>
 		{/each}
-
+		
 	</svg>
+	{/if}
 </div>
 <style>
 	.svg-container {
