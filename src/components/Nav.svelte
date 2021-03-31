@@ -190,7 +190,10 @@ a {
 	a:hover:before {
 		visibility: visible;
 		width: 100%;
-	}		
+	}
+	a:active {
+		color:inherit!important;
+	}
 }
 </style>
 

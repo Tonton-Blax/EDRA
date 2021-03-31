@@ -33,7 +33,7 @@ const preprocesses = sveltePreprocess({
 
 export default {
 	client: {
-		input: config.client.input().replace(/\.js$/, '.ts'),
+		input: config.client.input(),
 		output: config.client.output(),
 		plugins: [
 			replace({
@@ -101,7 +101,7 @@ export default {
 	},
 
 	server: {
-		input: { server: config.server.input().server.replace(/\.js$/, '.ts') },
+		input: config.server.input(),
 		output: config.server.output(),
 		plugins: [
 			replace({
@@ -135,7 +135,7 @@ export default {
 	},
 
 	serviceworker: {
-		input: config.serviceworker.input().replace(/\.js$/, '.ts'),
+		input: config.serviceworker.input(),
 		output: config.serviceworker.output(),
 		plugins: [
 			resolve(),

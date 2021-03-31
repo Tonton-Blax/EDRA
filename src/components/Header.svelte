@@ -1,14 +1,260 @@
 <script>
 	import { draw } from 'svelte/transition';
+	import { onMount } from 'svelte';
 	export let bgColor = "#005476";
 	export let linesColor = "white";
 	export let siglePointilles = false;
 	export let title = undefined;
 
+	const lignes = [
+  // Début des diagonales HD-BG
+		{
+			id : "ligne0",
+			x1 : 0,
+			y1 : 224,
+			x2 : 252,
+			y2 : 0,
+			duree : 5,
+			dureeRepli : 4,
+			retardRepli : 1,
+			tirets : 4,
+			contour : 1,
+		},
+		{
+			id : "ligne1",
+			x1 : 545,
+			y1 : 0,
+			x2 : 0,
+			y2 : 484,
+			duree : 5,
+			dureeRepli : 4,
+			retardRepli : 1,
+			tirets : 6,
+			contour : 2,
+		},
+		{
+			id : "ligne2",
+			x1 : 0, 
+			y1 : 925,
+			x2 : 967,
+			y2 : 0,
+			duree : 10,
+			dureeRepli : 6,
+			retardRepli : 4,
+			tirets : 5,
+			contour : 1,
+		},
+		{
+			id : "ligne3",
+			x1 : 485,  
+			y1 : 820,
+			x2 : 194,
+			y2 : 1079,
+			duree : 6,
+			dureeRepli : 4,
+			retardRepli : 2,
+			tirets : 5,
+			contour : 2,
+		},
+		{
+			id : "ligne4",
+			x1 : 1343, 
+			y1 : 164,
+			x2 : 1032,
+			y2 : 440,
+			duree : 4,
+			dureeRepli : 3,
+			retardRepli : 1,
+			tirets : 4,
+			contour : 1,
+		},
+		{
+			id : "ligne5",
+			x1 : 681, 
+			y1 : 1079,
+			x2 : 1344,
+			y2 : 491,
+			duree : 5,
+			dureeRepli : 3,
+			retardRepli : 2,
+			tirets : 5,
+			contour : 2,
+		},
+		{
+			id : "ligne6",
+			x1 : 1130, 
+			y1 : 1078,
+			x2 : 1344,
+			y2 : 888,
+			duree : 4,
+			dureeRepli : 3,
+			retardRepli : 2,
+			tirets : 4,
+			contour : 1,
+		},
+  // Début des diagonales HG-BD
+		{
+			id : "ligne7",
+			x1 : 1343, 
+			y1 : 304,
+			x2 : 1002,
+			y2 : 0,
+			duree : 5,
+			dureeRepli : 3,
+			retardRepli : 2,
+			tirets : 5,
+			contour : 2,
+		},
+		{
+			id : "ligne8",
+			x1 : 1344, 
+			y1 : 718,
+			x2 : 761,
+			y2 : 200,
+			duree : 9,
+			dureeRepli : 6,
+			retardRepli : 3,
+			tirets : 6,
+			contour : 1,
+		},
+		{
+			id : "ligne9",
+			x1 : 1014, 
+			y1 : 604,
+			x2 : 1344,
+			y2 : 897,
+			duree : 5,
+			dureeRepli : 3,
+			retardRepli : 2,
+			tirets : 5,
+			contour : 2,
+		},
+		{
+			id : "ligne10",
+			x1 : 64, 
+			y1 : 0,
+			x2 : 530,
+			y2 : 414,
+			duree : 10,
+			dureeRepli : 10,
+			retardRepli : 0,
+			tirets : 4,
+			contour : 1,
+		},
+		{
+			id : "ligne11",
+			x1 : 289, 
+			y1 : 648,
+			x2 : 776,
+			y2 : 1080,
+			duree : 6,
+			dureeRepli : 4,
+			retardRepli : 2,
+			tirets : 4,
+			contour : 2,
+		},
+		{
+			id : "ligne12",
+			x1 : 420, 
+			y1 : 1079,
+			x2 : 119,
+			y2 : 808,
+			duree : 5,
+			dureeRepli : 4,
+			retardRepli : 1,
+			tirets : 4,
+			contour : 1,
+		}
+	];
+	let cercles = [
+		{
+			id : "cercle1",
+			y:604,
+			x:1014,
+			rayon:25,
+			duree: 3,
+			rotation : 225,
+			reversed : true
+		},
+		{
+			id : "cercle2",
+			y:604,
+			x:1014,
+			rayon:135,
+			duree: 5,
+			rotation : 45,
+			reversed : false
+		},
+		{
+			id : "cercle3",
+			y:400,
+			x:88,
+			rayon:283,
+			duree: 7,
+			rotation : 180,
+			reversed : false
+		},
+		{
+			id : "cercle4",
+			y:-480,
+			x:1532,
+			rayon:800,
+			duree: 15,
+			rotation : 200,
+			reversed : false
+		},
+		{
+			id : "cercle5",
+			y:317,
+			x:-486,
+			rayon:1000,
+			duree: 20,
+			rotation : 130,
+			reversed : false
+		},
+		{
+			id : "cercle6",
+			y:1480,
+			x:799,
+			rayon: 700,
+			duree: 15,
+			rotation : 190,
+			reversed : false
+		},
+		{
+			id : "cercle7",
+			y:720,
+			x:1038,
+			rayon: 700,
+			duree: 15,
+			rotation : 10,
+			reversed : false
+		}
+	];
+
+	let svgs = []; 
+	let cerclesEls = [];
+	
+	for (let cercle of cercles ) {
+		cercle.peri = Math.ceil(Math.PI * 2 * cercle.rayon);
+		cercle.stroke = Array(Math.ceil(cercle.peri  / 5)).fill(5)
+		if (cercle.stroke.length % 2 !== 0) 
+			cercle.stroke.pop();
+		cercle.stroke = ([...cercle.stroke, 0, cercle.peri]).join(' ');
+	}
+
+	onMount(() => {
+		svgs.forEach(s => { s.beginElement()});
+		cerclesEls.forEach(c=> c.style.animationDuration = `${c.duree}s`);
+	});
+	let restartLine = async (index) => {
+		svgs[index].beginElement();
+	}
+
 </script>
 
 <div class="svg-container">
-    <div class="logo-container">
+    <div class="logo-container" style="transform:translate(-50%, -{siglePointilles ? "50" : "77"}%)">
 	{#if siglePointilles}
 		<svg class="mb-4"
 		width="122px" height="139px" viewBox="0 0 122 139" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -32,64 +278,62 @@
 	{/if}
     </div>
 
-	<svg height="820" width="720" id="svg" style="background:{bgColor}">
-		<defs>
-			<marker id="arrow" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto" markerUnits="strokeWidth">
-				<path d="M0,0 L0,6 L9,3 z" fill={linesColor} opacity="0">
-					<animate attributeType="XML" attributeName="opacity" from="0" to="1" dur=".1s" repeatCount="0" fill="freeze" />
-				</path>
-			</marker>
+	<svg height="820" width="720" id="svg" xmlns="http://www.w3.org/2000/svg"  version="1.1" style="background:{bgColor}">
+		
 
-		</defs>
-				<line id="line0" stroke-dasharray="3" x1="550" y1="0" x2="551" y2="1" stroke={linesColor} stroke-width="2" marker-end="url(#arrow)">
-				<animate id="l0anim1" attributeType="XML" attributeName="x2" from="551" to="1350" dur="10s" fill="freeze" />
-				<animate id="l0anim2" attributeType="XML" attributeName="y2" from="1" to="820" dur="10s" fill="freeze"/>
-				<animate id="l0anim3" begin="l0anim1.end" attributeType="XML" attributeName="x1" from="551" to="1350" dur="10s"fill="freeze" />
-				<animate id="l0anim4" begin="l0anim2.end" attributeType="XML" attributeName="y1" from="1" to="820" dur="10s" fill="freeze" />
-		</line>
+		{#each lignes as ligne, index(ligne.id)}
+				<line id={ligne.id} stroke-dasharray={ligne.tirets}
+					x1={ligne.x1} y1={ligne.y1} x2={ligne.x2} 
+					y2={ligne.y2} stroke={linesColor} stroke-width={ligne.contour}
+				>
+						<animate begin="indefinite" bind:this={svgs[index]}
+							id="{ligne.id}anim1" attributeType="XML"
+							attributeName="x2" from={ligne.x1} to={ligne.x2} 
+							dur={ligne.duree} 
+						/>
 
-		<line id="line1" stroke-dasharray="3" x1="60" y1="0" x2="61" y2="1150" stroke={linesColor} stroke-width="1" marker-end="url(#arrow)">
-			<animate attributeType="XML" attributeName="x2" from="61" to="1150" dur="10s" fill="freeze" id="anim1" />
-			<animate attributeType="XML" attributeName="y2" from="1" to="1150" dur="10s" fill="freeze" id="anim2" />
+						<animate begin="{ligne.id}anim1.begin"
+							id="{ligne.id}anim2" attributeType="XML" attributeName="y2"  
+							from={ligne.y1} to={ligne.y2} 
+							dur={ligne.duree}
+						/>
+						
+						<animate
+							id="{ligne.id}anim3" attributeType="XML" attributeName="x1"
+							begin="{ligne.id}anim1.end - {ligne.retardRepli}s" 
+							from={ligne.x1} to={ligne.x2} 
+							dur={ligne.dureeRepli}
+						/>
+						<animate on:endEvent={()=> restartLine(index)}
+							id="{ligne.id}anim4" attributeType="XML" attributeName="y1" 
+							begin="{ligne.id}anim2.end - {ligne.retardRepli}s" 
+							from={ligne.y1} to={ligne.y2} 
+							dur={ligne.dureeRepli}
+						/>
+						<animate id="opa1"
+							attributeName="opacity" from="0" to="1" dur="0.1s" fill="freeze"
+							begin="0s;{ligne.id}anim2.begin" />
+						<animate id="opa2" fill="freeze"
+							attributeName="opacity" from="1" to="0" dur="0.1s" 
+							begin="{ligne.id}anim4.begin + {(ligne.dureeRepli)-0.1}s" 
+						/>
+				</line>
+		{/each}
+
+		{#each cercles as cercle, index (cercle.id)}
+			<circle 
+			class="circle-path"
+			class:reversed={cercle.reversed}
+			bind:this={cerclesEls[index]}
+			stroke={linesColor}
+			style="transform:rotate({cercle.rotation}deg);stroke-dasharray:{cercle.stroke};stroke-dashoffset:{cercle.peri};"
 			
-			<animate attributeType="XML" attributeName="x1" from="60" to="1150" dur="10s" fill="freeze" id="anim3" begin="anim1.end"/>
-			<animate attributeType="XML" attributeName="y1" from="0" to="1150" dur="10s" fill="freeze" id="anim4" begin="anim2.end"/>
-		</line>
-		
-		<line id="line2" stroke-dasharray="3" x1="00" y1="625" x2="1" y2="1" stroke={linesColor} stroke-width="1" marker-end="url(#arrow)">
-				<animate id="l2anim1" attributeType="XML" attributeName="x2" from="1" to="820" dur="7s" fill="freeze" />
-				<animate id="l2anim2" attributeType="XML" attributeName="y2" from="625" to="-5" dur="7s" fill="freeze" />
-				<animate id="l2anim3" begin="l2anim1.end" attributeType="XML" attributeName="x1" from="0" to="820" dur="7s" fill="freeze" />
-				<animate id="l2anim4" begin="l2anim2.end"attributeType="XML" attributeName="y1" from="625" to="1" dur="7s" fill="freeze" />
-		</line>
-		
-		<line id="line3" stroke-dasharray="3" x1="-1" y1="925" x2="0" y2="1" stroke={linesColor} stroke-width="4" marker-end="url(#arrow)">
-				<animate id="l3anim1" attributeType="XML" attributeName="x2" from="0" to="1150" dur="10s" fill="freeze"/>
-				<animate id="l3anim2" attributeType="XML" attributeName="y2" from="925" to="1" dur="10s" fill="freeze"/>
-				<animate id="l3anim3" begin="l3anim1.end" attributeType="XML" attributeName="x1" from="0" to="1150" dur="10s" fill="freeze" />
-				<animate id="l3anim4" begin="l3anim2.end" attributeType="XML" attributeName="y1" from="925" to="1" dur="10s" fill="freeze" />
-		</line>
-		
-		<line id="line4" stroke-dasharray="3" x1="565" y1="1100" x2="551" y2="826" stroke={linesColor} stroke-width="2" marker-end="url(#arrow)">
-				<animate id="l4anim1" begin="0s" attributeType="XML" attributeName="x2" from="565" to="-200" dur="10s" fill="freeze" />
-				<animate id="l4anim2" begin="0s" attributeType="XML" attributeName="y2" from="1100" to="237" dur="10s" fill="freeze"/>
-				<animate id="l4anim3" begin="l4anim1.end" attributeType="XML" attributeName="x1" from="565" to="-200" dur="10s" fill="freeze"/>
-				<animate id="l4anim4" begin="l4anim2.end" attributeType="XML" attributeName="y1" from="1100" to="237" dur="10s" fill="freeze"/>
-		</line>
-		
-		<line id="line5" stroke-dasharray="3" x1="1351" y1="273" x2="-200" y2="274" stroke={linesColor} stroke-width="1" marker-end="url(#arrow)">
-			<animate id="l5anim1" attributeType="XML" attributeName="x2" from="1351" to="-200" dur="10s" fill="freeze"/>
-			<animate id="l5anim2" attributeType="XML" attributeName="y2" from="274" to="1645" dur="10s" fill="freeze" />
-			<animate id="l5anim3" begin="l5anim1.end" attributeType="XML" attributeName="x1" from="1351" to="-200" dur="10s" fill="freeze" />
-			<animate id="l5anim4" begin="l5anim2.end" attributeType="XML" attributeName="y1" from="274" to="1645" dur="10s" fill="freeze" />
-				
-		</line>
-			<circle class="circle-path" cy="310" cx="20" r="240" stroke={linesColor} opacity="1">
-				<animate id="canim1" attributeType="XML" attributeName="opacity" from="1" to="0" dur="2s" begin="9s" fill="freeze"/>
-			</circle>
-		 	<circle class="circle-path delay" cy="410" cx="809" r="100" stroke={linesColor} >
-				<animate id="canim2" attributeType="XML" attributeName="opacity" from="1" to="0" dur="2s" begin="10s" fill="freeze"/>
-			</circle>
+			transform-origin="{cercle.x} {cercle.y}"
+			cy={cercle.y}
+			cx={cercle.x}
+			r={cercle.rayon}></circle>
+		{/each}
+
 	</svg>
 </div>
 <style>
@@ -106,7 +350,6 @@
 		position: absolute;
 		top: 53%;
 		left: 50%;
-		transform: translate(-50%, -50%);
 		z-index: 1;
 		display: flex;
 		flex-direction: column;
