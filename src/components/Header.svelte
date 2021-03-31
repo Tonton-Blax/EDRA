@@ -19,6 +19,7 @@
 			retardRepli : 1,
 			tirets : 4,
 			contour : 1,
+			couleur : "#fff"
 		},
 		{
 			id : "ligne1",
@@ -31,6 +32,7 @@
 			retardRepli : 1,
 			tirets : 6,
 			contour : 2,
+			couleur : "#fff"			
 		},
 		{
 			id : "ligne2",
@@ -43,6 +45,7 @@
 			retardRepli : 4,
 			tirets : 5,
 			contour : 1,
+			couleur : "#fff"
 		},
 		{
 			id : "ligne3",
@@ -55,6 +58,7 @@
 			retardRepli : 2,
 			tirets : 5,
 			contour : 2,
+			couleur : "#fff"
 		},
 		{
 			id : "ligne4",
@@ -67,6 +71,7 @@
 			retardRepli : 1,
 			tirets : 4,
 			contour : 1,
+			couleur : "#fff"
 		},
 		{
 			id : "ligne5",
@@ -79,6 +84,7 @@
 			retardRepli : 2,
 			tirets : 5,
 			contour : 2,
+			couleur : "#fff"			
 		},
 		{
 			id : "ligne6",
@@ -91,6 +97,7 @@
 			retardRepli : 2,
 			tirets : 4,
 			contour : 1,
+			couleur : "#fff"
 		},
   // Début des diagonales HG-BD
 		{
@@ -104,6 +111,7 @@
 			retardRepli : 2,
 			tirets : 5,
 			contour : 2,
+			couleur : "#fff"
 		},
 		{
 			id : "ligne8",
@@ -116,6 +124,7 @@
 			retardRepli : 3,
 			tirets : 6,
 			contour : 1,
+			couleur : "#fff"
 		},
 		{
 			id : "ligne9",
@@ -128,6 +137,7 @@
 			retardRepli : 2,
 			tirets : 5,
 			contour : 2,
+			couleur : "#fff"	
 		},
 		{
 			id : "ligne10",
@@ -140,6 +150,7 @@
 			retardRepli : 0,
 			tirets : 4,
 			contour : 1,
+			couleur : "#fff"
 		},
 		{
 			id : "ligne11",
@@ -152,6 +163,7 @@
 			retardRepli : 2,
 			tirets : 4,
 			contour : 2,
+			couleur : "#fff"	
 		},
 		{
 			id : "ligne12",
@@ -164,6 +176,7 @@
 			retardRepli : 1,
 			tirets : 4,
 			contour : 1,
+			couleur : "#fff"
 		}
 	];
 	let cercles = [
@@ -173,6 +186,7 @@
 			x:1014,
 			rayon:25,
 			duree: 3,
+			couleur : "white",
 			rotation : 225,
 			reversed : true
 		},
@@ -182,6 +196,7 @@
 			x:1014,
 			rayon:135,
 			duree: 5,
+			couleur : "white",
 			rotation : 45,
 			reversed : false
 		},
@@ -191,6 +206,7 @@
 			x:88,
 			rayon:283,
 			duree: 7,
+			couleur : "white",
 			rotation : 180,
 			reversed : false
 		},
@@ -200,6 +216,7 @@
 			x:1532,
 			rayon:800,
 			duree: 15,
+			couleur : "white",
 			rotation : 200,
 			reversed : false
 		},
@@ -209,6 +226,7 @@
 			x:-486,
 			rayon:1000,
 			duree: 20,
+			couleur : "white",
 			rotation : 130,
 			reversed : false
 		},
@@ -218,6 +236,7 @@
 			x:799,
 			rayon: 700,
 			duree: 15,
+			couleur : "white",
 			rotation : 190,
 			reversed : false
 		},
@@ -227,6 +246,7 @@
 			x:1038,
 			rayon: 700,
 			duree: 15,
+			couleur : "white",
 			rotation : 10,
 			reversed : false
 		}
