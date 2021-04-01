@@ -1,7 +1,7 @@
 ---
 layout: produits
 slug: poste-change-kerrock
-title: Postes de change en```Kerrock
+title: Postes de change en&nbsp;Kerrock
 subtitle: Pour une hygiène et un entretien irréprochable
 thumbnail: ../img/uploads/poste-de-change-compact.jpg
 date: 2021-04-01T09:20:06.078Z
@@ -21,23 +21,24 @@ contenu:
       * Support : Mobilier sur mesure conçu en réponse à vos attentes
   - type: intertitrebigobject
     interbig: Les éléments du plans de change
-  - type: intertitresmallobject
-    intersmall: Les baignoires
   - type: textblock
     body: |-
+      **Les baignoires**
+
       Différentes dimensions en fonction de l’âge
 
       * La baignoire Sofia : 700 x 400 x P262 mm
       * La baignoire Ada : 850 x 450 x P262 mm
       * La baignoire Heidi : 550 x 350 x P150/184 mm
-  - type: intertitresmallobject
-    intersmall: Les vasques
-  - type: textblock
-    body: "* Un large choix en fonction de la place disponible"
-  - type: intertitresmallobject
-    intersmall: Le change
   - type: textblock
     body: |-
+      **Les vasques**
+
+      * Un large choix en fonction de la place disponible
+  - type: textblock
+    body: |-
+      **Le change**
+
       * Matériau : Mousse densité 24Kg/m³ et toile enduite sans phtalates
       * Matelas incurvé sur les côtés pour plus de sécurité
       * Surface lisse et douce au toucher
@@ -46,12 +47,15 @@ contenu:
       * Dimensions standard : 500 x 600 ou 500 x 700 mm
       * Epaisseur : 50 mm – Bords : 100 mm
       * 16 coloris au choix
-  - type: intertitresmallobject
-    intersmall: Combinaison esthétique et fonctionnelles avec du mobilier en
-      stratifié à choisir parmi 156 coloris
   - type: textblock
-    body: |-
+    body: >-
+      **Combinaison esthétique et fonctionnelles avec du mobilier en stratifié à
+      choisir parmi 156 coloris**
+
+
       * Placard avec étagères
+
       * Tiroirs, toutes dimensions au choix
+
       * Casiers pour un libre accès…
 ---
