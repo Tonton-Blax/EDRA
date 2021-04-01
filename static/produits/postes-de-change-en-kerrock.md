@@ -1,7 +1,7 @@
 ---
 layout: produits
 slug: poste-change-kerrock
-title: Postes de change en&nbsp;Kerrock
+title: Postes de change en```Kerrock
 subtitle: Pour une hygiène et un entretien irréprochable
 thumbnail: ../img/uploads/poste-de-change-compact.jpg
 date: 2021-04-01T09:20:06.078Z
