@@ -34,4 +34,9 @@ contenu:
   - type: intertitrebigobject
     interbig: Combinaison esthétique et fonctionnelles avec du mobilier en stratifié
       à choisir parmi 156 coloris.
+  - type: imagesobject
+    images:
+      - ../img/uploads/paillasse-sur-mesure-04.jpg
+      - ../img/uploads/paillasse-sur-mesure-05.jpg
+      - ../img/uploads/paillasse-sur-mesure-03.jpg
 ---
