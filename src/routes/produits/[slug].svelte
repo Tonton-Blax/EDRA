@@ -118,7 +118,7 @@
 						{/if}
 					</div>
 				{/each}
-				{#if produit.tableau}
+				{#if produit.tableau && produit.tableau[0] && produit.tableau[0].length}
 				<div class="center-block mb-2">
 					<table class="table is-responsive">
 						<thead>
