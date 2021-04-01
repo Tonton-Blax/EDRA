@@ -73,8 +73,8 @@
 		<div class="column is-full">
 			<div class="edra-block no-padding has-text-white">
 				<div class="overblock">
-					<h3 class="title is-3 has-text-primary has-text-weight-bold">{produit.title}</h3>
-					<p class="has-text-primary has-text-left">{produit.subtitle}</p>
+					<h3 class="title is-3 has-text-primary has-text-weight-bold">{@html produit.title}</h3>
+					<p class="has-text-primary has-text-left">{@html produit.subtitle}</p>
 				</div>
 				<div class="img-container fit-header">
 					{#if produit.thumbnail.length}

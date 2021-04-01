@@ -20,7 +20,7 @@
 						</div>
 						<div class="card-content">		  
 							<div class="content">
-								<h2 class="title is-4 has-text-primary has-text-left has-text-weight-bold">{post.title}</h2>
+								<h2 class="title is-4 has-text-primary has-text-left has-text-weight-bold">{@html post.title}</h2>
 							</div>
 						</div>
 						<footer class="card-footer">
