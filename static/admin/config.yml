@@ -14,7 +14,7 @@ collections:
     slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document
       - { label: "Layout", name: "layout", widget: "hidden", default: "produits"}
-      - { label: "Slug", name: "slug", widget: "string" }
+      - { label: "Slug", name: "slug", widget: "string", hint: "IMPORTANT : l'adresse de la page, en minuscule, sans espaces!" }
       - { label: "Titre général", name: "title", widget: "string"}
       - { label: "Sous-titre général", name: "subtitle", widget: "string"}
       - { label: "Image de couverture", name: "thumbnail", widget: "image"}
