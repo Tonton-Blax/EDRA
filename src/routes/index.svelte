@@ -11,6 +11,12 @@
 
 	import { fly } from 'svelte/transition';
 	import { quadInOut, quadOut } from 'svelte/easing';
+	import { stores } from '@sapper/app';
+	const { page } = stores();
+
+	let ok = true;
+	$: $page.path && notOk();
+
 
 	let pictoEl, headerEl;
 	let intersectings = {
@@ -61,6 +67,12 @@
 
 	];
 
+	function timeout(ms) {
+    	return new Promise(resolve => setTimeout(resolve, ms));
+	}
+	let notOk = async () => {ok = false; await timeout(100); ok = true}
+	
+
 	let Carousel
 	onMount(async() => {
 		const comp = await import('svelte-carousel/src/components/Carousel/Carousel.svelte');
@@ -72,13 +84,15 @@
 <div class="container">
 	<div class="columns is-gapless is-multiline">
 		<div class="column is-full">
-		{#key $observing}
+		
 		<IntersectionObserver element={headerEl} bind:intersecting={$observing}>
 			<div class="edra-block no-padding has-text-white" bind:this={headerEl}>
+				{#key ok}
 				<Header />
+				{/key}
 			</div>
 		</IntersectionObserver>
-		{/key}
+		
 		</div>
 	
 		<div class="column is-full">
@@ -119,22 +133,22 @@
 				<div class="columns cols-picto">
 					<IntersectionObserver bind:intersecting={intersectings.pictos} element={pictoEl}>
 						{#if intersectings.pictos}
-						<div out:fly in:fly={{y:200, delay:300, easing:quadOut}} class="column is-one-fourth has-text-centered col-picto">
+						<div out:fly in:fly={{y:200, delay:100, easing:quadOut}} class="column is-one-fourth has-text-centered col-picto">
 							<img src="../img/pictos/picto_demoulable.png" alt="Fabrication à partir d'un moule">
 							<h3 class="title is-4 has-text-primary">Fabrication<br>à partir d'un moule</h3>
 							<p>Nulla sollicitudin. Fusce varius, ligula non tempus aliquam, nunc turpis ullamcorper nibh, in tempus sapien eros.</p>
 						</div>
-						<div out:fly in:fly={{y:200, delay:450, easing:quadOut}} class="column is-one-fourth has-text-centered col-picto">
+						<div out:fly in:fly={{y:200, delay:250, easing:quadOut}} class="column is-one-fourth has-text-centered col-picto">
 							<img src="../img/pictos/picto_tracking.png" alt="Fabrication à partir d'un moule">
 							<h3 class="title is-4 has-text-primary">Module<br> de traçabilité</h3>
 							<p>Busce varius, ligula non tempus aliquam, nunc turpis ullamcorper nibh, in tempus vitae ligula. Nulla sollicitudin. </p>
 						</div>
-						<div out:fly  in:fly={{y:200, delay:600, easing:quadOut}} class="column is-one-fourth has-text-centered col-picto">
+						<div out:fly  in:fly={{y:200, delay:400, easing:quadOut}} class="column is-one-fourth has-text-centered col-picto">
 							<img src="../img/pictos/picto_madeinfrance.png" alt="Fabrication à partir d'un moule">
 							<h3 class="title is-4 has-text-primary">Fabrication<br> française</h3>
 							<p>Ullamcorper nibh, in tempus sapien eros vitae ligula. Nulla sollicitudin. Fusce varius, ligula non tempu.</p>
 						</div>
-						<div out:fly  in:fly={{y:200, delay:750, easing:quadOut}} class="column is-one-fourth has-text-centered col-picto">
+						<div out:fly  in:fly={{y:200, delay:550, easing:quadOut}} class="column is-one-fourth has-text-centered col-picto">
 							<img src="../img/pictos/picto_livraison.png" alt="Fabrication à partir d'un moule">
 							<h3 class="title is-4 has-text-primary">Intervention<br> dans toute la france</h3>
 							<p>Tempus aliquam, nunc turpis ullamcorper nibh, in tempus sapien eros vitae ligula. Nulla sollicitudin. Fusce varius.</p>

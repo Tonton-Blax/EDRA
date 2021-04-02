@@ -12,6 +12,16 @@
 	import { observing } from '../../utils/stores.js';
 	import IntersectionObserver from "svelte-intersection-observer";
 	let headerEl;
+	import { stores } from '@sapper/app';
+	const { page } = stores();
+
+	let ok = true;
+	$: $page.path && notOk();
+	function timeout(ms) {
+    	return new Promise(resolve => setTimeout(resolve, ms));
+	}
+	let notOk = async () => {ok = false; await timeout(100); ok = true}
+	
 
 </script>
 
@@ -20,11 +30,12 @@
 </svelte:head>
 	<div class="container">
 		<div class="columns is-multiline is-gapless p-0 has-background-primary-light cols-produits">
-
 			<div class="column is-full">
 				<IntersectionObserver bind:intersecting={$observing} element={headerEl} >
 					<div class="edra-block no-padding has-text-white" bind:this={headerEl}>
+						{#key ok}
 						<Header />
+						{/key}
 					</div>
 				</IntersectionObserver>
 			</div>

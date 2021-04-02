@@ -22,7 +22,13 @@
     import { quadInOut } from 'svelte/easing';
 	import { observing } from '../../utils/stores.js';
 	import IntersectionObserver from "svelte-intersection-observer";
+	import { stores } from '@sapper/app';
+	const { page } = stores();
 
+	let ok = true;
+	$: $page.path && notOk();
+	
+	
 	let headerEl;
 
 	export let postMd, posts;
@@ -41,6 +47,10 @@
 			}
 		}
 	}
+	function timeout(ms) {
+    	return new Promise(resolve => setTimeout(resolve, ms));
+	}
+	let notOk = async () => {ok = false; await timeout(100); ok = true}
 
 	onMount(async() => {
 		const compImages = await import('svelte-images/src/Images/Images.svelte');
@@ -57,6 +67,7 @@
 		<div class="column is-full">
 			<IntersectionObserver bind:intersecting={$observing} element={headerEl} >
 				<div class="edra-block no-padding has-text-white" bind:this={headerEl}>
+					{#key ok}
 					<Header 
 						siglePointilles={true}
 						bgColor={"#D9E7EC"} linesColor={"#005476"} 
@@ -65,6 +76,7 @@
 							subTitle : "Ut velit mauris, egestas sed, gravida nec, ornare ut, mi. Aenean ut orci vel massa suscipit pulvinar. Nulla sollicitudin. Fusce varius, ligula non tempus."
 						}}
 					/>
+					{/key}
 				</div>
 			</IntersectionObserver>
 		</div>
