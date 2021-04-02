@@ -393,9 +393,7 @@
   		stroke-dashoffset: 628.3;
   		animation: dashed-line 5s linear alternate infinite;
 	}
-	.delay {
-		animation-delay : 3s
-	}
+
 	
 	@keyframes dashed-line {
   		to {

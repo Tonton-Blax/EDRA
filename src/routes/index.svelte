@@ -70,7 +70,7 @@
 	function timeout(ms) {
     	return new Promise(resolve => setTimeout(resolve, ms));
 	}
-	let notOk = async () => {ok = false; await timeout(100); ok = true}
+	let notOk = async () => {ok = false; await timeout(100); ok = true;}
 	
 
 	let Carousel
@@ -84,15 +84,15 @@
 <div class="container">
 	<div class="columns is-gapless is-multiline">
 		<div class="column is-full">
-		
+		{#if ok}
 		<IntersectionObserver element={headerEl} bind:intersecting={$observing}>
 			<div class="edra-block no-padding has-text-white" bind:this={headerEl}>
-				{#key ok}
+				
 				<Header />
-				{/key}
+				
 			</div>
 		</IntersectionObserver>
-		
+		{/if}
 		</div>
 	
 		<div class="column is-full">

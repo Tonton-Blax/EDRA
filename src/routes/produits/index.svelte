@@ -20,7 +20,7 @@
 	function timeout(ms) {
     	return new Promise(resolve => setTimeout(resolve, ms));
 	}
-	let notOk = async () => {ok = false; await timeout(100); ok = true}
+	let notOk = async () => {ok = false; await timeout(100); ok = true;}
 	
 
 </script>
@@ -31,13 +31,13 @@
 	<div class="container">
 		<div class="columns is-multiline is-gapless p-0 has-background-primary-light cols-produits">
 			<div class="column is-full">
+				{#if ok}
 				<IntersectionObserver bind:intersecting={$observing} element={headerEl} >
 					<div class="edra-block no-padding has-text-white" bind:this={headerEl}>
-						{#key ok}
 						<Header />
-						{/key}
 					</div>
 				</IntersectionObserver>
+				{/if}
 			</div>
 		</div>
 		<Posts {posts} />

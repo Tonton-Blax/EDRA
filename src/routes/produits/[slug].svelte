@@ -50,7 +50,7 @@
 	function timeout(ms) {
     	return new Promise(resolve => setTimeout(resolve, ms));
 	}
-	let notOk = async () => {ok = false; await timeout(100); ok = true}
+	let notOk = async () => {ok = false; await timeout(100); ok = true;}
 
 	onMount(async() => {
 		const compImages = await import('svelte-images/src/Images/Images.svelte');
@@ -65,9 +65,9 @@
 >
 	<div class="columns is-gapless is-multiline">
 		<div class="column is-full">
+			{#if ok}
 			<IntersectionObserver bind:intersecting={$observing} element={headerEl} >
 				<div class="edra-block no-padding has-text-white" bind:this={headerEl}>
-					{#key ok}
 					<Header 
 						siglePointilles={true}
 						bgColor={"#D9E7EC"} linesColor={"#005476"} 
@@ -76,9 +76,9 @@
 							subTitle : "Ut velit mauris, egestas sed, gravida nec, ornare ut, mi. Aenean ut orci vel massa suscipit pulvinar. Nulla sollicitudin. Fusce varius, ligula non tempus."
 						}}
 					/>
-					{/key}
 				</div>
 			</IntersectionObserver>
+			{/if}
 		</div>
 
 	

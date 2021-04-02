@@ -192,7 +192,7 @@ a {
 		width: 100%;
 	}
 	a:active {
-		color:inherit!important;
+		color:unset!important;
 	}
 }
 </style>
