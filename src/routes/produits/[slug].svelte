@@ -1,47 +1,42 @@
-<script context="module">                                                                                                                                                                                                                                                                   
-	export async function preload({ params }) {
-		const posts = await (await this.fetch(`produits.json`)).json();
-		
-		const res = await this.fetch(`produits/${params.slug}.md`);
-		if (res.status === 200) {
-			return { postMd: await res.text(), posts };
-		} else {
-			this.error(res.status, data.message);
-		}
+<script context="module">
+	export const prerender = true;
+	export async function load({ page, fetch }) {
+		const res = await (await fetch(`/produits/${page.params.slug}.json`)).json();
+		const posts = await (await fetch('/produits.json')).json();
+		return {
+			props: {
+				produit: res,
+				posts : posts
+			}
+		};
 	}
 </script>
-  
+
 <script>
-	import fm from 'front-matter';
 	import marked from 'marked';
 	import { onMount } from 'svelte';
-	import Header from '../../components/Header.svelte'
-	import Posts from '../../components/Posts.svelte'
-	import ContactForm from '../../components/ContactForm.svelte'
+	import Header from '$lib/components/Header.svelte'
+	import Posts from '$lib/components/Posts.svelte'
+	import ContactForm from '$lib/components/ContactForm.svelte'
 	import { fly } from 'svelte/transition';
     import { quadInOut } from 'svelte/easing';
-	import { observing } from '../../utils/stores.js';
+	import { observing } from '$lib/stores.js';
 	import IntersectionObserver from "svelte-intersection-observer";
+	import { page } from '$app/stores';
+
+	$: $page.path && notOk();
+	let ok = true;
+	function timeout(ms) {
+    	return new Promise(resolve => setTimeout(resolve, ms));
+	}
+
+	let notOk = async () => {ok = false; await timeout(100); ok = true;}
+
 
 	let headerEl;
 
-	export let postMd, posts;
-	
-	let produit = fm(postMd).attributes;
-
+	export let produit,posts;	
 	let Images;
-
-	async function navigate (url) {
-		const res = await fetch(url);
-		if (res && res.ok) {
-			const txt = await res.text();
-			if (txt) {
-				produit = fm(txt).attributes;
-				window.location.replace(url);
-			}
-		}
-	}
-
 	onMount(async() => {
 		const compImages = await import('svelte-images/src/Images/Images.svelte');
 		Images = compImages.default;
@@ -55,6 +50,7 @@
 >
 	<div class="columns is-gapless is-multiline">
 		<div class="column is-full">
+			{#if ok}
 			<IntersectionObserver bind:intersecting={$observing} element={headerEl} >
 				<div class="edra-block no-padding has-text-white" bind:this={headerEl}>
 					<Header 
@@ -67,6 +63,7 @@
 					/>
 				</div>
 			</IntersectionObserver>
+			{/if}
 		</div>
 
 	
@@ -159,8 +156,8 @@
 		</div>
 	</div>
 
-	
-	<Posts {posts} programatic={true} on:navigate={(e)=>navigate(e.detail.url)} />
+	<Posts {posts} programatic={false} />
+
 </div>
 {/key}
 <style>

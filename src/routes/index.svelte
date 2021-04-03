@@ -1,16 +1,29 @@
 <svelte:head>
-	<title>Sapper project template</title>
+	<title>EDRA Médical</title>
 </svelte:head>
-
+<script context="module">
+	export const prerender = true;
+</script>
 <script>
 	import {onMount} from 'svelte'
-	import Header from '../components/Header.svelte'
-	import {chunk, shuffleArray} from '../utils/utils.js';
-	import {observing} from '../utils/stores.js';
+	import Header from '$lib/components/Header.svelte'
+	import {chunk, shuffleArray} from '$lib/utils.js';
+	import {observing} from '$lib/stores.js';
 	import IntersectionObserver from "svelte-intersection-observer";
-
 	import { fly } from 'svelte/transition';
 	import { quadInOut, quadOut } from 'svelte/easing';
+	import { page } from '$app/stores';
+
+	$: $page.path && notOk();
+
+	let ok = true;
+	
+	function timeout(ms) {
+    	return new Promise(resolve => setTimeout(resolve, ms));
+	}
+
+	let notOk = async () => {ok = false; await timeout(100); ok = true;}
+
 
 	let pictoEl, headerEl;
 	let intersectings = {
@@ -72,13 +85,13 @@
 <div class="container">
 	<div class="columns is-gapless is-multiline">
 		<div class="column is-full">
-		{#key $observing}
+		{#if ok}
 		<IntersectionObserver element={headerEl} bind:intersecting={$observing}>
 			<div class="edra-block no-padding has-text-white" bind:this={headerEl}>
 				<Header />
 			</div>
 		</IntersectionObserver>
-		{/key}
+		{/if}
 		</div>
 	
 		<div class="column is-full">
