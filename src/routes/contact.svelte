@@ -7,17 +7,14 @@ import ContactForm from '$lib/components/ContactForm.svelte'
 import {observing} from '$lib/stores.js';
 import IntersectionObserver from "svelte-intersection-observer";
 import { page } from '$app/stores';
+import { onMount } from 'svelte'
 
-$: $page.path && notOk();
-let ok = true;
-function timeout(ms) {
-	return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-let notOk = async () => {ok = false; await timeout(100); ok = true;}
-
+let ready = false;
 let headerEl;
 
+$: $page.path && (ready = false) && setTimeout(()=>ready = true, 100)
+
+onMount(async() => ready = true);
 
 </script>
 
@@ -25,7 +22,7 @@ let headerEl;
 	
 	<div class="columns is-gapless is-multiline	mb-6 pb-6">
 		<div class="column is-full">
-			{#if ok}
+			{#if ready}
 			<IntersectionObserver bind:intersecting={$observing} element={headerEl}>
 				<div class="edra-block no-padding has-text-white" bind:this={headerEl}>
 					<Header/>

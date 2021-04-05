@@ -6,12 +6,13 @@
 	import Nav from '$lib/components/Nav.svelte'
 	import Footer from '$lib/components/Footer.svelte'
 	import Transition from '$lib/components/Transition.svelte';
+	import { page } from '$app/stores';
 	export let segment;
 </script>
 
 <Nav {segment} />
 
-<Transition refresh={segment}>
+<Transition refresh={$page.path}>
 	<slot/>
 </Transition>
 

@@ -265,8 +265,8 @@
 
 	onMount( async() => {
 		await tick();
-		svgs.forEach(s => { s.beginElement()});
-		cerclesEls.forEach(c=> c.style.animationDuration = `${c.duree}s`);
+		svgs.forEach( s => s !== null && s.beginElement() );
+		cerclesEls.forEach( c =>  c !== null && (c.style.animationDuration = `${c.duree}s`));
 	});
 	let restartLine = async (index) => {
 		svgs[index].beginElement();

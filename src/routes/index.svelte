@@ -14,16 +14,8 @@
 	import { quadInOut, quadOut } from 'svelte/easing';
 	import { page } from '$app/stores';
 
-	$: $page.path && notOk();
-
-	let ok = true;
-	
-	function timeout(ms) {
-    	return new Promise(resolve => setTimeout(resolve, ms));
-	}
-
-	let notOk = async () => {ok = false; await timeout(100); ok = true;}
-
+	let ready = false;
+	$: $page.path && (ready = false) && setTimeout(()=>ready = true, 100)
 
 	let pictoEl, headerEl;
 	let intersectings = {
@@ -78,6 +70,7 @@
 	onMount(async() => {
 		const comp = await import('svelte-carousel/src/components/Carousel/Carousel.svelte');
 		Carousel = comp.default;
+		ready = true;
 	});
 
 </script>
@@ -85,7 +78,7 @@
 <div class="container">
 	<div class="columns is-gapless is-multiline">
 		<div class="column is-full">
-		{#if ok}
+		{#if $page.path && ready}
 		<IntersectionObserver element={headerEl} bind:intersecting={$observing}>
 			<div class="edra-block no-padding has-text-white" bind:this={headerEl}>
 				<Header />

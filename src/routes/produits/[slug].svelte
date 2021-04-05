@@ -23,24 +23,21 @@
 	import { observing } from '$lib/stores.js';
 	import IntersectionObserver from "svelte-intersection-observer";
 	import { page } from '$app/stores';
-
-	$: $page.path && notOk();
-	let ok = true;
-	function timeout(ms) {
-    	return new Promise(resolve => setTimeout(resolve, ms));
-	}
-
-	let notOk = async () => {ok = false; await timeout(100); ok = true;}
-
+	export let produit,posts;	
 
 	let headerEl;
 
-	export let produit,posts;	
+	let ready = false;
+	$: $page.path && (ready = false) && setTimeout(()=>ready = true, 100)
+
 	let Images;
+
 	onMount(async() => {
+		ready = true;
 		const compImages = await import('svelte-images/src/Images/Images.svelte');
 		Images = compImages.default;
 	});
+
 </script>
 
 {#key produit.title}
@@ -50,7 +47,7 @@
 >
 	<div class="columns is-gapless is-multiline">
 		<div class="column is-full">
-			{#if ok}
+			{#if ready}
 			<IntersectionObserver bind:intersecting={$observing} element={headerEl} >
 				<div class="edra-block no-padding has-text-white" bind:this={headerEl}>
 					<Header 
