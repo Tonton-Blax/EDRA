@@ -1,5 +1,5 @@
 <script context="module">
-	export const prerender = true;
+	//export const prerender = true;
 	export async function load({ page, fetch }) {
 		const res = await (await fetch(`/produits/${page.params.slug}.json`)).json();
 		const posts = await (await fetch('/produits.json')).json();
@@ -22,18 +22,12 @@
     import { quadInOut } from 'svelte/easing';
 	import { observing } from '$lib/stores.js';
 	import IntersectionObserver from "svelte-intersection-observer";
-	import { page } from '$app/stores';
 	export let produit,posts;	
 
 	let headerEl;
-
-	let ready = false;
-	$: $page.path && (ready = false) && setTimeout(()=>ready = true, 100)
-
 	let Images;
 
 	onMount(async() => {
-		ready = true;
 		const compImages = await import('svelte-images/src/Images/Images.svelte');
 		Images = compImages.default;
 	});
@@ -47,7 +41,6 @@
 >
 	<div class="columns is-gapless is-multiline">
 		<div class="column is-full">
-			{#if ready}
 			<IntersectionObserver bind:intersecting={$observing} element={headerEl} >
 				<div class="edra-block no-padding has-text-white" bind:this={headerEl}>
 					<Header 
@@ -60,7 +53,6 @@
 					/>
 				</div>
 			</IntersectionObserver>
-			{/if}
 		</div>
 
 	

@@ -16,13 +16,6 @@ export async function load({ fetch }) {
 	import Posts from '$lib/components/Posts.svelte'
 	import { observing } from '$lib/stores.js';
 	import IntersectionObserver from "svelte-intersection-observer";
-	import { page } from '$app/stores';
-	import { onMount } from 'svelte';
-
-	let ready = false;
-
-	onMount(async() => ready = true);	
-	$: $page.path && (ready = false) && setTimeout(()=>ready = true, 100)
 
 	let headerEl;
 	
@@ -34,13 +27,11 @@ export async function load({ fetch }) {
 	<div class="container">
 		<div class="columns is-multiline is-gapless p-0 has-background-primary-light cols-produits">
 			<div class="column is-full">
-				{#key ready}
 				<IntersectionObserver bind:intersecting={$observing} element={headerEl} >
 					<div class="edra-block no-padding has-text-white" bind:this={headerEl}>
 						<Header />
 					</div>
 				</IntersectionObserver>
-				{/key}
 			</div>
 		</div>
 		<Posts {posts} />

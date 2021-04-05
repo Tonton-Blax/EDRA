@@ -12,10 +12,6 @@
 	import IntersectionObserver from "svelte-intersection-observer";
 	import { fly } from 'svelte/transition';
 	import { quadInOut, quadOut } from 'svelte/easing';
-	import { page } from '$app/stores';
-
-	let ready = false;
-	$: $page.path && (ready = false) && setTimeout(()=>ready = true, 100)
 
 	let pictoEl, headerEl;
 	let intersectings = {
@@ -70,7 +66,6 @@
 	onMount(async() => {
 		const comp = await import('svelte-carousel/src/components/Carousel/Carousel.svelte');
 		Carousel = comp.default;
-		ready = true;
 	});
 
 </script>
@@ -78,13 +73,11 @@
 <div class="container">
 	<div class="columns is-gapless is-multiline">
 		<div class="column is-full">
-		{#if $page.path && ready}
 		<IntersectionObserver element={headerEl} bind:intersecting={$observing}>
 			<div class="edra-block no-padding has-text-white" bind:this={headerEl}>
 				<Header />
 			</div>
 		</IntersectionObserver>
-		{/if}
 		</div>
 	
 		<div class="column is-full">

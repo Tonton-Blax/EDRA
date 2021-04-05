@@ -12,8 +12,8 @@
 
 <Nav {segment} />
 
-<Transition refresh={$page.path}>
-	<slot/>
+<Transition refresh={$page.path} >
+	<slot />
 </Transition>
 
 <Footer {segment} />

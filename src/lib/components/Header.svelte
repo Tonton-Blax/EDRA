@@ -1,10 +1,22 @@
 <script>
 	import { draw } from 'svelte/transition';
 	import { onMount, tick } from 'svelte';
+	import { navigating } from '$app/stores';
 	export let bgColor = "#005476";
 	export let linesColor = "white";
 	export let siglePointilles = false;
 	export let title = undefined;
+
+	$: !$navigating && refresh()
+	let ok = false;
+
+	let refresh = async () => {
+		ok = false; 
+		await tick(); 
+		ok = true
+		await tick(); 
+		svgs.forEach(s => { s !== null && s.beginElement() });
+	}
 
 	const lignes = [
   // Début des diagonales HD-BG
@@ -273,6 +285,7 @@
 	}
 
 </script>
+{#if ok}
 <div class="svg-container">
     <div class="logo-container" style="transform:translate(-50%, -{siglePointilles ? "50" : "77"}%)">
 	{#if siglePointilles}
@@ -356,6 +369,7 @@
 		
 	</svg>
 </div>
+{/if}
 <style>
 	.svg-container {
 		position:absolute;
