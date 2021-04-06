@@ -1,6 +1,6 @@
 
 <script>
-import  {Toast} from 'svelma'
+import  Toast from 'svelma/src/components/Toast/Toast.svelte'
 import { slide } from 'svelte/transition'
 import { quadInOut } from 'svelte/easing';
 export let deplieForm = false
