@@ -1,8 +1,8 @@
 <script context="module">
 
 export async function load({ fetch }) {
-    const res = await (await fetch('produits.json')).json();
-	console.log("from index module : ", res)
+    const res = await (await fetch('/produits.json')).json();
+
     return {
         props: {
             posts: res.map(r => { return {...r.contents, slug : r.slug}})
@@ -17,7 +17,6 @@ export async function load({ fetch }) {
 	import { observing, allPosts } from '$lib/stores.js';
 	import IntersectionObserver from "svelte-intersection-observer";
 	export let posts;
-	console.log("from index body : ", posts)
 
 	$: posts.length && allPosts.set(posts)
 

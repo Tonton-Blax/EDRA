@@ -23,7 +23,7 @@ module.exports = {
 
 		vite: {
 			ssr: {
-				noExternal: [...Object.keys(pkg.dependencies || {}), 'glob', 'yaml']
+				noExternal: [...Object.keys(pkg.dependencies || {})]
 			}
 		},
 	
