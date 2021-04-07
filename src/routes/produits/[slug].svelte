@@ -2,7 +2,7 @@
 	import { get } from 'svelte/store';
 
 	export async function load({ page, fetch }) {
-		const res = await (await fetch(`produits/${page.params.slug}.json`)).json();
+		const res = await (await fetch(`${page.params.slug}.json`)).json();
 		const posts = get(allPosts).length ? get(allPosts) : await (await fetch('produits.json')).json();
 		return {
 			props: {

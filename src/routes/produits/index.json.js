@@ -7,8 +7,11 @@ export async function get() {
 
   const posts = await new Promise((resolve, reject) =>
     glob('static/produits/*.md', (err, files) => {
-      if (err) 
+      if (err) {
+        console.log("pas trouvé, ", err)
         return reject(err);
+      }
+      console.log("trouvé, ", files)
       return resolve(files);
     })
   );
