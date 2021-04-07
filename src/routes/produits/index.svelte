@@ -1,7 +1,7 @@
 <script context="module">
 
 export async function load({ fetch }) {
-    const res = await (await fetch('/produits.json')).json();
+    const res = await (await fetch('produits.json')).json();
 
     return {
         props: {
