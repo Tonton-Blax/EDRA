@@ -27,7 +27,7 @@
 	"type": "module",
 	"dependencies": {
 		"@fortawesome/fontawesome-free": "^5.15.3",
-		"@sveltejs/adapter-netlify": "next",
+		"@sveltejs/adapter-static": "next",
 		"bulma": "^0.9.2",
 		"marked": "^2.0.1",
 		"svelte-carousel": "^1.0.3",
