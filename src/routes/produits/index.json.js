@@ -1,7 +1,7 @@
-import fm from 'front-matter';
+import YAML from 'yaml';
+import path from 'path';
 import glob from 'glob';
 import { promises as fs } from 'fs';
-import path from 'path';
 
 export async function get() {
 
@@ -13,15 +13,15 @@ export async function get() {
     })
   );
 
-  const postsFrontMatter = await Promise.all(
+  const processPosts = await Promise.all(
     posts.map(async post => {
       const content = (await fs.readFile(post)).toString();
-      return {...fm(content).attributes, slug: path.parse(post).name};
+      return {...YAML.parseAllDocuments(content)[0], slug : path.parse(post).name}
     }),
   );  
 
-  postsFrontMatter.sort((a, b) => (a.date < b.date ? 1 : -1));
-  return { body : JSON.stringify(postsFrontMatter) }
+  processPosts.sort((a, b) => (a.date < b.date ? 1 : -1));
+  return { body : JSON.stringify(processPosts) }
 }
 
 

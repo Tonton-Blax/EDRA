@@ -1,8 +1,9 @@
 <script context="module">
-	//export const prerender = true;
+	import { get } from 'svelte/store';
+
 	export async function load({ page, fetch }) {
 		const res = await (await fetch(`/produits/${page.params.slug}.json`)).json();
-		const posts = await (await fetch('/produits.json')).json();
+		const posts = get(allPosts).length ? get(allPosts) : await (await fetch('/produits.json')).json();
 		return {
 			props: {
 				produit: res,
@@ -20,7 +21,7 @@
 	import ContactForm from '$lib/components/ContactForm.svelte'
 	import { fly } from 'svelte/transition';
     import { quadInOut } from 'svelte/easing';
-	import { observing } from '$lib/stores.js';
+	import { observing, allPosts } from '$lib/stores.js';
 	import IntersectionObserver from "svelte-intersection-observer";
 	export let produit,posts;	
 
@@ -145,7 +146,7 @@
 		</div>
 	</div>
 
-	<Posts {posts} programatic={false} />
+	<Posts {posts} />
 
 </div>
 {/key}

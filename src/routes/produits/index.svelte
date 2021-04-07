@@ -1,21 +1,24 @@
 <script context="module">
 
 export async function load({ fetch }) {
-    const res = await fetch('/produits.json');
+    const res = await (await fetch('/produits.json')).json();
+
     return {
         props: {
-            posts: await res.json()
+            posts: res.map(r => { return {...r.contents, slug : r.slug}})
         }
     };
 }
 
 </script>
 <script>
-	export let posts;
 	import Header from '$lib/components/Header.svelte'
 	import Posts from '$lib/components/Posts.svelte'
-	import { observing } from '$lib/stores.js';
+	import { observing, allPosts } from '$lib/stores.js';
 	import IntersectionObserver from "svelte-intersection-observer";
+	export let posts;
+
+	$: posts.length && allPosts.set(posts)
 
 	let headerEl;
 	
