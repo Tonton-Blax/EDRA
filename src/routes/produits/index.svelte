@@ -11,16 +11,8 @@
 	import Posts from '../../components/Posts.svelte'
 	import { observing } from '../../utils/stores.js';
 	import IntersectionObserver from "svelte-intersection-observer";
-	import { onMount, onDestroy } from 'svelte'
 	export let posts;
-
-	let ok = false;
 	let headerEl;
-
-	onMount(async()=> {
-		ok = true;
-	});
-	onDestroy(() => ok = false);
 
 
 </script>
@@ -31,13 +23,11 @@
 	<div class="container">
 		<div class="columns is-multiline is-gapless p-0 has-background-primary-light cols-produits">
 			<div class="column is-full">
-				{#if ok}
 				<IntersectionObserver bind:intersecting={$observing} element={headerEl} >
 					<div class="edra-block no-padding has-text-white" bind:this={headerEl}>
 						<Header />
 					</div>
 				</IntersectionObserver>
-				{/if}
 			</div>
 		</div>
 		<Posts {posts} />

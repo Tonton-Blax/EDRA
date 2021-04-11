@@ -3,17 +3,19 @@
 import  {Toast} from 'svelma'
 import { slide } from 'svelte/transition'
 import { quadInOut } from 'svelte/easing';
-export let deplieForm = false
+export let deplieForm = false;
 
-let form = {
+let form = 
+{
 	tel : '',
 	email : '',
 	message : '',
 	nom : '',
 	prenom : '',
 	checked : false
-}
-let formessage = {...form};
+};
+
+let formessage = {...form} ;
 
 async function submitForm (event) {
 	formessage.tel = !(/^(?:(?:\+|00)33[\s.-]{0,3}(?:\(0\)[\s.-]{0,3})?|0)[1-9](?:(?:[\s.-]?\d{2}){4}|\d{2}(?:[\s.-]?\d{3}){2})$/.test(form.tel));
@@ -43,7 +45,6 @@ async function submitForm (event) {
 }
 
 </script>
-
 
 	<div class="subcontainer pb-6">
 

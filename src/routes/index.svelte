@@ -3,7 +3,7 @@
 </svelte:head>
 
 <script>
-	import {onMount, onDestroy} from 'svelte'
+	import {onMount} from 'svelte'
 	import Header from '../components/Header.svelte'
 	import {chunk, shuffleArray} from '../utils/utils.js';
 	import {observing} from '../utils/stores.js';
@@ -11,9 +11,6 @@
 
 	import { fly } from 'svelte/transition';
 	import { quadInOut, quadOut } from 'svelte/easing';
-
-	let ok = false;
-
 
 	let pictoEl, headerEl;
 	let intersectings = {
@@ -66,18 +63,15 @@
 
 	let Carousel
 	onMount(async() => {
-		ok = true;
 		const comp = await import('svelte-carousel/src/components/Carousel/Carousel.svelte');
 		Carousel = comp.default;
 	});
-	onDestroy(() => ok = false);
 
 </script>
 
 <div class="container">
 	<div class="columns is-gapless is-multiline">
 		<div class="column is-full">
-		{#if ok}
 		<IntersectionObserver element={headerEl} bind:intersecting={$observing}>
 			<div class="edra-block no-padding has-text-white" bind:this={headerEl}>
 				
@@ -85,7 +79,6 @@
 				
 			</div>
 		</IntersectionObserver>
-		{/if}
 		</div>
 	
 		<div class="column is-full">

@@ -1,10 +1,17 @@
 <script>
 	import { draw } from 'svelte/transition';
 	import { onMount, tick } from 'svelte';
+	import { stores } from '@sapper/app';
 	export let bgColor = "#005476";
 	export let linesColor = "white";
 	export let siglePointilles = false;
 	export let title = undefined;
+
+	let ok = false;
+	
+	const { page } = stores();
+
+	$: $page.path && notOk();
 
 	const lignes = [
   // Début des diagonales HD-BG
@@ -270,11 +277,22 @@
 		svgs.forEach(s => { s.beginElement()});
 		cerclesEls.forEach(c=> c.style.animationDuration = `${c.duree}s`);
 	});
+
+	let notOk = async () => {
+		console.log("pouet")
+		ok = false; 
+		await tick(); 
+		ok = true
+		await tick(); 
+		svgs.forEach(s => { s && s.beginElement() });
+	}
+
 	let restartLine = async (index) => {
 		svgs[index].beginElement();
 	}
 
 </script>
+{#if ok}
 <div class="svg-container">
     <div class="logo-container" style="transform:translate(-50%, -{siglePointilles ? "50" : "77"}%)">
 	{#if siglePointilles}
@@ -360,6 +378,7 @@
 	</svg>
 	{/if}
 </div>
+{/if}
 <style>
 	.svg-container {
 		position:absolute;

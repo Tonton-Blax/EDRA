@@ -13,7 +13,7 @@
   
 <script>
 	import marked from 'marked';
-	import { onMount, tick, onDestroy } from 'svelte';
+	import { onMount } from 'svelte';
 	import Header from '../../components/Header.svelte'
 	import Posts from '../../components/Posts.svelte'
 	import ContactForm from '../../components/ContactForm.svelte'
@@ -21,33 +21,24 @@
     import { quadInOut } from 'svelte/easing';
 	import { observing } from '../../utils/stores.js';
 	import IntersectionObserver from "svelte-intersection-observer";
-	import { goto } from '@sapper/app';
+	import { stores } from '@sapper/app';
 
-	let ok = true;	
-	
+	const { page } = stores();
+
 	let headerEl;
 
 	export let postMd, posts;
-	
-	let produit = postMd
+	let produit;
+
+	$: 	$page.params.slug && ( produit = posts.find( p => p.slug == $page.params.slug ))
 
 	let Images;
 
-	async function navigate (url) {
-		ok = false;
-		goto(`produits/${url}`)
-		posts.forEach(p => console.log("hop", p.slug, url))
-		produit = posts.find(p => p.slug == url);
-		await tick()
-		ok = true;
-	}
-
 	onMount(async() => {
-		ok = true;
 		const compImages = await import('svelte-images/src/Images/Images.svelte');
 		Images = compImages.default;
+		produit = postMd;
 	});
-	onDestroy(() => ok = false);
 
 </script>
 
@@ -58,7 +49,6 @@
 >
 	<div class="columns is-gapless is-multiline">
 		<div class="column is-full">
-			{#if ok}
 			<IntersectionObserver bind:intersecting={$observing} element={headerEl} >
 				<div class="edra-block no-padding has-text-white" bind:this={headerEl}>
 					<Header 
@@ -71,7 +61,6 @@
 					/>
 				</div>
 			</IntersectionObserver>
-			{/if}
 		</div>
 
 	
@@ -165,7 +154,7 @@
 	</div>
 
 	
-	<Posts {posts} programatic={true} on:navigate={(e)=>navigate(e.detail.url)} />
+	<Posts {posts} />
 </div>
 {/key}
 <style>

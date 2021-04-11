@@ -4,10 +4,7 @@ import fs from 'fs';
 
 export async function get(req, res) {
 
-    const { slug } = req.params;
-
-    console.log(slug);
- 
+    const { slug } = req.params; 
     const content = fs.readFileSync(`static/produits/${slug}.md`, 'utf8').toString()
     if (content) {
         res.writeHead(200, {
