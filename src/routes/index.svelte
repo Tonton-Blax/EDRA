@@ -3,7 +3,7 @@
 </svelte:head>
 
 <script>
-	import {onMount} from 'svelte'
+	import {onMount, onDestroy} from 'svelte'
 	import Header from '../components/Header.svelte'
 	import {chunk, shuffleArray} from '../utils/utils.js';
 	import {observing} from '../utils/stores.js';
@@ -11,11 +11,8 @@
 
 	import { fly } from 'svelte/transition';
 	import { quadInOut, quadOut } from 'svelte/easing';
-	import { stores } from '@sapper/app';
-	const { page } = stores();
 
-	let ok = true;
-	$: $page.path && notOk();
+	let ok = false;
 
 
 	let pictoEl, headerEl;
@@ -67,17 +64,13 @@
 
 	];
 
-	function timeout(ms) {
-    	return new Promise(resolve => setTimeout(resolve, ms));
-	}
-	let notOk = async () => {ok = false; await timeout(100); ok = true;}
-	
-
 	let Carousel
 	onMount(async() => {
+		ok = true;
 		const comp = await import('svelte-carousel/src/components/Carousel/Carousel.svelte');
 		Carousel = comp.default;
 	});
+	onDestroy(() => ok = false);
 
 </script>
 

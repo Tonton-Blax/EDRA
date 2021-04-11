@@ -1,27 +1,27 @@
 <script context="module">
 	export async function preload() {
-		let posts = await (await this.fetch(`produits.json`)).json();
-		return {posts}
+		const res = await (await this.fetch(`produits.json`)).json();
+		const posts = res.map(r => { return {...r.contents, slug : r.slug}})
+		return { posts }
 	}
 </script>
 
 <script>
-	export let posts;
 	import Header from '../../components/Header.svelte'
 	import Posts from '../../components/Posts.svelte'
 	import { observing } from '../../utils/stores.js';
 	import IntersectionObserver from "svelte-intersection-observer";
-	let headerEl;
-	import { stores } from '@sapper/app';
-	const { page } = stores();
+	import { onMount, onDestroy } from 'svelte'
+	export let posts;
 
-	let ok = true;
-	$: $page.path && notOk();
-	function timeout(ms) {
-    	return new Promise(resolve => setTimeout(resolve, ms));
-	}
-	let notOk = async () => {ok = false; await timeout(100); ok = true;}
-	
+	let ok = false;
+	let headerEl;
+
+	onMount(async()=> {
+		ok = true;
+	});
+	onDestroy(() => ok = false);
+
 
 </script>
 

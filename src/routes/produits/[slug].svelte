@@ -1,20 +1,19 @@
 <script context="module">                                                                                                                                                                                                                                                                   
 	export async function preload({ params }) {
-		const posts = await (await this.fetch(`produits.json`)).json();
-		
-		const res = await this.fetch(`produits/${params.slug}.md`);
+		const rawposts = await (await this.fetch(`produits.json`)).json();
+		const posts = rawposts.map(r => { return {...r.contents, slug : r.slug}})
+		const res = await this.fetch(`produits/${params.slug}.json`);
 		if (res.status === 200) {
-			return { postMd: await res.text(), posts };
+			return { postMd: await res.json(), posts };
 		} else {
-			this.error(res.status, data.message);
+			this.error(res.status, res.message || "pouet");
 		}
 	}
 </script>
   
 <script>
-	import fm from 'front-matter';
 	import marked from 'marked';
-	import { onMount } from 'svelte';
+	import { onMount, tick, onDestroy } from 'svelte';
 	import Header from '../../components/Header.svelte'
 	import Posts from '../../components/Posts.svelte'
 	import ContactForm from '../../components/ContactForm.svelte'
@@ -22,40 +21,34 @@
     import { quadInOut } from 'svelte/easing';
 	import { observing } from '../../utils/stores.js';
 	import IntersectionObserver from "svelte-intersection-observer";
-	import { stores } from '@sapper/app';
-	const { page } = stores();
+	import { goto } from '@sapper/app';
 
-	let ok = true;
-	$: $page.path && notOk();
-	
+	let ok = true;	
 	
 	let headerEl;
 
 	export let postMd, posts;
 	
-	let produit = fm(postMd).attributes;
+	let produit = postMd
 
 	let Images;
 
 	async function navigate (url) {
-		const res = await fetch(url);
-		if (res && res.ok) {
-			const txt = await res.text();
-			if (txt) {
-				produit = fm(txt).attributes;
-				window.location.replace(url);
-			}
-		}
+		ok = false;
+		goto(`produits/${url}`)
+		posts.forEach(p => console.log("hop", p.slug, url))
+		produit = posts.find(p => p.slug == url);
+		await tick()
+		ok = true;
 	}
-	function timeout(ms) {
-    	return new Promise(resolve => setTimeout(resolve, ms));
-	}
-	let notOk = async () => {ok = false; await timeout(100); ok = true;}
 
 	onMount(async() => {
+		ok = true;
 		const compImages = await import('svelte-images/src/Images/Images.svelte');
 		Images = compImages.default;
 	});
+	onDestroy(() => ok = false);
+
 </script>
 
 {#key produit.title}

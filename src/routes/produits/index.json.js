@@ -1,33 +1,30 @@
-import fm from 'front-matter';
-import glob from 'glob';
-import {fs} from 'mz';
+import YAML from 'yaml';
 import path from 'path';
+import glob from 'glob';
+import { promises as fs } from 'fs';
 
 export async function get(req, res) {
-  // List the Markdown files and return their filenames
+
   const posts = await new Promise((resolve, reject) =>
-      glob('static/produits/*.md', (err, files) => {
-      if (err) return reject(err);
+    glob('static/produits/*.md', (err, files) => {
+      if (err) {
+        return reject(err);
+      }
       return resolve(files);
-    }),
+    })
   );
 
-  // Read the files and parse the metadata + content
-  const postsFrontMatter = await Promise.all(
+  const processPosts = await Promise.all(
     posts.map(async post => {
       const content = (await fs.readFile(post)).toString();
-      // Add the slug (based on the filename) to the metadata, so we can create links to this blog post
-      return {...fm(content).attributes, slug: path.parse(post).name};
+      return {...YAML.parseAllDocuments(content)[0], slug : path.parse(post).name}
     }),
-  );
+  );  
 
-  // Sort by reverse date, because it's a blog
-  postsFrontMatter.sort((a, b) => (a.date < b.date ? 1 : -1));
+  processPosts.sort((a, b) => (a.date < b.date ? 1 : -1));
 
   res.writeHead(200, {
     'Content-Type': 'application/json',
   });
-
-  // Send the list of blog posts to our Svelte component
-  res.end(JSON.stringify(postsFrontMatter));
+  res.end(JSON.stringify(processPosts));
 }

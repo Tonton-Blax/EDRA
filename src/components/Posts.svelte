@@ -12,7 +12,7 @@
 
 				{#each posts as post}
 				<div class="column is-one-third mt-0 mb-0">
-					<div class="card" on:click={()=> programatic ? dispatch('navigate', { url : `produits/${post.slug}` }) : goto(`produits/${post.slug}`)}>
+					<div class="card" on:click={()=> programatic ? dispatch('navigate', { url : `${post.slug}` }) : goto(`produits/${post.slug}`)}>
 						<div class="card-image">
 							<figure class="image">
 								<img src={post.thumbnail} alt="{post.title}">
