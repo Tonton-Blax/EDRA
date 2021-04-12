@@ -1,4 +1,3 @@
-<svelte:window on:popstate={notOk()}/>
 <script>
 	import Nav from '../components/Nav.svelte'
 	import Footer from '../components/Footer.svelte'
@@ -7,13 +6,7 @@
 	import {observing} from '../utils/stores.js';
 	import IntersectionObserver from "svelte-intersection-observer";
 	import { stores } from '@sapper/app';
-	import { tick } from 'svelte';
-	const { page,preloading } = stores();
-
-
-	$: ($page.path || $preloading) && notOk()
-
-	let ok = true;
+	const { page } = stores();
 
 	const optionsSlug = {
 		siglePointilles : true,
@@ -34,12 +27,6 @@
 	
 	export let segment;
 	let headerEl;
-	
-	let notOk = async () => {
-		await tick(); 
-		ok = false;
-		await tick(); 
-		ok = true}
 
 </script>
 
@@ -52,11 +39,7 @@
 				<IntersectionObserver element={headerEl} bind:intersecting={$observing}>
 					
 					<div class="edra-block no-padding has-text-white" bind:this={headerEl}>
-						{#if ok}
 						<Header	options={$page.params && $page.params.slug ? optionsSlug : optionsNormal} />
-						{:else}
-						<h1 class="title is-1">PINGOUIN</h1>
-						{/if}
 					</div>
 					
 				</IntersectionObserver>

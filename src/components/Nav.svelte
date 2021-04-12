@@ -4,7 +4,9 @@
 	import { fade, slide } from 'svelte/transition';
 	import { quadInOut } from 'svelte/easing';
 	import { observing, colors } from '../utils/stores.js';
+	import { refresh } from '../utils/stores';
 	export let segment;
+
 	let isScrolling;
 	let isIdle = true;
 	let menuIsActive = false;
@@ -24,6 +26,12 @@
 		}, 300);
 	}
 
+	let setRefresh = (url) => {
+		console.log("setrefresh from nav")
+		$refresh = true
+		menuIsActive = false
+		//goto(url, {noscroll : true})
+	}
 
 	let indicator; let navItems = [];
 
@@ -59,9 +67,9 @@
 		</button>
 	</div>
 	<div class="navbar-end is-hidden-touch">
-		<a bind:this={navItems[0]} on:mouseenter={()=>handleIndicator(0)} class="navbar-item active-item" aria-current={segment === undefined ? 'page' : undefined} href="." on:click={() => menuIsActive = false}>EDRA</a>
-		<a bind:this={navItems[1]} on:mouseenter={()=>handleIndicator(1)} rel="prefetch" class="navbar-item" aria-current={segment === 'produits' ? 'page' : undefined} href="produits" on:click={() => menuIsActive = false}>Produits</a>
-		<a bind:this={navItems[2]} on:mouseenter={()=>handleIndicator(2)} class="navbar-item" aria-current={segment === 'contact' ? 'page' : undefined} on:click={() => menuIsActive = false} href="contact">Contact</a>
+		<a bind:this={navItems[0]} on:mouseenter={()=>handleIndicator(0)} class="navbar-item active-item" aria-current={segment === undefined ? 'page' : undefined} href="." on:click={setRefresh}>EDRA</a>
+		<a bind:this={navItems[1]} on:mouseenter={()=>handleIndicator(1)} rel="prefetch" class="navbar-item" aria-current={segment === 'produits' ? 'page' : undefined} href="produits" on:click={setRefresh}>Produits</a>
+		<a bind:this={navItems[2]} on:mouseenter={()=>handleIndicator(2)} class="navbar-item" aria-current={segment === 'contact' ? 'page' : undefined} on:click={setRefresh} href="contact">Contact</a>
 		<span class="navbar-indicator" bind:this={indicator}></span>
 
 
@@ -69,9 +77,9 @@
 	{#if menuIsActive}
 	<div class="navbar-menu" class:is-active={menuIsActive} transition:slide={{easing: quadInOut}} >
 	  <div class="navbar-start">
-		<a rel="prefetch" class="navbar-item" aria-current={segment === 'produits' ? 'page' : undefined} href="produits" on:click={() => menuIsActive = false}>Produits</a>
-		<a class="navbar-item" aria-current={segment === undefined ? 'page' : undefined} href="." on:click={() => menuIsActive = false}>EDRA</a>
-		<a class="navbar-item" aria-current={segment === 'contact' ? 'page' : undefined} on:click={() => menuIsActive = false} href="contact">Contact</a>
+		<a rel="prefetch" class="navbar-item" aria-current={segment === 'produits' ? 'page' : undefined} href="produits" on:click={setRefresh}>Produits</a>
+		<a class="navbar-item" aria-current={segment === undefined ? 'page' : undefined} href="." on:click={setRefresh}>EDRA</a>
+		<a class="navbar-item" aria-current={segment === 'contact' ? 'page' : undefined} on:click={setRefresh} href="contact">Contact</a>
 		<span class="navbar-indicator"></span>
 
 	  </div>  

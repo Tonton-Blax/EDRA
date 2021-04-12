@@ -6,3 +6,5 @@ export const colors = writable({
 	secondary : '#0076BF',
 	tertiary : '#ED0070'
 })
+
+export const refresh = writable(true)
