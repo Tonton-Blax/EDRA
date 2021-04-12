@@ -1,10 +1,11 @@
 <script context="module">                                                                                                                                                                                                                                                                   
 	export async function preload({ params }) {
-		const rawposts = await (await this.fetch(`produits.json`)).json();
-		const posts = rawposts.map(r => { return {...r.contents, slug : r.slug}})
-		const res = await this.fetch(`produits/${params.slug}.json`);
+		const res = await this.fetch(`produits.json`);
 		if (res.status === 200) {
-			return { postMd: await res.json(), posts };
+			const rawPosts = await res.json();
+			const posts = rawPosts.map(r => { return {...r.contents, slug : r.slug}})
+			const thisPost = posts.find(p => p.slug === params.slug)
+			return { postMd: thisPost, posts };
 		} else {
 			this.error(res.status, res.message || "pouet");
 		}
