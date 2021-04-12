@@ -3,6 +3,8 @@
 	import { onMount, tick } from 'svelte';
 	import { lignes, cercles } from './lignes.js'
 	import { refresh } from '../utils/stores.js'
+	import { stores } from '@sapper/app';
+	const { page } = stores();
 
 	export let options = {
 		bgColor : "#005476",
@@ -11,9 +13,10 @@
 		title : undefined
 	}
 
-	$: $refresh && setRefresh();
+	$: $page.path && setRefresh();
 
 	let setRefresh = async()=> {
+		$refresh = true;
 		await tick();
 		$refresh = false;
 		await tick();

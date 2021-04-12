@@ -1,13 +1,6 @@
 <script>
     export let posts = [];
     import { goto } from '@sapper/app';
-    import { refresh } from '../utils/stores';
-
-    let setRefresh = (url) => {
-        console.log("set refresh from POSTS")
-        $refresh = true
-        goto(`produits/${url}`, {noscroll : true})
-    }
 
 </script>
 		<div class="colcontainer">
@@ -15,7 +8,7 @@
 
 				{#each posts as post}
 				<div class="column is-one-third mb-0">
-					<div class="card" on:click={()=> setRefresh(post.slug)}>
+					<div class="card" on:click={()=> goto(`produits/${post.slug}`, {noscroll : true})}>
 						<div class="card-image">
 							<figure class="image">
 								<img src={post.thumbnail} alt="{post.title}">
