@@ -46,7 +46,7 @@ async function submitForm (event) {
 
 </script>
 
-	<div class="subcontainer pb-6">
+	<div class="subcontainer pb-6 pt-6 mt-6">
 
 		<div class="columns mt-2 is-vcentered">
 			<div class="column is-two-thirds has-text-left pl-6" style="display:flex;">

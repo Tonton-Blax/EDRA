@@ -12,6 +12,7 @@ $size-6 : 0.85rem;
 
 :root {
     --maincolor : #005476;
+    --lightblue : #EBF9FF;
 }
 
 body {
@@ -123,9 +124,13 @@ body {
     padding-bottom:0.5em;
 }
 .cols-produits {
-    padding: 25px 25px;
+    padding-left: 25px;
+    padding-right: 25px;
 }
-
+.colcontainer {
+    padding : 2em 1.25rem;
+    background : var(--lightblue)
+}
 .svelte-images-gallery {
     justify-content: space-between;
 }

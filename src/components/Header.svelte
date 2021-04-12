@@ -1,17 +1,13 @@
 <script>
 	import { draw } from 'svelte/transition';
 	import { onMount, tick } from 'svelte';
-	import { stores } from '@sapper/app';
-	export let bgColor = "#005476";
-	export let linesColor = "white";
-	export let siglePointilles = false;
-	export let title = undefined;
 
-	let ok = false;
-	
-	const { page } = stores();
-
-	$: $page.path && notOk();
+	export let options = {
+		bgColor : "#005476",
+		linesColor : "white",
+		siglePointilles : false,
+		title : undefined
+	}
 
 	const lignes = [
   // Début des diagonales HD-BG
@@ -278,24 +274,15 @@
 		cerclesEls.forEach(c=> c.style.animationDuration = `${c.duree}s`);
 	});
 
-	let notOk = async () => {
-		console.log("pouet")
-		ok = false; 
-		await tick(); 
-		ok = true
-		await tick(); 
-		svgs.forEach(s => { s && s.beginElement() });
-	}
-
 	let restartLine = async (index) => {
 		svgs[index].beginElement();
 	}
 
 </script>
-{#if ok}
+
 <div class="svg-container">
-    <div class="logo-container" style="transform:translate(-50%, -{siglePointilles ? "50" : "77"}%)">
-	{#if siglePointilles}
+    <div class="logo-container" style="transform:translate(-50%, -{options.siglePointilles ? "50" : "77"}%)">
+	{#if options.siglePointilles}
 		<svg class="mb-4"
 		width="122px" height="139px" viewBox="0 0 122 139" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 			<title>Logo</title>
@@ -312,20 +299,20 @@
 	{:else}
 		<img src="./img/logo.png" class="mb-5" alt="logo edra">
 	{/if}
-	{#if title && title.subTitle}
-		<h1 class="title is-2 has-text-weight-bold mb-4" style="color:{linesColor};text-transform:uppercase">{title.title}</h1>
-		<h3 class="title is-5 has-text-weight-normal is-subtitle" style="color:{linesColor};">{title.subTitle || ""}</h3>
+	{#if options.title && options.title.subTitle}
+		<h1 class="title is-2 has-text-weight-bold mb-4" style="color:{options.linesColor};text-transform:uppercase">{options.title.title}</h1>
+		<h3 class="title is-5 has-text-weight-normal is-subtitle" style="color:{options.linesColor};">{options.title.subTitle || ""}</h3>
 	{/if}
     </div>
 	{#if headerReady === true}	
-	<svg height="820" width="720" id="svg" xmlns="http://www.w3.org/2000/svg"  version="1.1" style="background:{bgColor}">
+	<svg height="820" width="720" id="svg" xmlns="http://www.w3.org/2000/svg"  version="1.1" style="background:{options.bgColor}">
 		
 
 
 		{#each lignes as ligne, index(ligne.id)}
 				<line id={ligne.id} stroke-dasharray={ligne.tirets}
 					x1={ligne.x1} y1={ligne.y1} x2={ligne.x2} 
-					y2={ligne.y2} stroke={linesColor} stroke-width={ligne.contour}
+					y2={ligne.y2} stroke={options.linesColor} stroke-width={ligne.contour}
 				>
 						<animate begin="indefinite" bind:this={svgs[index]}
 							id="{ligne.id}anim1" attributeType="XML"
@@ -366,7 +353,7 @@
 			class="circle-path"
 			class:reversed={cercle.reversed}
 			bind:this={cerclesEls[index]}
-			stroke={linesColor}
+			stroke={options.linesColor}
 			style="transform:rotate({cercle.rotation}deg);stroke-dasharray:{cercle.stroke};stroke-dashoffset:{cercle.peri};"
 			
 			transform-origin="{cercle.x} {cercle.y}"
@@ -378,7 +365,7 @@
 	</svg>
 	{/if}
 </div>
-{/if}
+
 <style>
 	.svg-container {
 		position:absolute;

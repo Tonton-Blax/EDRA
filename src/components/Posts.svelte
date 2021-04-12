@@ -1,18 +1,14 @@
 <script>
     export let posts = [];
-    export let programatic = false;
     import { goto } from '@sapper/app';
-	import { createEventDispatcher } from 'svelte';
-    const dispatch = createEventDispatcher();
-
 
 </script>
 		<div class="colcontainer">
-			<div class="columns is-multiline has-background-primary-light cols-produits pt-4 is-variable is-5">
+			<div class="columns is-multiline has-background-primary-light cols-produits is-variable is-5">
 
 				{#each posts as post}
-				<div class="column is-one-third mt-0 mb-0">
-					<div class="card" on:click={()=> programatic ? dispatch('navigate', { url : `${post.slug}` }) : goto(`produits/${post.slug}`)}>
+				<div class="column is-one-third mb-0">
+					<div class="card" on:click={()=> goto(`produits/${post.slug}`, {noscroll : true})}>
 						<div class="card-image">
 							<figure class="image">
 								<img src={post.thumbnail} alt="{post.title}">
@@ -50,9 +46,6 @@
   
     .card img {
         border-radius: 0px;
-    }
-    .colcontainer {
-        padding : 0em 1.25rem;
     }
     .card-content, .card-footer {
         background: white

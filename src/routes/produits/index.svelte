@@ -7,28 +7,22 @@
 </script>
 
 <script>
-	import Header from '../../components/Header.svelte'
 	import Posts from '../../components/Posts.svelte'
-	import { observing } from '../../utils/stores.js';
-	import IntersectionObserver from "svelte-intersection-observer";
 	export let posts;
-	let headerEl;
-
-
 </script>
 
 <svelte:head>
 	<title>Produits EDRA Médical</title>
 </svelte:head>
-	<div class="container">
-		<div class="columns is-multiline is-gapless p-0 has-background-primary-light cols-produits">
-			<div class="column is-full">
-				<IntersectionObserver bind:intersecting={$observing} element={headerEl} >
-					<div class="edra-block no-padding has-text-white" bind:this={headerEl}>
-						<Header />
-					</div>
-				</IntersectionObserver>
-			</div>
-		</div>
-		<Posts {posts} />
-	</div>
+
+
+<div class="spacer" />
+<Posts {posts} />
+
+
+<style>
+	.spacer {
+		padding:1.5em 1.5rem;
+		background:var(--lightblue);
+	}
+</style>
