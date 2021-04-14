@@ -83,7 +83,7 @@
 			</div>
 			{/key}
 			<svelte:component 				
-				this={Carousel} let:loaded arrows={false} dots={true} autoplay={true} 
+				this={Carousel} let:loaded arrows={false} dots={true} autoplay={false} 
 				autoplayDuration={5000} duration={1000}
 				timingFunction={'cubic-bezier(.86,.01,0,1.01)'}
 				on:pageChange={ e => overBlocks[0].index = e.detail }
@@ -92,7 +92,7 @@
 				{#each imagesPaillasses as src, imageIndex (src)}
 					<div class="img-container image">
 					{#if loaded.includes(imageIndex)}
-						<img {src} class="autoheight" alt="nature" />
+						<img {src} class="carou-img" alt="nature" />
 					{/if}
 					</div>
 				{/each}
@@ -138,11 +138,11 @@
 	</div>
 	<div class="column is-half">
 		<div class="edra-block no-padding has-background-white has-text-primary">
-			<svelte:component this={Carousel} let:loaded arrows={false} dots={true} autoplay={true} autoplayDuration={5000} timingFunction={'cubic-bezier(.86,.01,0,1.01)'}>
+			<svelte:component this={Carousel} let:loaded arrows={false} dots={true} autoplay={false} autoplayDuration={5000} timingFunction={'cubic-bezier(.86,.01,0,1.01)'}>
 				{#each imagesKerrock as src, imageIndex (src)}
 					<div class="img-container image">
 					{#if loaded.includes(imageIndex)}
-						<img {src} class="autoheight" alt="nature" />
+						<img {src} class="carou-img-half" alt="nature" />
 					{/if}
 					</div>
 				{/each}
@@ -164,7 +164,7 @@
 					{#each imagesEquipe as src, imageIndex (src)}
 						<div class="img-container image">
 						{#if loaded.includes(imageIndex)}
-							<img {src} class="autoheight" alt="nature" />
+							<img {src} class="carou-img" alt="nature" />
 						{/if}
 						</div>
 					{/each}
@@ -172,7 +172,7 @@
 		</div>
 	</div>
 	<div class="column is-half">
-		<div class="edra-block has-background-primary has-text-white">
+		<div class="edra-block has-background-primary has-text-white p-0">
 			<h2 class="title is-2 has-text-white has-text-centered mb-0">Ils nous font<br>confiance</h2>
 		</div>
 	</div>
@@ -214,6 +214,7 @@
 	.logosquare {
 		border: 1px solid #efefef;
 		margin:0px;
+		height:224px;
 		padding:0px;
 		width:100%;
 		display: flex;
@@ -242,6 +243,20 @@
 		width: 100%;
 		max-width: 400px;
 		margin: 0 0 1em 0;
+	}
+	.carou-img {
+		min-height: 672px;
+    	width: auto;
+		max-width:unset;
+		min-width:fill-available;
+		object-fit: cover!important;
+    	margin:0px 0px 0px 0px!important;
+	}
+	.carou-img-half {
+		min-height: 672px;
+		max-width:100%;
+		width:auto;
+		margin:0px!important;
 	}
 
 	p {
