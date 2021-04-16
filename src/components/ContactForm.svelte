@@ -15,6 +15,8 @@ let form =
 	checked : false
 };
 
+// Anim Slide en deux temps why ?
+
 let formessage = {...form} ;
 
 async function submitForm (event) {

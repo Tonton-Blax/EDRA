@@ -6,30 +6,30 @@
 	import {onMount} from 'svelte'
 	import {chunk, shuffleArray} from '../utils/utils.js';
 	import IntersectionObserver from "svelte-intersection-observer";
-
+	import { goto } from '@sapper/app';
 	import { fly } from 'svelte/transition';
 	import { quadInOut, quadOut } from 'svelte/easing';
 
 	let pictoEl;
-	let intersectings = {
+	const intersectings = {
 		pictos : undefined,
 		header : undefined
 	}
 
-	let imagesKerrock = [
+	const imagesKerrock = [
 			'../img/kerrock02.jpg',
 			'../img/bur.jpeg',
 			'../img/pereno.jpeg'
 	];
-	let imagesEquipe = [
+	const imagesEquipe = [
 			'../img/equipe1.png',
 			'../img/ambu.jpeg'
 	];
-	let imagesPaillasses = [
+	const imagesPaillasses = [
 		'../img/paillasse_endoscopique.jpg',
 		'../img/pp.jpeg'
 	]
-	let imagesLogos= [
+	const imagesLogos= [
 		"../img/logos/tenon.png",
 		"../img/logos/necker.png",
 		"../img/logos/sainte-anne.png",
@@ -41,7 +41,7 @@
 		"../img/logos/foch.png"
 	]
 
-	let overBlocks = [
+	const overBlocks = [
 	{
 		index : 0,
 		titre : ["Paillasses endoscopiques", "Titre n°2 exemple", "Titre n°3 exemple"],
@@ -55,6 +55,14 @@
 	{
 		index : 0,
 		titre : ["Savoir-faire<br>et technicité", "Conceptions<br>sur-mesure"],
+	},
+	{
+		index : 0,
+		sousTitre : [
+			"Alliance parfaite de l’acrylique et de la pierre naturelle, Kerrock est résistant, hygiénique, non toxique, réparable et thermoformable. Kerrock® peut se travailler dans une variété de formes quasi illimitée sans aucun joint apparent : le matériau idéal pour les établissements de santé, l’hôtellerie, les espaces publics, les espaces de travail, les magasins.", 
+			"Kerrock® est le seul solid-surface fabriqué en Europe dans le respect des normes écologiques, sanitaires et sociales. La proximité des usines permet de réduire fortement l’impact carbone lié au transport.",
+			"Ecologique, il est naturellement durable et recyclable. Il peut être rénové, réparé et réutilisé à l’infini. Respectueux de l’environnement et de la santé, il ne contient aucun C.O.V."
+		],
 	}
 
 	];
@@ -107,23 +115,23 @@
 					{#if intersectings.pictos}
 					<div out:fly in:fly={{y:200, delay:100, easing:quadOut}} class="column is-one-fourth has-text-centered col-picto">
 						<img src="../img/pictos/picto_demoulable.png" alt="Fabrication à partir d'un moule">
-						<h3 class="title is-4 has-text-primary">Fabrication<br>à partir d'un moule</h3>
-						<p>Nulla sollicitudin. Fusce varius, ligula non tempus aliquam, nunc turpis ullamcorper nibh, in tempus sapien eros.</p>
+						<h3 class="title is-4 has-text-primary">Fabrication<br>française</h3>
+						<p>EDRA est une entreprise 100% française qui fabrique 100% français.</p>
 					</div>
 					<div out:fly in:fly={{y:200, delay:250, easing:quadOut}} class="column is-one-fourth has-text-centered col-picto">
 						<img src="../img/pictos/picto_tracking.png" alt="Fabrication à partir d'un moule">
-						<h3 class="title is-4 has-text-primary">Module<br> de traçabilité</h3>
-						<p>Busce varius, ligula non tempus aliquam, nunc turpis ullamcorper nibh, in tempus vitae ligula. Nulla sollicitudin. </p>
+						<h3 class="title is-4 has-text-primary">Une production<br>sur mesure</h3>
+						<p>Fonctionnalité, ergonomie, hygiène, esthétisme : 4 mots pour nous guider dans la conception de votre projet.</p>
 					</div>
 					<div out:fly  in:fly={{y:200, delay:400, easing:quadOut}} class="column is-one-fourth has-text-centered col-picto">
 						<img src="../img/pictos/picto_madeinfrance.png" alt="Fabrication à partir d'un moule">
-						<h3 class="title is-4 has-text-primary">Fabrication<br> française</h3>
-						<p>Ullamcorper nibh, in tempus sapien eros vitae ligula. Nulla sollicitudin. Fusce varius, ligula non tempu.</p>
+						<h3 class="title is-4 has-text-primary">Suivi du projet<br>de A à Z</h3>
+						<p>De la conception à la mise en service dans vos locaux : plusieurs métiers, un seul interlocuteur.</p>
 					</div>
 					<div out:fly  in:fly={{y:200, delay:550, easing:quadOut}} class="column is-one-fourth has-text-centered col-picto">
 						<img src="../img/pictos/picto_livraison.png" alt="Fabrication à partir d'un moule">
 						<h3 class="title is-4 has-text-primary">Intervention<br> dans toute la france</h3>
-						<p>Tempus aliquam, nunc turpis ullamcorper nibh, in tempus sapien eros vitae ligula. Nulla sollicitudin. Fusce varius.</p>
+						<p>Livraison, installation ou maintenance, nous nous déplaçons dans toute la France Métropolitaine.</p>
 					</div>
 					{/if}
 				</IntersectionObserver>
@@ -131,14 +139,22 @@
 		</div>
 	</div>
 	<div class="column is-half">
-		<div class="edra-block has-background-primary has-text-white">
+		
+		<div class="edra-block has-background-primary has-text-white" on:click={()=>goto('https://www.kerrock.fr/sanitaire')} >
+			{#key overBlocks[2].index}
+			<div class="flexbase" style="position:absolute;max-width:21%;" in:fly={{x:-1000, duration:500, easing:quadInOut}} out:fly={{x:1000, delay:100, easing:quadInOut}}>
 			<h2 class="title is-2 has-text-white mb-0">Kerrock®</h2>
-			<p class="is-size-6 has-text-left">Aliquam convallis sollicitudin purus. Praesent aliquam, enim at fermentum mollis, ligula massa adipiscing nisl, ac euismod nibh nisl eu lectus. Fusce vulputate sem at sapien. Vivamus leo. Aliquam euismod libero eu enim. Nulla nec felis sed leo placerat imperdiet.</p>
+				<p class="is-size-6 has-text-left">
+					{@html overBlocks[2].sousTitre[overBlocks[2].index]}
+				</p>
+			</div>
+			{/key}
 		</div>
 	</div>
 	<div class="column is-half">
 		<div class="edra-block no-padding has-background-white has-text-primary">
-			<svelte:component this={Carousel} let:loaded arrows={false} dots={true} autoplay={false} autoplayDuration={5000} timingFunction={'cubic-bezier(.86,.01,0,1.01)'}>
+			<svelte:component this={Carousel} let:loaded arrows={false} dots={true} autoplay={true} autoplayDuration={5000} timingFunction={'cubic-bezier(.86,.01,0,1.01)'}
+			on:pageChange={ e => overBlocks[2].index = e.detail } >
 				{#each imagesKerrock as src, imageIndex (src)}
 					<div class="img-container image">
 					{#if loaded.includes(imageIndex)}

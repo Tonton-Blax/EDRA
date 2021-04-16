@@ -134,3 +134,9 @@ body {
 .svelte-images-gallery {
     justify-content: space-between;
 }
+
+.flexbase {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

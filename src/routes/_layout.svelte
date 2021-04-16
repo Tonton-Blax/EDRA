@@ -1,3 +1,4 @@
+<svelte:window on:popstate={notOk()}/>
 <script>
 	import Nav from '../components/Nav.svelte'
 	import Footer from '../components/Footer.svelte'
@@ -6,7 +7,16 @@
 	import {observing} from '../utils/stores.js';
 	import IntersectionObserver from "svelte-intersection-observer";
 	import { stores } from '@sapper/app';
-	const { page } = stores();
+	import { tick } from 'svelte';
+import { parseAllDocuments } from 'yaml';
+	const { page,preloading } = stores();
+
+
+	$: ($page.path || $preloading) && notOk()
+
+	$: console.log($page.path)
+
+	let ok = true;
 
 	const optionsSlug = {
 		siglePointilles : true,
@@ -14,7 +24,7 @@
 		linesColor : "#005476",
 		title :	{
 			title : "Fiches Techniques", 
-			//subTitle : "Ut velit mauris, egestas sed, gravida nec, ornare ut, mi. Aenean ut orci vel massa suscipit pulvinar. Nulla sollicitudin. Fusce varius, ligula non tempus."
+			subTitle : "Ut velit mauris, egestas sed, gravida nec, ornare ut, mi. Aenean ut orci vel massa suscipit pulvinar. Nulla sollicitudin. Fusce varius, ligula non tempus."
 		}
 	};
 
@@ -27,6 +37,12 @@
 	
 	export let segment;
 	let headerEl;
+	
+	let notOk = async () => {
+		await tick(); 
+		ok = false;
+		await tick(); 
+		ok = true}
 
 </script>
 
@@ -35,15 +51,21 @@
 <div class="container">
 	<Transition refresh={segment}>
 	<div class="columns is-gapless is-multiline">
+			{#if !$page.params || !$page.params.slug}
 			<div class="column is-full">
 				<IntersectionObserver element={headerEl} bind:intersecting={$observing}>
 					
 					<div class="edra-block no-padding has-text-white" bind:this={headerEl}>
-						<Header	options={$page.params && $page.params.slug ? optionsSlug : optionsNormal} />
+						{#if ok}
+						<Header	options={$page.path == '/produits' ? optionsSlug : optionsNormal} />
+						{:else}
+						<h1 class="title is-1">PINGOUIN</h1>
+						{/if}
 					</div>
 					
 				</IntersectionObserver>
 			</div>
+			{/if}
 			<slot/>
 	</div>
 </Transition>

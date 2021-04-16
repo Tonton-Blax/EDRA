@@ -1,5 +1,7 @@
 <script context="module">                                                                                                                                                                                                                                                                   
 	export async function preload({ params }) {
+		//JSON.stringify( YAML.parseAllDocuments(content)[0] )
+		//await fetch ('${slug}.md`).text())
 		const res = await this.fetch(`produits.json`);
 		if (res.status === 200) {
 			const rawPosts = await res.json();
@@ -13,11 +15,14 @@
 </script>
   
 <script>
+	
 	import marked from 'marked';
 	import { onMount, tick } from 'svelte';
-	import Posts from '../../components/Posts.svelte'
+	import Posts from '../../components/Posts.svelte'	
 	import ContactForm from '../../components/ContactForm.svelte'
 	import { stores } from '@sapper/app';
+	import Carousel from '@beyonk/svelte-carousel/src/Carousel.svelte'
+	import Modal from 'svelma/src/components/Modal/Modal.svelte'
 
 	const { page } = stores();
 
@@ -27,9 +32,10 @@
 
 	$: 	$page.params.slug && resetStuff();
 
-	let Images;
 	let subHeader;
 	let ready;
+	let active = false;
+	let currentSrc;
 
 	let resetStuff = async () => {
 		if (!ready)
@@ -38,9 +44,12 @@
 		produit = posts.find( p => p.slug == $page.params.slug);
 	}
 
+	let open = (src) => {
+		currentSrc = src;
+		active = true;
+	}
+
 	onMount(async() => {
-		const compImages = await import('svelte-images/src/Images/Images.svelte');
-		Images = compImages.default;
 		produit = postMd;
 		ready = true;
 		await tick();
@@ -48,11 +57,16 @@
 	});
 
 </script>
+
+<Modal bind:active={active}>
+	  <img alt={currentSrc} src={currentSrc} width="100%"/>
+</Modal>
+
 {#if ready}
 
-	<div class="column is-full" bind:this={subHeader}>
+	<div class="column is-full mt-6" bind:this={subHeader}>
 		<div class="edra-block no-padding has-text-white">
-			<div class="overblock">
+			<div class="overblock flexbase">
 				<h3 class="title is-3 has-text-primary has-text-weight-bold">{@html produit.title}</h3>
 				<p class="has-text-primary has-text-left">{@html produit.subtitle}</p>
 			</div>
@@ -80,9 +94,19 @@
 
 					{:else if contenu.type == "imagesobject"}
 						<div class="gallerie">
-							<svelte:component this={Images} 
-							numCols={contenu.images && contenu.images.length >= 4 ? 4 : contenu.images.length} 
-							images={contenu.images.map(c => c = {src : c})} gutter={0} />
+							{#if contenu.images && contenu.images.length === 1}
+								<div class="slide-unique">
+									<img src={contenu.images[0]} alt="contenu" on:click={_ => open(contenu.images[0])} >
+								</div>
+							{:else}
+								<Carousel perPage={contenu.images.length >= 2 ? 2 : 1} controls={false} dots={false} multipleDrag={false}>
+									{#each contenu.images as src}
+									<div class="slide-content">
+										<img src={src} alt="contenu" on:dblclick={_ => open(src)} >
+									</div>
+									{/each}
+								</Carousel>
+							{/if}
 						</div>
 
 					{:else if contenu.type && contenu.type == "intertitrebigobject"}
@@ -148,7 +172,7 @@
 	background:white!important;
 }
 .subcontainer {
-	padding: 0% 10%;
+	padding: 0% 14%;
 }
 .edra-contenu {
 	display: flex;
@@ -204,6 +228,13 @@
   width: 10px;
   margin-left: -10px;
   margin-top:7px;
+}
+.slide-unique {
+	width:100%;
+}
+.slide-unique img {
+	object-fit: cover;
+    width: 100%;
 }
 
 </style>
