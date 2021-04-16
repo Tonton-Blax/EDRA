@@ -131,12 +131,39 @@ body {
     padding : 2em 1.25rem;
     background : var(--lightblue)
 }
+/*
 .svelte-images-gallery {
     justify-content: space-between;
 }
-
+*/
 .flexbase {
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.gallerie {
+	width: 100%;
+    display: flex;
+    align-items: center;
+    place-self: center;
+}
+.gallerie img {
+	height:300px;
+}
+.slide-unique {
+	width:100%;
+}
+.slide-unique img {
+	object-fit: cover;
+    width: 100%;
+}
+.slide-content {
+	max-width:416px;
+}
+.slide-content-wrapper {
+	width: 100%;
+    display: flex;
+    flex-flow: column wrap;
+    align-content: space-around;
 }

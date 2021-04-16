@@ -3,12 +3,12 @@
 </svelte:head>
 
 <script>
-	import {onMount} from 'svelte'
 	import {chunk, shuffleArray} from '../utils/utils.js';
 	import IntersectionObserver from "svelte-intersection-observer";
 	import { goto } from '@sapper/app';
 	import { fly } from 'svelte/transition';
 	import { quadInOut, quadOut } from 'svelte/easing';
+	import Carousel from '@beyonk/svelte-carousel/src/Carousel.svelte'
 
 	let pictoEl;
 	const intersectings = {
@@ -67,12 +67,6 @@
 
 	];
 
-	let Carousel
-	onMount(async() => {
-		const comp = await import('svelte-carousel/src/components/Carousel/Carousel.svelte');
-		Carousel = comp.default;
-	});
-
 </script>
 
 	<div class="column is-full">
@@ -90,21 +84,17 @@
 				</div>
 			</div>
 			{/key}
-			<svelte:component 				
-				this={Carousel} let:loaded arrows={false} dots={true} autoplay={false} 
-				autoplayDuration={5000} duration={1000}
-				timingFunction={'cubic-bezier(.86,.01,0,1.01)'}
-				on:pageChange={ e => overBlocks[0].index = e.detail }
-				>
-				
+			<div class="carou">
+			<Carousel 				
+				perPage={1} controls={true} dots={false} multipleDrag={false}
+				autoplay={5000} duration={500}
+				on:change={ e => overBlocks[0].index = e.detail.currentSlide }
+			>
 				{#each imagesPaillasses as src, imageIndex (src)}
-					<div class="img-container image">
-					{#if loaded.includes(imageIndex)}
 						<img {src} class="carou-img" alt="nature" />
-					{/if}
-					</div>
 				{/each}
-			</svelte:component>
+			</Carousel>
+			</div>
 		</div>
 	</div>
 	<div class="column is-full">
@@ -139,7 +129,6 @@
 		</div>
 	</div>
 	<div class="column is-half">
-		
 		<div class="edra-block has-background-primary has-text-white" on:click={()=>goto('https://www.kerrock.fr/sanitaire')} >
 			{#key overBlocks[2].index}
 			<div class="flexbase" style="position:absolute;max-width:21%;" in:fly={{x:-1000, duration:500, easing:quadInOut}} out:fly={{x:1000, delay:100, easing:quadInOut}}>
@@ -153,16 +142,17 @@
 	</div>
 	<div class="column is-half">
 		<div class="edra-block no-padding has-background-white has-text-primary">
-			<svelte:component this={Carousel} let:loaded arrows={false} dots={true} autoplay={true} autoplayDuration={5000} timingFunction={'cubic-bezier(.86,.01,0,1.01)'}
-			on:pageChange={ e => overBlocks[2].index = e.detail } >
-				{#each imagesKerrock as src, imageIndex (src)}
-					<div class="img-container image">
-					{#if loaded.includes(imageIndex)}
-						<img {src} class="carou-img-half" alt="nature" />
-					{/if}
-					</div>
+			<div class="carou">
+			<Carousel 				
+				perPage={1} controls={false} dots={true} multipleDrag={false}
+				autoplay={0} duration={500}
+				on:change={ e => overBlocks[2].index = e.detail.currentSlide }
+			>				
+				{#each imagesKerrock as src (src)}
+=						<img {src} class="carou-img-half" alt="nature" />
 				{/each}
-			</svelte:component>
+				</Carousel>
+			</div>
 		</div>
 	</div>
 	<div class="column is-full">
@@ -175,16 +165,17 @@
 						</p>
 				</div>
 			{/key}
-			<svelte:component this={Carousel} let:loaded arrows={false} dots={true} autoplay={true} autoplayDuration={6000}
-				on:pageChange={ e => overBlocks[1].index = e.detail } >
-					{#each imagesEquipe as src, imageIndex (src)}
-						<div class="img-container image">
-						{#if loaded.includes(imageIndex)}
-							<img {src} class="carou-img" alt="nature" />
-						{/if}
-						</div>
-					{/each}
-			</svelte:component>
+			<div class="carou">
+			<Carousel 				
+				perPage={1} controls={false} dots={true} multipleDrag={false}
+				autoplay={5000} duration={500}
+				on:change={ e => overBlocks[0].index = e.detail.currentSlide }
+			>					
+				{#each imagesEquipe as src, imageIndex (src)}
+						<img {src} class="carou-img" alt="nature" />
+				{/each}
+			</Carousel>
+			</div>
 		</div>
 	</div>
 	<div class="column is-half">
@@ -195,7 +186,37 @@
 	<div class="column is-half">
 		<div class="edra-block no-padding has-background-white has-text-primary" style="margin-left:1px;">
 			<!-- <img class="autoheight" src="../img/kerrock02.jpg" alt="Hall d'accueil avec revêtement en kerrock"> -->
-			<svelte:component this={Carousel} arrows={false} dots={false} autoplay={true} autoplayDuration={5000} timingFunction={'cubic-bezier(.86,.01,0,1.01)'}>
+			<Carousel 				
+				perPage={1} controls={false} dots={true} multipleDrag={false}
+				autoplay={5000} duration={500}
+				on:change={ e => overBlocks[0].index = e.detail.currentSlide }
+			>
+			{#each chunk(shuffleArray(imagesLogos), 3) as logos, chunkIndex (chunkIndex)}
+					<div style="display: flex;">
+					{#each logos as logo (logo)}
+					<span class="logosquare"><img class="resize is-square" src={logo} alt="logo-"/></span>
+					{/each}
+					</div>
+				{/each}
+			</Carousel>
+			<Carousel 				
+				perPage={1} controls={false} dots={true} multipleDrag={false}
+				autoplay={5000} duration={500}
+				on:change={ e => overBlocks[0].index = e.detail.currentSlide }
+			>
+			{#each chunk(shuffleArray(imagesLogos), 3) as logos, chunkIndex (chunkIndex)}
+					<div style="display: flex;">
+					{#each logos as logo (logo)}
+					<span class="logosquare"><img class="resize is-square" src={logo} alt="logo-"/></span>
+					{/each}
+					</div>
+				{/each}
+			</Carousel>	
+			<Carousel 				
+				perPage={1} controls={false} dots={true} multipleDrag={false}
+				autoplay={5000} duration={500}
+				on:change={ e => overBlocks[0].index = e.detail.currentSlide }
+			>
 				{#each chunk(shuffleArray(imagesLogos), 3) as logos, chunkIndex (chunkIndex)}
 					<div style="display: flex;">
 					{#each logos as logo (logo)}
@@ -203,25 +224,7 @@
 					{/each}
 					</div>
 				{/each}
-			</svelte:component>
-			<svelte:component this={Carousel} arrows={false} dots={false} autoplay={true} autoplayDuration={5000} timingFunction={'cubic-bezier(.86,.01,0,1.01)'}>
-				{#each chunk(shuffleArray(imagesLogos), 3) as logos, chunkIndex (chunkIndex)}
-					<div style="display: flex;">
-					{#each logos as logo (logo)}
-					<span class="logosquare"><img class="resize is-square" src={logo} alt="logo-"/></span>
-					{/each}
-					</div>
-				{/each}
-			</svelte:component>
-			<svelte:component this={Carousel} arrows={false} dots={false} autoplay={true} autoplayDuration={5000} timingFunction={'cubic-bezier(.86,.01,0,1.01)'}>
-				{#each chunk(shuffleArray(imagesLogos), 3) as logos, chunkIndex (chunkIndex)}
-					<div style="display: flex;">
-					{#each logos as logo (logo)}
-					<span class="logosquare"><img class="resize is-square" src={logo} alt="logo-"/></span>
-					{/each}
-					</div>
-				{/each}
-			</svelte:component>
+			</Carousel>
 		</div>
 	</div>
 
@@ -260,14 +263,28 @@
 		max-width: 400px;
 		margin: 0 0 1em 0;
 	}
-	.carou-img {
-		min-height: 672px;
+	.carou {
+		margin:0px 0px 0px 0px!important;
+	}
+	.carou img {
+		width: fit-content;
+		min-width:100%;
+		object-fit:cover;
+		height:695px;
+		/*
+		min-height: 672px!important;
     	width: auto;
 		max-width:unset;
 		min-width:fill-available;
 		object-fit: cover!important;
     	margin:0px 0px 0px 0px!important;
+		*/
 	}
+
+	:global(.carou > ul) {
+		margin-top: -55px!important;
+	}
+
 	.carou-img-half {
 		min-height: 672px;
 		max-width:100%;

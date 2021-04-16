@@ -81,7 +81,7 @@
 		<div class="subcontainer">
 		
 			{#each produit.contenu as contenu, index}
-				<div class="edra-contenu">
+				<div class="edra-contenu" class:nothing={contenu.type == "imagesobject" && contenu.images && contenu.images.length >= 2}>
 					{#if contenu.type && contenu.type == "sectionmeta"}
 						<div class="edra-heading has-background-primary">
 							{#if contenu.sectiontitle}
@@ -100,9 +100,11 @@
 								</div>
 							{:else}
 								<Carousel perPage={contenu.images.length >= 2 ? 2 : 1} controls={false} dots={false} multipleDrag={false}>
-									{#each contenu.images as src}
-									<div class="slide-content">
-										<img src={src} alt="contenu" on:dblclick={_ => open(src)} >
+									{#each contenu.images as src, idx}
+									<div class="slide-content-wrapper">
+										<div class="slide-content">
+											<img src={src} alt="contenu" on:dblclick={_ => open(src)} >
+										</div>
 									</div>
 									{/each}
 								</Carousel>
@@ -174,6 +176,12 @@
 .subcontainer {
 	padding: 0% 14%;
 }
+.nothing {
+	padding-left: 0px!important;
+	padding-right: 0px!important;
+	margin-left: 0px!important;
+	margin-right: 0px!important;
+}
 .edra-contenu {
 	display: flex;
 	flex-flow: column nowrap;
@@ -187,16 +195,9 @@
 	width: fit-content;
 	padding:2.5rem;
 }
-.gallerie {
-	width: 100%;
-    display: flex;
-    align-items: center;
-    place-self: center;
-}
-:global(.gallerie img) {
-    place-self: center;
-	max-height:300px;
-	object-fit:contain;
+
+:global(.modal-content, .modal-card) {
+	width:60vw;
 }
 .edra-heading > * {
 	line-height: 1rem;
@@ -228,13 +229,6 @@
   width: 10px;
   margin-left: -10px;
   margin-top:7px;
-}
-.slide-unique {
-	width:100%;
-}
-.slide-unique img {
-	object-fit: cover;
-    width: 100%;
 }
 
 </style>

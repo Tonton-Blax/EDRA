@@ -8,13 +8,9 @@
 	import IntersectionObserver from "svelte-intersection-observer";
 	import { stores } from '@sapper/app';
 	import { tick } from 'svelte';
-import { parseAllDocuments } from 'yaml';
 	const { page,preloading } = stores();
 
-
 	$: ($page.path || $preloading) && notOk()
-
-	$: console.log($page.path)
 
 	let ok = true;
 

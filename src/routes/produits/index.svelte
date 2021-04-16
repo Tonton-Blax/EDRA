@@ -22,7 +22,7 @@
 
 <style>
 	.spacer {
-		padding:1.5em 1.5rem;
+		padding:1.45em 1.5rem;
 		background:var(--lightblue);
 	}
 </style>

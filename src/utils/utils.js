@@ -13,8 +13,7 @@ export const shuffleArray = arr => {
 }
 
 export function longpress(node, threshold = 500) {
-  // note — a complete answer would also consider touch events
-
+// Implémenter les touch events
   const handle_mousedown = () => {
     const timeout = setTimeout(() => {
       node.dispatchEvent(new CustomEvent('longpress'));

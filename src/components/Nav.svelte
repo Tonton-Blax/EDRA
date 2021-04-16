@@ -24,7 +24,6 @@
 		}, 300);
 	}
 
-
 	let indicator; let navItems = [];
 
 	function handleIndicator(idx) {
@@ -34,7 +33,7 @@
 		});
 		indicator.style.width = "".concat(navItems[idx].offsetWidth, "px");
 		indicator.style.left = "".concat(navItems[idx].offsetLeft, "px");
-		indicator.style.backgroundColor = $observing ? "white" : $colors.tertiary;
+		indicator.style.backgroundColor = $observing && segment != 'produits' ? "white" : $colors.tertiary;
 		navItems[idx].classList.add('active-item');
 		navItems[idx].style.color = $observing ? "white" : $colors.main;
 	}
@@ -58,10 +57,10 @@
 				<span aria-hidden="true"></span>
 		</button>
 	</div>
-	<div class="navbar-end is-hidden-touch">
-		<a bind:this={navItems[0]} on:mouseenter={()=>handleIndicator(0)} class="navbar-item active-item" aria-current={segment === undefined ? 'page' : undefined} href="." on:click={() => menuIsActive = false}>EDRA</a>
-		<a bind:this={navItems[1]} on:mouseenter={()=>handleIndicator(1)} rel="prefetch" class="navbar-item" aria-current={segment === 'produits' ? 'page' : undefined} href="produits" on:click={() => menuIsActive = false}>Produits</a>
-		<a bind:this={navItems[2]} on:mouseenter={()=>handleIndicator(2)} class="navbar-item" aria-current={segment === 'contact' ? 'page' : undefined} on:click={() => menuIsActive = false} href="contact">Contact</a>
+	<div class="navbar-end is-hidden-touch" >
+		<a class:forceblue={segment == 'produits'} bind:this={navItems[0]} on:mouseenter={()=>handleIndicator(0)} class="navbar-item active-item" aria-current={segment === undefined ? 'page' : undefined} href="." on:click={() => menuIsActive = false}>EDRA</a>
+		<a class:forceblue={segment == 'produits'} bind:this={navItems[1]} on:mouseenter={()=>handleIndicator(1)} rel="prefetch" class="navbar-item" aria-current={segment === 'produits' ? 'page' : undefined} href="produits" on:click={() => menuIsActive = false}>Produits</a>
+		<a class:forceblue={segment == 'produits'} bind:this={navItems[2]} on:mouseenter={()=>handleIndicator(2)} class="navbar-item" aria-current={segment === 'contact' ? 'page' : undefined} on:click={() => menuIsActive = false} href="contact">Contact</a>
 		<span class="navbar-indicator" bind:this={indicator}></span>
 
 
@@ -95,6 +94,9 @@
 
 .is-transparent a {
 	color:white;
+}
+.is-transparent a.forceblue, .is-transparent a.forceblue:hover {
+	color:var(--maincolor)!important;
 }
 .is-transparent {
 	background:none;
@@ -195,5 +197,6 @@ a {
 		color:unset!important;
 	}
 }
+
 </style>
 
