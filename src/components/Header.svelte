@@ -1,7 +1,7 @@
 <script>
 	import { draw } from 'svelte/transition';
 	import { onMount, tick } from 'svelte';
-	import { lignes, cercles } from './lignes.js'
+	import { stuffToDraw } from './lignes.js'
 	import { refresh } from '../utils/stores.js'
 	import { stores } from '@sapper/app';
 	const { page } = stores();
@@ -12,6 +12,9 @@
 		siglePointilles : false,
 		title : undefined
 	}
+
+	let cercles = $page.params && $page.params.slug ? stuffToDraw.cerclesClair : stuffToDraw.cercles;
+	let lignes = $page.params && $page.params.slug ? stuffToDraw.lignesClair : stuffToDraw.lignes;
 
 	$: $page.path && setRefresh();
 
@@ -46,7 +49,7 @@
 
 </script>
 <div class="svg-container">
-    <div class="logo-container" style="transform:translate(-50%, -{options.siglePointilles ? "50" : "77"}%)">
+    <div class="logo-container" style="transform:translate(-50%, -{options.siglePointilles ? "65" : "77"}%)">
 	{#if options.siglePointilles}
 		<svg class="mb-4"
 		width="122px" height="139px" viewBox="0 0 122 139" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -64,8 +67,10 @@
 	{:else}
 		<img src="./img/logo.png" class="mb-5" alt="logo edra">
 	{/if}
-	{#if options.title && options.title.subTitle}
+	{#if options.title}
 		<h1 class="title is-2 has-text-weight-bold mb-4" style="color:{options.linesColor};text-transform:uppercase">{options.title.title}</h1>
+	{/if}
+	{#if options.title && options.title.subTitle}
 		<h3 class="title is-5 has-text-weight-normal is-subtitle" style="color:{options.linesColor};">{options.title.subTitle || ""}</h3>
 	{/if}
     </div>
