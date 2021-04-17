@@ -17,9 +17,9 @@
 	}
 
 	const imagesKerrock = [
-			'../img/kerrock02.jpg',
-			'../img/bur.jpeg',
-			'../img/pereno.jpeg'
+			'../img/kerrock_1.jpg',
+			'../img/kerrock_2.jpg',
+			'../img/kerrock_3.jpg',
 	];
 	const imagesEquipe = [
 			'../img/equipe1.png',
