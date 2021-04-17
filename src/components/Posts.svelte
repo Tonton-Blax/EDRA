@@ -8,7 +8,7 @@
 
 				{#each posts as post}
 				<div class="column is-one-third mb-0">
-					<div class="card" on:click={()=> goto(`produits/${post.slug}`, {noscroll : true})}>
+					<div class="card" on:click={()=> goto(`produits/${post.slug}`, {noscroll : true})} >
 						<div class="card-image">
 							<figure class="image">
 								<img src={post.thumbnail} alt="{post.title}">
@@ -20,7 +20,7 @@
 							</div>
 						</div>
 						<footer class="card-footer">
-							<div class="button is-success has-text-weight-bold is-uppercase">découvrir</div>
+							<a href="produits/{post.slug}" class="button is-success has-text-weight-bold is-uppercase">découvrir</a>
 						</footer>
 					</div>
 				</div>
