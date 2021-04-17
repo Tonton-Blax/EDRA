@@ -9,6 +9,7 @@
 	import { fly } from 'svelte/transition';
 	import { quadInOut, quadOut } from 'svelte/easing';
 	import Carousel from '@beyonk/svelte-carousel/src/Carousel.svelte'
+    import Image from "svelte-image";
 
 	let pictoEl;
 	const intersectings = {
@@ -23,7 +24,8 @@
 	];
 	const imagesEquipe = [
 			'../img/equipe1.png',
-			'../img/ambu.jpeg'
+			'../img/delais_rapides.jpg',
+			'../img/sav_reactif.jpg'
 	];
 	const imagesPaillasses = [
 		'../img/paillasse_endoscopique.jpg',
@@ -54,7 +56,12 @@
 	},
 	{
 		index : 0,
-		titre : ["Savoir-faire<br>et technicité", "Conceptions<br>sur-mesure"],
+		titre : ["Savoir-faire", "SAV réactif", "Des délais rapides"],
+		sousTitre : [
+			"37 ans d’expérience. Un suivi de vos projets sur du long terme. Une équipe dédiée et formée spécifiquement à la transformation de la résine de synthèse",
+			"Un rappel dans les 4 heures en moyenne pour vous accompagner par téléphone, des interventions rapides sur le terrain si besoin, des pièces détachées toujours en stock",
+			"Un process de fabrication local et maitrisé, capable de produire et déployer rapidement, même dans l’urgence"
+		]
 	},
 	{
 		index : 0,
@@ -90,8 +97,8 @@
 				autoplay={5000} duration={500}
 				on:change={ e => overBlocks[0].index = e.detail.currentSlide }
 			>
-				{#each imagesPaillasses as src, imageIndex (src)}
-						<img {src} class="carou-img" alt="nature" />
+				{#each imagesPaillasses as src (src)}
+					<img {src} class="carou-img" alt="nature" /> 
 				{/each}
 			</Carousel>
 			</div>
@@ -149,7 +156,7 @@
 				on:change={ e => overBlocks[2].index = e.detail.currentSlide }
 			>				
 				{#each imagesKerrock as src (src)}
-=						<img {src} class="carou-img-half" alt="nature" />
+					<img {src} class="carou-img-half" alt="nature" />
 				{/each}
 				</Carousel>
 			</div>
@@ -157,21 +164,25 @@
 	</div>
 	<div class="column is-full">
 		<div class="edra-block no-padding has-text-white">
-			<div class="overtop"><img src="../img/svg/hexagone.svg" alt="hexagone" style="width: 214px!important;"></div>
 			{#key overBlocks[1].index}
 				<div in:fly={{x:-1000, duration:500}} out:fly={{x:1000, delay:100, easing:quadInOut}} class="overtop">
-						<p class="has-text-left is-size-1 has-text-weight-bold" style="padding-left:150px;line-height:3.3rem;">
+						<img src="../img/svg/hexagone.svg" alt="hexagone" style="width:214px;margin-top:-2em;position:absolute;">
+						<p class="has-text-left is-size-1 has-text-weight-bold mt-0 mb-0" style="padding-left:150px;line-height:2rem;">
 							{@html overBlocks[1].titre[overBlocks[1].index]}
 						</p>
+						<p class="is-size-5 has-text-left" style="padding-left:150px;line-height:1.5rem;max-width:40%;float:left;">
+							{@html overBlocks[1].sousTitre[overBlocks[1].index]}
+						</p>
+						<div class="background" />
 				</div>
 			{/key}
 			<div class="carou">
 			<Carousel 				
 				perPage={1} controls={false} dots={true} multipleDrag={false}
-				autoplay={5000} duration={500}
-				on:change={ e => overBlocks[0].index = e.detail.currentSlide }
+				autoplay={0} duration={500}
+				on:change={ e => overBlocks[1].index = e.detail.currentSlide }
 			>					
-				{#each imagesEquipe as src, imageIndex (src)}
+				{#each imagesEquipe as src (src)}
 						<img {src} class="carou-img" alt="nature" />
 				{/each}
 			</Carousel>

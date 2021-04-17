@@ -10,6 +10,7 @@ import sveltePreprocess from 'svelte-preprocess'
 import config from 'sapper/config/rollup.js'
 import pkg from './package.json'
 import copy from 'rollup-plugin-copy'
+import image from "svelte-image";
 
 const mode = process.env.NODE_ENV
 const dev = mode === 'development'
@@ -22,12 +23,13 @@ const onwarn = (warning, onwarn) =>
 	onwarn(warning)
 
 const preprocesses = sveltePreprocess({
+	...image(),
 	scss: {
 		includePaths: ['src'],
 	},
 	postcss: {
 		plugins: [require('autoprefixer')],
-	},
+	}
 })
 
 export default {
