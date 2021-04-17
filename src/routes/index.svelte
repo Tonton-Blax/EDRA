@@ -271,18 +271,7 @@
 		min-width:100%;
 		object-fit:cover;
 		height:695px;
-		/*
-		min-height: 672px!important;
-    	width: auto;
-		max-width:unset;
-		min-width:fill-available;
-		object-fit: cover!important;
     	margin:0px 0px 0px 0px!important;
-		*/
-	}
-
-	:global(.carou > ul) {
-		margin-top: -55px!important;
 	}
 
 	.carou-img-half {

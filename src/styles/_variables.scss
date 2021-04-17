@@ -56,17 +56,6 @@ body {
     height:672px;
 }
 
-// Block > Images Carousel
-
-.edra-block .sc-carousel__carousel-container {
-    height:100%;
-}
-.edra-block .sc-carousel-dots__container {
-    margin-top:-70px;
-}
-.edra-block .sc-carousel__content-container {
-    max-height:100%;
-}
 .edra-block .img-container {
     place-self : center;
 }
@@ -80,6 +69,11 @@ body {
 .overtop img {
     transform: translateX(-50%);
 }
+
+.carou ul {
+    margin-top: -55px!important;
+}
+
 .overblock {
     position: absolute;
     left: 50%;
@@ -90,6 +84,7 @@ body {
     background: white;
     padding: 30px;		
 }
+
 .block-up {
     height:120px;
     justify-content: flex-end;
