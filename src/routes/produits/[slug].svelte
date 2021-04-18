@@ -80,7 +80,7 @@
 	<div class="column is-full mt-6">
 		<div class="subcontainer">
 		
-			{#each produit.contenu as contenu, index}
+			{#each produit.contenu as contenu }
 				<div class="edra-contenu" class:nothing={contenu.type == "imagesobject" && contenu.images && contenu.images.length >= 2}>
 					{#if contenu.type && contenu.type == "sectionmeta"}
 						<div class="edra-heading has-background-primary">

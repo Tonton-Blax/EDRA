@@ -98,7 +98,7 @@
 				on:change={ e => overBlocks[0].index = e.detail.currentSlide }
 			>
 				{#each imagesPaillasses as src (src)}
-					<img {src} class="carou-img" alt="nature" /> 
+					<img src="{src}?nf_resize=fit&w=1344&h=695" class="carou-img" alt="nature" /> 
 				{/each}
 			</Carousel>
 			</div>
