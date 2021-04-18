@@ -55,7 +55,7 @@
 				"Un process de fabrication local et maitrisé, capable de produire et déployer rapidement, même dans l’urgence"
 			],
 			images : [
-				'../img/equipe1.png',
+				'../img/equipe1.jpg',
 				'../img/delais_rapides.jpg',
 				'../img/sav_reactif.jpg'
 			]
@@ -76,6 +76,8 @@
 	];
 
 </script>
+
+	<!-- PRODUITS -->
 
 	<div class="column is-full">
 		<div class="edra-block no-padding has-text-white">
@@ -105,6 +107,9 @@
 			</div>
 		</div>
 	</div>
+
+	<!-- 4 PICTOS -->
+
 	<div class="column is-full">
 		<div class="edra-block no-padding has-background-white has-text-primary" bind:this={pictoEl}>
 			<h2 class="title is-2 has-text-centered has-text-primary has-text-weight-bold mb-6">EDRA, 30 ans <br>de qualité de Service</h2>
@@ -136,6 +141,9 @@
 			</div>
 		</div>
 	</div>
+
+	<!-- KERROCK TEXTE -->
+
 	<div class="column is-half">
 		<div class="edra-block has-background-primary has-text-white" >
 
@@ -154,12 +162,15 @@
 
 		</div>
 	</div>
+
+	<!-- KERROCK IMAGES -->
+
 	<div class="column is-half">
 		<div class="edra-block no-padding has-background-white has-text-primary">
 			<div class="carou">
 			<Carousel 				
 				perPage={1} controls={false} dots={true} multipleDrag={false}
-				autoplay={0} duration={500}
+				autoplay={500} duration={500}
 				on:change={ e => overBlocks[2].index = e.detail.currentSlide }
 			>				
 				{#each overBlocks[2].images as src (src)}
@@ -169,6 +180,9 @@
 			</div>
 		</div>
 	</div>
+
+	<!-- POINTS FORTS -->
+
 	<div class="column is-full">
 		<div class="edra-block no-padding has-text-white">
 			{#key overBlocks[1].index}
@@ -196,6 +210,9 @@
 			</div>
 		</div>
 	</div>
+
+	<!-- REFERENCES -->
+
 	<div class="column is-half">
 		<div class="edra-block has-background-primary has-text-white p-0">
 			<h2 class="title is-2 has-text-white has-text-centered mb-0">Ils nous font<br>confiance</h2>
