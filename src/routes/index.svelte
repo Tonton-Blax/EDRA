@@ -198,15 +198,15 @@
 				</div>
 			{/key}
 			<div class="carou">
-			<Carousel 				
-				perPage={1} controls={false} dots={true} multipleDrag={false}
-				autoplay={0} duration={500}
-				on:change={ e => overBlocks[1].index = e.detail.currentSlide }
-			>					
-				{#each overBlocks[1].images as src (src)}
-						<img {src} class="carou-img" alt="nature" />
-				{/each}
-			</Carousel>
+				<Carousel 
+					perPage={1} controls={false} dots={true} multipleDrag={false}
+					autoplay={5000} duration={500}
+					on:change={ e => overBlocks[1].index = e.detail.currentSlide }
+				>
+					{#each overBlocks[1].images as src (src)}
+						<img {src} class="carou-img" alt="nature"/>
+					{/each}
+				</Carousel>
 			</div>
 		</div>
 	</div>
