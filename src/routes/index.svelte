@@ -41,7 +41,7 @@
 				"Consultations, chambres, cabinets dentaires… Utilisation : lavage hygiénique (mains, avant-bras)"
 			],
 			images : [
-				'../img/paillasse_endoscopique.jpg',
+				'../img/initial/paillasse_endoscopique.jpg',
 				'../img/uploads/poste-de-change-sur-mesure-01.jpg',
 				'../img/uploads/lave-main-ocea-01.jpg'
 			]
@@ -55,9 +55,9 @@
 				"Un process de fabrication local et maitrisé, capable de produire et déployer rapidement, même dans l’urgence"
 			],
 			images : [
-				'../img/equipe1.jpg',
-				'../img/delais_rapides.jpg',
-				'../img/sav_reactif.jpg'
+				'../img/initial/equipe1.jpg',
+				'../img/initial/delais_rapides.jpg',
+				'../img/initial/sav_reactif.jpg'
 			]
 		},
 		{
@@ -68,9 +68,9 @@
 				"Ecologique, il est naturellement durable et recyclable. Il peut être rénové, réparé et réutilisé à l’infini. Respectueux de l’environnement et de la santé, il ne contient aucun C.O.V."
 			],
 			images : [
-				'../img/kerrock_1.jpg',
-				'../img/kerrock_2.jpg',
-				'../img/kerrock_3.jpg',
+				'../img/initial/kerrock_1.jpg',
+				'../img/initial/kerrock_2.jpg',
+				'../img/initial/kerrock_3.jpg',
 			]
 		}
 	];
