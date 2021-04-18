@@ -137,15 +137,21 @@
 		</div>
 	</div>
 	<div class="column is-half">
-		<div class="edra-block has-background-primary has-text-white" on:click={()=>goto('https://www.kerrock.fr/sanitaire')} >
+		<div class="edra-block has-background-primary has-text-white" >
+
 			{#key overBlocks[2].index}
-			<div class="flexbase" style="position:absolute;max-width:21%;" in:fly={{x:-1000, duration:500, easing:quadInOut}} out:fly={{x:1000, delay:100, easing:quadInOut}}>
-			<h2 class="title is-2 has-text-white mb-0">Kerrock®</h2>
+			<a class="flexbase has-text-white" 
+				style="position:absolute;max-width:21%;" 
+				in:fly={{x:-1000, duration:500, easing:quadInOut}} out:fly={{x:1000, delay:100, easing:quadInOut}} 
+				href='https://www.kerrock.fr/sanitaire'
+			>
+				<h2 class="title is-2 has-text-white mb-0">Kerrock®</h2>
 				<p class="is-size-6 has-text-left">
 					{@html overBlocks[2].sousTitre[overBlocks[2].index]}
 				</p>
-			</div>
+			</a>
 			{/key}
+
 		</div>
 	</div>
 	<div class="column is-half">
