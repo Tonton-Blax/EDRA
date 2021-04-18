@@ -23,17 +23,13 @@ const onwarn = (warning, onwarn) =>
 	onwarn(warning)
 
 const preprocesses = sveltePreprocess({
+	...image(),
 	scss: {
 		includePaths: ['src'],
 	},
 	postcss: {
 		plugins: [require('autoprefixer')],
 	},
-	...image({
-		sizes: [400, 768, 1024],
-		breakpoints: [768, 1024, 1344],
-		processFolders: ['img/uploads', 'img/initial']
-	})
 })
 
 export default {

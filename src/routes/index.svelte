@@ -5,11 +5,9 @@
 <script>
 	import {chunk, shuffleArray} from '../utils/utils.js';
 	import IntersectionObserver from "svelte-intersection-observer";
-	import { goto } from '@sapper/app';
 	import { fly } from 'svelte/transition';
 	import { quadInOut, quadOut } from 'svelte/easing';
 	import Carousel from '@beyonk/svelte-carousel/src/Carousel.svelte'
-    //import Image from "svelte-image";
 
 	let pictoEl;
 	
@@ -48,7 +46,7 @@
 		},
 		{
 			index : 0,
-			titre : ["Savoir-faire", "SAV réactif", "Des délais rapides"],
+			titre : ["Savoir-faire", "SAV réactif", "Délais rapides"],
 			sousTitre : [
 				"37 ans d’expérience. Un suivi de vos projets sur du long terme. Une équipe dédiée et formée spécifiquement à la transformation de la résine de synthèse",
 				"Un rappel dans les 4 heures en moyenne pour vous accompagner par téléphone, des interventions rapides sur le terrain si besoin, des pièces détachées toujours en stock",
@@ -185,22 +183,27 @@
 
 	<div class="column is-full">
 		<div class="edra-block no-padding has-text-white">
+			<!-- 
+				<div class="overtop">
+					<img src="../img/svg/hexagone.svg" alt="hexagone" style="width:214px;margin-top:-9%;position:absolute;">
+				</div> 
+			-->
 			{#key overBlocks[1].index}
-				<div in:fly={{x:-1000, duration:500}} out:fly={{x:1000, delay:100, easing:quadInOut}} class="overtop">
-						<img src="../img/svg/hexagone.svg" alt="hexagone" style="width:214px;margin-top:-2em;position:absolute;">
-						<p class="has-text-left is-size-1 has-text-weight-bold mt-0 mb-0" style="padding-left:150px;line-height:2rem;">
+				<div in:fly={{x:-1000, duration:500}} out:fly={{x:1000, delay:100, easing:quadInOut}} class="overblock" style="left:60%;">
+					<div class="block-up" style="flex-flow:column;place-content:end;margin-top:7%">
+						<p class="has-text-left is-size-1 has-text-weight-bold has-text-primary m-0 pb-2" style="line-height:3rem;">
 							{@html overBlocks[1].titre[overBlocks[1].index]}
 						</p>
-						<p class="is-size-5 has-text-left" style="padding-left:150px;line-height:1.5rem;max-width:40%;float:left;">
+						<p class="is-size-5 has-text-left has-text-primary m-0">
 							{@html overBlocks[1].sousTitre[overBlocks[1].index]}
 						</p>
-						<div class="background" />
+					</div>
 				</div>
 			{/key}
 			<div class="carou">
 				<Carousel 
 					perPage={1} controls={false} dots={true} multipleDrag={false}
-					autoplay={5000} duration={500}
+					autoplay={0} duration={500}
 					on:change={ e => overBlocks[1].index = e.detail.currentSlide }
 				>
 					{#each overBlocks[1].images as src (src)}
