@@ -9,28 +9,15 @@
 	import { fly } from 'svelte/transition';
 	import { quadInOut, quadOut } from 'svelte/easing';
 	import Carousel from '@beyonk/svelte-carousel/src/Carousel.svelte'
-    import Image from "svelte-image";
+    //import Image from "svelte-image";
 
 	let pictoEl;
+	
 	const intersectings = {
 		pictos : undefined,
 		header : undefined
 	}
 
-	const imagesKerrock = [
-			'../img/kerrock_1.jpg',
-			'../img/kerrock_2.jpg',
-			'../img/kerrock_3.jpg',
-	];
-	const imagesEquipe = [
-			'../img/equipe1.png',
-			'../img/delais_rapides.jpg',
-			'../img/sav_reactif.jpg'
-	];
-	const imagesPaillasses = [
-		'../img/paillasse_endoscopique.jpg',
-		'../img/pp.jpeg'
-	]
 	const imagesLogos= [
 		"../img/logos/tenon.png",
 		"../img/logos/necker.png",
@@ -44,34 +31,48 @@
 	]
 
 	const overBlocks = [
-	{
-		index : 0,
-		titre : ["Paillasses endoscopiques", "Titre n°2 exemple", "Titre n°3 exemple"],
-		liens : ["/produits/paillasses-endoscopiques", "/", "/"],
-		sousTitre : [
-			"Ut velit mauris, egestas sed, gravida nec, ornare ut, mi. Aenean ut orci vel massa suscipit pulvinar. Nulla sollicitudin fusce varius.",
-			"sous-titre n°2 exemple",
-			"sous-titre n°3 exemple"
-		]
-	},
-	{
-		index : 0,
-		titre : ["Savoir-faire", "SAV réactif", "Des délais rapides"],
-		sousTitre : [
-			"37 ans d’expérience. Un suivi de vos projets sur du long terme. Une équipe dédiée et formée spécifiquement à la transformation de la résine de synthèse",
-			"Un rappel dans les 4 heures en moyenne pour vous accompagner par téléphone, des interventions rapides sur le terrain si besoin, des pièces détachées toujours en stock",
-			"Un process de fabrication local et maitrisé, capable de produire et déployer rapidement, même dans l’urgence"
-		]
-	},
-	{
-		index : 0,
-		sousTitre : [
-			"Alliance parfaite de l’acrylique et de la pierre naturelle, Kerrock est résistant, hygiénique, non toxique, réparable et thermoformable. Kerrock® peut se travailler dans une variété de formes quasi illimitée sans aucun joint apparent : le matériau idéal pour les établissements de santé, l’hôtellerie, les espaces publics, les espaces de travail, les magasins.", 
-			"Kerrock® est le seul solid-surface fabriqué en Europe dans le respect des normes écologiques, sanitaires et sociales. La proximité des usines permet de réduire fortement l’impact carbone lié au transport.",
-			"Ecologique, il est naturellement durable et recyclable. Il peut être rénové, réparé et réutilisé à l’infini. Respectueux de l’environnement et de la santé, il ne contient aucun C.O.V."
-		],
-	}
-
+		{
+			index : 0,
+			titre : ["Paillasses endoscopiques", "Postes de change en Kerrock", "Lave-main Ocea"],
+			liens : ["/produits/paillasses-endoscopiques", "/produits/postes-de-change-en-kerrock", "/produits/lave-main-ocea"],
+			sousTitre : [
+				"Ut velit mauris, egestas sed, gravida nec, ornare ut, mi. Aenean ut orci vel massa suscipit pulvinar. Nulla sollicitudin fusce varius.",
+				"Pour une hygiène et un entretien irréprochable",
+				"Consultations, chambres, cabinets dentaires… Utilisation : lavage hygiénique (mains, avant-bras)"
+			],
+			images : [
+				'../img/paillasse_endoscopique.jpg',
+				'../img/uploads/poste-de-change-sur-mesure-01.jpg',
+				'../img/uploads/lave-main-ocea-01.jpg'
+			]
+		},
+		{
+			index : 0,
+			titre : ["Savoir-faire", "SAV réactif", "Des délais rapides"],
+			sousTitre : [
+				"37 ans d’expérience. Un suivi de vos projets sur du long terme. Une équipe dédiée et formée spécifiquement à la transformation de la résine de synthèse",
+				"Un rappel dans les 4 heures en moyenne pour vous accompagner par téléphone, des interventions rapides sur le terrain si besoin, des pièces détachées toujours en stock",
+				"Un process de fabrication local et maitrisé, capable de produire et déployer rapidement, même dans l’urgence"
+			],
+			images : [
+				'../img/equipe1.png',
+				'../img/delais_rapides.jpg',
+				'../img/sav_reactif.jpg'
+			]
+		},
+		{
+			index : 0,
+			sousTitre : [
+				"Alliance parfaite de l’acrylique et de la pierre naturelle, Kerrock est résistant, hygiénique, non toxique, réparable et thermoformable. Kerrock® peut se travailler dans une variété de formes quasi illimitée sans aucun joint apparent : le matériau idéal pour les établissements de santé, l’hôtellerie, les espaces publics, les espaces de travail, les magasins.", 
+				"Kerrock® est le seul solid-surface fabriqué en Europe dans le respect des normes écologiques, sanitaires et sociales. La proximité des usines permet de réduire fortement l’impact carbone lié au transport.",
+				"Ecologique, il est naturellement durable et recyclable. Il peut être rénové, réparé et réutilisé à l’infini. Respectueux de l’environnement et de la santé, il ne contient aucun C.O.V."
+			],
+			images : [
+				'../img/kerrock_1.jpg',
+				'../img/kerrock_2.jpg',
+				'../img/kerrock_3.jpg',
+			]
+		}
 	];
 
 </script>
@@ -97,8 +98,8 @@
 				autoplay={5000} duration={500}
 				on:change={ e => overBlocks[0].index = e.detail.currentSlide }
 			>
-				{#each imagesPaillasses as src (src)}
-					<img src="{src}?nf_resize=fit&w=1344&h=695" class="carou-img" alt="nature" /> 
+				{#each overBlocks[0].images as src (src)}
+					<img {src} class="carou-img" alt="nature" /> 
 				{/each}
 			</Carousel>
 			</div>
@@ -155,7 +156,7 @@
 				autoplay={0} duration={500}
 				on:change={ e => overBlocks[2].index = e.detail.currentSlide }
 			>				
-				{#each imagesKerrock as src (src)}
+				{#each overBlocks[2].images as src (src)}
 					<img {src} class="carou-img-half" alt="nature" />
 				{/each}
 				</Carousel>
@@ -182,7 +183,7 @@
 				autoplay={0} duration={500}
 				on:change={ e => overBlocks[1].index = e.detail.currentSlide }
 			>					
-				{#each imagesEquipe as src (src)}
+				{#each overBlocks[1].images as src (src)}
 						<img {src} class="carou-img" alt="nature" />
 				{/each}
 			</Carousel>
