@@ -170,7 +170,7 @@
 			<div class="carou">
 			<Carousel 				
 				perPage={1} controls={false} dots={true} multipleDrag={false}
-				autoplay={500} duration={500}
+				autoplay={5000} duration={500}
 				on:change={ e => overBlocks[2].index = e.detail.currentSlide }
 			>				
 				{#each overBlocks[2].images as src (src)}
