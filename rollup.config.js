@@ -52,9 +52,6 @@ export default {
 						src: 'node_modules/@fortawesome/fontawesome-free/webfonts',
 						dest: config.client.output().dir,
 					},
-					{ 	src: 'static/g', 
-						dest: 'public' 
-					}
 				]
 			}),
 			svelte({
