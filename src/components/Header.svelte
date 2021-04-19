@@ -4,21 +4,36 @@
 	import { stuffToDraw } from './lignes.js'
 	import { refresh } from '../utils/stores.js'
 	import { stores } from '@sapper/app';
-	const { page } = stores();
+	const { page, preloading } = stores();
 
-	export let options = {
-		bgColor : "#005476",
-		linesColor : "white",
+	const optionsSlug = {
+		siglePointilles : true,
+		bgColor: "#D9E7EC",
+		linesColor : "#005476",
+		title :	{
+			title : "Fiches Techniques", 
+			subTitle : undefined
+		},
+		lignes : stuffToDraw.lignesClair,
+		cercles : stuffToDraw.cerclesClair
+	};
+
+	const optionsNormal = {
 		siglePointilles : false,
-		title : undefined
+		bgColor: "#005476",
+		linesColor: "white",
+		title:undefined,
+		lignes : stuffToDraw.lignes,
+		cercles : stuffToDraw.cercles
 	}
-
-	let cercles = $page.params && $page.params.slug ? stuffToDraw.cerclesClair : stuffToDraw.cercles;
-	let lignes = $page.params && $page.params.slug ? stuffToDraw.lignesClair : stuffToDraw.lignes;
-
-	$: $page.path && setRefresh();
+	
+	let options = $page.path !== '/produits' ? {...optionsNormal} : {...optionsSlug};
+	
+	$: ($page.path && $preloading) && setRefresh();
 
 	let setRefresh = async()=> {
+		options = $page.path !== '/produits' ? {...optionsNormal} : {...optionsSlug};
+		console.log($page.path);
 		$refresh = true;
 		await tick();
 		$refresh = false;
@@ -29,7 +44,7 @@
 	let svgs = []; 
 	let cerclesEls = [];
 	
-	for (let cercle of cercles ) {
+	for (let cercle of options.cercles ) {
 		cercle.peri = Math.ceil(Math.PI * 2 * cercle.rayon);
 		cercle.stroke = Array(Math.ceil(cercle.peri  / 5)).fill(5)
 		if (cercle.stroke.length % 2 !== 0) 
@@ -78,7 +93,7 @@
 	{#if !$refresh}
 	<svg height="820" width="720" id="svg" xmlns="http://www.w3.org/2000/svg"  version="1.1" style="background:{options.bgColor}">
 
-		{#each lignes as ligne, index(ligne.id)}
+		{#each options.lignes as ligne, index(ligne.id)}
 				<line id={ligne.id} stroke-dasharray={ligne.tirets}
 					x1={ligne.x1} y1={ligne.y1} x2={ligne.x2} 
 					y2={ligne.y2} stroke={options.linesColor} stroke-width={ligne.contour}
@@ -117,7 +132,7 @@
 				</line>
 		{/each}
 
-		{#each cercles as cercle, index (cercle.id)}
+		{#each options.cercles as cercle, index (cercle.id)}
 			<circle 
 			class="circle-path"
 			class:reversed={cercle.reversed}

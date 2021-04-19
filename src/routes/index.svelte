@@ -1,14 +1,16 @@
+<svelte:window bind:innerWidth={innerWidth} />
 <svelte:head>
-	<title>Sapper project template</title>
+	<title>EDRA Médical</title>
 </svelte:head>
 
 <script>
-	import {chunk, shuffleArray} from '../utils/utils.js';
+	import {chunk, shuffleArray } from '../utils/utils.js';
 	import IntersectionObserver from "svelte-intersection-observer";
 	import { fly } from 'svelte/transition';
 	import { quadInOut, quadOut } from 'svelte/easing';
 	import Carousel from '@beyonk/svelte-carousel/src/Carousel.svelte'
-
+	
+	let innerWidth;
 	let pictoEl;
 	
 	const intersectings = {
@@ -183,23 +185,20 @@
 
 	<div class="column is-full">
 		<div class="edra-block no-padding has-text-white">
-			<!-- 
-				<div class="overtop">
-					<img src="../img/svg/hexagone.svg" alt="hexagone" style="width:214px;margin-top:-9%;position:absolute;">
-				</div> 
-			-->
-			{#key overBlocks[1].index}
-				<div in:fly={{x:-1000, duration:500}} out:fly={{x:1000, delay:100, easing:quadInOut}} class="overblock" style="left:60%;">
-					<div class="block-up" style="flex-flow:column;place-content:end;margin-top:7%">
-						<p class="has-text-left is-size-1 has-text-weight-bold has-text-primary m-0 pb-2" style="line-height:3rem;">
-							{@html overBlocks[1].titre[overBlocks[1].index]}
-						</p>
-						<p class="is-size-5 has-text-left has-text-primary m-0">
-							{@html overBlocks[1].sousTitre[overBlocks[1].index]}
-						</p>
+			<div class="overtop" style="display:flex;flex-flow:row;">
+				<img src="../img/svg/hexagone.svg" alt="hexagone" style="width:214px!important;">
+				{#key overBlocks[1].index}
+					<div class="sub-overtop" in:fly={{x:-1000, duration:500}} out:fly={{x:1000, delay:100, easing:quadInOut}}>
+							<p class="m-0 has-text-left is-size-1 has-text-weight-bold mb-3" >
+								{@html overBlocks[1].titre[overBlocks[1].index]}
+							</p>
+							<p class="is-size-5-fullhd is-size-6-desktop has-text-left has-text-white m-0">
+								{@html overBlocks[1].sousTitre[overBlocks[1].index]}
+							</p>
 					</div>
-				</div>
-			{/key}
+				{/key}
+			</div>
+	
 			<div class="carou">
 				<Carousel 
 					perPage={1} controls={false} dots={true} multipleDrag={false}
@@ -289,6 +288,13 @@
 	}
 	.cols-picto {
 		padding:0% 10%;
+	}
+	.sub-overtop {
+		display: flex;
+		position:absolute;
+		left:80%;
+		flex-flow:column;
+		width:calc(100% + 8vw);
 	}
 	
 	p {

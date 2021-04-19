@@ -37,3 +37,22 @@ export function longpress(node, threshold = 500) {
     }
   };
 }
+
+export const theRightDef = (w) => {
+  console.log(typeof window !== undefined, w);  
+  let res = 400;
+    switch (w) {
+			case w >= 1344 :
+				res = 1000
+				break;
+			case w < 1344 && w >= 768 :
+				res = 600
+				break;
+			case w < 768 :
+				res = 400
+				break;
+			default :
+				break;
+		}
+  return res;
+}

@@ -3,6 +3,155 @@ body {
 	background:#efefef;
 }
 
+:root {
+    --maincolor : #005476;
+    --lightblue : #EBF9FF;
+}
+
+body {
+    background:#efefef;
+}
+
+.center-block {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}
+.p-8 {
+    padding:5rem!important;
+}
+.fit-header {
+    height: 100%;
+    width: fill-available;
+    object-fit: cover !important;
+}
+.no-padding {
+    padding:0px!important;
+}
+
+.edra-block {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    height:672px;
+    max-height:672px;
+    padding:10% 30%;
+    overflow:hidden;
+}
+.autoheight {
+    max-width:100%!important;
+    object-fit: cover!important;
+    margin:0px 0px 0px 0px!important;
+    min-height:fill-available;
+    height:672px;
+}
+
+.edra-block .img-container {
+    place-self : center;
+}
+
+.overtop {
+    position: absolute;
+    left: 50%;
+    z-index: 1;
+    width: fill-available;
+}
+.overtop img {
+    transform: translateX(-50%);
+}
+
+.carou ul {
+    margin-top: -55px!important;
+}
+
+.overblock {
+    position: absolute;
+    left: 50%;
+    height: 300px;
+    z-index: 1;
+    max-width: 40%;
+    width: 35%;
+    background: white;
+    padding: 30px;		
+}
+
+.block-up {
+    height:120px;
+    justify-content: flex-end;
+    margin-top:-15px;
+}
+.block-in, .block-up, .block-bouton {
+    display:flex;
+    flex-flow:column wrap;
+}
+.block-up, .block-in {
+    align-content: flex-start;
+}
+
+.block-bouton {
+    float:right;
+}
+
+.card-footer {
+    border-top: unset;
+    justify-content: flex-end;
+    padding-bottom:1.5em;
+    padding-right:1.5em;
+    border-top:none!important;
+}
+.card {
+    margin : 30px 15px;
+    border-radius: 0px;
+}
+.card-content {
+    padding-bottom:0.5em;
+}
+.cols-produits {
+    padding-left: 25px;
+    padding-right: 25px;
+}
+.colcontainer {
+    padding : 2em 1.25rem;
+    background : var(--lightblue)
+}
+/*
+.svelte-images-gallery {
+    justify-content: space-between;
+}
+*/
+.flexbase {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.gallerie {
+	width: 100%;
+    display: flex;
+    align-items: center;
+    place-self: center;
+}
+.gallerie img {
+	height:300px;
+}
+.slide-unique {
+	width:100%;
+}
+.slide-unique img {
+	object-fit: cover;
+    width: 100%;
+}
+.slide-content {
+	max-width:416px;
+}
+.slide-content-wrapper {
+	width: 100%;
+    display: flex;
+    flex-flow: column wrap;
+    align-content: space-around;
+}
+
 /* montserrat-100 - latin */
 @font-face {
 	font-family: 'Montserrat';

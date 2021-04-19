@@ -16,6 +16,36 @@ const mode = process.env.NODE_ENV
 const dev = mode === 'development'
 const legacy = !!process.env.SAPPER_LEGACY_BUILD
 
+const responsiveImages= [
+	image({
+		optimizeAll: true, // optimize all images discovered in img tags
+		inlineBelow: 10000, // inline all images in img tags below 10kb
+		compressionLevel: 5, // png quality level
+		quality: 50, // jpeg/webp quality level
+		tagName: "Image", // default component name
+		sizes: [400, 600, 1000], // array of sizes for srcset in pixels
+		breakpoints: [480, 768, 1024], // array of screen size breakpoints at which sizes above will be applied
+		outputDir: "g/",
+		placeholder: "trace", // or "blur",
+		webpOptions: {
+		  // WebP options [sharp docs](https://sharp.pixelplumbing.com/en/stable/api-output/#webp)
+		  quality: 75,
+		  lossless: false,
+		  force: true,
+		},
+		webp: true,
+		trace: {
+		  // Potrace options for SVG placeholder
+		  background: "#fff",
+		  color: "#002fa7",
+		  threshold: 120,
+		},
+		processFolders: ["img/initial", "img/uploads"],
+		processFoldersRecursively: true,
+		processFoldersSizes: true
+	}),
+]
+
 const onwarn = (warning, onwarn) =>
 	(warning.code === 'MISSING_EXPORT' && /'preload'/.test(warning.message)) ||
 	(warning.code === 'CIRCULAR_DEPENDENCY' && /[/\\]@sapper[/\\]/.test(warning.message)) ||
@@ -23,7 +53,6 @@ const onwarn = (warning, onwarn) =>
 	onwarn(warning)
 
 const preprocesses = sveltePreprocess({
-	...image(),
 	scss: {
 		includePaths: ['src'],
 	},
@@ -51,7 +80,7 @@ export default {
 				]
 			}),
 			svelte({
-				preprocess: preprocesses,
+				preprocess: [preprocesses, ...responsiveImages],
 				compilerOptions: {
 					dev,
 					hydratable: true,
@@ -111,7 +140,7 @@ export default {
 				'process.env.NODE_ENV': JSON.stringify(mode),
 			}),
 			svelte({
-				preprocess: preprocesses,
+				preprocess: [preprocesses, ...responsiveImages],
 				compilerOptions: {
 					dev,
 					generate: 'ssr',

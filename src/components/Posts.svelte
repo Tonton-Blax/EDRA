@@ -6,7 +6,6 @@
 </script>
 		<div class="colcontainer">
 			<div class="columns is-multiline has-background-primary-light cols-produits is-variable is-5">
-
 				{#each posts as post}
 				<div class="column is-one-third mb-0">
 					<div class="card" on:click={()=> goto(`produits/${post.slug}`, {noscroll : true})} >
@@ -31,7 +30,6 @@
 				{/each}
 			</div>
 		</div>
-
 <style>
 
     .button {

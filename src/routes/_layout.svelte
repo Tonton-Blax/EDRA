@@ -1,4 +1,4 @@
-<svelte:window on:popstate={notOk()}/>
+<svelte:window on:popstate={notOk()} />
 <script>
 	import Nav from '../components/Nav.svelte'
 	import Footer from '../components/Footer.svelte'
@@ -8,28 +8,11 @@
 	import IntersectionObserver from "svelte-intersection-observer";
 	import { stores } from '@sapper/app';
 	import { tick } from 'svelte';
+
 	const { page,preloading } = stores();
-
-	$: ($page.path || $preloading) && notOk()
-
+	
+	$: ($page.path || $preloading) && notOk();
 	let ok = true;
-
-	const optionsSlug = {
-		siglePointilles : true,
-		bgColor: "#D9E7EC",
-		linesColor : "#005476",
-		title :	{
-			title : "Fiches Techniques", 
-			subTitle : "Ut velit mauris, egestas sed, gravida nec, ornare ut, mi. Aenean ut orci vel massa suscipit pulvinar. Nulla sollicitudin. Fusce varius, ligula non tempus."
-		}
-	};
-
-	const optionsNormal = {
-		siglePointilles : false,
-		bgColor: "#005476",
-		linesColor: "white",
-		title:undefined
-	}
 	
 	export let segment;
 	let headerEl;
@@ -38,7 +21,8 @@
 		await tick(); 
 		ok = false;
 		await tick(); 
-		ok = true}
+		ok = true
+	}
 
 </script>
 
@@ -53,16 +37,16 @@
 					
 					<div class="edra-block no-padding has-text-white" bind:this={headerEl}>
 						{#if ok}
-						<Header	options={$page.path == '/produits' ? optionsSlug : optionsNormal} />
+						<Header />
 						{:else}
-						<h1 class="title is-1">PINGOUIN</h1>
+						<h1 class="title is-1">Chargement...</h1>
 						{/if}
 					</div>
 					
 				</IntersectionObserver>
 			</div>
 			{/if}
-			<slot/>
+			<slot />
 	</div>
 </Transition>
 </div>

@@ -1,4 +1,4 @@
-import { writable } from 'svelte/store';
+import { writable, readable } from 'svelte/store';
 
 export const observing = writable(false);
 export const colors = writable({

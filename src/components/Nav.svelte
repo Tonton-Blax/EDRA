@@ -33,7 +33,7 @@
 		});
 		indicator.style.width = "".concat(navItems[idx].offsetWidth, "px");
 		indicator.style.left = "".concat(navItems[idx].offsetLeft, "px");
-		indicator.style.backgroundColor = $observing && segment != 'produits' ? "white" : $colors.tertiary;
+		indicator.style.backgroundColor = $observing && segment != 'produits' ? "white" : $colors.main;
 		navItems[idx].classList.add('active-item');
 		navItems[idx].style.color = $observing ? "white" : $colors.main;
 	}
