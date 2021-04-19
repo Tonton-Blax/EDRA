@@ -23,8 +23,10 @@ body {
 }
 .fit-header {
     height: 100%;
-    width: fill-available;
     object-fit: cover !important;
+    width:-webkit-fill-available;
+    width:-moz-available;
+    width:fill-available;
 }
 .no-padding {
     padding:0px!important;
