@@ -19,13 +19,13 @@
 		<div class="column is-half">
 			<div class="edra-footer has-background-primary has-text-white">
                 <p class="is-size-6" style="align-self:flex-start   ">© EDRA 2021<br>
-                    Mention légales –s GPD
+                    Mention légaless RGPD
                 </p>
             </div>
         </div>
         <div class="column is-half">
 			<div class="edra-footer has-background-primary has-text-white">
-                <div style="align-self:flex-end;"><img class="logo" alt="logo" src="../img/logo.png"></div>
+                <a href="/" style="align-self:flex-end;"><img class="logo" alt="logo" src="../img/logo.png"></a>
             </div>
         </div>
 

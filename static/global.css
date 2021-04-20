@@ -117,11 +117,6 @@ body {
     padding : 2em 1.25rem;
     background : var(--lightblue)
 }
-/*
-.svelte-images-gallery {
-    justify-content: space-between;
-}
-*/
 .flexbase {
     display: flex;
     flex-direction: column;

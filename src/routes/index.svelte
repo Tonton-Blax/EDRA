@@ -1,34 +1,63 @@
-<svelte:window bind:innerWidth={innerWidth} />
+<svelte:window bind:innerWidth={innerWidth} on:popstate={notOk()} />
 <svelte:head>
 	<title>EDRA Médical</title>
 </svelte:head>
 
 <script>
-	import {chunk, shuffleArray } from '../utils/utils.js';
+	//import {chunk, shuffleArray } from '../utils/utils.js';
 	import IntersectionObserver from "svelte-intersection-observer";
 	import { fly } from 'svelte/transition';
 	import { quadInOut, quadOut } from 'svelte/easing';
 	import Carousel from '@beyonk/svelte-carousel/src/Carousel.svelte'
+	import Modal from 'svelma/src/components/Modal/Modal.svelte'
+	import { ChevronLeftIcon, ChevronRightIcon } from 'svelte-feather-icons'
+	import Header from '../components/HeaderBase.svelte';
+	import {observing} from '../utils/stores.js';
+	import { stores } from '@sapper/app';
+	import { tick } from 'svelte';
+
+	const { page,preloading } = stores();
 	
+	$: ($page.path || $preloading) && notOk();
+	let ok = true;
+
+	let notOk = async () => {
+		await tick(); 
+		ok = false;
+		await tick(); 
+		ok = true
+	}
+
 	let innerWidth;
-	let pictoEl;
+	let pictoEl, headerEl;
+	let active = false;
 	
 	const intersectings = {
 		pictos : undefined,
 		header : undefined
 	}
 
-	const imagesLogos= [
-		"../img/logos/tenon.png",
-		"../img/logos/necker.png",
-		"../img/logos/sainte-anne.png",
-		"../img/logos/hopital-suisse.png",
-		"../img/logos/bichat.png",
-		"../img/logos/rothschild-aphp.png",
-		"../img/logos/fondation_rotschild.png",
-		"../img/logos/blueuts.png",
-		"../img/logos/foch.png"
-	]
+	const refs = {
+		logos : [
+			"../img/logos/logo_fondation_rotschild.jpg",
+			"../img/logos/logo_creche_modigliani.jpg",
+			"../img/logos/bichat.png",
+			"../img/logos/blueuts.png",
+			"../img/logos/foch.png",
+			"../img/logos/necker.png",
+			"../img/logos/sainte-anne.png",
+			"../img/logos/tenon.png",
+			"../img/logos/hopital-suisse.png"
+		],
+		images : [
+			["image_fondation_rotschild_01.jpg","image_fondation_rotschild_02.jpg","image_fondation_rotschild_03.jpg"],
+			["image_creche_modigliani_01.jpg", "image_creche_modigliani_02.jpg", "image_creche_modigliani_03.jpg", "image_creche_modigliani_04.jpg"],
+		],
+		alts : [
+			"Fondation rotschild",
+			"Creche Modigliani",
+		]
+	}
 
 	const overBlocks = [
 		{
@@ -63,7 +92,7 @@
 		{
 			index : 0,
 			sousTitre : [
-				"Alliance parfaite de l’acrylique et de la pierre naturelle, Kerrock est résistant, hygiénique, non toxique, réparable et thermoformable. Kerrock® peut se travailler dans une variété de formes quasi illimitée sans aucun joint apparent : le matériau idéal pour les établissements de santé, l’hôtellerie, les espaces publics, les espaces de travail, les magasins.", 
+				"Alliance parfaite de l’acrylique et de la pierre naturelle, Kerrock est résistant, hygiénique, non toxique, réparable et thermoformable. Kerrock® peut se travailler dans une variété de formes quasi illimitée sans aucun joint apparent&nbsp;: le matériau idéal pour les établissements de santé, l’hôtellerie, les espaces publics, les espaces de travail, les magasins.", 
 				"Kerrock® est le seul solid-surface fabriqué en Europe dans le respect des normes écologiques, sanitaires et sociales. La proximité des usines permet de réduire fortement l’impact carbone lié au transport.",
 				"Ecologique, il est naturellement durable et recyclable. Il peut être rénové, réparé et réutilisé à l’infini. Respectueux de l’environnement et de la santé, il ne contient aucun C.O.V."
 			],
@@ -75,7 +104,51 @@
 		}
 	];
 
+	let currentImageIndex = 0;
+
+	let openModal = (idx) => {
+		active = true;
+		currentImageIndex = idx;
+	}
+
 </script>
+
+<div class="modal-index">
+	<Modal bind:active={active}>
+		{#if active}
+		<div class="modal-carou">
+			<Carousel
+				perPage={1} controls={true} dots={true} autoplay={30000} duration={500}
+			>
+			<span class="control" slot="left-control">
+				<ChevronLeftIcon />
+			</span>
+				{#each refs.images[currentImageIndex] as src (src)}
+						<img src="../img/refs/{src}" alt={refs.alts[currentImageIndex]} /> 
+				{/each}
+			<span class="control" slot="right-control">
+				<ChevronRightIcon />
+			</span>
+			</Carousel>
+		</div>
+		{/if}
+	</Modal>
+</div>
+
+		
+	<div class="column is-full">
+		<IntersectionObserver element={headerEl} bind:intersecting={$observing}>
+			
+			<div class="edra-block no-padding has-text-white" bind:this={headerEl}>
+				{#if ok}
+				<Header />
+				{:else}
+				<h1 class="title is-1">Chargement...</h1>
+				{/if}
+			</div>
+			
+		</IntersectionObserver>
+	</div>
 
 	<!-- PRODUITS -->
 
@@ -94,7 +167,7 @@
 				</div>
 			</div>
 			{/key}
-			<div class="carou">
+			<div class="carou nomargin">
 			<Carousel 				
 				perPage={1} controls={true} dots={false} multipleDrag={false}
 				autoplay={5000} duration={500}
@@ -117,22 +190,22 @@
 				<IntersectionObserver bind:intersecting={intersectings.pictos} element={pictoEl}>
 					{#if intersectings.pictos}
 					<div out:fly in:fly={{y:200, delay:100, easing:quadOut}} class="column is-one-fourth has-text-centered col-picto">
-						<img src="../img/pictos/picto_demoulable.png" alt="Fabrication à partir d'un moule">
+						<img src="../img/pictos/picto_madeinfrance.png" width="auto" alt="Fabrication à partir d'un moule">
 						<h3 class="title is-4 has-text-primary">Fabrication<br>française</h3>
 						<p>EDRA est une entreprise 100% française qui fabrique 100% français.</p>
 					</div>
 					<div out:fly in:fly={{y:200, delay:250, easing:quadOut}} class="column is-one-fourth has-text-centered col-picto">
-						<img src="../img/pictos/picto_tracking.png" alt="Fabrication à partir d'un moule">
+						<img src="../img/pictos/picto_surmesure.png" width="auto" alt="Fabrication à partir d'un moule">
 						<h3 class="title is-4 has-text-primary">Une production<br>sur mesure</h3>
 						<p>Fonctionnalité, ergonomie, hygiène, esthétisme : 4 mots pour nous guider dans la conception de votre projet.</p>
 					</div>
 					<div out:fly  in:fly={{y:200, delay:400, easing:quadOut}} class="column is-one-fourth has-text-centered col-picto">
-						<img src="../img/pictos/picto_madeinfrance.png" alt="Fabrication à partir d'un moule">
+						<img src="../img/pictos/picto_tracking.png" width="auto" alt="Fabrication à partir d'un moule">
 						<h3 class="title is-4 has-text-primary">Suivi du projet<br>de A à Z</h3>
 						<p>De la conception à la mise en service dans vos locaux : plusieurs métiers, un seul interlocuteur.</p>
 					</div>
 					<div out:fly  in:fly={{y:200, delay:550, easing:quadOut}} class="column is-one-fourth has-text-centered col-picto">
-						<img src="../img/pictos/picto_livraison.png" alt="Fabrication à partir d'un moule">
+						<img src="../img/pictos/picto_livraison.png" width="auto" alt="Fabrication à partir d'un moule">
 						<h3 class="title is-4 has-text-primary">Intervention<br> dans toute la france</h3>
 						<p>Livraison, installation ou maintenance, nous nous déplaçons dans toute la France Métropolitaine.</p>
 					</div>
@@ -167,10 +240,10 @@
 
 	<div class="column is-half">
 		<div class="edra-block no-padding has-background-white has-text-primary">
-			<div class="carou">
+			<div class="carou nomargin">
 			<Carousel 				
-				perPage={1} controls={false} dots={true} multipleDrag={false}
-				autoplay={5000} duration={500}
+				perPage={1} controls={true} dots={true} multipleDrag={false}
+				autoplay={10000} duration={500}
 				on:change={ e => overBlocks[2].index = e.detail.currentSlide }
 			>				
 				{#each overBlocks[2].images as src (src)}
@@ -189,20 +262,20 @@
 				<img src="../img/svg/hexagone.svg" alt="hexagone" style="width:214px!important;">
 				{#key overBlocks[1].index}
 					<div class="sub-overtop" in:fly={{x:-1000, duration:500}} out:fly={{x:1000, delay:100, easing:quadInOut}}>
-							<p class="m-0 has-text-left is-size-1 has-text-weight-bold mb-3" >
-								{@html overBlocks[1].titre[overBlocks[1].index]}
-							</p>
-							<p class="is-size-5-fullhd is-size-6-desktop has-text-left has-text-white m-0">
-								{@html overBlocks[1].sousTitre[overBlocks[1].index]}
-							</p>
+						<p class="m-0 has-text-left is-size-1 has-text-weight-bold mb-3" >
+							{@html overBlocks[1].titre[overBlocks[1].index]}
+						</p>
+						<p class="is-size-5-fullhd is-size-6-desktop has-text-left has-text-white m-0">
+							{@html overBlocks[1].sousTitre[overBlocks[1].index]}
+						</p>
 					</div>
 				{/key}
 			</div>
 	
-			<div class="carou">
+			<div class="carou nomargin">
 				<Carousel 
 					perPage={1} controls={false} dots={true} multipleDrag={false}
-					autoplay={0} duration={500}
+					autoplay={7000} duration={500}
 					on:change={ e => overBlocks[1].index = e.detail.currentSlide }
 				>
 					{#each overBlocks[1].images as src (src)}
@@ -224,41 +297,34 @@
 		<div class="edra-block no-padding has-background-white has-text-primary" style="margin-left:1px;">
 			<!-- <img class="autoheight" src="../img/kerrock02.jpg" alt="Hall d'accueil avec revêtement en kerrock"> -->
 			<Carousel 				
-				perPage={1} controls={false} dots={true} multipleDrag={false}
-				autoplay={5000} duration={500}
-				on:change={ e => overBlocks[0].index = e.detail.currentSlide }
+				perPage={3} controls={false} dots={false} multipleDrag={false}
+				autoplay={0} duration={0} draggable={false}
 			>
-			{#each chunk(shuffleArray(imagesLogos), 3) as logos, chunkIndex (chunkIndex)}
+				{#each refs.logos.slice(0,3) as logo, chunkIndex}
+						<div style="display: flex;" class:cursorable={chunkIndex !== 2} on:click={() => chunkIndex !== 2 ? openModal(chunkIndex) : {} } >
+							<span class="logosquare"><img class="resize is-square" src={logo} alt="logo-"/></span>
+						</div>
+				{/each}
+			</Carousel>
+
+			<Carousel 				
+				perPage={3} controls={false} dots={false} multipleDrag={false}
+				autoplay={0} duration={0} draggable={false}
+			>
+				{#each refs.logos.slice(3,6) as logo, chunkIndex}
 					<div style="display: flex;">
-					{#each logos as logo (logo)}
-					<span class="logosquare"><img class="resize is-square" src={logo} alt="logo-"/></span>
-					{/each}
+						<span class="logosquare"><img class="resize is-square" src={logo} alt="logo-"/></span>
 					</div>
 				{/each}
 			</Carousel>
+
 			<Carousel 				
-				perPage={1} controls={false} dots={true} multipleDrag={false}
-				autoplay={5000} duration={500}
-				on:change={ e => overBlocks[0].index = e.detail.currentSlide }
+				perPage={3} controls={false} dots={false} multipleDrag={false}
+				autoplay={0} duration={0} draggable={false}
 			>
-			{#each chunk(shuffleArray(imagesLogos), 3) as logos, chunkIndex (chunkIndex)}
+				{#each refs.logos.slice(6,9) as logo, chunkIndex}
 					<div style="display: flex;">
-					{#each logos as logo (logo)}
-					<span class="logosquare"><img class="resize is-square" src={logo} alt="logo-"/></span>
-					{/each}
-					</div>
-				{/each}
-			</Carousel>	
-			<Carousel 				
-				perPage={1} controls={false} dots={true} multipleDrag={false}
-				autoplay={5000} duration={500}
-				on:change={ e => overBlocks[0].index = e.detail.currentSlide }
-			>
-				{#each chunk(shuffleArray(imagesLogos), 3) as logos, chunkIndex (chunkIndex)}
-					<div style="display: flex;">
-					{#each logos as logo (logo)}
-					<span class="logosquare"><img class="resize is-square" src={logo} alt="logo-"/></span>
-					{/each}
+						<span class="logosquare"><img class="resize is-square" src={logo} alt="logo-"/></span>
 					</div>
 				{/each}
 			</Carousel>
@@ -278,6 +344,9 @@
 		align-items: center;
 		padding: 34px;
 	}
+	.cursorable {
+		cursor : pointer;
+	}
 	.logosquare img {
 		object-fit:contain;
 		margin:0em!important;
@@ -296,18 +365,32 @@
 		flex-flow:column;
 		width:calc(100% + 8vw);
 	}
+
+	.modal-carou {
+		width: 60vw;
+		height: auto;
+		overflow:visible;
+	}
+
+
+	:global(.modal-content) {
+		width:60vw;
+	}
+	.control :global(svg) {
+		width: 100%;
+		height: 100%;
+		color: #fff;
+		z-index:5000;
+		cursor:pointer;
+	}
+	
 	
 	p {
 		text-align: center;
 		margin: 0 auto;
 	}
 
-	img {
-		width: 100%;
-		max-width: 400px;
-		margin: 0 0 1em 0;
-	}
-	.carou {
+	.nomargin {
 		margin:0px 0px 0px 0px!important;
 	}
 	.carou img {
@@ -315,7 +398,7 @@
 		min-width:100%;
 		object-fit:cover;
 		height:695px;
-    	margin:0px 0px 0px 0px!important;
+    	margin:0px 0px 0px 0px;
 	}
 
 	.carou-img-half {

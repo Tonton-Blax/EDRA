@@ -6,19 +6,7 @@
 	import { stores } from '@sapper/app';
 	const { page, preloading } = stores();
 
-	const optionsSlug = {
-		siglePointilles : true,
-		bgColor: "#D9E7EC",
-		linesColor : "#005476",
-		title :	{
-			title : "Fiches Techniques", 
-			subTitle : undefined
-		},
-		lignes : stuffToDraw.lignesClair,
-		cercles : stuffToDraw.cerclesClair
-	};
-
-	const optionsNormal = {
+	const options = {
 		siglePointilles : false,
 		bgColor: "#005476",
 		linesColor: "white",
@@ -26,14 +14,10 @@
 		lignes : stuffToDraw.lignes,
 		cercles : stuffToDraw.cercles
 	}
-	
-	let options = $page.path !== '/produits' ? {...optionsNormal} : {...optionsSlug};
-	
+		
 	$: ($page.path && $preloading) && setRefresh();
 
 	let setRefresh = async()=> {
-		options = $page.path !== '/produits' ? {...optionsNormal} : {...optionsSlug};
-		console.log($page.path);
 		$refresh = true;
 		await tick();
 		$refresh = false;

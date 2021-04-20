@@ -4,11 +4,11 @@
     import Image from "svelte-image";
 
 </script>
-		<div class="colcontainer">
-			<div class="columns is-multiline has-background-primary-light cols-produits is-variable is-5">
+		<div class="colposts">
+			<div class="columns is-multiline has-background-primary-light cols-produits is-variable is-1 padding-posts">
 				{#each posts as post}
 				<div class="column is-one-third mb-0">
-					<div class="card" on:click={()=> goto(`produits/${post.slug}`, {noscroll : true})} >
+					<div class="card mb-2 mt-2" on:click={()=> goto(`produits/${post.slug}`, {noscroll : true})} >
 						<div class="card-image">
 							<figure class="image">
                                 <div class="card-thumb">
@@ -35,6 +35,10 @@
     .button {
         border-radius:0px;
     }
+    .padding-posts {
+        padding-top:2rem;
+        padding-bottom:2rem;
+    }
     :global(.card-thumb, .card-thumb img) {
         height : 200px!important;
         width:auto;
@@ -46,6 +50,12 @@
     .card {
         cursor: pointer;
     }
+
+    .colposts {
+        padding : 2em 2.5rem;
+        background : var(--lightblue)
+    }
+
   
     .card-content, .card-footer {
         background: white
