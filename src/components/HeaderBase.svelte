@@ -1,5 +1,4 @@
 <script>
-	import { draw } from 'svelte/transition';
 	import { onMount, tick } from 'svelte';
 	import { stuffToDraw } from './lignes.js'
 	import { refresh } from '../utils/stores.js'
@@ -49,23 +48,7 @@
 </script>
 <div class="svg-container">
     <div class="logo-container" style="transform:translate(-50%, -{options.siglePointilles ? "65" : "77"}%)">
-	{#if options.siglePointilles}
-		<svg class="mb-4"
-		width="122px" height="139px" viewBox="0 0 122 139" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-			<title>Logo</title>
-			<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-dasharray="3">
-				<g transform="translate(-640.000000, -197.000000)" stroke="#005476">
-					<g transform="translate(-132.000000, 0.000000)">
-						<g id="Titre" transform="translate(414.000000, 198.000000)">
-							<path transition:draw={{delay: 1000, duration: 1000}} d="M418.886183,137.102629 C418.215267,137.102629 417.545967,136.929646 416.946183,136.583679 L360.938383,104.247113 C359.738817,103.555179 359,102.273163 359,100.887679 L359,36.2161625 C359,34.8306792 359.738817,33.5486625 360.938383,32.8567292 L416.946183,0.5201625 C418.147367,-0.1733875 419.625,-0.1733875 420.826183,0.5201625 L476.832367,32.8567292 C478.031933,33.5486625 478.773166,34.8306792 478.773166,36.2161625 C478.773166,37.6032625 478.031933,38.8836625 476.832367,39.5772125 L428.130283,67.6942792 C426.271117,68.7677458 423.9027,68.1291625 422.829233,66.2748458 C421.759,64.4189125 422.39435,62.0456458 424.250283,60.9737958 L467.132367,36.2161625 L418.886183,8.36099583 L366.758383,38.4568625 L366.758383,98.6469792 L418.886183,128.742846 L472.952367,97.5266292 C474.806683,96.4515458 477.181567,97.0901292 478.253417,98.9460625 C479.32365,100.801996 478.6883,103.175263 476.832367,104.247113 L420.826183,136.583679 C420.2264,136.929646 419.5571,137.102629 418.886183,137.102629" id="Logo"></path>
-						</g>
-					</g>
-				</g>
-			</g>
-		</svg>
-	{:else}
 		<img src="./img/logo.png" class="mb-5" alt="logo edra">
-	{/if}
 	{#if options.title}
 		<h1 class="title is-2 has-text-weight-bold mb-4" style="color:{options.linesColor};text-transform:uppercase">{options.title.title}</h1>
 	{/if}

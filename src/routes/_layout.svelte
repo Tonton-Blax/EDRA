@@ -12,7 +12,7 @@
 	<div class="columns is-gapless is-multiline">
 			<slot />
 	</div>
-</Transition>
+	</Transition>
 </div>
 
 

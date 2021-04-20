@@ -1,7 +1,5 @@
 <script context="module">                                                                                                                                                                                                                                                                   
 	export async function preload({ params }) {
-		//JSON.stringify( YAML.parseAllDocuments(content)[0] )
-		//await fetch ('${slug}.md`).text())
 		const res = await this.fetch(`produits.json`);
 		if (res.status === 200) {
 			const rawPosts = await res.json();
@@ -23,6 +21,7 @@
 	import { stores } from '@sapper/app';
 	import Carousel from '@beyonk/svelte-carousel/src/Carousel.svelte'
 	import Modal from 'svelma/src/components/Modal/Modal.svelte'
+	import { ChevronLeftIcon, ChevronRightIcon } from 'svelte-feather-icons'
 
 	const { page } = stores();
 
@@ -53,7 +52,7 @@
 		produit = postMd;
 		ready = true;
 		await tick();
-		subHeader.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+		window.scrollTo({ behavior: "smooth", top: 0 });
 	});
 
 </script>
@@ -99,15 +98,24 @@
 									<img src={contenu.images[0]} alt="contenu" on:click={_ => open(contenu.images[0])} >
 								</div>
 							{:else}
-								<Carousel perPage={contenu.images.length >= 2 ? 2 : 1} controls={false} dots={false} multipleDrag={false}>
+
+								<Carousel perPage={contenu.images.length >= 2 ? 2 : 1} controls={true} dots={false} multipleDrag={false} 
+								autoplay={3000} duration={500} draggable={false} >
+									<span class="control" slot="left-control" class:invisible={active}>
+										<ChevronLeftIcon />
+									</span>
 									{#each contenu.images as src, idx}
 									<div class="slide-content-wrapper">
 										<div class="slide-content">
-											<img src={src} alt="contenu" on:dblclick={_ => open(src)} >
+											<img src={src} alt="contenu" on:click={_ => open(src)} style="cursor:pointer;" >
 										</div>
 									</div>
 									{/each}
+									<span class="control" slot="right-control" class:invisible={active}>
+										<ChevronRightIcon />
+									</span>
 								</Carousel>
+
 							{/if}
 						</div>
 
@@ -139,7 +147,7 @@
 						{#if idx >= 1}
 							<tr>
 								{#each ligne.split(',') as td}
-										<td>{td.length ? td.trim() : ""}</td>
+									<td>{td.length ? td.trim() : ""}</td>
 								{/each}
 							</tr>
 						{/if}
@@ -169,6 +177,7 @@
 		<Posts {posts} />
 	</div>
 {/if}
+
 <style>
 .container {
 	background:white!important;
@@ -208,17 +217,17 @@
 .is-55 {
 	font-size:1.1rem;
 }
-:global(.edra-contenu ul) {
+:global(.edra-contenu .content ul) {
   list-style: none!important;
   padding: 0;
   margin: 0;
   margin-left:10px;
 }
-:global(.edra-contenu ul li) {
+:global(.edra-contenu .content ul li) {
 	position: relative;
     padding-left: 10px;
 }
-:global(.edra-contenu ul li::before) {
+:global(.edra-contenu .content ul li::before) {
   content: " "; 
   background-color: var(--maincolor);
   border-radius: 50%;
@@ -229,6 +238,15 @@
   width: 10px;
   margin-left: -10px;
   margin-top:7px;
+}
+.control :global(svg) {
+		color: #fff;
+		z-index:5000;
+		cursor:pointer;
+}
+
+.control .invisible :global(svg) {
+	display:none;
 }
 
 </style>

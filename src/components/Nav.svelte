@@ -4,6 +4,9 @@
 	import { fade, slide } from 'svelte/transition';
 	import { quadInOut } from 'svelte/easing';
 	import { observing, colors } from '../utils/stores.js';
+	import { stores } from '@sapper/app';
+	const { page } = stores();
+
 	export let segment;
 	let isScrolling;
 	let isIdle = true;
@@ -15,10 +18,9 @@
 			menuIsActive = false;
 	}
 
-	const handleScroll = () => {
+	const handleScroll = async () => {
 		isIdle = false;
 		window.clearTimeout( isScrolling );
-
 		isScrolling = setTimeout(function() {
 			isIdle = true;
 		}, 300);
@@ -35,8 +37,18 @@
 		indicator.style.left = "".concat(navItems[idx].offsetLeft, "px");
 		indicator.style.backgroundColor = $observing && segment != 'produits' ? "white" : $colors.main;
 		navItems[idx].classList.add('active-item');
-		navItems[idx].style.color = $observing ? "white" : $colors.main;
+		navItems[idx].style.color = $observing || segment != 'produits' ? "white" : $colors.main;
 	}
+
+	page.subscribe(({ }) => {
+		if (!navItems.length)
+			return;
+		console.log("pouet poueot");
+  		[0,1,2].forEach(h => {
+			indicator.style.backgroundColor = $observing && segment != 'produits' ? "white" : $colors.main;
+			navItems[h].style.color = $observing || segment != 'produits' ? "white" : $colors.main;
+		  });
+	})
 
 
 </script>
@@ -45,7 +57,7 @@
 <div class="container">
 <nav class="navbar {$observing ? "is-transparent" : "iswhite"}" role="navigation" aria-label="main navigation" in:fade={{duration:1000, delay:50, easing: quadInOut}} out:fade={{duration:400, delay:0, easing: quadInOut}} bind:this={navbar} >
 	<div class="navbar-brand">
-	  <a class="navbar-item" href="/">
+	  <a class="navbar-item unlink" href="/" style="cursor:pointer;">
 			<img src="../img/logo-sigle.png" height="28" alt="logo EDRA">
 	  </a>
   
@@ -130,7 +142,7 @@ a {
 .navbar-item:hover {
 	background-color:unset!important;
 }
-.navbar-item:before {
+.navbar-item:before:not(.unlink) {
 	content: "";
 	position: absolute;
 	bottom: -6px;
@@ -147,7 +159,7 @@ a {
 	bottom: 0;
 }
 .navbar-item:not(.active-item):hover {
-	color: #333;
+	color: unset;
 }
 .navbar-indicator {
 	position: absolute;

@@ -1,5 +1,4 @@
 <script>
-	import { draw } from 'svelte/transition';
 	import { onMount, tick } from 'svelte';
 	import { stuffToDraw } from './lignes.js'
 	import { refresh } from '../utils/stores.js'
@@ -24,7 +23,7 @@
 		await tick();
 		$refresh = false;
 		await tick();
-		svgs.forEach(s => s && s.beginElement())
+		svgs.forEach(s => s && s.beginElement());
 	}
 
 	let svgs = []; 

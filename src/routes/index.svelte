@@ -84,9 +84,9 @@
 				"Un process de fabrication local et maitrisé, capable de produire et déployer rapidement, même dans l’urgence"
 			],
 			images : [
-				'../img/initial/equipe1.jpg',
-				'../img/initial/delais_rapides.jpg',
-				'../img/initial/sav_reactif.jpg'
+				'equipe1',
+				'delais_rapides',
+				'sav_reactif'
 			]
 		},
 		{
@@ -113,6 +113,8 @@
 
 </script>
 
+<!-- MODAL -->
+
 <div class="modal-index">
 	<Modal bind:active={active}>
 		{#if active}
@@ -135,6 +137,7 @@
 	</Modal>
 </div>
 
+	<!-- HEADER -->
 		
 	<div class="column is-full">
 		<IntersectionObserver element={headerEl} bind:intersecting={$observing}>
@@ -184,30 +187,34 @@
 	<!-- 4 PICTOS -->
 
 	<div class="column is-full">
-		<div class="edra-block no-padding has-background-white has-text-primary" bind:this={pictoEl}>
-			<h2 class="title is-2 has-text-centered has-text-primary has-text-weight-bold mb-6">EDRA, 30 ans <br>de qualité de Service</h2>
-			<div class="columns cols-picto">
+		<div class="edra-block no-padding has-background-white has-text-primary clear-height-touch" bind:this={pictoEl}>
+			<h2 class="title is-2 has-text-centered has-text-primary has-text-weight-bold mb-6 mpt-3">EDRA, 30 ans <br>de qualité de Service</h2>
+			<div class="columns is-mobile is-multiline cols-picto tp-3 full-height">
 				<IntersectionObserver bind:intersecting={intersectings.pictos} element={pictoEl}>
 					{#if intersectings.pictos}
-					<div out:fly in:fly={{y:200, delay:100, easing:quadOut}} class="column is-one-fourth has-text-centered col-picto">
+					<div out:fly in:fly={{y:200, delay:100, easing:quadOut}} 
+						class="column is-one-fourth is-full-touch has-text-centered col-picto">
 						<img src="../img/pictos/picto_madeinfrance.png" width="auto" alt="Fabrication à partir d'un moule">
-						<h3 class="title is-4 has-text-primary">Fabrication<br>française</h3>
-						<p>EDRA est une entreprise 100% française qui fabrique 100% français.</p>
+						<h3 class="title is-4 is-size-2-touch has-text-primary">Fabrication<br>française</h3>
+						<p class="is-size-3-touch">EDRA est une entreprise 100% française qui fabrique 100% français.</p>
 					</div>
-					<div out:fly in:fly={{y:200, delay:250, easing:quadOut}} class="column is-one-fourth has-text-centered col-picto">
+					<div out:fly in:fly={{y:200, delay:250, easing:quadOut}} 
+						class="column is-one-fourth is-full-touch has-text-centered col-picto">
 						<img src="../img/pictos/picto_surmesure.png" width="auto" alt="Fabrication à partir d'un moule">
-						<h3 class="title is-4 has-text-primary">Une production<br>sur mesure</h3>
-						<p>Fonctionnalité, ergonomie, hygiène, esthétisme : 4 mots pour nous guider dans la conception de votre projet.</p>
+						<h3 class="title is-4 is-size-2-touch has-text-primary">Une production<br>sur mesure</h3>
+						<p class="is-size-3-touch">Fonctionnalité, ergonomie, hygiène, esthétisme : 4 mots pour nous guider dans la conception de votre projet.</p>
 					</div>
-					<div out:fly  in:fly={{y:200, delay:400, easing:quadOut}} class="column is-one-fourth has-text-centered col-picto">
+					<div out:fly  in:fly={{y:200, delay:400, easing:quadOut}} 
+						class="column is-one-fourth is-full-touch has-text-centered col-picto">
 						<img src="../img/pictos/picto_tracking.png" width="auto" alt="Fabrication à partir d'un moule">
-						<h3 class="title is-4 has-text-primary">Suivi du projet<br>de A à Z</h3>
-						<p>De la conception à la mise en service dans vos locaux : plusieurs métiers, un seul interlocuteur.</p>
+						<h3 class="title is-4 is-size-2-touch has-text-primary">Suivi du projet<br>de A à Z</h3>
+						<p class="is-size-3-touch">De la conception à la mise en service dans vos locaux : plusieurs métiers, un seul interlocuteur.</p>
 					</div>
-					<div out:fly  in:fly={{y:200, delay:550, easing:quadOut}} class="column is-one-fourth has-text-centered col-picto">
+					<div out:fly  in:fly={{y:200, delay:550, easing:quadOut}} 
+					class="column is-one-fourth is-full-touch has-text-centered col-picto">
 						<img src="../img/pictos/picto_livraison.png" width="auto" alt="Fabrication à partir d'un moule">
-						<h3 class="title is-4 has-text-primary">Intervention<br> dans toute la france</h3>
-						<p>Livraison, installation ou maintenance, nous nous déplaçons dans toute la France Métropolitaine.</p>
+						<h3 class="title is-4 is-size-2-touch has-text-primary">Intervention<br> dans toute la france</h3>
+						<p class="is-size-3-touch">Livraison, installation ou maintenance, nous nous déplaçons dans toute la France Métropolitaine.</p>
 					</div>
 					{/if}
 				</IntersectionObserver>
@@ -217,17 +224,16 @@
 
 	<!-- KERROCK TEXTE -->
 
-	<div class="column is-half">
-		<div class="edra-block has-background-primary has-text-white" >
+	<div class="column is-half is-full-touch">
+		<div class="edra-block has-background-primary has-text-white flex-centered" >
 
 			{#key overBlocks[2].index}
-			<a class="flexbase has-text-white" 
-				style="position:absolute;max-width:21%;" 
+			<a class="flexbase has-text-white mince"  
 				in:fly={{x:-1000, duration:500, easing:quadInOut}} out:fly={{x:1000, delay:100, easing:quadInOut}} 
 				href='https://www.kerrock.fr/sanitaire'
 			>
 				<h2 class="title is-2 has-text-white mb-0">Kerrock®</h2>
-				<p class="is-size-6 has-text-left">
+				<p class="is-size-6 is-size-3-touch has-text-left">
 					{@html overBlocks[2].sousTitre[overBlocks[2].index]}
 				</p>
 			</a>
@@ -238,7 +244,7 @@
 
 	<!-- KERROCK IMAGES -->
 
-	<div class="column is-half">
+	<div class="column is-half is-full-touch">
 		<div class="edra-block no-padding has-background-white has-text-primary">
 			<div class="carou nomargin">
 			<Carousel 				
@@ -279,7 +285,16 @@
 					on:change={ e => overBlocks[1].index = e.detail.currentSlide }
 				>
 					{#each overBlocks[1].images as src (src)}
-						<img {src} class="carou-img" alt="nature"/>
+					<!--
+						<img
+							alt="{src}"
+							sizes="(max-width: 1345px) 100vw, 1000px"
+							srcset="g/img/initial/{src}-400.webp 480w, g/img/initial/{src}-600.webp 768w, g/img/initial/{src}-1200.webp 1024w"
+						>
+					-->
+						
+						<img src="../img/initial/{src}.jpg" class="carou-img" alt="nature"/>
+				
 					{/each}
 				</Carousel>
 			</div>
@@ -288,12 +303,12 @@
 
 	<!-- REFERENCES -->
 
-	<div class="column is-half">
+	<div class="column is-half is-full-touch">
 		<div class="edra-block has-background-primary has-text-white p-0">
 			<h2 class="title is-2 has-text-white has-text-centered mb-0">Ils nous font<br>confiance</h2>
 		</div>
 	</div>
-	<div class="column is-half">
+	<div class="column is-half is-full-touch">
 		<div class="edra-block no-padding has-background-white has-text-primary" style="margin-left:1px;">
 			<!-- <img class="autoheight" src="../img/kerrock02.jpg" alt="Hall d'accueil avec revêtement en kerrock"> -->
 			<Carousel 				
@@ -372,7 +387,6 @@
 		overflow:visible;
 	}
 
-
 	:global(.modal-content) {
 		width:60vw;
 	}
@@ -384,7 +398,6 @@
 		cursor:pointer;
 	}
 	
-	
 	p {
 		text-align: center;
 		margin: 0 auto;
@@ -393,7 +406,7 @@
 	.nomargin {
 		margin:0px 0px 0px 0px!important;
 	}
-	.carou img {
+	:global(.carou img) {
 		width: fit-content;
 		min-width:100%;
 		object-fit:cover;
@@ -411,6 +424,12 @@
 	p {
 		margin: 1em auto;
 	}
+	
+	.mince {
+		position:absolute;
+		max-width:21%;
+	}
+
 	:global(.button) {
 		text-transform: uppercase;
 		border-radius:0px!important;
@@ -429,6 +448,36 @@
 		}
 	}
 
-	@media (min-width: 480px) {
-	}
+@media screen and (max-width: 1024px) {
+  .flow-scroll {
+      overflow-y: scroll;
+  }
+  .tp-3 {
+      padding-left:12%!important;
+      padding-right:12%!important;
+  }
+  .full-height {
+      height:fill-available;
+	  max-height:auto!important;
+	  display:flex;
+	  justify-content:center;
+	  align-items:center;
+  }
+  .clear-height-touch {
+	  max-height:unset;
+	  height:fit-content;
+	  min-height:auto;
+  }
+  .mpt-3 {
+	  margin-top: 3rem;
+  }
+  .flex-centered {
+	  align-items: center;
+  }
+  .mince {
+	position:absolute;
+	max-width:70%;
+  }
+}
+
 </style>

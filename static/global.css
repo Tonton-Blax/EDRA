@@ -4,8 +4,9 @@ body {
 }
 
 :root {
-    --maincolor : #005476;
-    --lightblue : #EBF9FF;
+    --maincolor: #005476;
+    --lightblue: #EBF9FF;
+    --rose: #ED0070;
 }
 
 body {

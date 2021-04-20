@@ -14,7 +14,6 @@
 	import IntersectionObserver from "svelte-intersection-observer";
 	import { stores } from '@sapper/app';
 	import { tick } from 'svelte';
-
 	const { page,preloading } = stores();
 	
 	$: ($page.path || $preloading) && notOk();
