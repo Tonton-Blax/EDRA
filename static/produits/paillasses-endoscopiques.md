@@ -30,7 +30,7 @@ contenu:
       Nos experts sont à votre disposition pour vous conseiller
   - type: imagesobject
     images:
-      - ../img/uploads/endo2.jpg
+      - ../img/uploads/paillasse-endoscopique_01.jpg
   - type: intertitrebigobject
     interbig: Le traitement des vapeurs de désinfectant
   - type: textblock
@@ -79,6 +79,7 @@ contenu:
       * Préfiltration adaptée à la qualité de l’eau
   - type: imagesobject
     images:
-      - ../img/uploads/chat2.jpeg
-      - ../img/uploads/endo03_02.jpg
+      - ../img/uploads/paillasse-endoscopique_02_1.jpg
+      - ../img/uploads/paillasse-endoscopique_02_2.jpg
+      - ../img/uploads/paillasse-endoscopique_02_3.jpg
 ---
