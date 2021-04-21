@@ -4,8 +4,11 @@
 	import { fade, slide } from 'svelte/transition';
 	import { quadInOut } from 'svelte/easing';
 	import { observing, colors } from '../utils/stores.js';
+	import { isMobileDevice } from '../utils/utils.js';
 	import { stores } from '@sapper/app';
 	const { page } = stores();
+	
+	$: isMobile = isMobileDevice();
 
 	export let segment;
 	let isScrolling;
@@ -19,6 +22,8 @@
 	}
 
 	const handleScroll = async () => {
+		if (isMobile)
+			return;
 		isIdle = false;
 		window.clearTimeout( isScrolling );
 		isScrolling = setTimeout(function() {
@@ -29,6 +34,8 @@
 	let indicator; let navItems = [];
 
 	function handleIndicator(idx) {
+		if (isMobile)
+			return;
 		navItems.forEach(function (item) {
 			item.classList.remove('active-item');
 			item.removeAttribute('style');
@@ -41,7 +48,7 @@
 	}
 
 	page.subscribe(({ }) => {
-		if (!navItems.length)
+		if (!navItems.length || isMobile)
 			return;
 		console.log("pouet poueot");
   		[0,1,2].forEach(h => {
@@ -57,7 +64,7 @@
 <div class="container">
 <nav class="navbar {$observing ? "is-transparent" : "iswhite"}" role="navigation" aria-label="main navigation" in:fade={{duration:1000, delay:50, easing: quadInOut}} out:fade={{duration:400, delay:0, easing: quadInOut}} bind:this={navbar} >
 	<div class="navbar-brand">
-	  <a class="navbar-item unlink" href="/" style="cursor:pointer;">
+	  <a class="navbar-item unlink" class:invisible={!menuIsActive} href="/" style="cursor:pointer;">
 			<img src="../img/logo-sigle.png" height="28" alt="logo EDRA">
 	  </a>
   
@@ -170,16 +177,35 @@ a {
 	z-index: 1;
 }
 
-@media (max-width: 768px) {
-	 .navbar {
-		 overflow: auto;
-	}
-}
-
 @media only screen and (max-width: 1024px) {
+
 	.navbar-brand {
 		min-height: unset!important;
 		height:auto;
+		margin-left:-10%;
+	}
+	.navbar {
+		 overflow: auto;
+	}
+	a {
+		color : var(--maincolor)!important;
+		font-size:1.6em;
+	}
+	.navbar-burger {
+		background-color : transparent;
+		transform: scale(2);
+	    margin-top: 6px;
+		color:var(--maincolor);
+	}
+	.is-transparent .navbar-burger, .is-transparent .navbar-burger:hover, .is-transparent .navbar-item {
+		color : white!important;
+		opacity:1;
+	}
+	.is-transparent .navbar-menu, .is-transparent .navbar-menu.is-active {
+		background-color: transparent;
+	}
+	.navbar-menu, .is-transparent .navbar-menu.is-active {
+		box-shadow: none;
 	}
 }
  

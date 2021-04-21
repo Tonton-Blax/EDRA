@@ -12,13 +12,17 @@
 	import Modal from 'svelma/src/components/Modal/Modal.svelte'
 	import { ChevronLeftIcon, ChevronRightIcon } from 'svelte-feather-icons'
 	import Header from '../components/HeaderBase.svelte';
-	import {observing} from '../utils/stores.js';
+	import { observing } from '../utils/stores.js';
 	import { stores } from '@sapper/app';
+	import { isMobileDevice } from '../utils/utils.js';
+
 	import { tick } from 'svelte';
 
 	const { page,preloading } = stores();
 	
 	$: ($page.path || $preloading) && notOk();
+	$: isMobile = isMobileDevice();
+
 	let ok = true;
 
 	let notOk = async () => {
@@ -172,7 +176,7 @@
 			{/key}
 			<div class="carou nomargin">
 			<Carousel 				
-				perPage={1} controls={true} dots={false} multipleDrag={false}
+				perPage={1} controls={true} dots={isMobile} multipleDrag={false}
 				autoplay={5000} duration={500}
 				on:change={ e => overBlocks[0].index = e.detail.currentSlide }
 			>
@@ -184,13 +188,33 @@
 		</div>
 	</div>
 
+	<!-- PRODUITS MOBILE -->
+
+	<div class="column is-full is-hidden-desktop">
+		<div class="edra-block no-padding flexbase">
+		{#key overBlocks[0].index}
+			<div class="overblock-mobile" in:fly={{x:-1000, duration:500}} out:fly={{x:1000, delay:100, easing:quadInOut}}>
+				<div class="block-up">
+						<h3 class="title is-big-touch has-text-primary has-text-weight-bold">{overBlocks[0].titre[overBlocks[0].index]}</h3>
+					</div>
+				<div class="block-in">
+					<p class="has-text-primary has-text-left is-size-2">{overBlocks[0].sousTitre[overBlocks[0].index]}</p>
+				</div>
+				<div class="block-bouton">
+					<a class="button is-success is-size-3 has-text-bold mt-3" rel="prefetch" href={overBlocks[0].liens[overBlocks[0].index]}>Découvrir</a>
+				</div>
+			</div>
+			{/key}
+		</div>
+	</div>
+
 	<!-- 4 PICTOS -->
 
 	<div class="column is-full">
 		<div class="edra-block no-padding has-background-white has-text-primary clear-height-touch" bind:this={pictoEl}>
 			<h2 class="title is-2 has-text-centered has-text-primary has-text-weight-bold mb-6 mpt-3">EDRA, 30 ans <br>de qualité de Service</h2>
 			<div class="columns is-mobile is-multiline cols-picto tp-3 full-height">
-				<IntersectionObserver bind:intersecting={intersectings.pictos} element={pictoEl}>
+				<IntersectionObserver bind:intersecting={intersectings.pictos} element={pictoEl} once={isMobile}>
 					{#if intersectings.pictos}
 					<div out:fly in:fly={{y:200, delay:100, easing:quadOut}} 
 						class="column is-one-fourth is-full-touch has-text-centered col-picto">
@@ -221,41 +245,41 @@
 			</div>
 		</div>
 	</div>
-
 	<!-- KERROCK TEXTE -->
+	<div class="columns is-multiline is-gapless reverse-columns mb-0">
+		<div class="column is-half is-full-touch">
+			<div class="edra-block has-background-primary has-text-white flex-centered" >
 
-	<div class="column is-half is-full-touch">
-		<div class="edra-block has-background-primary has-text-white flex-centered" >
+				{#key overBlocks[2].index}
+				<a class="flexbase has-text-white mince"  
+					in:fly={{x:-1000, duration:500, easing:quadInOut}} out:fly={{x:1000, delay:100, easing:quadInOut}} 
+					href='https://www.kerrock.fr/sanitaire'
+				>
+					<h2 class="title is-2 has-text-white mb-0 is-bigger-touch">Kerrock®</h2>
+					<p class="is-size-6-desktop is-size-4-tablet is-med-mob has-text-left">
+						{@html overBlocks[2].sousTitre[overBlocks[2].index]}
+					</p>
+				</a>
+				{/key}
 
-			{#key overBlocks[2].index}
-			<a class="flexbase has-text-white mince"  
-				in:fly={{x:-1000, duration:500, easing:quadInOut}} out:fly={{x:1000, delay:100, easing:quadInOut}} 
-				href='https://www.kerrock.fr/sanitaire'
-			>
-				<h2 class="title is-2 has-text-white mb-0">Kerrock®</h2>
-				<p class="is-size-6 is-size-3-touch has-text-left">
-					{@html overBlocks[2].sousTitre[overBlocks[2].index]}
-				</p>
-			</a>
-			{/key}
-
+			</div>
 		</div>
-	</div>
 
-	<!-- KERROCK IMAGES -->
+		<!-- KERROCK IMAGES -->
 
-	<div class="column is-half is-full-touch">
-		<div class="edra-block no-padding has-background-white has-text-primary">
-			<div class="carou nomargin">
-			<Carousel 				
-				perPage={1} controls={true} dots={true} multipleDrag={false}
-				autoplay={10000} duration={500}
-				on:change={ e => overBlocks[2].index = e.detail.currentSlide }
-			>				
-				{#each overBlocks[2].images as src (src)}
-					<img {src} class="carou-img-half" alt="nature" />
-				{/each}
-				</Carousel>
+		<div class="column is-half is-full-touch">
+			<div class="edra-block no-padding has-background-white has-text-primary">
+				<div class="carou nomargin">
+				<Carousel 				
+					perPage={1} controls={true} dots={true} multipleDrag={false}
+					autoplay={10000} duration={500}
+					on:change={ e => overBlocks[2].index = e.detail.currentSlide }
+				>				
+					{#each overBlocks[2].images as src (src)}
+						<img {src} class="carou-img-half" alt="nature" />
+					{/each}
+					</Carousel>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -263,7 +287,7 @@
 	<!-- POINTS FORTS -->
 
 	<div class="column is-full">
-		<div class="edra-block no-padding has-text-white">
+		<div class="{isMobile ? 'edra-full' : 'edra-block'} no-padding has-text-white">
 			<div class="overtop" style="display:flex;flex-flow:row;">
 				<img src="../img/svg/hexagone.svg" alt="hexagone" style="width:214px!important;">
 				{#key overBlocks[1].index}
@@ -271,7 +295,7 @@
 						<p class="m-0 has-text-left is-size-1 has-text-weight-bold mb-3" >
 							{@html overBlocks[1].titre[overBlocks[1].index]}
 						</p>
-						<p class="is-size-5-fullhd is-size-6-desktop has-text-left has-text-white m-0">
+						<p class="is-size-5-fullhd is-size-6-desktop is-size-4-touch has-text-left has-text-white m-0">
 							{@html overBlocks[1].sousTitre[overBlocks[1].index]}
 						</p>
 					</div>
@@ -305,7 +329,7 @@
 
 	<div class="column is-half is-full-touch">
 		<div class="edra-block has-background-primary has-text-white p-0">
-			<h2 class="title is-2 has-text-white has-text-centered mb-0">Ils nous font<br>confiance</h2>
+			<h2 class="title is-2 has-text-white has-text-centered mb-0 is-big-touch">Ils nous font<br>confiance</h2>
 		</div>
 	</div>
 	<div class="column is-half is-full-touch">
@@ -376,9 +400,7 @@
 	.sub-overtop {
 		display: flex;
 		position:absolute;
-		left:80%;
 		flex-flow:column;
-		width:calc(100% + 8vw);
 	}
 
 	.modal-carou {
@@ -397,7 +419,6 @@
 		z-index:5000;
 		cursor:pointer;
 	}
-	
 	p {
 		text-align: center;
 		margin: 0 auto;
@@ -415,7 +436,7 @@
 	}
 
 	.carou-img-half {
-		min-height: 672px;
+		min-height: var(--desktop-height);
 		max-width:100%;
 		width:auto;
 		margin:0px!important;
@@ -425,11 +446,6 @@
 		margin: 1em auto;
 	}
 	
-	.mince {
-		position:absolute;
-		max-width:21%;
-	}
-
 	:global(.button) {
 		text-transform: uppercase;
 		border-radius:0px!important;
@@ -447,37 +463,5 @@
 			opacity: 1;
 		}
 	}
-
-@media screen and (max-width: 1024px) {
-  .flow-scroll {
-      overflow-y: scroll;
-  }
-  .tp-3 {
-      padding-left:12%!important;
-      padding-right:12%!important;
-  }
-  .full-height {
-      height:fill-available;
-	  max-height:auto!important;
-	  display:flex;
-	  justify-content:center;
-	  align-items:center;
-  }
-  .clear-height-touch {
-	  max-height:unset;
-	  height:fit-content;
-	  min-height:auto;
-  }
-  .mpt-3 {
-	  margin-top: 3rem;
-  }
-  .flex-centered {
-	  align-items: center;
-  }
-  .mince {
-	position:absolute;
-	max-width:70%;
-  }
-}
 
 </style>

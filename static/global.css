@@ -7,12 +7,16 @@ body {
     --maincolor: #005476;
     --lightblue: #EBF9FF;
     --rose: #ED0070;
+    --mob-height: 48vh;
+    --desktop-height: 672px;
 }
 
 body {
     background:#efefef;
 }
-
+.invisible {
+  opacity: 0;
+}
 .center-block {
     display: flex;
     flex-flow: column wrap;
@@ -29,25 +33,22 @@ body {
     width:-moz-available;
     width:fill-available;
 }
-.no-padding {
-    padding:0px!important;
-}
 
 .edra-block {
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
-    height:672px;
-    max-height:672px;
-    padding:10% 30%;
+    height:var(--desktop-height);
+    max-height:var(--desktop-height);
     overflow:hidden;
 }
+
 .autoheight {
     max-width:100%!important;
     object-fit: cover!important;
     margin:0px 0px 0px 0px!important;
     min-height:fill-available;
-    height:672px;
+    height:var(--desktop-height);
 }
 
 .edra-block .img-container {
@@ -62,10 +63,6 @@ body {
 }
 .overtop img {
     transform: translateX(-50%);
-}
-
-.carou ul {
-    margin-top: -55px!important;
 }
 
 .overblock {
@@ -149,6 +146,150 @@ body {
     flex-flow: column wrap;
     align-content: space-around;
 }
+
+/* MOBILE PURE */
+
+@media screen and (max-width : 768px)  {
+  .svg-container {
+    height: 73vh!important;
+  }
+  .is-med-mob {
+    font-size: 2em!important;
+  }
+}
+
+/*  TABLET & CIE */
+
+@media screen and (min-width:767px) and (max-width : 1024px)  {
+  .svg-container {
+    height: 80vh!important;
+  }
+}
+
+/* MOBILE TOUCH TABLET */
+
+@media screen and (max-width: 1024px) {
+    body, html, #sapper {
+      overflow-x: hidden!important;
+    }
+    .autoheight, .edra-block .carou img {
+      height:var(--mob-height)!important;
+    }
+    .edra-full .carou img {
+      height:96vh!important;
+    }
+    .clear-height-touch {
+      max-height:unset;
+      height:fit-content;
+      min-height:auto;
+    }
+    .mpt-3 {
+      margin-top: 3rem;
+    }
+    .flex-centered {
+      align-items: center;
+    }
+    .mince {
+      position:absolute;
+      max-width:70%!important;
+    }
+    .tp-3 {
+      padding-left:15%!important;
+      padding-right:15%!important;
+    }
+    .full-height {
+      height:fill-available;
+      max-height:auto!important;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+    .edra-block:not(.no-padding) {
+      padding:10% 30%;
+    }
+    .edra-block {
+      min-height:var(--mob-height);
+    }
+    .edra-full {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      min-height:96vh;
+      height:96vh;
+      overflow:hidden;
+    }
+    .edra-full .no-padding {
+      padding:0px;
+    }
+    .edra-full img {
+      height:96vh;
+    }
+    .no-padding {
+      padding:4em 0em;
+    }
+    .overblock {
+      display:none;
+    }
+    .overblock-mobile {
+      position:absolute;
+      height:auto;
+      padding:0% 12.5%;
+    }
+    .is-big-touch {
+      font-size:4rem!important;
+    }
+    .is-bigger-touch {
+      font-size:5.5rem!important;
+    }
+    .carou ul li {
+      margin: 12px;
+      height: 21px;
+      width: 21px;
+    }
+    .carou ul {
+      bottom: 2vh;
+    }
+    .sub-overtop {
+        left: 3vw;
+        width: calc(100% + 15vw);
+        top: 6vh;
+    }
+    .reverse-columns {
+      flex-direction: column-reverse;
+      display: flex;
+      width: -webkit-fill-available;
+      width: -moz-available;
+      width: fill-available;
+    }
+}
+
+
+/* DESKTOP */
+
+@media screen and (min-width: 1024px) {
+	.edra-block .no-padding {
+		padding:0px;
+	}
+	.edra-block:not(.no-padding) {
+		padding:10% 30%;
+	}
+	.reverse-columns {
+		width: -webkit-fill-available;
+		width: -moz-available;
+		width: fill-available;
+	}
+	.sub-overtop {
+		left:80%;
+		width:calc(100% + 8vw);
+	}
+  .carou ul {
+    margin-top: -55px!important;
+  }
+}
+
+
+
+/* FONTS */
 
 /* montserrat-100 - latin */
 @font-face {

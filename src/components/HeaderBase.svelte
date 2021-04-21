@@ -170,4 +170,16 @@
 						5 5 5 5 5 5 0 630;
 		fill: none;
 	}
+	@media screen and (max-width: 1024px) {
+		/*
+		circle {
+			display:none;
+		}
+		*/
+		.circle-path {
+  			/*stroke-dashoffset: 628.3;*/
+  			animation: none;
+			stroke-dashoffset: 0;
+		}
+	}
 </style>
