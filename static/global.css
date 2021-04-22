@@ -150,16 +150,13 @@ body {
 /* MOBILE PURE */
 
 @media screen and (max-width : 768px)  {
-  .svg-container {
-    height: 73vh!important;
-  }
   .is-med-mob {
     font-size: 2em!important;
   }
 }
 
 /*  TABLET & CIE */
-
+/*
 @media screen and (min-width:767px) and (max-width : 1024px)  {
   .svg-container {
     height: 80vh!important;
@@ -221,7 +218,7 @@ body {
     .edra-full .no-padding {
       padding:0px;
     }
-    .edra-full img {
+    .edra-full img:not(.logo-edra) {
       height:96vh;
     }
     .no-padding {

@@ -145,10 +145,9 @@
 		
 	<div class="column is-full">
 		<IntersectionObserver element={headerEl} bind:intersecting={$observing}>
-			
-			<div class="edra-block no-padding has-text-white" bind:this={headerEl}>
+			<div class="{isMobile ? 'edra-full' : 'edra-block'} no-padding has-text-white" bind:this={headerEl}>
 				{#if ok}
-				<Header />
+				<Header headerType={'sombre'} />
 				{:else}
 				<h1 class="title is-1">Chargement...</h1>
 				{/if}

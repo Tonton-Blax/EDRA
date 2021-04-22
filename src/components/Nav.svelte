@@ -86,10 +86,10 @@
 	</div>  
 	{#if menuIsActive}
 	<div class="navbar-menu" class:is-active={menuIsActive} transition:slide={{easing: quadInOut}} >
-	  <div class="navbar-start">
-		<a rel="prefetch" class="navbar-item" aria-current={segment === 'produits' ? 'page' : undefined} href="produits" on:click={() => menuIsActive = false}>Produits</a>
-		<a class="navbar-item" aria-current={segment === undefined ? 'page' : undefined} href="." on:click={() => menuIsActive = false}>EDRA</a>
-		<a class="navbar-item" aria-current={segment === 'contact' ? 'page' : undefined} on:click={() => menuIsActive = false} href="contact">Contact</a>
+	  <div class="navbar-start">0
+		<a rel="prefetch" class="navbar-item moblink" aria-current={segment === 'produits' ? 'page' : undefined} href="produits" on:click={() => menuIsActive = false}>Produits</a>
+		<a class="navbar-item moblink" aria-current={segment === undefined ? 'page' : undefined} href="." on:click={() => menuIsActive = false}>EDRA</a>
+		<a class="navbar-itemn moblink" aria-current={segment === 'contact' ? 'page' : undefined} on:click={() => menuIsActive = false} href="contact">Contact</a>
 		<span class="navbar-indicator"></span>
 
 	  </div>  
@@ -182,19 +182,25 @@ a {
 	.navbar-brand {
 		min-height: unset!important;
 		height:auto;
-		margin-left:-10%;
+		margin-left:-12%;
 	}
 	.navbar {
 		 overflow: auto;
+		 min-height: 6.5rem;
 	}
-	a {
-		color : var(--maincolor)!important;
-		font-size:1.6em;
+	a.moblink, a.moblink:active, a.moblink:hover, a.moblink:visited {
+		color : var(--maincolor);
+		font-size:2em;
+		line-height:2em;
+		margin-left:2em;
+	}
+	.is-transparent .moblink, .is-transparent a.moblink:active, .is-transparent a.moblink:hover, .is-transparent a.moblink:visited {
+		color : white;
 	}
 	.navbar-burger {
 		background-color : transparent;
-		transform: scale(2);
-	    margin-top: 6px;
+		height:6.5rem;
+		width:6.5rem;
 		color:var(--maincolor);
 	}
 	.is-transparent .navbar-burger, .is-transparent .navbar-burger:hover, .is-transparent .navbar-item {
@@ -207,6 +213,27 @@ a {
 	.navbar-menu, .is-transparent .navbar-menu.is-active {
 		box-shadow: none;
 	}
+	.navbar-burger {
+		transform:scale(3);
+	}
+	.navbar-item img {
+ 	   	max-height: 2.75rem;
+		margin-right: 2em;
+	}
+	/*
+	.navbar-burger span {
+		width:64px;
+	}
+	.navbar-burger span:nth-child(1) {
+    	top: calc(50% - 6px);
+	}
+	.navbar-burger span:nth-child(2) {
+		top : calc(1.25 * (50% - 1px))
+	}
+	.navbar-burger span:nth-child(3) {
+		top: calc(0.5 * (50% + 4px))
+	}
+	*/
 }
  
 @media screen and (min-width: 1024px) {

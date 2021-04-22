@@ -9,14 +9,18 @@
 
 <script>
 	import Posts from '../../components/Posts.svelte'
-	import Header from '../../components/HeaderFiches.svelte';
+	import Header from '../../components/HeaderBase.svelte';
 	import {observing} from '../../utils/stores.js';
 	import IntersectionObserver from "svelte-intersection-observer";
 	import { stores } from '@sapper/app';
 	import { tick } from 'svelte';
+	import { isMobileDevice } from '../../utils/utils.js';
+
 	const { page,preloading } = stores();
 	
 	$: ($page.path || $preloading) && notOk();
+	$: isMobile = isMobileDevice();
+
 	let ok = true;
 
 	let notOk = async () => {
@@ -36,10 +40,9 @@
 
 <div class="column is-full">
 	<IntersectionObserver element={headerEl} bind:intersecting={$observing}>
-		
-		<div class="edra-block no-padding has-text-white" bind:this={headerEl}>
+		<div class="{isMobile ? 'edra-full' : 'edra-block'} no-padding has-text-white" bind:this={headerEl}>
 			{#if ok}
-			<Header />
+			<Header headerType={'clair'} />
 			{:else}
 			<h1 class="title is-1">Chargement...</h1>
 			{/if}
