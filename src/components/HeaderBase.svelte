@@ -25,16 +25,14 @@
 	onMount( async() => {
 		isMobile = (typeof window !== 'undefined') && (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent))
 		for (let cercle of animAssets[headerType].cercles ) {
-			const multiple = isMobile ? 2 : 1;
 			cercle.peri = Math.ceil(Math.PI * 2 * cercle.rayon);
-			cercle.stroke = Array(Math.ceil(cercle.peri  / (cercle.tiret ? cercle.tiret * multiple : 5 ))).fill(cercle.tiret ? cercle.tiret * multiple : 5)
+			cercle.stroke = Array(Math.ceil(cercle.peri  / (cercle.tiret ? cercle.tiret : 5 ))).fill(cercle.tiret ? cercle.tiret : 5)
 			if (cercle.stroke.length % 2 !== 0) 
 				cercle.stroke.pop();
 			cercle.stroke = ([...cercle.stroke, 0, cercle.peri]).join(' ');
 		}
 		$refresh = false;
 		svgs.forEach(s => { s.beginElement()});
-		cerclesEls.forEach(c=> c.style.animationDuration = `${c.duree}s`);
 	});
 
 	let restartLine = async (index) => {
@@ -109,44 +107,56 @@
 
 		{#each animAssets[headerType].cercles as cercle, index (cercle.id)}
 			{#if !isMobile || (isMobile && !cercle.isHiddenMobile) }
+			<defs>			
+				<mask id="masque-{cercle.id}" maskUnits="userSpaceOnUse">
+					<circle 
+						cy={cercle.y}
+						cx={cercle.x}
+						r={cercle.rayon}
+						stroke="white"
+						stroke-width="3"
+						fill="none"
+						stroke-dasharray="{cercle.peri}"
+					>
+					{#if cercle.reversed}
+						<animate 
+							attributeName="stroke-dashoffset" stroke-width="1"
+							dur="{cercle.duree*2}s" repeatCount="indefinite" fill="freeze"
+							values="0; {-cercle.peri}; {+cercle.peri}"
+							keyTimes="0; 0.5; 1"	
+						/>
+						{:else}
+						<animate 
+							attributeName="stroke-dashoffset" stroke-width="1"
+							dur="{cercle.duree*2}s" repeatCount="indefinite" fill="freeze"
+							values="{cercle.peri}; 0; {-cercle.peri}"
+							keyTimes="0; 0.5; 1"	
+						/>
+					{/if}
+					<animateTransform attributeName="transform"
+						attributeType="XML"
+						type="rotate"
+						from="{cercle.rotation} {cercle.x} {cercle.y}"
+						to="{360+cercle.rotation} {cercle.x} {cercle.y}"
+						dur="{cercle.duree*2}"
+						repeatCount="indefinite"
+					/>
+					</circle>
+				</mask>
+			</defs>
+
 			<circle 
 				class="circle-path"
 				class:debug={cercle.debug}
 				bind:this={cerclesEls[index]}
+				mask="url(#masque-{cercle.id})"
 				stroke={animAssets[headerType].options.linesColor}
-				transform="rotate({cercle.rotation})"
 				stroke-dasharray={cercle.stroke}
-				stroke-dashoffset={cercle.peri}
 				fill="none"
 				id={cercle.id}
-				
 				cy={cercle.y}
 				cx={cercle.x}
 				r={cercle.rayon}>
-
-				{#if cercle.reversed}
-				<animate 
-					attributeName="stroke-dashoffset" stroke-width="1"
-					dur="{cercle.duree*2}s" repeatCount="indefinite" fill="freeze"
-					values="0; {-cercle.peri}; {+cercle.peri}"
-					keyTimes="0; 0.5; 1"	
-				/>
-				{:else}
-				<animate 
-					attributeName="stroke-dashoffset" stroke-width="1"
-					dur="{cercle.duree*2}s" repeatCount="indefinite" fill="freeze"
-					values="{cercle.peri}; 0; {-cercle.peri}"
-					keyTimes="0; 0.5; 1"	
-				/>
-				{/if}
-				<animateTransform attributeName="transform"
-					attributeType="XML"
-					type="rotate"
-					from="{cercle.rotation} {cercle.x} {cercle.y}"
-					to="{360+cercle.rotation} {cercle.x} {cercle.y}"
-					dur="{cercle.duree*2}"
-					repeatCount="indefinite"
-				/>
 			</circle>
 			{/if}
 		{/each}

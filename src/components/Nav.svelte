@@ -50,7 +50,6 @@
 	page.subscribe(({ }) => {
 		if (!navItems.length || isMobile)
 			return;
-		console.log("pouet poueot");
   		[0,1,2].forEach(h => {
 			indicator.style.backgroundColor = $observing && segment != 'produits' ? "white" : $colors.main;
 			navItems[h].style.color = $observing || segment != 'produits' ? "white" : $colors.main;
