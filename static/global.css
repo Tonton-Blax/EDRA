@@ -261,7 +261,7 @@ body {
 }
 
 
-/* DESKTOP */
+/* DESKTOP * ****************************************************************************/
 
 @media screen and (min-width: 1024px) {
 	.edra-block .no-padding {
@@ -281,6 +281,10 @@ body {
 	}
   .carou ul {
     margin-top: -55px!important;
+  }
+  .mince {
+    position: absolute;
+    width:21%;
   }
 }
 
