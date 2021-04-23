@@ -50,21 +50,13 @@ body {
     min-height:fill-available;
     height:var(--desktop-height);
 }
-
 .edra-block .img-container {
     place-self : center;
 }
-
 .overtop {
-    position: absolute;
-    left: 50%;
     z-index: 1;
-    width: fill-available;
+    display:flex;
 }
-.overtop img {
-    transform: translateX(-50%);
-}
-
 .overblock {
     position: absolute;
     left: 50%;
@@ -75,7 +67,6 @@ body {
     background: white;
     padding: 30px;		
 }
-
 .block-up {
     height:120px;
     justify-content: flex-end;
@@ -121,6 +112,17 @@ body {
     justify-content: center;
 }
 
+.logosquare {
+  border: 1px solid #efefef;
+  margin:0px;
+  height:224px;
+  padding:0px;
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .gallerie {
 	width: 100%;
     display: flex;
@@ -146,6 +148,10 @@ body {
     flex-flow: column wrap;
     align-content: space-around;
 }
+.modal-carou {
+  height: auto;
+  overflow:visible;
+}
 
 /* MOBILE PURE */
 
@@ -155,13 +161,11 @@ body {
   }
 }
 
-/*  TABLET & CIE */
+/*  TABLET & CIE 
+* **********************************************************************************************************************************
+* **********************************************************************************************************************************
 /*
-@media screen and (min-width:767px) and (max-width : 1024px)  {
-  .svg-container {
-    height: 80vh!important;
-  }
-}
+
 
 /* MOBILE TOUCH TABLET */
 
@@ -169,6 +173,10 @@ body {
     body, html, #sapper {
       overflow-x: hidden!important;
     }
+    .modal-content, .modal-carou {
+      width:95vw!important;
+    }
+    
     .autoheight, .edra-block .carou img {
       height:var(--mob-height)!important;
     }
@@ -180,8 +188,14 @@ body {
       height:fit-content;
       min-height:auto;
     }
-    .mpt-3 {
+    .bgmm {
+      background: var(--maincolor);
+    }
+    .mmt-3 {
       margin-top: 3rem;
+    }
+    .mpt-2 {
+      padding-top: 1.25em;
     }
     .flex-centered {
       align-items: center;
@@ -189,11 +203,14 @@ body {
     .mince {
       position:absolute;
       max-width:70%!important;
-    }
+    } 
     .tp-3 {
       padding-left:15%!important;
       padding-right:15%!important;
     }
+    .border-bottom-mobile {
+      border-bottom: 3px solid var(--maincolor)!important;
+    }   
     .full-height {
       height:fill-available;
       max-height:auto!important;
@@ -218,7 +235,7 @@ body {
     .edra-full .no-padding {
       padding:0px;
     }
-    .edra-full img:not(.logo-edra) {
+    .edra-full img:not(.logo-edra):not(.hexagone) {
       height:96vh;
     }
     .no-padding {
@@ -238,13 +255,34 @@ body {
     .is-bigger-touch {
       font-size:5.5rem!important;
     }
-    .carou ul li {
-      margin: 12px;
-      height: 21px;
-      width: 21px;
+    .carousel ul li {
+      margin: 12px!important;
+      height: 21px!important;
+      width: 21px!important;
+      margin-top:-40px!important
     }
-    .carou ul {
+    .carousel ul {
       bottom: 2vh;
+    }
+    .carousel button.left, .carousel button.right {
+      width: 80px!important;
+      height: 80px!important;
+    }
+	  .carou-img-half, .carou-img {
+      margin-bottom: -0.6rem!important;
+      max-width:100%;
+      width:auto;
+    }
+    .overtop {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: absolute;    
+      z-index: 1;
+      width: 50%;
+      margin-top:20%;
+      align-self: center;
     }
     .sub-overtop {
         left: 3vw;
@@ -258,13 +296,26 @@ body {
       width: -moz-available;
       width: fill-available;
     }
+    .logosquare {
+      padding:unset;
+      padding-top:87%!important;
+    }
+    .logosquare img {
+      margin-top:-87%;
+    }
 }
 
 
-/* DESKTOP * ****************************************************************************/
+/*      DESKTOP 
+* **********************************************************************************************************************************
+* **********************************************************************************************************************************
+*/
 
 @media screen and (min-width: 1024px) {
-	.edra-block .no-padding {
+	.modal-content, .modal-carou {
+    width:60vw!important;
+  }
+  .edra-block .no-padding {
 		padding:0px;
 	}
 	.edra-block:not(.no-padding) {
@@ -279,8 +330,30 @@ body {
 		left:80%;
 		width:calc(100% + 8vw);
 	}
+  .carou-img-half {
+		min-height: var(--desktop-height);
+		max-width:100%;
+		width:auto;
+		margin:0px!important;
+	}
   .carou ul {
     margin-top: -55px!important;
+  }
+  .overtop {
+    position: absolute;
+    flex-direction:row;
+    left: 50%;
+    width: fill-available;
+  }
+  .overtop img {
+    transform: translateX(-50%);
+  }
+  .logosquare {
+    padding: 34px;
+  }
+  .logosquare img {
+    object-fit:contain;
+    margin:0em!important;
   }
   .mince {
     position: absolute;
@@ -289,8 +362,10 @@ body {
 }
 
 
-
-/* FONTS */
+/* FONTS 
+* **********************************************************************************************************************************
+* **********************************************************************************************************************************
+*/
 
 /* montserrat-100 - latin */
 @font-face {

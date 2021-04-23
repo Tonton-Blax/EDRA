@@ -204,10 +204,6 @@
 	width: fit-content;
 	padding:2.5rem;
 }
-
-:global(.modal-content, .modal-card) {
-	width:60vw;
-}
 .edra-heading > * {
 	line-height: 1rem;
 }

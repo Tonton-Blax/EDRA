@@ -161,7 +161,7 @@
 	<div class="column is-full">
 		<div class="edra-block no-padding has-text-white">
 			{#key overBlocks[0].index}
-			<div class="overblock" in:fly={{x:-1000, duration:500}} out:fly={{x:1000, delay:100, easing:quadInOut}}>
+			<div class="overblock" in:fly={{x:1000, duration:500}} out:fly={{x:1000, delay:0, easing:quadInOut}}>
 				<div class="block-up">
 						<h3 class="title is-3 has-text-primary has-text-weight-bold">{overBlocks[0].titre[overBlocks[0].index]}</h3>
 					</div>
@@ -173,7 +173,7 @@
 				</div>
 			</div>
 			{/key}
-			<div class="carou nomargin">
+			<div class="carou nomargin bgmm">
 			<Carousel 				
 				perPage={1} controls={true} dots={isMobile} multipleDrag={false}
 				autoplay={5000} duration={500}
@@ -189,10 +189,10 @@
 
 	<!-- PRODUITS MOBILE -->
 
-	<div class="column is-full is-hidden-desktop">
+	<div class="column is-full is-hidden-desktop border-bottom-mobile">
 		<div class="edra-block no-padding flexbase">
 		{#key overBlocks[0].index}
-			<div class="overblock-mobile" in:fly={{x:-1000, duration:500}} out:fly={{x:1000, delay:100, easing:quadInOut}}>
+			<div class="overblock-mobile" in:fly={{x:1000, duration:500}} out:fly={{x:1000, delay:0, easing:quadInOut}}>
 				<div class="block-up">
 						<h3 class="title is-big-touch has-text-primary has-text-weight-bold">{overBlocks[0].titre[overBlocks[0].index]}</h3>
 					</div>
@@ -211,33 +211,33 @@
 
 	<div class="column is-full">
 		<div class="edra-block no-padding has-background-white has-text-primary clear-height-touch" bind:this={pictoEl}>
-			<h2 class="title is-2 has-text-centered has-text-primary has-text-weight-bold mb-6 mpt-3">EDRA, 30 ans <br>de qualité de Service</h2>
+			<h2 class="title is-2 has-text-centered has-text-primary has-text-weight-bold mb-6 mmt-3">EDRA, 30 ans <br>de qualité de Service</h2>
 			<div class="columns is-mobile is-multiline cols-picto tp-3 full-height">
 				<IntersectionObserver bind:intersecting={intersectings.pictos} element={pictoEl} once={isMobile}>
 					{#if intersectings.pictos}
 					<div out:fly in:fly={{y:200, delay:100, easing:quadOut}} 
 						class="column is-one-fourth is-full-touch has-text-centered col-picto">
 						<img src="../img/pictos/picto_madeinfrance.png" width="auto" alt="Fabrication à partir d'un moule">
-						<h3 class="title is-4 is-size-2-touch has-text-primary">Fabrication<br>française</h3>
-						<p class="is-size-3-touch">EDRA est une entreprise 100% française qui fabrique 100% français.</p>
+						<h3 class="title is-4 is-size-1-touch has-text-primary mpt-2">Fabrication<br>française</h3>
+						<p class="is-size-2-touch">EDRA est une entreprise 100% française qui fabrique 100% français.</p>
 					</div>
 					<div out:fly in:fly={{y:200, delay:250, easing:quadOut}} 
 						class="column is-one-fourth is-full-touch has-text-centered col-picto">
 						<img src="../img/pictos/picto_surmesure.png" width="auto" alt="Fabrication à partir d'un moule">
-						<h3 class="title is-4 is-size-2-touch has-text-primary">Une production<br>sur mesure</h3>
-						<p class="is-size-3-touch">Fonctionnalité, ergonomie, hygiène, esthétisme : 4 mots pour nous guider dans la conception de votre projet.</p>
+						<h3 class="title is-4 is-size-1-touch has-text-primary mpt-2">Une production<br>sur mesure</h3>
+						<p class="is-size-2-touch">Fonctionnalité, ergonomie, hygiène, esthétisme : 4 mots pour nous guider dans la conception de votre projet.</p>
 					</div>
 					<div out:fly  in:fly={{y:200, delay:400, easing:quadOut}} 
 						class="column is-one-fourth is-full-touch has-text-centered col-picto">
 						<img src="../img/pictos/picto_tracking.png" width="auto" alt="Fabrication à partir d'un moule">
-						<h3 class="title is-4 is-size-2-touch has-text-primary">Suivi du projet<br>de A à Z</h3>
-						<p class="is-size-3-touch">De la conception à la mise en service dans vos locaux : plusieurs métiers, un seul interlocuteur.</p>
+						<h3 class="title is-4 is-size-1-touch has-text-primary mpt-2">Suivi du projet<br>de A à Z</h3>
+						<p class="is-size-2-touch">De la conception à la mise en service dans vos locaux : plusieurs métiers, un seul interlocuteur.</p>
 					</div>
 					<div out:fly  in:fly={{y:200, delay:550, easing:quadOut}} 
 					class="column is-one-fourth is-full-touch has-text-centered col-picto">
 						<img src="../img/pictos/picto_livraison.png" width="auto" alt="Fabrication à partir d'un moule">
-						<h3 class="title is-4 is-size-2-touch has-text-primary">Intervention<br> dans toute la france</h3>
-						<p class="is-size-3-touch">Livraison, installation ou maintenance, nous nous déplaçons dans toute la France Métropolitaine.</p>
+						<h3 class="title is-4 is-size-1-touch has-text-primary mpt-2">Intervention<br> dans toute la france</h3>
+						<p class="is-size-2-touch">Livraison, installation ou maintenance, nous nous déplaçons dans toute la France Métropolitaine.</p>
 					</div>
 					{/if}
 				</IntersectionObserver>
@@ -251,11 +251,11 @@
 
 				{#key overBlocks[2].index}
 				<a class="flexbase has-text-white mince"  
-					in:fly={{x:-1000, duration:500, easing:quadInOut}} out:fly={{x:1000, delay:100, easing:quadInOut}} 
+					in:fly={{x:1000, duration:500, easing:quadInOut}} out:fly={{x:1000, easing:quadInOut}} 
 					href='https://www.kerrock.fr/sanitaire'
 				>
 					<h2 class="title is-2 has-text-white mb-0 is-bigger-touch">Kerrock®</h2>
-					<p class="is-size-6-desktop is-size-4-tablet is-med-mob has-text-left">
+					<p class="is-size-6-desktop is-size-3-tablet is-med-mob has-text-left">
 						{@html overBlocks[2].sousTitre[overBlocks[2].index]}
 					</p>
 				</a>
@@ -266,7 +266,7 @@
 
 		<!-- KERROCK IMAGES -->
 
-		<div class="column is-half is-full-touch">
+		<div class="column is-half is-full-touch bgmm">
 			<div class="edra-block no-padding has-background-white has-text-primary">
 				<div class="carou nomargin">
 				<Carousel 				
@@ -285,16 +285,16 @@
 
 	<!-- POINTS FORTS -->
 
-	<div class="column is-full">
+	<div class="column is-full bgmm">
 		<div class="{isMobile ? 'edra-full' : 'edra-block'} no-padding has-text-white">
-			<div class="overtop" style="display:flex;flex-flow:row;">
-				<img src="../img/svg/hexagone.svg" alt="hexagone" style="width:214px!important;">
+			<div class="overtop">
+				<img src="../img/svg/hexagone.svg" alt="hexagone" class="hexagone" width="214px">
 				{#key overBlocks[1].index}
 					<div class="sub-overtop" in:fly={{x:-1000, duration:500}} out:fly={{x:1000, delay:100, easing:quadInOut}}>
-						<p class="m-0 has-text-left is-size-1 has-text-weight-bold mb-3" >
+						<p class="m-0 has-text-left is-size-1-desktop is-big-touch has-text-weight-bold mb-3" >
 							{@html overBlocks[1].titre[overBlocks[1].index]}
 						</p>
-						<p class="is-size-5-fullhd is-size-6-desktop is-size-4-touch has-text-left has-text-white m-0">
+						<p class="is-size-5-fullhd is-size-6-desktop is-size-3-touch has-text-left has-text-white m-0">
 							{@html overBlocks[1].sousTitre[overBlocks[1].index]}
 						</p>
 					</div>
@@ -304,7 +304,7 @@
 			<div class="carou nomargin">
 				<Carousel 
 					perPage={1} controls={false} dots={true} multipleDrag={false}
-					autoplay={7000} duration={500}
+					autoplay={0} duration={500}
 					on:change={ e => overBlocks[1].index = e.detail.currentSlide }
 				>
 					{#each overBlocks[1].images as src (src)}
@@ -326,13 +326,13 @@
 
 	<!-- REFERENCES -->
 
-	<div class="column is-half is-full-touch">
+	<div class="column is-half is-full-touch bgmm">
 		<div class="edra-block has-background-primary has-text-white p-0">
-			<h2 class="title is-2 has-text-white has-text-centered mb-0 is-big-touch">Ils nous font<br>confiance</h2>
+			<h2 class="title is-2 has-text-white has-text-centered mb-0 is-bigger-touch">Ils nous font<br>confiance</h2>
 		</div>
 	</div>
 	<div class="column is-half is-full-touch">
-		<div class="edra-block no-padding has-background-white has-text-primary" style="margin-left:1px;">
+		<div class="edra-block no-padding has-background-white has-text-primary carou-ref" style="margin-left:1px;">
 			<!-- <img class="autoheight" src="../img/kerrock02.jpg" alt="Hall d'accueil avec revêtement en kerrock"> -->
 			<Carousel 				
 				perPage={3} controls={false} dots={false} multipleDrag={false}
@@ -370,24 +370,11 @@
 	</div>
 
 <style>
+@media screen and (max-width: 1024px) {
 	
-	.logosquare {
-		border: 1px solid #efefef;
-		margin:0px;
-		height:224px;
-		padding:0px;
-		width:100%;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		padding: 34px;
-	}
+}
 	.cursorable {
 		cursor : pointer;
-	}
-	.logosquare img {
-		object-fit:contain;
-		margin:0em!important;
 	}
 	.col-picto img {
 		height: 128px;
@@ -400,16 +387,6 @@
 		display: flex;
 		position:absolute;
 		flex-flow:column;
-	}
-
-	.modal-carou {
-		width: 60vw;
-		height: auto;
-		overflow:visible;
-	}
-
-	:global(.modal-content) {
-		width:60vw;
 	}
 	.control :global(svg) {
 		width: 100%;
@@ -433,14 +410,6 @@
 		height:695px;
     	margin:0px 0px 0px 0px;
 	}
-
-	.carou-img-half {
-		min-height: var(--desktop-height);
-		max-width:100%;
-		width:auto;
-		margin:0px!important;
-	}
-
 	p {
 		margin: 1em auto;
 	}
@@ -449,7 +418,7 @@
 		text-transform: uppercase;
 		border-radius:0px!important;
 	}
-	
+
 	@keyframes -global-slide-in-bottom {
 		0% {
 			-webkit-transform: translateY(1000px);
