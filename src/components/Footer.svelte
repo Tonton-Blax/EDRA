@@ -12,6 +12,20 @@
 		padding:10% 30%;
 		overflow:hidden;
 	}
+	@media screen and (max-width: 1024px) {
+		.container {
+			padding-bottom:17vh;
+		}
+		.logo-wrapper {
+			align-self:center;
+		}
+	}
+	@media screen and (min-width: 1024px) {
+		.logo-wrapper {
+			align-self:flex-end;
+		}
+	}
+
 </style>
 
 <div class="container">
@@ -25,7 +39,7 @@
         </div>
         <div class="column is-half">
 			<div class="edra-footer has-background-primary has-text-white">
-                <a href="/" style="align-self:flex-end;"><img class="logo" alt="logo" src="../img/logo.png"></a>
+                <a href="/" class="logo-wrapper"><img class="logo" alt="logo" src="../img/logo.png"></a>
             </div>
         </div>
 

@@ -7,7 +7,7 @@ body {
     --maincolor: #005476;
     --lightblue: #EBF9FF;
     --rose: #ED0070;
-    --mob-height: 48vh;
+    --mob-height: 50vh;
     --desktop-height: 672px;
 }
 
@@ -56,6 +56,9 @@ body {
 .overtop {
     z-index: 1;
     display:flex;
+}
+.sub-overtop {
+  display: flex;
 }
 .overblock {
     position: absolute;
@@ -176,9 +179,15 @@ body {
     .modal-content, .modal-carou {
       width:95vw!important;
     }
-    
-    .autoheight, .edra-block .carou img {
+    .is-55 {
+      font-size: 1.3em;
+      line-height: 1.3em;
+    }
+    .autoheight, .edra-block .carou img:not(.carou-img-half) {
       height:var(--mob-height)!important;
+    }
+    .carou-img-half {
+      height:auto!important;
     }
     .edra-full .carou img {
       height:96vh!important;
@@ -210,7 +219,10 @@ body {
     }
     .border-bottom-mobile {
       border-bottom: 3px solid var(--maincolor)!important;
-    }   
+    }
+    .bm1 {
+      border: 2px solid var(--maincolor);
+    }
     .full-height {
       height:fill-available;
       max-height:auto!important;
@@ -285,9 +297,11 @@ body {
       align-self: center;
     }
     .sub-overtop {
-        left: 3vw;
         width: calc(100% + 15vw);
-        top: 6vh;
+        margin-top:1vh;
+        position: static!important;
+        align-items:center!important;
+        flex-flow:column;
     }
     .reverse-columns {
       flex-direction: column-reverse;
@@ -327,8 +341,10 @@ body {
 		width: fill-available;
 	}
 	.sub-overtop {
-		left:80%;
-		width:calc(100% + 8vw);
+		width:calc(50% + 7vw);
+    align-items:flex-start!important;
+    flex-flow:column; 
+    margin-left: -3vw; 
 	}
   .carou-img-half {
 		min-height: var(--desktop-height);
@@ -358,6 +374,9 @@ body {
   .mince {
     position: absolute;
     width:21%;
+  }
+  .is-55 {
+    font-size:1.1rem;
   }
 }
 

@@ -267,7 +267,7 @@
 		<!-- KERROCK IMAGES -->
 
 		<div class="column is-half is-full-touch bgmm">
-			<div class="edra-block no-padding has-background-white has-text-primary">
+			<div class="edra-block no-padding has-background-white has-text-primary bm1">
 				<div class="carou nomargin">
 				<Carousel 				
 					perPage={1} controls={true} dots={true} multipleDrag={false}
@@ -287,24 +287,24 @@
 
 	<div class="column is-full bgmm">
 		<div class="{isMobile ? 'edra-full' : 'edra-block'} no-padding has-text-white">
-			<div class="overtop">
+			{#key overBlocks[1].index}
+			<div class="overtop" in:fly={{x:-1000, duration:500}} out:fly={{x:1000, delay:100, easing:quadInOut}}>
 				<img src="../img/svg/hexagone.svg" alt="hexagone" class="hexagone" width="214px">
-				{#key overBlocks[1].index}
-					<div class="sub-overtop" in:fly={{x:-1000, duration:500}} out:fly={{x:1000, delay:100, easing:quadInOut}}>
+					<div class="sub-overtop">
 						<p class="m-0 has-text-left is-size-1-desktop is-big-touch has-text-weight-bold mb-3" >
 							{@html overBlocks[1].titre[overBlocks[1].index]}
 						</p>
-						<p class="is-size-5-fullhd is-size-6-desktop is-size-3-touch has-text-left has-text-white m-0">
+						<p class="is-size-5-fullhd is-size-6-desktop is-size-2-touch has-text-left has-text-white m-0">
 							{@html overBlocks[1].sousTitre[overBlocks[1].index]}
 						</p>
 					</div>
-				{/key}
 			</div>
+			{/key}
 	
 			<div class="carou nomargin">
 				<Carousel 
 					perPage={1} controls={false} dots={true} multipleDrag={false}
-					autoplay={0} duration={500}
+					autoplay={7000} duration={500}
 					on:change={ e => overBlocks[1].index = e.detail.currentSlide }
 				>
 					{#each overBlocks[1].images as src (src)}
@@ -370,9 +370,6 @@
 	</div>
 
 <style>
-@media screen and (max-width: 1024px) {
-	
-}
 	.cursorable {
 		cursor : pointer;
 	}
@@ -383,11 +380,7 @@
 	.cols-picto {
 		padding:0% 10%;
 	}
-	.sub-overtop {
-		display: flex;
-		position:absolute;
-		flex-flow:column;
-	}
+	
 	.control :global(svg) {
 		width: 100%;
 		height: 100%;
@@ -429,6 +422,11 @@
 			-webkit-transform: translateY(0);
 					transform: translateY(0);
 			opacity: 1;
+		}
+	}
+	@media screen and (min-width: 1024px) {
+		.modal-carou img {
+			height:85vh;
 		}
 	}
 

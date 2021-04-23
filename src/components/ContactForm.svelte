@@ -51,14 +51,14 @@ async function submitForm (event) {
 	<div class="subcontainer pb-6 pt-6 mt-6">
 
 		<div class="columns mt-2 is-vcentered">
-			<div class="column is-two-thirds has-text-left pl-6" style="display:flex;">
+			<div class="column is-two-thirds has-text-left pl-6 leftmob" style="display:flex;">
 				<img src="./img/sigle-min.svg" alt="Sigle EDRA-MEDICAL" width="128" class="ml-3">
-				<h1 class="title has-text-primary has-text-centererd pl-5" style="align-self:center;">
+				<h1 class="title has-text-primary has-text-centererd pl-5" id="besoin-infos" style="align-self:center;">
 					Besoin d'informations complémentaires ?
 				</h1>
 			</div>
 			<div class="column has-text-right pr-6">
-				<button on:click={()=> deplieForm = !deplieForm } class="button is-primary is-large has-text-weight-bold mr-3">Contactez-nous</button>
+				<button on:click={()=> deplieForm = !deplieForm } class="button is-primary is-large has-text-weight-bold mr-3" id="contact-bouton" >Contactez-nous</button>
 			</div>
 		</div>
     
@@ -67,8 +67,8 @@ async function submitForm (event) {
             <form class="p-6 mxform" method='POST' name='formcontact' data-netlify="true" id="formcontact" transition:slide={{easing : quadInOut}}>
                 
                 <input type="hidden" name="form-name" value="formcontact">
-                <div class="columns mb-0">
-                    <div class="column">
+                <div class="columns mb-0 is-mobile is-multiline">
+                    <div class="column is-full-touch">
                         <div class="field">
                             <div class="control has-icons-left">
                                 <input bind:value={form.nom}
@@ -80,7 +80,7 @@ async function submitForm (event) {
                             {/if}
                         </div>
                     </div>
-                    <div class="column">
+                    <div class="column full-touch">
                         <div class="field">
                             <div class="control has-icons-left">
                                 <input bind:value={form.prenom}
@@ -91,7 +91,7 @@ async function submitForm (event) {
                     </div>
                 </div>
                 
-                <div class="field">
+                <div class="field nocol">
                     <div class="control has-icons-left has-icons-right">
                         <input class="input is-primary" placeholder="email"
                             type="email" bind:value={form.email} name="email" required />	
@@ -107,7 +107,7 @@ async function submitForm (event) {
                     {/if}
                 </div>
                 
-                <div class="field">
+                <div class="field nocol">
                     <div class="control has-icons-left has-icons-right">
                     <input class="input is-primary" name="tel" placeholder="Téléphone" bind:value={form.tel} type="tel" >
                     
@@ -122,7 +122,7 @@ async function submitForm (event) {
                     {/if}
                 </div>
                 
-                <div class="field">
+                <div class="field nocol">
                     <div class="control">
                     <textarea class="textarea is-primary" placeholder="Message" name="message"
                     bind:value={form.message}></textarea>
@@ -132,10 +132,10 @@ async function submitForm (event) {
                     {/if}
                 </div>
                 
-                <div class="field">
+                <div class="field nocol">
                     <div class="control">
-                    <label class="checkbox">
-                        <input type="checkbox" bind:checked={form.checked} name="checked">
+                    <label class="checkbox accepts">
+                        <input type="checkbox" bind:checked={form.checked} name="checked" >
                         J'accepte d'être recontacté par EDRA (requis)
                     </label>
                     </div>
@@ -169,5 +169,45 @@ async function submitForm (event) {
 
     :global(.mxform .input, .mxform .textarea:not([rows])) {
         padding-left:1em!important;
+    }
+
+    @media screen and (max-width: 1024px) {
+        .leftmob {
+            margin-left:-1.75em;
+        }
+        .subcontainer {
+		    padding:0% 5%;
+            margin-bottom:3em;
+    	}
+        .mxform {
+            padding:1rem!important;
+            margin-top: 3rem;
+        }
+        .nocol {
+            margin-top: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        input::placeholder, textarea::placeholder, input, textarea, button {
+            font-size : 2rem;
+        }
+        .accepts {
+            font-size:1.5rem;
+        }
+        .checkbox input {
+            width:32px;
+            height:32px;
+            margin-right:0.5em;
+            top: 7px;
+            position: relative;
+        }
+        #besoin-infos {
+            font-size:1.8em;
+            width:80%;
+            text-align:center;
+        }
+        #contact-bouton {
+            font-size:1.8em;
+            padding:auto 0.5em;
+        }
     }
 </style>

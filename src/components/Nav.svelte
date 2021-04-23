@@ -69,7 +69,7 @@
   
 	  	<button
 			on:click={() => menuIsActive = !menuIsActive}
-			class="navbar-burger burger" aria-label="menu" aria-expanded="false" class:is-active={menuIsActive}>
+			class="navbar-burger burger" class:forceblue={segment == 'produits'} aria-label="menu" aria-expanded="false" class:is-active={menuIsActive}>
 				<span aria-hidden="true"></span>
 				<span aria-hidden="true"></span>
 				<span aria-hidden="true"></span>
@@ -86,9 +86,9 @@
 	{#if menuIsActive}
 	<div class="navbar-menu" class:is-active={menuIsActive} transition:slide={{easing: quadInOut}} >
 	  <div class="navbar-start">
-		<a rel="prefetch" class="navbar-item moblink" aria-current={segment === 'produits' ? 'page' : undefined} href="produits" on:click={() => menuIsActive = false}>Produits</a>
-		<a class="navbar-item moblink" aria-current={segment === undefined ? 'page' : undefined} href="." on:click={() => menuIsActive = false}>EDRA</a>
-		<a class="navbar-itemn moblink" aria-current={segment === 'contact' ? 'page' : undefined} on:click={() => menuIsActive = false} href="contact">Contact</a>
+		<a class:forceblue={segment == 'produits'} rel="prefetch" class="navbar-item moblink" aria-current={segment === 'produits' ? 'page' : undefined} href="produits" on:click={() => menuIsActive = false}>Produits</a>
+		<a class:forceblue={segment == 'produits'} class="navbar-item moblink" aria-current={segment === undefined ? 'page' : undefined} href="." on:click={() => menuIsActive = false}>EDRA</a>
+		<a class:forceblue={segment == 'produits'} class="navbar-item moblink" aria-current={segment === 'contact' ? 'page' : undefined} on:click={() => menuIsActive = false} href="contact">Contact</a>
 		<span class="navbar-indicator"></span>
 
 	  </div>  
@@ -113,7 +113,7 @@
 .is-transparent a {
 	color:white;
 }
-.is-transparent a.forceblue, .is-transparent a.forceblue:hover {
+.forceblue * {
 	color:var(--maincolor)!important;
 }
 .is-transparent {
@@ -203,9 +203,13 @@ a {
 		color:var(--maincolor);
 	}
 	.is-transparent .navbar-burger, .is-transparent .navbar-burger:hover, .is-transparent .navbar-item {
-		color : white!important;
+		color : white;
 		opacity:1;
 	}
+	.a.forceblue, a.forceblue:hover, a.forceblue:visited, a.forceblue:active {
+		color:var(--maincolor)!important;
+	}
+
 	.is-transparent .navbar-menu, .is-transparent .navbar-menu.is-active {
 		background-color: transparent;
 	}

@@ -210,9 +210,7 @@
 :global(.edra-heading strong) {
 	font-weight:700;
 }
-.is-55 {
-	font-size:1.1rem;
-}
+
 :global(.edra-contenu .content ul) {
   list-style: none!important;
   padding: 0;
@@ -232,8 +230,6 @@
   left:0;
   height: 10px;
   width: 10px;
-  margin-left: -10px;
-  margin-top:7px;
 }
 .control :global(svg) {
 		color: #fff;
@@ -243,6 +239,42 @@
 
 .control .invisible :global(svg) {
 	display:none;
+}
+
+@media screen and (max-width: 1024px) {
+	.subcontainer {
+		padding: 0% 4%;
+		font-size:2em;
+	}
+	.is-3 {
+		font-size:2em;
+		line-height:1em;
+	}
+	
+	.is-4 {
+		font-size:1.5em;
+		line-height:1.5em;
+	}
+	.edra-contenu {
+		padding:2rem;
+	}
+	:global(.edra-contenu .content ul li:before) {
+		margin-left: -0.5em;
+    	margin-top: 0.75em;
+	}
+	.no-padding {
+		padding:0px!important;
+	}
+	:global(.edra-contenu p) {
+		margin-top: 1em;
+	}	
+}
+
+@media screen and (min-width: 1024px) {
+	:global(.edra-contenu .content ul li:before) {
+		margin-left: -10px;
+  		margin-top:7px;
+	}
 }
 
 </style>

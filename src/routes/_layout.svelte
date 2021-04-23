@@ -6,7 +6,7 @@
 </script>
 
 <Nav {segment} />
-
+<body>
 <div class="container">
 	<Transition refresh={segment}>
 	<div class="columns is-gapless is-multiline">
@@ -17,6 +17,8 @@
 
 
 <Footer {segment} />
+</body>
+
 
 <style lang="scss" global>
 	@import '../styles/global.scss';
@@ -28,4 +30,6 @@
 	main {
 		padding-top:32px;
 	}
+
+
 </style>

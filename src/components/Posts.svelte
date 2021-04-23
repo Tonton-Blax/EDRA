@@ -7,7 +7,7 @@
 		<div class="colposts">
 			<div class="columns is-multiline has-background-primary-light cols-produits is-variable is-1 padding-posts">
 				{#each posts as post}
-				<div class="column is-one-third mb-0">
+				<div class="column is-one-third is-half-touch mb-0">
 					<div class="card mb-2 mt-2" on:click={()=> goto(`produits/${post.slug}`, {noscroll : true})} >
 						<div class="card-image">
 							<figure class="image">
@@ -63,4 +63,25 @@
     .card-content {
         min-height: 7.3em;
     }
+
+    @media screen and (max-width: 1024px) {
+        .content .is-4 {
+            font-size:2.1em;
+            line-height:1.25em;
+	    }
+        a.button {
+            font-size:1.2em;
+        }
+        .card-content {
+            min-height: 9.5em;
+        }
+        .colposts {
+            padding-left:6px;
+            padding-right:0px;
+            padding-top:0px;
+            padding-bottom:48px;
+
+        }
+    }
+
 </style>

@@ -203,6 +203,7 @@
 		}
 		.svg-container {
 			height: calc(100vh + 768px);
+			max-height:100vh;
 			transform-origin: top;
 		}
 		.logo-container {

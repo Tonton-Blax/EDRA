@@ -1,7 +1,7 @@
 {
 	"name": "edra_medical",
 	"description": "EDRA MEDICAL",
-	"version": "0.5.6",
+	"version": "0.6.0",
 	"scripts": {
 		"dev": "sapper dev",
 		"build": "sapper build --legacy",
@@ -10,11 +10,14 @@
 		"validate": "svelte-check --ignore src/node_modules/@sapper"
 	},
 	"dependencies": {
+		"-": "^0.0.1",
 		"@fortawesome/fontawesome-free": "^5.15.3",
 		"bulma": "^0.9.2",
 		"compression": "^1.7.4",
+		"g": "^2.0.1",
 		"glob": "^7.1.6",
 		"marked": "^2.0.3",
+		"npm": "^7.11.0",
 		"polka": "next",
 		"sirv": "^1.0.11",
 		"yaml": "^1.10.2"
