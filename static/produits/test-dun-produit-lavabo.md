@@ -4,7 +4,7 @@ slug: lavabo-test
 title: Test d'un produit Lavabo
 subtitle: "Services : Consultations, chambres, cabinets dentaires… Utilisation :
   lavage hygiénique (mains, avant-bras)"
-famille: normal
+famille: lavabo
 thumbnail: ../img/uploads/paillasse-sur-mesure-05.jpg
 date: 2021-04-23T22:21:51.911Z
 tableau: []
