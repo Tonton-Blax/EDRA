@@ -45,6 +45,7 @@ sombre : {
                 retardRepli : 4,
                 tirets : 5,
                 contour : 1,
+                isHiddenMobile : true
             },
             {
                 id : "ligne3",

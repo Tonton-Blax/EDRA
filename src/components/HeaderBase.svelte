@@ -4,11 +4,8 @@
 	import { refresh } from '../utils/stores.js'
 	import { stores } from '@sapper/app';
 	const { page, preloading } = stores();
-
 	export let headerType = 'sombre';
-
 	$: ($page.path && $preloading) && setRefresh();
-
 	let setRefresh = async()=> {
 		$refresh = true;
 		await tick();
@@ -17,7 +14,6 @@
 			tick().then( _ => resolve(svgs.forEach(s => s && s.beginElement()))  );
 		});
 	}
-
 	let svgs = [];
 	let isMobile;
 	let cerclesEls = [];
@@ -34,13 +30,11 @@
 		$refresh = false;
 		svgs.forEach(s => { s.beginElement()});
 	});
-
 	let restartLine = async (index) => {
 		return new Promise( resolve => {
 			resolve(svgs[index].beginElement());
 		});
 	}
-
 </script>
 <div class="svg-container">
     <div class="logo-container" style="transform:translate(-50%, -{animAssets[headerType].options.siglePointilles ? "65" : "77"}%)">
@@ -55,10 +49,11 @@
     </div>
 
 	{#if !$refresh}
-	<svg height="820" width="720" id="svg" xmlns="http://www.w3.org/2000/svg"  
-	preserveAspectRatio="xMidYMid slice"
+	<svg height={isMobile ? "600" : "820"} width={isMobile ? "823" : "720"} id="svg" xmlns="http://www.w3.org/2000/svg"  
+	preserveAspectRatio={isMobile ? "none" : "xMidYMid slice"}
+	style="{isMobile ? '' :  'transform : rotateX(45deg);'} background:{animAssets[headerType].options.bgColor}"
 	viewBox="0 0 1344 1079"
-	version="1.1" style="background:{animAssets[headerType].options.bgColor}">
+	version="1.1">
 
 		{#each animAssets[headerType].lignes as ligne, index(ligne.id)}
 			{#if !isMobile || (isMobile && !ligne.isHiddenMobile) }
@@ -171,13 +166,11 @@
 	.debug {
 		outline : 1px orange solid;
 	}
-
 	.svg-container {
 		position:absolute;
 		width:fill-available;
 		height:1079px;
 	}
-
 	.logo-container {
 		position: absolute;
 		top: 53%;
@@ -195,7 +188,6 @@
 		top:0;
 		width:100%;
 		min-height:100%;
-		transform:rotateX(45deg);
 	}
 	@media screen and (max-width: 1024px) {
 		svg {
@@ -206,6 +198,9 @@
 		svg, #svg {
 			width : unset;
 		}
+		#svg {
+			left:-65%;
+		}
 		.svg-container {
 			height: calc(100vh + 768px);
 			transform-origin: top;
@@ -213,11 +208,11 @@
 		.logo-container {
 			position: relative;
     		top: 50%;
+			left:52%;
 		}
 		.logo-container img {
 			height:auto;
 			width:8vmax;
 		}
 	}
-
 </style>

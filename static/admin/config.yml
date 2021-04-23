@@ -2,7 +2,7 @@ backend:
   name: git-gateway
   branch: master # Branch to update (optional; defaults to master)
 
-publish_mode: editorial_workflow # Allows you to save drafts before publishing them
+publish_mode: default # editorial_workflow Allows you to save drafts before publishing them
 media_folder: "static/img/uploads" # Media files will be stored in the repo under static/images/uploads
 public_folder: "../img/uploads" # The src attribute for uploaded media will begin with /images/uploads
 
@@ -17,6 +17,7 @@ collections:
       - { label: "Slug", name: "slug", widget: "string", hint: "IMPORTANT : l'adresse de la page, en minuscule, sans espaces!" }
       - { label: "Titre général", name: "title", widget: "string"}
       - { label: "Sous-titre général", name: "subtitle", widget: "string"}
+      - { label: "Famille de produit", name: "famille", widget: "select", options: ["normal", "lavabo" ], default : "lavabo" }
       - { label: "Image de couverture", name: "thumbnail", widget: "image"}
       - { label: "Date de publication", name: "date", widget: "datetime"}
       - { label: "Tableau (optionnel, pour chaque ligne, séparer les colonnes par des virgules)", name: "tableau", widget: "list", field: {label: ligne, name: ligne, widget: string} }
