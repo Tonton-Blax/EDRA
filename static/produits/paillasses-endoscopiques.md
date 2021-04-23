@@ -5,6 +5,7 @@ title: Paillasses endoscopiques
 subtitle: Ut velit mauris, egestas sed, gravida nec, ornare ut, mi. Aenean ut
   orci vel massa suscipit pulvinar. Null  sollicitudin. Fusce varius, ligula non
   tempus.
+famille: normal
 thumbnail: ../img/uploads/endo1.jpg
 date: 2021-02-03T22:36:16.750Z
 tableau: []
