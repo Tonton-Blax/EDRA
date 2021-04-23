@@ -52,7 +52,9 @@
 </div>
 
 <div class="spacer" />
-<Posts {posts} />
+<div style="background:var(--lightblue)">
+	<Posts {posts} />
+</div>
 
 
 <style>

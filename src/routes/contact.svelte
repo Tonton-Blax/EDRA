@@ -14,6 +14,6 @@ onMount(async()=>{
 
 </script>
 
-		<div class="column is-full">
-			<ContactForm deplieForm={true} />	
-		</div>
+	<div class="column is-full">
+		<ContactForm deplieForm={true} />	
+	</div>

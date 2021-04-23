@@ -19,6 +19,7 @@
 	import Posts from '../../components/Posts.svelte'	
 	import ContactForm from '../../components/ContactForm.svelte'
 	import { stores } from '@sapper/app';
+	import {observing} from '../../utils/stores.js';
 	import Carousel from '@beyonk/svelte-carousel/src/Carousel.svelte'
 	import Modal from 'svelma/src/components/Modal/Modal.svelte'
 	import { ChevronLeftIcon, ChevronRightIcon } from 'svelte-feather-icons'
@@ -49,10 +50,11 @@
 	}
 
 	onMount(async() => {
+		$observing = false;
 		produit = postMd;
 		ready = true;
 		await tick();
-		window.scrollTo({ behavior: "smooth", top: 0 });
+		window.scrollTo({ behavior: "smooth", top: 0 });	
 	});
 
 </script>
@@ -173,8 +175,9 @@
 				</h1>
 			</div>
 		</div>
-		
-		<Posts {posts} />
+		<div style="background:var(--lightblue)">
+			<Posts {posts} />
+		</div>
 	</div>
 {/if}
 

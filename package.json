@@ -1,7 +1,7 @@
 {
 	"name": "edra_medical",
 	"description": "EDRA MEDICAL",
-	"version": "0.6.0",
+	"version": "0.7.0",
 	"scripts": {
 		"dev": "sapper dev",
 		"build": "sapper build --legacy",

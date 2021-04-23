@@ -206,7 +206,7 @@ async function submitForm (event) {
             text-align:center;
         }
         #contact-bouton {
-            font-size:1.8em;
+            font-size:1.6em;
             padding:auto 0.5em;
         }
     }
