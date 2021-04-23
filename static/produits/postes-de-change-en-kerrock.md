@@ -3,6 +3,7 @@ layout: produits
 slug: poste-change-kerrock
 title: Postes de change en&nbsp;Kerrock
 subtitle: Pour une hygiène et un entretien irréprochable
+famille: normal
 thumbnail: ../img/uploads/poste-de-change-sur-mesure-01.jpg
 date: 2021-04-01T09:20:06.078Z
 tableau: []
