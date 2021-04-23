@@ -175,7 +175,7 @@
 				</h1>
 			</div>
 		</div>
-		<div style="background:var(--lightblue)">
+		<div style="background:var(--lightblue);width:100%">
 			<Posts {posts} />
 		</div>
 	</div>

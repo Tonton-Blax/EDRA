@@ -8,21 +8,18 @@
     
     let sousFamille = false;
     let lavabos;
-    $: currentPosts = sousFamille ? lavabos : posts.filter(l => l.famille && l.famille !== 'lavabo')
+    $: currentPosts = sousFamille ? lavabos : posts.filter(l => !l.famille || l.famille !== 'lavabo');
 
     onMount(async()=>{
-        lavabos = posts.filter(l => l.famille && l.famille == 'lavabo')
-        console.log(lavabos);
+        lavabos = posts.filter(l => l.famille && l.famille == 'lavabo');
     })
 
 </script>
         {#key sousFamille}
-		<div class="colposts"
-        in:fly={{easing : quadInOut, x:2000, duration:500, delay:200}} out:fly={{easing : quadInOut, x:-2000, duration:500}} >
-			<div 
-                class="columns is-multiline has-background-primary-light cols-produits is-variable is-1 padding-posts"
+		<div class="colposts" in:fly={{easing : quadInOut, x:2000, duration:500, delay:200}} out:fly={{easing : quadInOut, x:-2000, duration:500}} >
+			<div class="columns is-multiline has-background-primary-light cols-produits is-variable is-1 padding-posts"
                 out:slide={{easing : quadInOut, duration:500 }}
-                 >
+            >
                 <div class="column is-one-third is-half-touch mb-0">
 					<div class="card mb-2 mt-2" on:click={()=> sousFamille = !sousFamille} >
 						<div class="card-image">
