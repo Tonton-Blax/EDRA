@@ -16,11 +16,23 @@
 	}
 	let svgs = [];
 	let isMobile;
-	let cerclesEls = [];
 	
 	onMount( async() => {
-		isMobile = (typeof window !== 'undefined') && (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent))
+		isMobile = (typeof window !== 'undefined') && (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent));
 		for (let cercle of animAssets[headerType].cercles ) {
+			
+			const currCercle = document.querySelector(`#anim${cercle.id}`);
+			if (currCercle) {
+				currCercle.animate([
+					{ strokeDasharray: `${cercle.peri} 0` },
+					{ strokeDashoffset: '25' },
+					{ stroke : animAssets[headerType].options.bgColor }
+					], {
+					duration: cercle.duree*1000,
+					direction : cercle.reverse ? 'alternate-reverse' : 'alternate',
+					iterations: Infinity
+				});
+			}
 			cercle.peri = Math.ceil(Math.PI * 2 * cercle.rayon);
 			cercle.stroke = Array(Math.ceil(cercle.peri  / (cercle.tiret ? cercle.tiret : 5 ))).fill(cercle.tiret ? cercle.tiret : 5)
 			if (cercle.stroke.length % 2 !== 0) 
@@ -37,7 +49,7 @@
 	}
 </script>
 <div class="svg-container">
-    <div class="logo-container" style="transform:translate(-50%, -{animAssets[headerType].options.siglePointilles ? "65" : "77"}%)">
+    <div class="logo-container">
 		{#if headerType == 'sombre'}
 			<img src="./img/logo.png" class="mb-5 logo-edra" alt="logo edra">
 		{:else}
@@ -102,32 +114,13 @@
 
 		{#each animAssets[headerType].cercles as cercle, index (cercle.id)}
 			{#if !isMobile || (isMobile && !cercle.isHiddenMobile) }
-			<defs>			
-				<mask id="masque-{cercle.id}" maskUnits="userSpaceOnUse">
-					<circle 
+				<defs>
+					<circle class:debug={cercle.debug}
+						id="circle{cercle.id}" 
 						cy={cercle.y}
 						cx={cercle.x}
 						r={cercle.rayon}
-						stroke="white"
-						stroke-width="3"
-						fill="none"
-						stroke-dasharray="{cercle.peri}"
 					>
-					{#if cercle.reversed}
-						<animate 
-							attributeName="stroke-dashoffset" stroke-width="1"
-							dur="{cercle.duree*2}s" repeatCount="indefinite" fill="freeze"
-							values="0; {-cercle.peri}; {+cercle.peri}"
-							keyTimes="0; 0.5; 1"	
-						/>
-						{:else}
-						<animate 
-							attributeName="stroke-dashoffset" stroke-width="1"
-							dur="{cercle.duree*2}s" repeatCount="indefinite" fill="freeze"
-							values="{cercle.peri}; 0; {-cercle.peri}"
-							keyTimes="0; 0.5; 1"	
-						/>
-					{/if}
 					<animateTransform attributeName="transform"
 						attributeType="XML"
 						type="rotate"
@@ -137,22 +130,20 @@
 						repeatCount="indefinite"
 					/>
 					</circle>
-				</mask>
-			</defs>
-
-			<circle 
-				class="circle-path"
-				class:debug={cercle.debug}
-				bind:this={cerclesEls[index]}
-				mask="url(#masque-{cercle.id})"
-				stroke={animAssets[headerType].options.linesColor}
-				stroke-dasharray={cercle.stroke}
-				fill="none"
-				id={cercle.id}
-				cy={cercle.y}
-				cx={cercle.x}
-				r={cercle.rayon}>
-			</circle>
+				</defs>
+				
+				<g 	id="cercle.fond{cercle.id}"
+					stroke-dasharray="{cercle.tiret}"
+					fill="none"
+					stroke={animAssets[headerType].options.linesColor} stroke-width="1">
+					<use xlink:href="#circle{cercle.id}" />
+				</g>
+				
+				<g 	class="anim" fill="none" 
+					stroke-width="3" stroke-linecap="butt" stroke-linejoin="round">
+					<use xlink:href="#circle{cercle.id}" class="circle" id="anim{cercle.id}"
+					style="stroke-dasharray:0 {cercle.peri};stroke-dashoffset:{cercle.tiret};stroke:{animAssets[headerType].options.bgColor};" />
+				</g>
 			{/if}
 		{/each}
 		
@@ -162,7 +153,7 @@
 </div>
 
 <style>
-	
+			
 	.debug {
 		outline : 1px orange solid;
 	}
@@ -172,14 +163,14 @@
 		height:1079px;
 	}
 	.logo-container {
-		position: absolute;
-		top: 53%;
-		left: 50%;
-		z-index: 1;
-		display: flex;
-		flex-direction: column;
+		display:flex;
+		flex-flow:column;
 		justify-content: center;
 		align-items: center;
+		max-width:100vw;
+		position:relative;
+		z-index:9;
+		top:41%;
 	}
 	
 	#svg {
@@ -204,12 +195,6 @@
 		.svg-container {
 			height: calc(100vh + 768px);
 			max-height:100vh;
-			transform-origin: top;
-		}
-		.logo-container {
-			position: relative;
-    		top: 50%;
-			left:52%;
 		}
 		.logo-container img {
 			height:auto;

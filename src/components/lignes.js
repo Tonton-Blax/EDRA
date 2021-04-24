@@ -453,7 +453,8 @@ sombre : {
                 duree: 6,
                 rotation : 180,
                 reversed : false,
-                tiret : 8
+                tiret : 8,
+                isHiddenMobile : true
             },
             {
                 id : "cercle4",
