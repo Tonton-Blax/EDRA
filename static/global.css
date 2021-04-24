@@ -235,6 +235,8 @@ body {
     }
     .edra-block {
       min-height:var(--mob-height);
+      max-height:auto;
+      height:auto;
     }
     .edra-full {
       display: flex;

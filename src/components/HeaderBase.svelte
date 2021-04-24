@@ -194,7 +194,7 @@
 		}
 		.svg-container {
 			height: calc(100vh + 768px);
-			max-height:100vh;
+			max-height:101vh;
 		}
 		.logo-container img {
 			height:auto;

@@ -109,10 +109,13 @@
 	];
 
 	let currentImageIndex = 0;
+	let wrapperCarousel;
 
 	let openModal = (idx) => {
 		active = true;
 		currentImageIndex = idx;
+		console.log("prout");
+		console.log(wrapperCarousel);
 	}
 
 </script>
@@ -332,7 +335,7 @@
 		</div>
 	</div>
 	<div class="column is-half is-full-touch">
-		<div class="edra-block no-padding has-background-white has-text-primary carou-ref" style="margin-left:1px;">
+		<div class="edra-block no-padding has-background-white has-text-primary carou-ref references" style="margin-left:1px;" bind:this={wrapperCarousel}>
 			<!-- <img class="autoheight" src="../img/kerrock02.jpg" alt="Hall d'accueil avec revêtement en kerrock"> -->
 			<Carousel 				
 				perPage={3} controls={false} dots={false} multipleDrag={false}
@@ -427,6 +430,11 @@
 	@media screen and (min-width: 1024px) {
 		.modal-carou img {
 			height:85vh;
+		}
+	}
+	@media screen and (max-width: 1024px) {
+		.references {
+			min-height: 860px;
 		}
 	}
 

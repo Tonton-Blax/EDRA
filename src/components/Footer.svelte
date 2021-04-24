@@ -14,7 +14,7 @@
 	}
 	@media screen and (max-width: 1024px) {
 		.container {
-			padding-bottom:17vh;
+			padding-bottom:0px;
 		}
 		.logo-wrapper {
 			align-self:center;

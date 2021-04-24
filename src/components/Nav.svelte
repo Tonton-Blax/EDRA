@@ -44,7 +44,7 @@
 		indicator.style.left = "".concat(navItems[idx].offsetLeft, "px");
 		indicator.style.backgroundColor = $observing && segment != 'produits' ? "white" : $colors.main;
 		navItems[idx].classList.add('active-item');
-		navItems[idx].style.color = $observing || segment != 'produits' ? "white" : $colors.main;
+		navItems[idx].style.color = $observing && segment != 'produits' ? "white" : $colors.main;
 	}
 
 	page.subscribe(({ }) => {
@@ -110,10 +110,10 @@
 	border:none;
 }
 
-.is-transparent a {
+.is-transparent a:not(.forceblue) {
 	color:white;
 }
-.forceblue * {
+.forceblue, a.forceblue, a.forceblue:visited, a.forceblue:hover, a.forceblue:active, a.forceblue:active {
 	color:var(--maincolor)!important;
 }
 .is-transparent {
@@ -181,7 +181,7 @@ a {
 	.navbar-brand {
 		min-height: unset!important;
 		height:auto;
-		margin-left:-17%;
+		margin-left:-13%;
 	}
 	.navbar {
 		 overflow: auto;
