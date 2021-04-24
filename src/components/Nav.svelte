@@ -63,7 +63,7 @@
 <div class="container">
 <nav class="navbar {$observing ? "is-transparent" : "iswhite"}" role="navigation" aria-label="main navigation" in:fade={{duration:1000, delay:50, easing: quadInOut}} out:fade={{duration:400, delay:0, easing: quadInOut}} bind:this={navbar} >
 	<div class="navbar-brand">
-	  <a class="navbar-item unlink" class:invisible={!menuIsActive} href="/" style="cursor:pointer;">
+	  <a class="navbar-item unlink" class:invisible={isMobile && !menuIsActive} href="/" style="cursor:pointer;">
 			<img src="../img/logo-sigle.png" height="28" alt="logo EDRA">
 	  </a>
   
