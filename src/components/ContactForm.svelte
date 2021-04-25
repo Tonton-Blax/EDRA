@@ -30,6 +30,7 @@ async function submitForm (event) {
 	if (Object.values(formessage).every(item => item === false)) {
 		let fo = document.getElementById('formcontact');
 		let formdata = new FormData(fo);
+        deplieForm = false;
 		fetch("/contact/", {
 			method: "POST",
 			headers: { "Content-Type": "application/x-www-form-urlencoded" },

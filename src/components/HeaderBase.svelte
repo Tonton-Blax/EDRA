@@ -3,9 +3,14 @@
 	import { animAssets } from './lignes.js'
 	import { refresh } from '../utils/stores.js'
 	import { stores } from '@sapper/app';
-	const { page, preloading } = stores();
+	import { isMobileDevice } from '../utils/utils.js';
+	
 	export let headerType = 'sombre';
+	const { page, preloading } = stores();
+	
+	$: isMobile = isMobileDevice();
 	$: ($page.path && $preloading) && setRefresh();
+
 	let setRefresh = async()=> {
 		$refresh = true;
 		await tick();
@@ -15,7 +20,6 @@
 		});
 	}
 	let svgs = [];
-	let isMobile;
 	
 	onMount( async() => {
 		isMobile = (typeof window !== 'undefined') && (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent));
