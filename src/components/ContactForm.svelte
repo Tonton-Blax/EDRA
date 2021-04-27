@@ -30,14 +30,15 @@ async function submitForm (event) {
 	if (Object.values(formessage).every(item => item === false)) {
 		let fo = document.getElementById('formcontact');
 		let formdata = new FormData(fo);
-        deplieForm = false;
 		fetch("/contact/", {
 			method: "POST",
 			headers: { "Content-Type": "application/x-www-form-urlencoded" },
 			body: new URLSearchParams(formdata).toString()
 		})
-			.then(() => 
-				Toast.create({message : "Votre message a bien été envoyé", background : 'has-background-primary', duration:4000})
+			.then(() => {
+				Toast.create({message : "Votre message a bien été envoyé", background : 'has-background-primary', duration:4000});
+                deplieForm = false;
+                }
 			)
 			.catch(error => Toast.create({message : "Votre message n'a pas pu être envoyé" + error, background : 'has-background-danger', duration:4000}));
 		

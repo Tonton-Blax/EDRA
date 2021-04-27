@@ -67,17 +67,36 @@
 
 	<div class="column is-full mt-6" bind:this={subHeader}>
 		<div class="edra-block no-padding has-text-white">
+			<!-- CHAPO DESKTOP -->
 			<div class="overblock flexbase">
 				<h3 class="title is-3 has-text-primary has-text-weight-bold">{@html produit.title}</h3>
 				<p class="has-text-primary has-text-left">{@html produit.subtitle}</p>
 			</div>
-			<div class="img-container fit-header">
+			<!-- END -->
+			<div class="img-container fit-header bgmm">
 				{#if produit.thumbnail.length}
 					<img src={produit.thumbnail} class="fit-header" alt="{produit.slug}"/>
 				{/if}
 			</div>
 		</div>
 	</div>
+	<!-- CHAPO MOBILE -->
+	<div class="column is-full is-hidden-desktop border-bottom-mobile">
+		<div class="edra-block no-padding flexbase">
+			<div class="overblock-mobile">
+				<div class="block-up">
+						<h3 class="title is-bigger-touch has-text-primary has-text-weight-bold">{@html produit.title || ""}</h3>
+					</div>
+				<div class="block-in">
+					<p class="has-text-primary has-text-left is-size-1">{@html produit.subtitle || ""}</p>
+				</div>
+				<div class="block-bouton">
+					&nbsp;
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<div class="column is-full mt-6">
 		<div class="subcontainer">
 		
@@ -234,6 +253,17 @@
   height: 10px;
   width: 10px;
 }
+:global(.edra-contenu .content ul li > ul > li::before) {
+  content: " "; 
+  background-color: transparent;
+  border-radius: 50%;
+  border : solid 1px var(--maincolor);
+  display: inline-block;
+  position: absolute;
+  left:0;
+  height: 10px;
+  width: 10px;
+}
 .control :global(svg) {
 		color: #fff;
 		z-index:5000;
@@ -258,8 +288,11 @@
 		font-size:1.5em;
 		line-height:1.5em;
 	}
-	.edra-contenu {
-		padding:2rem;
+	:global(.edra-contenu p) {
+		margin-top:0em;
+	}
+	:global(.edra-contenu .title) {
+		margin-top:0em;
 	}
 	:global(.edra-contenu .content ul li:before) {
 		margin-left: -0.5em;
@@ -268,9 +301,9 @@
 	.no-padding {
 		padding:0px!important;
 	}
-	:global(.edra-contenu p) {
-		margin-top: 1em;
-	}	
+	.fit-header {
+		height: var(--mob-height);
+	}
 }
 
 @media screen and (min-width: 1024px) {

@@ -1,6 +1,6 @@
 <svelte:window bind:innerWidth={innerWidth} on:popstate={notOk()} />
 <svelte:head>
-	<title>EDRA Médical</title>
+	<title>EDRA CONCEPT</title>
 </svelte:head>
 
 <script>
@@ -150,7 +150,7 @@
 		<IntersectionObserver element={headerEl} bind:intersecting={$observing}>
 			<div class="{isMobile ? 'edra-full' : 'edra-block'} no-padding has-text-white" bind:this={headerEl}>
 				{#if ok}
-				<Header headerType={'sombre'} />
+				<Header headerType={'concept'} />
 				{:else}
 				<h1 class="title is-1">Chargement...</h1>
 				{/if}

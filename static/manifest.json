@@ -2,8 +2,8 @@
 	"background_color": "#ffffff",
 	"theme_color": "#333333",
 	"name": "EDRA MEDICAL",
-	"short_name": "EDRA MEDICAL",
-	"display": "minimal-ui",
+	"___short_name": "EDRA MEDICAL",
+	"___display": "minimal-ui",
 	"start_url": "/",
 	"icons": [
 		{

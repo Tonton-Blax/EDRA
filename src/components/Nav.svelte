@@ -59,11 +59,17 @@
 
 </script>
 
-{#if isIdle}
+{#if isMobile || isIdle}
 <div class="container">
-<nav class="navbar {$observing ? "is-transparent" : "iswhite"}" role="navigation" aria-label="main navigation" in:fade={{duration:1000, delay:50, easing: quadInOut}} out:fade={{duration:400, delay:0, easing: quadInOut}} bind:this={navbar} >
+<nav
+	class="navbar {$observing && !isMobile ? "is-transparent" : "iswhite"}" 
+	role="navigation" aria-label="main navigation" 
+	in:fade={{duration:1000, delay:50, easing: quadInOut}} 
+	out:fade={{duration:400, delay:0, easing: quadInOut}} 
+	bind:this={navbar} 
+>
 	<div class="navbar-brand">
-	  <a class="navbar-item unlink" class:invisible={isMobile && !menuIsActive} href="/" style="cursor:pointer;">
+	  <a class="navbar-item unlink" href="/" style="cursor:pointer;">
 			<img src="../img/logo-sigle.png" height="28" alt="logo EDRA">
 	  </a>
   
@@ -79,6 +85,7 @@
 		<a class:forceblue={segment == 'produits'} bind:this={navItems[0]} on:mouseenter={()=>handleIndicator(0)} class="navbar-item active-item" aria-current={segment === undefined ? 'page' : undefined} href="." on:click={() => menuIsActive = false}>EDRA</a>
 		<a class:forceblue={segment == 'produits'} bind:this={navItems[1]} on:mouseenter={()=>handleIndicator(1)} rel="prefetch" class="navbar-item" aria-current={segment === 'produits' ? 'page' : undefined} href="produits" on:click={() => menuIsActive = false}>Produits</a>
 		<a class:forceblue={segment == 'produits'} bind:this={navItems[2]} on:mouseenter={()=>handleIndicator(2)} class="navbar-item" aria-current={segment === 'contact' ? 'page' : undefined} on:click={() => menuIsActive = false} href="contact">Contact</a>
+		<a class:forceblue={segment == 'produits'} bind:this={navItems[3]} on:mouseenter={()=>handleIndicator(3)} class="navbar-item" aria-current={segment === 'concept' ? 'page' : undefined} on:click={() => menuIsActive = false} href="concept">EDRA Concept</a>
 		<span class="navbar-indicator" bind:this={indicator}></span>
 
 
@@ -89,6 +96,7 @@
 		<a class:forceblue={segment == 'produits'} rel="prefetch" class="navbar-item moblink" aria-current={segment === 'produits' ? 'page' : undefined} href="produits" on:click={() => menuIsActive = false}>Produits</a>
 		<a class:forceblue={segment == 'produits'} class="navbar-item moblink" aria-current={segment === undefined ? 'page' : undefined} href="." on:click={() => menuIsActive = false}>EDRA</a>
 		<a class:forceblue={segment == 'produits'} class="navbar-item moblink" aria-current={segment === 'contact' ? 'page' : undefined} on:click={() => menuIsActive = false} href="contact">Contact</a>
+		<a class:forceblue={segment == 'produits'} class="navbar-item moblink" aria-current={segment === 'concept' ? 'page' : undefined} on:click={() => menuIsActive = false} href="concept">EDRA Concept</a>
 		<span class="navbar-indicator"></span>
 
 	  </div>  
@@ -180,12 +188,35 @@ a {
 
 	.navbar-brand {
 		min-height: unset!important;
-		height:auto;
-		margin-left:-13%;
+		height:100%;
+		margin-left:3%;
+		padding-top:0.5rem;
 	}
+
+	.navbar-menu.is-active {
+    	height: 100vh;
+	}
+	.navbar-menu.is-active .navbar-start {
+		display: flex;
+    	flex-direction: column;
+    	align-items: center;
+    	height: 90%;
+		width: 94%;
+    	place-content: center;
+	}
+
 	.navbar {
-		 overflow: auto;
-		 min-height: 6.5rem;
+		overflow: hidden;
+		position: initial;
+		max-width: inherit;
+		width:fill-available;
+		display: block;
+		position:fixed;
+		min-height:7.5rem;
+	}
+	.navbar a {
+		text-transform :uppercase;
+		font-size:3em!important;
 	}
 	a.moblink, a.moblink:active, a.moblink:hover, a.moblink:visited {
 		color : var(--maincolor);
@@ -193,27 +224,17 @@ a {
 		line-height:2em;
 		margin-left:2em;
 	}
-	.is-transparent .moblink, .is-transparent a.moblink:active, .is-transparent a.moblink:hover, .is-transparent a.moblink:visited {
-		color : white;
-	}
+	
 	.navbar-burger {
 		background-color : transparent;
 		height:6.5rem;
 		width:6.5rem;
 		color:var(--maincolor);
 	}
-	.is-transparent .navbar-burger, .is-transparent .navbar-burger:hover, .is-transparent .navbar-item {
-		color : white;
-		opacity:1;
-	}
 	.a.forceblue, a.forceblue:hover, a.forceblue:visited, a.forceblue:active {
 		color:var(--maincolor)!important;
 	}
-
-	.is-transparent .navbar-menu, .is-transparent .navbar-menu.is-active {
-		background-color: transparent;
-	}
-	.navbar-menu, .is-transparent .navbar-menu.is-active {
+	.navbar-menu, .navbar-menu.is-active {
 		box-shadow: none;
 	}
 	.navbar-burger {
@@ -223,20 +244,7 @@ a {
  	   	max-height: 2.75rem;
 		margin-right: 2em;
 	}
-	/*
-	.navbar-burger span {
-		width:64px;
-	}
-	.navbar-burger span:nth-child(1) {
-    	top: calc(50% - 6px);
-	}
-	.navbar-burger span:nth-child(2) {
-		top : calc(1.25 * (50% - 1px))
-	}
-	.navbar-burger span:nth-child(3) {
-		top: calc(0.5 * (50% + 4px))
-	}
-	*/
+
 }
  
 @media screen and (min-width: 1024px) {

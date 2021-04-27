@@ -504,5 +504,16 @@ sombre : {
             linesColor : '#005476',
             title : "Fiches Techniques",
         }
+    },
+    get concept () { 
+        return {
+            ...this.clair, 
+            options : {
+                siglePointilles : false,
+                bgColor : '#D9E7EC',
+                linesColor : '#005476',
+                title : "Edra Concept",
+            }
+        }
     }
 }

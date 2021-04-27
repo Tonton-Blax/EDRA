@@ -22,7 +22,7 @@
 	let svgs = [];
 	
 	onMount( async() => {
-		isMobile = (typeof window !== 'undefined') && (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent));
+		isMobile = isMobileDevice();
 		for (let cercle of animAssets[headerType].cercles ) {
 			
 			const currCercle = document.querySelector(`#anim${cercle.id}`);
