@@ -110,6 +110,11 @@
 
 	let currentImageIndex = 0;
 	let wrapperCarousel;
+	let currentChapoDirection = -1000;
+	let changeChapoIndex = (idx) => {		
+		currentChapoDirection = overBlocks[0].index >= idx ||idx == 0 ? -1000 : 1000;
+		overBlocks[0].index = idx;
+	}
 
 	let openModal = (idx) => {
 		active = true;
@@ -180,7 +185,7 @@
 			<Carousel 				
 				perPage={1} controls={true} dots={isMobile} multipleDrag={false}
 				autoplay={5000} duration={500}
-				on:change={ e => overBlocks[0].index = e.detail.currentSlide }
+				on:change={ e => changeChapoIndex(e.detail.currentSlide) }
 			>
 				{#each overBlocks[0].images as src (src)}
 					<img {src} class="carou-img" alt="nature" /> 
@@ -195,7 +200,9 @@
 	<div class="column is-full is-hidden-desktop border-bottom-mobile">
 		<div class="edra-block no-padding flexbase">
 		{#key overBlocks[0].index}
-			<div class="overblock-mobile" in:fly={{x:1000, duration:500}} out:fly={{x:-1000, delay:0, easing:quadInOut}}>
+			<div class="overblock-mobile" 
+			in:fly={{x: currentChapoDirection, duration:500}} 
+			out:fly={{x: currentChapoDirection, delay:0, easing:quadInOut}}>
 				<div class="block-up">
 						<h3 class="title is-big-touch has-text-primary has-text-weight-bold">{overBlocks[0].titre[overBlocks[0].index]}</h3>
 					</div>

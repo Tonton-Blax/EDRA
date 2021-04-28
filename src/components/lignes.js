@@ -3,7 +3,7 @@ export const animAssets = {
     /* Pour les cercles et lignes, il est possible d'ajouter une propriété
         debug : true    pour afficher un rectangle orange de la ligne/cercle
         et aussi :
-        isHiddenMobile : true      pour cacher la ligne/cercle sur mob/tablette
+        isHiddenMobile : false      pour cacher la ligne/cercle sur mob/tablette
     */
 
 sombre : {
@@ -45,7 +45,7 @@ sombre : {
                 retardRepli : 4,
                 tirets : 5,
                 contour : 1,
-                isHiddenMobile : true
+                isHiddenMobile : false
             },
             {
                 id : "ligne3",
@@ -58,6 +58,7 @@ sombre : {
                 retardRepli : 2,
                 tirets : 5,
                 contour : 2,
+                isHiddenMobile : true
             },
             {
                 id : "ligne4",
@@ -70,7 +71,7 @@ sombre : {
                 retardRepli : 1,
                 tirets : 4,
                 contour : 1,
-                isHiddenMobile : true
+                isHiddenMobile : false
             },
             {
                 id : "ligne5",
@@ -83,7 +84,7 @@ sombre : {
                 retardRepli : 2,
                 tirets : 5,
                 contour : 2,
-                isHiddenMobile : true
+                isHiddenMobile : false
             },
             {
                 id : "ligne6",
@@ -96,7 +97,7 @@ sombre : {
                 retardRepli : 2,
                 tirets : 4,
                 contour : 1,
-                isHiddenMobile : true
+                isHiddenMobile : false
             },
             // Début des diagonales HG-BD
             {
@@ -110,7 +111,7 @@ sombre : {
                 retardRepli : 2,
                 tirets : 5,
                 contour : 2,
-                isHiddenMobile : true
+                isHiddenMobile : false
             },
             {
                 id : "ligne8",
@@ -123,7 +124,7 @@ sombre : {
                 retardRepli : 3,
                 tirets : 6,
                 contour : 1,
-                isHiddenMobile : true
+                isHiddenMobile : false
             },
             {
                 id : "ligne9",
@@ -136,7 +137,7 @@ sombre : {
                 retardRepli : 2,
                 tirets : 5,
                 contour : 2,
-                isHiddenMobile : true
+                isHiddenMobile : false
             },
             {
                 id : "ligne10",
@@ -149,6 +150,7 @@ sombre : {
                 retardRepli : 0,
                 tirets : 4,
                 contour : 1,
+                isHiddenMobile : true
             },
             {
                 id : "ligne11",
@@ -255,6 +257,17 @@ sombre : {
             title : undefined,
         }
     }, //////////////////////// CLAIR /////////////////////////////////
+    get sombreMobile () { 
+        return {
+            ...this.sombre, 
+            options : {
+                siglePointilles : true,
+                bgColor : '#D9E7EC',
+                linesColor : '#005476',
+                title : "Fiches Techniques",
+            }
+        }
+    },
     clair : {
         lignes : [
             // Début des diagonales HD-BG
@@ -317,7 +330,7 @@ sombre : {
                 retardRepli : 1,
                 tirets : 4,
                 contour : 1,
-                isHiddenMobile : true
+                isHiddenMobile : false
             },
             {
                 id : "ligne5",
@@ -330,7 +343,7 @@ sombre : {
                 retardRepli : 2,
                 tirets : 5,
                 contour : 2,
-                isHiddenMobile : true	
+                isHiddenMobile : false	
             },
             {
                 id : "ligne6",
@@ -343,7 +356,7 @@ sombre : {
                 retardRepli : 2,
                 tirets : 4,
                 contour : 1,
-                isHiddenMobile : true
+                isHiddenMobile : false
             },
             // Début des diagonales HG-BD
             {
@@ -357,7 +370,7 @@ sombre : {
                 retardRepli : 2,
                 tirets : 5,
                 contour : 2,
-                isHiddenMobile : true
+                isHiddenMobile : false
             },
             {
                 id : "ligne8",
@@ -370,7 +383,7 @@ sombre : {
                 retardRepli : 2,
                 tirets : 6,
                 contour : 1,
-                isHiddenMobile : true
+                isHiddenMobile : false
             },
             {
                 id : "ligne9",
@@ -383,7 +396,7 @@ sombre : {
                 retardRepli : 2,
                 tirets : 5,
                 contour : 2,
-                isHiddenMobile : true
+                isHiddenMobile : false
             },
             {
                 id : "ligne10",
@@ -432,7 +445,7 @@ sombre : {
                 rotation : 225,
                 reversed : true,
                 tiret : 5,
-                isHiddenMobile : true
+                isHiddenMobile : false
             },
             {
                 id : "cercle2",
@@ -454,7 +467,7 @@ sombre : {
                 rotation : 180,
                 reversed : false,
                 tiret : 8,
-                isHiddenMobile : true
+                isHiddenMobile : false
             },
             {
                 id : "cercle4",

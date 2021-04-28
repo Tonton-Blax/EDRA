@@ -25,7 +25,7 @@
 						<div class="card-image">
 							<figure class="image">
                                 <div class="card-thumb">
-                                    <Image src={sousFamille ? "/img/back.svg" : "/img/lavabo.svg"} alt={sousFamille ? "Retour" : "lavabo"} />
+                                    <Image src={sousFamille ? "/img/back.png" : "/img/lavabo.svg"} alt={sousFamille ? "Retour" : "lavabo"} />
                                 </div>
 								<!-- <img src={post.thumbnail} alt="{post.title}"> -->
 							</figure>

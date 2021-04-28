@@ -10,7 +10,7 @@
 	
 	$: isMobile = isMobileDevice();
 	$: ($page.path && $preloading) && setRefresh();
-
+	
 	let setRefresh = async()=> {
 		$refresh = true;
 		await tick();
@@ -54,7 +54,7 @@
 </script>
 <div class="svg-container">
     <div class="logo-container">
-		{#if headerType == 'sombre'}
+		{#if animAssets[headerType].options.siglesPointiles === false}
 			<img src="./img/logo.png" class="mb-5 logo-edra" alt="logo edra">
 		{:else}
 			<img src="./img/sigle_pointilles.png" class="mb-5" alt="logo edra" width="128px">
@@ -194,7 +194,7 @@
 			width : unset;
 		}
 		#svg {
-			left:-65%;
+			left:-99%;
 		}
 		.svg-container {
 			height: calc(100vh + 768px);

@@ -42,7 +42,7 @@
 	<IntersectionObserver element={headerEl} bind:intersecting={$observing}>
 		<div class="{isMobile ? 'edra-full' : 'edra-block'} no-padding has-text-white" bind:this={headerEl}>
 			{#if ok}
-			<Header headerType={'clair'} />
+			<Header headerType={isMobile ? 'sombreMobile' : 'clair'} />
 			{:else}
 			<h1 class="title is-1">Chargement...</h1>
 			{/if}
