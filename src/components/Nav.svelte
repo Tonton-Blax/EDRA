@@ -72,7 +72,6 @@
 	  <a class="navbar-item unlink" href="/" style="cursor:pointer;">
 			<img src="../img/logo-sigle.png" height="28" alt="logo EDRA">
 	  </a>
-  
 	  	<button
 			on:click={() => menuIsActive = !menuIsActive}
 			class="navbar-burger burger" class:forceblue={segment == 'produits'} aria-label="menu" aria-expanded="false" class:is-active={menuIsActive}>
