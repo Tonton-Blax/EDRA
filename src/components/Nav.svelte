@@ -50,7 +50,7 @@
 	page.subscribe(({ }) => {
 		if (!navItems.length || isMobile)
 			return;
-  		[0,1,2].forEach(h => {
+  		[0,1,2,3].forEach(h => {
 			indicator.style.backgroundColor = $observing && (segment != 'produits' && segment != 'concept') ? "white" : $colors.main;
 			//navItems[h].style.color = $observing || (segment != 'produits' || segment != 'concept') ? "white" : $colors.main;
 		  });
