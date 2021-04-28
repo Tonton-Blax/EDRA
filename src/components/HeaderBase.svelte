@@ -16,15 +16,17 @@
 		await tick();
 		return new Promise( resolve => {
 			$refresh = false;
-			tick().then( _ => resolve(svgs.forEach(s => s && s.beginElement()))  );
-		});
+			tick().then( _ => {
+			resolve(svgs.forEach(s => s && s.beginElement()))
+			}
+		)});
 	}
 	let svgs = [];
 	
 	onMount( async() => {
 		isMobile = isMobileDevice();
 		for (let cercle of animAssets[headerType].cercles ) {
-			
+			cercle.peri = Math.ceil(Math.PI * 2 * cercle.rayon);			
 			const currCercle = document.querySelector(`#anim${cercle.id}`);
 			if (currCercle) {
 				currCercle.animate([
@@ -37,11 +39,13 @@
 					iterations: Infinity
 				});
 			}
-			cercle.peri = Math.ceil(Math.PI * 2 * cercle.rayon);
+			/*
 			cercle.stroke = Array(Math.ceil(cercle.peri  / (cercle.tiret ? cercle.tiret : 5 ))).fill(cercle.tiret ? cercle.tiret : 5)
 			if (cercle.stroke.length % 2 !== 0) 
 				cercle.stroke.pop();
 			cercle.stroke = ([...cercle.stroke, 0, cercle.peri]).join(' ');
+			*/
+			
 		}
 		$refresh = false;
 		svgs.forEach(s => { s.beginElement()});
@@ -71,51 +75,6 @@
 	viewBox="0 0 1344 1079"
 	version="1.1">
 
-		{#each animAssets[headerType].lignes as ligne, index(ligne.id)}
-			{#if !isMobile || (isMobile && !ligne.isHiddenMobile) }
-				<line id={ligne.id}
-					x1={ligne.x1} y1={ligne.y1} x2={ligne.x2} y2={ligne.y2} 
-					stroke={animAssets[headerType].options.linesColor} 
-					stroke-width={ligne.contour}
-					stroke-dasharray={ligne.tirets}
-					class:debug={ligne.debug}
-					class:is-hidden-touch={ligne.isHiddenMobile}
-				>
-						<animate begin="indefinite" bind:this={svgs[index]}
-							id="{ligne.id}anim1" attributeType="XML"
-							attributeName="x2" from={ligne.x1} to={ligne.x2} 
-							dur={ligne.duree} 
-						/>
-
-						<animate begin="{ligne.id}anim1.begin"
-							id="{ligne.id}anim2" attributeType="XML" attributeName="y2"  
-							from={ligne.y1} to={ligne.y2} 
-							dur={ligne.duree}
-						/>
-						
-						<animate
-							id="{ligne.id}anim3" attributeType="XML" attributeName="x1"
-							begin="{ligne.id}anim1.end - {ligne.retardRepli}s" 
-							from={ligne.x1} to={ligne.x2} 
-							dur={ligne.dureeRepli}
-						/>
-						<animate on:endEvent={()=> restartLine(index)}
-							id="{ligne.id}anim4" attributeType="XML" attributeName="y1" 
-							begin="{ligne.id}anim2.end - {ligne.retardRepli}s" 
-							from={ligne.y1} to={ligne.y2} 
-							dur={ligne.dureeRepli}
-						/>
-						<animate id="opa1"
-							attributeName="opacity" from="0" to="1" dur="0.1s" fill="freeze"
-							begin="0s;{ligne.id}anim2.begin" />
-						<animate id="opa2" fill="freeze"
-							attributeName="opacity" from="1" to="0" dur="0.1s" 
-							begin="{ligne.id}anim4.begin + {(ligne.dureeRepli)-0.1}s" 
-						/>
-				</line>
-			{/if}
-		{/each}
-
 		{#each animAssets[headerType].cercles as cercle, index (cercle.id)}
 			{#if !isMobile || (isMobile && !cercle.isHiddenMobile) }
 				<defs>
@@ -137,7 +96,7 @@
 				</defs>
 				
 				<g 	id="cercle.fond{cercle.id}"
-					stroke-dasharray="{cercle.tiret}"
+					stroke-dasharray="{cercle.tiret * 2.5}"
 					fill="none"
 					stroke={animAssets[headerType].options.linesColor} stroke-width="1">
 					<use xlink:href="#circle{cercle.id}" />
@@ -150,6 +109,51 @@
 				</g>
 			{/if}
 		{/each}
+
+		{#each animAssets[headerType].lignes as ligne, index(ligne.id)}
+		{#if !isMobile || (isMobile && !ligne.isHiddenMobile) }
+			<line id={ligne.id}
+				x1={ligne.x1} y1={ligne.y1} x2={ligne.x2} y2={ligne.y2} 
+				stroke={animAssets[headerType].options.linesColor} 
+				stroke-width={ligne.contour}
+				stroke-dasharray={ligne.tirets}
+				class:debug={ligne.debug}
+				class:is-hidden-touch={ligne.isHiddenMobile}
+			>
+					<animate begin="indefinite" bind:this={svgs[index]}
+						id="{ligne.id}anim1" attributeType="XML"
+						attributeName="x2" from={ligne.x1} to={ligne.x2} 
+						dur={ligne.duree} 
+					/>
+
+					<animate begin="{ligne.id}anim1.begin"
+						id="{ligne.id}anim2" attributeType="XML" attributeName="y2"  
+						from={ligne.y1} to={ligne.y2} 
+						dur={ligne.duree}
+					/>
+					
+					<animate
+						id="{ligne.id}anim3" attributeType="XML" attributeName="x1"
+						begin="{ligne.id}anim1.end - {ligne.retardRepli}s" 
+						from={ligne.x1} to={ligne.x2} 
+						dur={ligne.dureeRepli}
+					/>
+					<animate on:endEvent={()=> restartLine(index)}
+						id="{ligne.id}anim4" attributeType="XML" attributeName="y1" 
+						begin="{ligne.id}anim2.end - {ligne.retardRepli}s" 
+						from={ligne.y1} to={ligne.y2} 
+						dur={ligne.dureeRepli}
+					/>
+					<animate id="opa1"
+						attributeName="opacity" from="0" to="1" dur="0.1s" fill="freeze"
+						begin="0s;{ligne.id}anim2.begin" />
+					<animate id="opa2" fill="freeze"
+						attributeName="opacity" from="1" to="0" dur="0.1s" 
+						begin="{ligne.id}anim4.begin + {(ligne.dureeRepli)-0.1}s" 
+					/>
+			</line>
+		{/if}
+	{/each}
 		
 	</svg>
 	{/if}

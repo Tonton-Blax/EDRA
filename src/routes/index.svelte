@@ -84,7 +84,9 @@
 				'../img/initial/paillasse_endoscopique.jpg',
 				'../img/uploads/poste-de-change-sur-mesure-01.jpg',
 				'../img/uploads/lave-main-ocea-01.jpg'
-			]
+			],
+			chapoDirection : 1000,
+			autoplay : 7000
 		},
 		{
 			index : 0,
@@ -98,7 +100,9 @@
 				'equipe1',
 				'delais_rapides',
 				'sav_reactif'
-			]
+			],
+			chapoDirection : -1000,
+			autoplay : 7000
 		},
 		{
 			index : 0,
@@ -111,21 +115,18 @@
 				'../img/initial/kerrock_1.jpg',
 				'../img/initial/kerrock_2.jpg',
 				'../img/initial/kerrock_3.jpg',
-			]
+			],
+			chapoDirection : -1000,
+			autoplay : 10000
 		}
 	];
 
 	let currentImageIndex = 0;
 	let wrapperCarousel;
-	let currentChapoDirection = -1000;
-	let autoplay = 7000;
 
-	let changeChapoIndex = async (idx) => {		
-		autoplay = 0;
-		currentChapoDirection = overBlocks[0].index >= idx ||idx == 0 ? -1000 : 1000;
-		overBlocks[0].index = idx;
-		await tick();
-		autoplay = 7000;
+	let changeChapoIndex = async (overBlockIndex, idx) => {
+		overBlocks[overBlockIndex].chapoDirection = idx > overBlocks[overBlockIndex].index || (idx == 0 && overBlocks[overBlockIndex].index == overBlocks[overBlockIndex].images.length -1) ? -1000 : 1000;
+		overBlocks[overBlockIndex].index = idx;
 	}
 
 	let openModal = (idx) => {
@@ -195,8 +196,9 @@
 			<div class="carou nomargin bgmm">
 			<Carousel 				
 				perPage={1} controls={true} dots={isMobile} multipleDrag={false}
-				{autoplay} duration={500}
-				on:change={ e => changeChapoIndex(e.detail.currentSlide) }
+				easing={"cubic-bezier(.58,0,.49,.99)"}
+				autoplay={overBlocks[0].autoplay} duration={500}
+				on:change={ e => changeChapoIndex(0, e.detail.currentSlide) }
 			>
 				{#each overBlocks[0].images as src (src)}
 					<img {src} class="carou-img" alt="nature" /> 
@@ -212,8 +214,8 @@
 		<div class="edra-block no-padding flexbase">
 		{#key overBlocks[0].index}
 			<div class="overblock-mobile" 
-			in:fly={{x: currentChapoDirection, duration:500}} 
-			out:fly={{x: currentChapoDirection, delay:0, easing:quadInOut}}>
+			in:fly={{x: overBlocks[0].chapoDirection, duration:500}} 
+			out:fly={{x: overBlocks[0].chapoDirection, delay:0, easing:quadInOut}}>
 				<div class="block-up">
 						<h3 class="title is-big-touch has-text-primary has-text-weight-bold">{overBlocks[0].titre[overBlocks[0].index]}</h3>
 					</div>
@@ -272,7 +274,7 @@
 
 				{#key overBlocks[2].index}
 				<a class="flexbase has-text-white mince"  
-					in:fly={{x:1000, duration:500, easing:quadInOut}} out:fly={{x:-1000, easing:quadInOut}} 
+					in:fly={{x:overBlocks[2].chapoDirection, duration:500, easing:quadInOut}} out:fly={{x:overBlocks[2].chapoDirection, easing:quadInOut}} 
 					href='https://www.kerrock.fr/sanitaire'
 				>
 					<h2 class="title is-2 has-text-white mb-0 is-bigger-touch">Kerrock®</h2>
@@ -292,8 +294,9 @@
 				<div class="carou nomargin">
 				<Carousel 				
 					perPage={1} controls={true} dots={true} multipleDrag={false}
-					autoplay={10000} duration={500}
-					on:change={ e => overBlocks[2].index = e.detail.currentSlide }
+					autoplay={overBlocks[2].autoplay} duration={500}
+					easing={"cubic-bezier(.58,0,.49,.99)"}
+					on:change={ e => changeChapoIndex(2, e.detail.currentSlide) }
 				>				
 					{#each overBlocks[2].images as src (src)}
 						<img {src} class="carou-img-half" alt="nature" />
@@ -309,7 +312,7 @@
 	<div class="column is-full bgmm">
 		<div class="{isMobile ? 'edra-full' : 'edra-block'} no-padding has-text-white">
 			{#key overBlocks[1].index}
-			<div class="overtop" in:fly={{x:-1000, duration:500}} out:fly={{x:1000, delay:100, easing:quadInOut}}>
+			<div class="overtop" in:fly={{x:-overBlocks[1].chapoDirection, duration:700, easing:quadInOut}} out:fly={{x: overBlocks[1].chapoDirection, duration : 700, delay:100, easing:quadInOut}}>
 				<img src="../img/svg/hexagone.svg" alt="hexagone" class="hexagone" width="214px">
 					<div class="sub-overtop">
 						<p class="m-0 has-text-left is-size-1-desktop is-big-touch has-text-weight-bold mb-3" >
@@ -324,9 +327,10 @@
 	
 			<div class="carou nomargin">
 				<Carousel 
-					perPage={1} controls={false} dots={true} multipleDrag={false}
-					autoplay={7000} duration={500}
-					on:change={ e => overBlocks[1].index = e.detail.currentSlide }
+					perPage={1} controls={false} dots={true} multipleDrag={true}
+					autoplay={overBlocks[1].autoplay} duration={500}
+					easing={"cubic-bezier(.58,0,.49,.99)"}
+					on:change={ e => changeChapoIndex(1, e.detail.currentSlide) }
 				>
 					{#each overBlocks[1].images as src (src)}
 					<!--
