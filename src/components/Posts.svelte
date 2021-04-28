@@ -24,7 +24,7 @@
 					<div class="card mb-2 mt-2" on:click={()=> sousFamille = !sousFamille} >
 						<div class="card-image">
 							<figure class="image">
-                                <div class="card-thumb">
+                                <div class="card-thumb backbutton">
                                     <Image src={sousFamille ? "/img/back.png" : "/img/lavabo.svg"} alt={sousFamille ? "Retour" : "lavabo"} />
                                 </div>
 								<!-- <img src={post.thumbnail} alt="{post.title}"> -->
@@ -74,12 +74,15 @@
         padding-top:2rem;
         padding-bottom:2rem;
     }
-    :global(.card-thumb, .card-thumb img) {
+    :global(.card-thumb, .card-thumb:not(.backbutton) img) {
         height : 200px!important;
         width:auto;
         min-width:100%;
         object-fit:cover;
         border-radius: 0px;
+    }
+    .card-thumb.backbutton {
+        object-fit:contain;
     }
 
     .card {

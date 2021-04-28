@@ -23,14 +23,22 @@
 	import Carousel from '@beyonk/svelte-carousel/src/Carousel.svelte'
 	import Modal from 'svelma/src/components/Modal/Modal.svelte'
 	import { ChevronLeftIcon, ChevronRightIcon } from 'svelte-feather-icons'
+	import { goto } from '@sapper/app';
 
 	const { page } = stores();
 
 	export let postMd, posts;
 	
 	let produit;
+	let gal;
 
 	$: 	$page.params.slug && resetStuff();
+	$: if (active && ready && gal) 
+		onpopstate = () => {
+			active = false;
+			goto($page.path);
+			gal.scrollIntoView();
+		};
 
 	let subHeader;
 	let ready;
@@ -38,7 +46,7 @@
 	let currentSrc;
 
 	let resetStuff = async () => {
-		if (!ready)
+		if (!ready || !subHeader)
 			return;
 		subHeader.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
 		produit = posts.find( p => p.slug == $page.params.slug);
@@ -84,10 +92,8 @@
 	<div class="column is-full is-hidden-desktop border-bottom-mobile">
 		<div class="edra-block no-padding flexbase">
 			<div class="overblock-mobile">
-				<div class="block-up">
-						<h3 class="title is-bigger-touch has-text-primary has-text-weight-bold">{@html produit.title || ""}</h3>
-					</div>
-				<div class="block-in">
+				<div class="flexbase">
+					<h3 class="title is-inbetween-touch has-text-primary has-text-weight-bold">{@html produit.title || ""}</h3>
 					<p class="has-text-primary has-text-left is-size-1">{@html produit.subtitle || ""}</p>
 				</div>
 				<div class="block-bouton">
@@ -113,7 +119,7 @@
 						</div>
 
 					{:else if contenu.type == "imagesobject"}
-						<div class="gallerie">
+						<div class="gallerie" bind:this={gal}>
 							{#if contenu.images && contenu.images.length === 1}
 								<div class="slide-unique">
 									<img src={contenu.images[0]} alt="contenu" on:click={_ => open(contenu.images[0])} >
@@ -279,6 +285,9 @@
 		padding: 0% 4%;
 		font-size:2em;
 	}
+	.is-inbetween-touch {
+		font-size:4.5rem;
+	}
 	.is-3 {
 		font-size:2em;
 		line-height:1em;
@@ -303,6 +312,14 @@
 	}
 	.fit-header {
 		height: var(--mob-height);
+	}
+	.overblock-mobile {
+      position:absolute;
+      height:auto;
+      padding:3.5% 12.5% 0%;
+    }
+	.block-in {
+		margin-top:2rem;
 	}
 }
 

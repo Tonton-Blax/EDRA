@@ -264,7 +264,7 @@ body {
     .overblock-mobile {
       position:absolute;
       height:auto;
-      padding:0% 12.5%;
+      padding:9% 12.5% 0%;
     }
     .is-big-touch {
       font-size:4rem!important;

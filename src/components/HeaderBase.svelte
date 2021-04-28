@@ -54,7 +54,7 @@
 </script>
 <div class="svg-container">
     <div class="logo-container">
-		{#if animAssets[headerType].options.siglesPointiles === false}
+		{#if animAssets[headerType].options.siglePointilles === false}
 			<img src="./img/logo.png" class="mb-5 logo-edra" alt="logo edra">
 		{:else}
 			<img src="./img/sigle_pointilles.png" class="mb-5" alt="logo edra" width="128px">

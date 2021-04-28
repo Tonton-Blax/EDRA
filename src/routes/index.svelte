@@ -15,13 +15,20 @@
 	import { observing } from '../utils/stores.js';
 	import { stores } from '@sapper/app';
 	import { isMobileDevice } from '../utils/utils.js';
-
 	import { tick } from 'svelte';
+	import { goto } from '@sapper/app';
 
 	const { page,preloading } = stores();
 	
 	$: ($page.path || $preloading) && notOk();
 	$: isMobile = isMobileDevice();
+	$: if (active) 
+		onpopstate = () => {
+			active = false;
+			goto('/');
+			const el = document.querySelector('#references');
+			el.scrollIntoView();
+		};
 
 	let ok = true;
 
@@ -111,15 +118,19 @@
 	let currentImageIndex = 0;
 	let wrapperCarousel;
 	let currentChapoDirection = -1000;
-	let changeChapoIndex = (idx) => {		
+	let autoplay = 7000;
+
+	let changeChapoIndex = async (idx) => {		
+		autoplay = 0;
 		currentChapoDirection = overBlocks[0].index >= idx ||idx == 0 ? -1000 : 1000;
 		overBlocks[0].index = idx;
+		await tick();
+		autoplay = 7000;
 	}
 
 	let openModal = (idx) => {
 		active = true;
 		currentImageIndex = idx;
-		console.log("prout");
 		console.log(wrapperCarousel);
 	}
 
@@ -184,7 +195,7 @@
 			<div class="carou nomargin bgmm">
 			<Carousel 				
 				perPage={1} controls={true} dots={isMobile} multipleDrag={false}
-				autoplay={5000} duration={500}
+				{autoplay} duration={500}
 				on:change={ e => changeChapoIndex(e.detail.currentSlide) }
 			>
 				{#each overBlocks[0].images as src (src)}
@@ -342,7 +353,7 @@
 		</div>
 	</div>
 	<div class="column is-half is-full-touch">
-		<div class="edra-block no-padding has-background-white has-text-primary carou-ref references" style="margin-left:1px;" bind:this={wrapperCarousel}>
+		<div id="references" class="edra-block no-padding has-background-white has-text-primary carou-ref references" style="margin-left:1px;" bind:this={wrapperCarousel}>
 			<!-- <img class="autoheight" src="../img/kerrock02.jpg" alt="Hall d'accueil avec revêtement en kerrock"> -->
 			<Carousel 				
 				perPage={3} controls={false} dots={false} multipleDrag={false}
