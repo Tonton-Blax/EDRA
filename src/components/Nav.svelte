@@ -42,17 +42,17 @@
 		});
 		indicator.style.width = "".concat(navItems[idx].offsetWidth, "px");
 		indicator.style.left = "".concat(navItems[idx].offsetLeft, "px");
-		indicator.style.backgroundColor = $observing && segment != 'produits' ? "white" : $colors.main;
+		indicator.style.backgroundColor = $observing && (segment != 'produits' && segment != 'concept') ? "white" : $colors.main;
 		navItems[idx].classList.add('active-item');
-		navItems[idx].style.color = $observing && segment != 'produits' ? "white" : $colors.main;
+		//navItems[idx].style.color = $observing && (segment != 'produits' && segment != 'concept') ? "white" : $colors.main;
 	}
 
 	page.subscribe(({ }) => {
 		if (!navItems.length || isMobile)
 			return;
   		[0,1,2].forEach(h => {
-			indicator.style.backgroundColor = $observing && segment != 'produits' ? "white" : $colors.main;
-			navItems[h].style.color = $observing || segment != 'produits' ? "white" : $colors.main;
+			indicator.style.backgroundColor = $observing && (segment != 'produits' && segment != 'concept') ? "white" : $colors.main;
+			//navItems[h].style.color = $observing || (segment != 'produits' || segment != 'concept') ? "white" : $colors.main;
 		  });
 	})
 
@@ -82,21 +82,20 @@
 		</button>
 	</div>
 	<div class="navbar-end is-hidden-touch" >
-		<a class:forceblue={segment == 'produits'} bind:this={navItems[0]} on:mouseenter={()=>handleIndicator(0)} class="navbar-item active-item" aria-current={segment === undefined ? 'page' : undefined} href="." on:click={() => menuIsActive = false}>EDRA</a>
-		<a class:forceblue={segment == 'produits'} bind:this={navItems[1]} on:mouseenter={()=>handleIndicator(1)} rel="prefetch" class="navbar-item" aria-current={segment === 'produits' ? 'page' : undefined} href="produits" on:click={() => menuIsActive = false}>Produits</a>
-		<a class:forceblue={segment == 'produits'} bind:this={navItems[2]} on:mouseenter={()=>handleIndicator(2)} class="navbar-item" aria-current={segment === 'contact' ? 'page' : undefined} on:click={() => menuIsActive = false} href="contact">Contact</a>
-		<a class:forceblue={segment == 'produits'} bind:this={navItems[3]} on:mouseenter={()=>handleIndicator(3)} class="navbar-item" aria-current={segment === 'concept' ? 'page' : undefined} on:click={() => menuIsActive = false} href="concept">EDRA Concept</a>
+		<a class:forceblue={segment == 'produits' || segment == 'concept'} bind:this={navItems[0]} on:mouseenter={()=>handleIndicator(0)} class="navbar-item active-item" aria-current={segment === undefined ? 'page' : undefined} href="." on:click={() => menuIsActive = false}>EDRA</a>
+		<a class:forceblue={segment == 'produits' || segment == 'concept'} bind:this={navItems[3]} on:mouseenter={()=>handleIndicator(3)} class="navbar-item" aria-current={segment === 'concept' ? 'page' : undefined} on:click={() => menuIsActive = false} href="concept">EDRA Concept</a>
+		<a class:forceblue={segment == 'produits' || segment == 'concept'} bind:this={navItems[1]} on:mouseenter={()=>handleIndicator(1)} rel="prefetch" class="navbar-item" aria-current={segment === 'produits' ? 'page' : undefined} href="produits" on:click={() => menuIsActive = false}>Produits</a>
+		<a class:forceblue={segment == 'produits' || segment == 'concept'} bind:this={navItems[2]} on:mouseenter={()=>handleIndicator(2)} class="navbar-item" aria-current={segment === 'contact' ? 'page' : undefined} on:click={() => menuIsActive = false} href="contact">Contact</a>
 		<span class="navbar-indicator" bind:this={indicator}></span>
-
 
 	</div>  
 	{#if menuIsActive}
 	<div class="navbar-menu" class:is-active={menuIsActive} transition:slide={{easing: quadInOut}} >
 	  <div class="navbar-start">
 		<a class:forceblue={segment == 'produits'} rel="prefetch" class="navbar-item moblink" aria-current={segment === 'produits' ? 'page' : undefined} href="produits" on:click={() => menuIsActive = false}>Produits</a>
+		<a class:forceblue={segment == 'produits'} class="navbar-item moblink" aria-current={segment === 'concept' ? 'page' : undefined} on:click={() => menuIsActive = false} href="concept">EDRA Concept</a>
 		<a class:forceblue={segment == 'produits'} class="navbar-item moblink" aria-current={segment === undefined ? 'page' : undefined} href="." on:click={() => menuIsActive = false}>EDRA</a>
 		<a class:forceblue={segment == 'produits'} class="navbar-item moblink" aria-current={segment === 'contact' ? 'page' : undefined} on:click={() => menuIsActive = false} href="contact">Contact</a>
-		<a class:forceblue={segment == 'produits'} class="navbar-item moblink" aria-current={segment === 'concept' ? 'page' : undefined} on:click={() => menuIsActive = false} href="concept">EDRA Concept</a>
 		<span class="navbar-indicator"></span>
 
 	  </div>  
