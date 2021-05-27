@@ -237,7 +237,7 @@ sombre : {
                 duree: 6,
                 rotation : 190,
                 reversed : false,
-                tiret : 5
+                tiret : 8
             },
             {
                 id : "cercle7",

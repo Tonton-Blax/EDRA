@@ -96,7 +96,7 @@
 				</defs>
 				
 				<g 	id="cercle.fond{cercle.id}"
-					stroke-dasharray="{cercle.tiret * 2.5}"
+					stroke-dasharray="{cercle.tiret}"
 					fill="none"
 					stroke={animAssets[headerType].options.linesColor} stroke-width="1">
 					<use xlink:href="#circle{cercle.id}" />
