@@ -16,7 +16,6 @@
 		await tick();
 		return new Promise( resolve => {
 			$refresh = false;
-			animAssets[headerType].cercles.forEach(c => initCercle(c))
 			tick().then( _ => {
 			resolve(svgs.forEach(s => s && s.beginElement()))
 			}
@@ -26,40 +25,31 @@
 	
 	onMount( async() => {
 		isMobile = isMobileDevice();
-		$refresh = false;
 		for (let cercle of animAssets[headerType].cercles ) {
-			cercle.peri = Math.ceil(Math.PI * 2 * cercle.rayon);
-			if (cercle.peri > 8000) 
-				cercle.tiret *= 2;
-			initCercle(cercle)
+			cercle.peri = Math.ceil(Math.PI * 2 * cercle.rayon);			
+			const currCercle = document.querySelector(`#anim${cercle.id}`);
+			if (currCercle) {
+				currCercle.animate([
+					{ strokeDasharray: `${cercle.peri} 0` },
+					{ strokeDashoffset: '25' },
+					{ stroke : animAssets[headerType].options.bgColor }
+					], {
+					duration: cercle.duree*1000,
+					direction : cercle.reverse ? 'alternate-reverse' : 'alternate',
+					iterations: Infinity
+				});
+			}
+			/*
+			cercle.stroke = Array(Math.ceil(cercle.peri  / (cercle.tiret ? cercle.tiret : 5 ))).fill(cercle.tiret ? cercle.tiret : 5)
+			if (cercle.stroke.length % 2 !== 0) 
+				cercle.stroke.pop();
+			cercle.stroke = ([...cercle.stroke, 0, cercle.peri]).join(' ');
+			*/
+			
 		}
+		$refresh = false;
 		svgs.forEach(s => { s.beginElement()});
 	});
-
-	async function initCercle(cercle) {
-			//const currCercle = document.querySelector(`#circle${cercle.id}`);
-			if (cercle.el) {
-				cercle.el.style.animation = 'none';
-				await tick();
-				setTimeout(function() {
-					cercle.el.style.animation = '';
-				}, 10);
-				//cercle.stroke = Array(Math.ceil(cercle.peri  / (cercle.tiret ? cercle.tiret : 5 ))).fill(cercle.tiret ? cercle.tiret : 5)
-				cercle.stroke = Array.from(
-					{length:Math.ceil(cercle.peri  / ((cercle.tiret || 5) * 1.5 ))},
-					()=> (Math.random()%2 === 0 ? cercle.tiret : cercle.tiret * 2)
-				);
-				if (cercle.stroke.length % 2 !== 0) 
-					cercle.stroke.pop();
-				cercle.el.style.stroke = animAssets[headerType].options.linesColor;				
-				cercle.stroke = ([...cercle.stroke, 0, cercle.peri]).join(' ');
-				cercle.el.style.strokeDasharray = cercle.stroke
-				cercle.el.style.strokeDashoffset = cercle.peri
-				cercle.el.style.transform = `rotateZ(${cercle.rotation || Math.random()*365})`;
-				await tick();
-			}
-	}
-
 	let restartLine = async (index) => {
 		return new Promise( resolve => {
 			resolve(svgs[index].beginElement());
@@ -87,15 +77,36 @@
 
 		{#each animAssets[headerType].cercles as cercle, index (cercle.id)}
 			{#if !isMobile || (isMobile && !cercle.isHiddenMobile) }
-					<circle bind:this={cercle.el}
+				<defs>
+					<circle class:debug={cercle.debug}
 						id="circle{cercle.id}" 
-						class="cercle"
 						cy={cercle.y}
 						cx={cercle.x}
 						r={cercle.rayon}
-						stroke={animAssets[headerType].options.bgColor}
 					>
+					<animateTransform attributeName="transform"
+						attributeType="XML"
+						type="rotate"
+						from="{cercle.rotation} {cercle.x} {cercle.y}"
+						to="{360+cercle.rotation} {cercle.x} {cercle.y}"
+						dur="{cercle.duree*2}"
+						repeatCount="indefinite"
+					/>
 					</circle>
+				</defs>
+				
+				<g 	id="cercle.fond{cercle.id}"
+					stroke-dasharray="{cercle.tiret * 2.5}"
+					fill="none"
+					stroke={animAssets[headerType].options.linesColor} stroke-width="1">
+					<use xlink:href="#circle{cercle.id}" />
+				</g>
+				
+				<g 	class="anim" fill="none" 
+					stroke-width="3" stroke-linecap="butt" stroke-linejoin="round">
+					<use xlink:href="#circle{cercle.id}" class="circle" id="anim{cercle.id}"
+					style="stroke-dasharray:0 {cercle.peri};stroke-dashoffset:{cercle.tiret};stroke:{animAssets[headerType].options.bgColor};" />
+				</g>
 			{/if}
 		{/each}
 
@@ -176,17 +187,6 @@
 		top:0;
 		width:100%;
 		min-height:100%;
-	}
-	.cercle {
-		fill:none;
-		stroke-width:1;
-		animation: cerclanim 7s linear infinite alternate-reverse;
-	}
-
-	@keyframes cerclanim {
-		to {
-			stroke-dashoffset: 0;
-		}
 	}
 	@media screen and (max-width: 1024px) {
 		svg {

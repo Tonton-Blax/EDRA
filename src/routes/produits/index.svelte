@@ -18,7 +18,7 @@
 
 	const { page,preloading } = stores();
 	
-	$: ($page.path || $preloading) && notOk();
+	//$: ($page.path || $preloading) && notOk();
 	$: isMobile = isMobileDevice();
 
 	let ok = true;
