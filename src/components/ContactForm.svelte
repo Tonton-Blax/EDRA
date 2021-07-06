@@ -169,7 +169,7 @@ async function submitForm (event) {
 		padding:0% 10%;
 	}
 
-    :global(.mxform .input, .mxform .textarea:not([rows])) {
+    .mxform .input, .mxform .textarea:not([rows]) {
         padding-left:1em!important;
     }
 

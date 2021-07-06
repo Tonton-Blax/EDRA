@@ -89,7 +89,7 @@
         padding-top:2rem;
         padding-bottom:2rem;
     }
-    :global(.card-thumb, .card-thumb img, .flexbase .famille) {
+    :global(.card-thumb), :global(.card-thumb img), :global(.flexbase .famille) {
         height : 200px!important;
         width:auto;
         min-width:100%;
