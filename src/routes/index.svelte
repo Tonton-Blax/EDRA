@@ -50,23 +50,37 @@
 
 	const refs = {
 		logos : [
-			"../img/logos/logo_fondation_rotschild.jpg",
-			"../img/logos/logo_creche_modigliani.jpg",
-			"../img/logos/bichat.png",
-			"../img/logos/blueuts.png",
-			"../img/logos/foch.png",
-			"../img/logos/necker.png",
-			"../img/logos/sainte-anne.png",
-			"../img/logos/tenon.png",
-			"../img/logos/hopital-suisse.png"
+			"../img/logos/logo-chu-bayeux.jpg",
+			"../img/logos/logo-chu-limoges.jpg",
+			"../img/logos/logo-clinique-jouvenet.jpg",
+			"../img/logos/logo-clinique-maussins.jpg",
+			"../img/logos/logo-creche-modigliani.jpg",
+			"../img/logos/logo-fondation-rotschild.jpg",
+			"../img/logos/logo-hopital-ballanger.jpg",
+			"../img/logos/logo-hopital-pompidou.jpg",
+			"../img/logos/logo-maternite-reuilly.jpg"
 		],
 		images : [
-			["image_fondation_rotschild_01.jpg","image_fondation_rotschild_02.jpg","image_fondation_rotschild_03.jpg"],
-			["image_creche_modigliani_01.jpg", "image_creche_modigliani_02.jpg", "image_creche_modigliani_03.jpg", "image_creche_modigliani_04.jpg"],
+			["bayeux-01.jpg"],
+			["limoges-01.jpg"],
+			["jouvenet-01.jpg", "jouvenet-02.jpg", "jouvenet-03.jpg"],
+			["maussins-01.jpg","maussins-02.jpg"],
+			["modigliani-02.jpg", "modigliani-03.jpg","modigliani-04.jpg","modigliani-05.jpg","modigliani-07.jpg","modigliani-08.jpg","modigliani-09.jpg","modigliani-10.jpg","modigliani-11.jpg","modigliani-18.jpg","modigliani-19.jpg","modigliani-21.jpg","modigliani-23.jpg","modigliani-24.jpg","modigliani-27.jpg"],
+			["fondation-rothschild-01.jpg","fondation-rothschild-02.jpg","fondation-rothschild-03.jpg","fondation-rothschild-04.jpg","fondation-rothschild-05.jpg"],
+			["ballanger-01.jpg"],
+			["pompidou-01.jpg"],
+			["reuilly-01.jpg","reuilly-02.jpg","reuilly-03.jpg","reuilly-04.jpg","reuilly-05.jpg","reuilly-06.jpg","reuilly-07.jpg","reuilly-08.jpg","reuilly-09.jpg","reuilly-10.jpg","reuilly-11.jpg","reuilly-12.jpg","reuilly-13.jpg","reuilly-14.jpg","reuilly-15.jpg","reuilly-16.jpg","reuilly-17.jpg"]
 		],
 		alts : [
-			"Fondation rotschild",
-			"Creche Modigliani",
+			"Centre Hospitalier Aunay-Bayeux",
+			"Centre Hospitalier Universitaire Limoges",
+			"Clinique Jouvenet, Groupe Ramsay Santé",
+			"Clinique Maussins Nollet, Groupe Ramsay Santé",
+			"Crèche Modigliani",
+			"Fondation de Rotschild",
+			"Centre Hospitalier Intercommunal Robert Ballanger",
+			"Hôpital Européen Georges Pompidou",
+			"Maternité Reuilly, Groupe Hospitalier Diaconesses Croix Saint-Simon",
 		]
 	}
 
@@ -132,7 +146,6 @@
 	let openModal = (idx) => {
 		active = true;
 		currentImageIndex = idx;
-		console.log(wrapperCarousel);
 	}
 
 </script>
@@ -364,7 +377,7 @@
 				autoplay={0} duration={0} draggable={false}
 			>
 				{#each refs.logos.slice(0,3) as logo, chunkIndex}
-						<div style="display: flex;" class:cursorable={chunkIndex !== 2} on:click={() => chunkIndex !== 2 ? openModal(chunkIndex) : {} } >
+						<div style="display: flex;" class="cursorable" on:click={() => openModal(chunkIndex) } >
 							<span class="logosquare"><img class="resize is-square" src={logo} alt="logo-"/></span>
 						</div>
 				{/each}
@@ -375,7 +388,7 @@
 				autoplay={0} duration={0} draggable={false}
 			>
 				{#each refs.logos.slice(3,6) as logo, chunkIndex}
-					<div style="display: flex;">
+					<div style="display: flex;" class="cursorable" on:click={() => openModal(chunkIndex+3) } >
 						<span class="logosquare"><img class="resize is-square" src={logo} alt="logo-"/></span>
 					</div>
 				{/each}
@@ -386,7 +399,7 @@
 				autoplay={0} duration={0} draggable={false}
 			>
 				{#each refs.logos.slice(6,9) as logo, chunkIndex}
-					<div style="display: flex;">
+					<div style="display: flex;" class="cursorable" on:click={() => openModal(chunkIndex+6) } >
 						<span class="logosquare"><img class="resize is-square" src={logo} alt="logo-"/></span>
 					</div>
 				{/each}

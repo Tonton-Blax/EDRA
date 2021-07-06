@@ -154,6 +154,7 @@ body {
 .modal-carou {
   height: auto;
   overflow:visible;
+  text-align : center;
 }
 
 /* MOBILE PURE */

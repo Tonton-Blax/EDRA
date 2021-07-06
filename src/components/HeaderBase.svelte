@@ -51,11 +51,11 @@
 				);
 				if (cercle.stroke.length % 2 !== 0) 
 					cercle.stroke.pop();
-				cercle.el.style.stroke = animAssets[headerType].options.linesColor;				
+				cercle.el.style.stroke = animAssets[headerType].options.linesColor;		
 				cercle.stroke = ([...cercle.stroke, 0, cercle.peri]).join(' ');
 				cercle.el.style.strokeDasharray = cercle.stroke
 				cercle.el.style.strokeDashoffset = cercle.peri
-				cercle.el.style.transform = `rotateZ(${cercle.rotation || Math.random()*365})`;
+				cercle.el.style.transform = `rotateZ(${cercle.rotation || Math.round(Math.random()*365)})`;
 				await tick();
 			}
 	}
