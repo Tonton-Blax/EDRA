@@ -475,6 +475,9 @@
 			height: 256px;
 			width:auto;
 		}
+		.modal-carou img {
+			height:75vh;
+		}
 	}
 
 </style>
