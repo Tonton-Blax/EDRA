@@ -20,14 +20,12 @@
 </body>
 
 
-<style lang="scss" global>
-	@import '../styles/global.scss';
-
+<style>
 	.container {
 		background:white;
 	}
 
-	main {
+	:global(main) {
 		padding-top:32px;
 	}
 

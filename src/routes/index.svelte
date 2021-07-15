@@ -110,13 +110,18 @@
 				"Un rappel dans les 4 heures en moyenne pour vous accompagner par téléphone, des interventions rapides sur le terrain si besoin, des pièces détachées toujours en stock",
 				"Un process de fabrication local et maitrisé, capable de produire et déployer rapidement, même dans l’urgence"
 			],
+			color : [
+				'white',
+				'#005476',
+				'white'
+			],
 			images : [
 				'../videos/defonceuse.mp4',
+				'../videos/sav.mp4',
 				'../img/initial/delais_rapides.jpg',
-				'../img/initial/sav_reactif.jpg'
 			],
 			chapoDirection : -1000,
-			autoplay : 7000
+			autoplay : 0
 		},
 		{
 			index : 0,
@@ -326,15 +331,22 @@
 		<div class="{isMobile ? 'edra-full' : 'edra-block'} no-padding has-text-white">
 			{#key overBlocks[1].index}
 			<div class="overtop" in:fly={{x:-overBlocks[1].chapoDirection, duration:700, easing:quadInOut}} out:fly={{x: overBlocks[1].chapoDirection, duration : 700, delay:100, easing:quadInOut}}>
-				<img src="../img/svg/hexagone.svg" alt="hexagone" class="hexagone" width="214px">
-					<div class="sub-overtop">
-						<p class="m-0 has-text-left is-size-1-desktop is-big-touch has-text-weight-bold mb-3" >
-							{@html overBlocks[1].titre[overBlocks[1].index]}
-						</p>
-						<p class="is-size-5-fullhd is-size-6-desktop is-size-2-touch has-text-left has-text-white m-0">
-							{@html overBlocks[1].sousTitre[overBlocks[1].index]}
-						</p>
-					</div>
+				
+				<svg width="214" height="242" viewBox="0 0 154 174" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path 
+						d="M76.886 169.052C77.6927 169.052 78.497 168.845 79.2184 168.431L146.556 129.751C147.999 128.923 148.886 127.39 148.886 125.732V48.3736C148.886 46.7157 147.999 45.1822 146.556 44.3544L79.2184 5.67353C78.4958 5.25965 77.6915 5.05151 76.886 5.05151C76.0817 5.05151 75.2761 5.25965 74.5536 5.67353L7.21601 44.3544C5.77447 45.1822 4.88599 46.7157 4.88599 48.3736V125.732C4.88599 127.39 5.77447 128.923 7.21601 129.751L74.5536 168.431C75.2749 168.845 76.0793 169.052 76.886 169.052" 
+						stroke="{overBlocks[1].color[overBlocks[1].index]}" stroke-width="9"
+					/>
+				</svg>
+
+				<div class="sub-overtop">
+					<p class="m-0 has-text-left is-size-1-desktop is-big-touch has-text-weight-bold mb-3" style="color:{overBlocks[1].color[overBlocks[1].index]}">
+						{@html overBlocks[1].titre[overBlocks[1].index]}
+					</p>
+					<p class="is-size-5-fullhd is-size-6-desktop is-size-2-touch has-text-left m-0" style="color:{overBlocks[1].color[overBlocks[1].index]}">
+						{@html overBlocks[1].sousTitre[overBlocks[1].index]}
+					</p>
+				</div>
 			</div>
 			{/key}
 	
