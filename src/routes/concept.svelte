@@ -74,9 +74,9 @@
 				"Un process de fabrication local et maitrisé, capable de produire et déployer rapidement, même dans l’urgence"
 			],
 			images : [
-				'equipe1',
-				'delais_rapides',
-				'sav_reactif'
+				'../videos/defonceuse.mp4',
+				'../img/initial/delais_rapides.jpg',
+				'../img/initial/sav_reactif.jpg'
 			],
 			chapoDirection : -1000,
 			autoplay : 7000
@@ -312,18 +312,20 @@
 					easing={"cubic-bezier(.58,0,.49,.99)"}
 					on:change={ e => changeChapoIndex(1, e.detail.currentSlide) }
 				>
-					{#each overBlocks[1].images as src (src)}
-					<!--
-						<img
-							alt="{src}"
-							sizes="(max-width: 1345px) 100vw, 1000px"
-							srcset="g/img/initial/{src}-400.webp 480w, g/img/initial/{src}-600.webp 768w, g/img/initial/{src}-1200.webp 1024w"
-						>
-					-->
-						
-						<img src="../img/initial/{src}.jpg" class="carou-img" alt="nature"/>
-				
-					{/each}
+				{#each overBlocks[1].images as src, i (src)}
+				<!--
+					<img
+						alt="{src}"
+						sizes="(max-width: 1345px) 100vw, 1000px"
+						srcset="g/img/initial/{src}-400.webp 480w, g/img/initial/{src}-600.webp 768w, g/img/initial/{src}-1200.webp 1024w"
+					>
+				-->
+					{#if src.endsWith('mp4')}
+						<video no-controls loop autoplay muted="muted" src={src}></video>
+					{:else}
+						<img src={src} class="carou-img" alt="nature"/>
+					{/if}			
+				{/each}
 				</Carousel>
 			</div>
 		</div>
@@ -369,7 +371,7 @@
 	.nomargin {
 		margin:0px 0px 0px 0px!important;
 	}
-	:global(.carou img) {
+	:global(.carou img), :global(.carou video) {
 		width: fit-content;
 		min-width:100%;
 		object-fit:cover;
