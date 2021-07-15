@@ -254,7 +254,7 @@ sombre : {
             }
         ],
         options : {
-            siglePointilles : false,
+            sigleType : 'plain',
             bgColor : '#005476',
             linesColor : "white",
             title : undefined,
@@ -264,7 +264,7 @@ sombre : {
         return {
             ...this.sombre, 
             options : {
-                siglePointilles : true,
+                sigleType : 'pointilles',
                 bgColor : '#D9E7EC',
                 linesColor : '#005476',
                 title : "Fiches Techniques",
@@ -515,7 +515,7 @@ sombre : {
             }
         ],
         options : {
-            siglePointilles : true,
+            sigleType : 'pointilles',
             bgColor : '#D9E7EC',
             linesColor : '#005476',
             title : "Fiches Techniques",
@@ -525,7 +525,7 @@ sombre : {
         return {
             ...this.clair,
             options : {
-                siglePointilles : false,
+                sigleType : 'concept',
                 bgColor : '#38454b',
                 linesColor : '#fff',
                 title : "Edra Concept",

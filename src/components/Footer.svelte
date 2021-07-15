@@ -29,16 +29,16 @@
 </style>
 
 <div class="container">
-	<div class="columns is-gapless is-multiline">
+	<div class="columns is-gapless is-multiline" class:has-background-primary={segment !== 'concept'} class:has-background-info={segment === 'concept'}>
 		<div class="column is-half">
-			<div class="edra-footer has-background-primary has-text-white">
+			<div class="edra-footer has-text-white">
                 <p class="is-size-6" style="align-self:flex-start   ">© EDRA 2021<br>
                     Mention légaless RGPD
                 </p>
             </div>
         </div>
         <div class="column is-half">
-			<div class="edra-footer has-background-primary has-text-white">
+			<div class="edra-footer has-text-white">
                 <a href="/" class="logo-wrapper"><img class="logo" alt="logo" src="../img/logo.png"></a>
             </div>
         </div>

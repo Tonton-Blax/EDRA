@@ -4,13 +4,10 @@
 </svelte:head>
 
 <script>
-	//import {chunk, shuffleArray } from '../utils/utils.js';
 	import IntersectionObserver from "svelte-intersection-observer";
-	import { fly, fade } from 'svelte/transition';
+	import { fly, fade, scale } from 'svelte/transition';
 	import { quadInOut, quadOut } from 'svelte/easing';
 	import Carousel from '@beyonk/svelte-carousel/src/Carousel.svelte'
-	import Modal from 'svelma/src/components/Modal/Modal.svelte'
-	import { ChevronLeftIcon, ChevronRightIcon } from 'svelte-feather-icons'
 	import Header from '../components/HeaderBase.svelte';
 	import { observing } from '../utils/stores.js';
 	import { stores } from '@sapper/app';
@@ -49,41 +46,6 @@
 		header : undefined
 	}
 
-	const refs = {
-		logos : [
-			"../img/logos/logo-chu-bayeux.jpg",
-			"../img/logos/logo-chu-limoges.jpg",
-			"../img/logos/logo-clinique-jouvenet.jpg",
-			"../img/logos/logo-clinique-maussins.jpg",
-			"../img/logos/logo-creche-modigliani.jpg",
-			"../img/logos/logo-fondation-rotschild.jpg",
-			"../img/logos/logo-hopital-ballanger.jpg",
-			"../img/logos/logo-hopital-pompidou.jpg",
-			"../img/logos/logo-maternite-reuilly.jpg"
-		],
-		images : [
-			["bayeux-01.jpg"],
-			["limoges-01.jpg"],
-			["jouvenet-01.jpg", "jouvenet-02.jpg", "jouvenet-03.jpg"],
-			["maussins-01.jpg","maussins-02.jpg"],
-			["modigliani-02.jpg", "modigliani-03.jpg","modigliani-04.jpg","modigliani-05.jpg","modigliani-07.jpg","modigliani-08.jpg","modigliani-09.jpg","modigliani-10.jpg","modigliani-11.jpg","modigliani-18.jpg","modigliani-19.jpg","modigliani-21.jpg","modigliani-23.jpg","modigliani-24.jpg","modigliani-27.jpg"],
-			["fondation-rothschild-01.jpg","fondation-rothschild-02.jpg","fondation-rothschild-03.jpg","fondation-rothschild-04.jpg","fondation-rothschild-05.jpg"],
-			["ballanger-01.jpg"],
-			["pompidou-01.jpg"],
-			["reuilly-01.jpg","reuilly-02.jpg","reuilly-03.jpg","reuilly-04.jpg","reuilly-05.jpg","reuilly-06.jpg","reuilly-07.jpg","reuilly-08.jpg","reuilly-09.jpg","reuilly-10.jpg","reuilly-11.jpg","reuilly-12.jpg","reuilly-13.jpg","reuilly-14.jpg","reuilly-15.jpg","reuilly-16.jpg","reuilly-17.jpg"]
-		],
-		alts : [
-			"Centre Hospitalier Aunay-Bayeux",
-			"Centre Hospitalier Universitaire Limoges",
-			"Clinique Jouvenet, Groupe Ramsay Santé",
-			"Clinique Maussins Nollet, Groupe Ramsay Santé",
-			"Crèche Modigliani",
-			"Fondation de Rotschild",
-			"Centre Hospitalier Intercommunal Robert Ballanger",
-			"Hôpital Européen Georges Pompidou",
-			"Maternité Reuilly, Groupe Hospitalier Diaconesses Croix Saint-Simon",
-		]
-	}
 
 	const overBlocks = [
 		{
@@ -137,7 +99,6 @@
 	];
 
 	let currentImageIndex = 0;
-	let wrapperCarousel;
 
 	let changeChapoIndex = async (overBlockIndex, idx) => {
 		overBlocks[overBlockIndex].chapoDirection = idx > overBlocks[overBlockIndex].index || (idx == 0 && overBlocks[overBlockIndex].index == overBlocks[overBlockIndex].images.length -1) ? -1000 : 1000;
@@ -150,30 +111,6 @@
 	}
 
 </script>
-
-<!-- MODAL -->
-
-<div class="modal-index">
-	<Modal bind:active={active}>
-		{#if active}
-		<div class="modal-carou">
-			<Carousel
-				perPage={1} controls={true} dots={true} autoplay={30000} duration={500}
-			>
-			<span class="control" slot="left-control">
-				<ChevronLeftIcon />
-			</span>
-				{#each refs.images[currentImageIndex] as src (src)}
-						<img src="../img/refs/{src}" alt={refs.alts[currentImageIndex]} /> 
-				{/each}
-			<span class="control" slot="right-control">
-				<ChevronRightIcon />
-			</span>
-			</Carousel>
-		</div>
-		{/if}
-	</Modal>
-</div>
 
 	<!-- HEADER -->
 	<div class="column is-full">
@@ -281,26 +218,29 @@
 
 	<div class="column is-full">
 		<IntersectionObserver element={blocConcept} bind:intersecting={blocConceptInView}>
-			<div class="{isMobile ? 'edra-full' : 'edra-block'} no-padding has-text-white" bind:this={blocConcept}>
+			<div class="{isMobile ? 'edra-full' : 'edra-block'} no-padding has-text-white" bind:this={blocConcept} style="place-content: start;">
 				<div class="columns is-gapless">
+					{#if blocConceptInView}
 					<div class="column is-half">
 						<div class="columns is-gapless is-multiline">
-							<div class="column is-half h50">
-								<img src="../img/concept/concept-porte-de-versailles-480.jpg" alt="blabla">
+							<div class="column is-half is-flex">
+								<img src="../img/concept/concept-porte-de-versailles-480.jpg" alt="blabla" transition:scale>
 							</div>
-							<div class="column is-half h50">
-								<img src="../img/concept/concept-vasue-double-480.jpg" alt="blabla">						
+							<div class="column is-half is-flex">
+								<img src="../img/concept/concept-vasue-double-480.jpg" alt="blabla" style="max-width:101%;" in:scale={{delay : 100}}>
 							</div>
-							<div class="column is-half h50">
-								<img src="../img/concept/concept-vasque-480.jpg" alt="blabla">
+							<div class="column is-half is-flex">
+								<img src="../img/concept/concept-vasque-480.jpg" alt="blabla" in:scale={{delay : 200}}>
 							</div>
-							<div class="column is-half h50">
-								<img src="../img/concept/concept-double-vasque-480.jpg" alt="blabla">
+							<div class="column is-half is-flex">
+								<img src="../img/concept/concept-double-vasque-480.jpg" alt="blabla" style="max-width:101%;" in:scale={{delay : 320}}>
 							</div>
+						</div>
 					</div>
 					<div class="column is-half">
-						<img src="../img/concept/concept-boertie-carre.jpg" alt="blabla">
+						<img src="../img/concept/concept-boertie-carre.jpg" alt="blabla" in:scale={{delay : 200}}>
 					</div>
+					{/if}
 				</div>
 			</div>
 			
@@ -310,7 +250,7 @@
 	<!-- KERROCK TEXTE -->
 	<div class="columns is-multiline is-gapless reverse-columns mb-0">
 		<div class="column is-half is-full-touch">
-			<div class="edra-block has-background-primary has-text-white flex-centered" >
+			<div class="edra-block has-background-info has-text-white flex-centered" >
 
 				{#key overBlocks[2].index}
 				<a class="flexbase has-text-white mince"  
@@ -386,51 +326,6 @@
 					{/each}
 				</Carousel>
 			</div>
-		</div>
-	</div>
-
-	<!-- REFERENCES -->
-
-	<div class="column is-half is-full-touch bgmm">
-		<div class="edra-block has-background-primary has-text-white p-0">
-			<h2 class="title is-2 has-text-white has-text-centered mb-0 is-bigger-touch">Ils nous font<br>confiance</h2>
-		</div>
-	</div>
-	<div class="column is-half is-full-touch">
-		<div id="references" class="edra-block no-padding has-background-white has-text-primary carou-ref references" style="margin-left:1px;" bind:this={wrapperCarousel}>
-			<!-- <img class="autoheight" src="../img/kerrock02.jpg" alt="Hall d'accueil avec revêtement en kerrock"> -->
-			<Carousel 				
-				perPage={3} controls={false} dots={false} multipleDrag={false}
-				autoplay={0} duration={0} draggable={false}
-			>
-				{#each refs.logos.slice(0,3) as logo, chunkIndex}
-						<div style="display: flex;" class="cursorable" on:click={() => openModal(chunkIndex) } >
-							<span class="logosquare"><img class="resize is-square" src={logo} alt="logo-"/></span>
-						</div>
-				{/each}
-			</Carousel>
-
-			<Carousel 				
-				perPage={3} controls={false} dots={false} multipleDrag={false}
-				autoplay={0} duration={0} draggable={false}
-			>
-				{#each refs.logos.slice(3,6) as logo, chunkIndex}
-					<div style="display: flex;" class="cursorable" on:click={() => openModal(chunkIndex+3) } >
-						<span class="logosquare"><img class="resize is-square" src={logo} alt="logo-"/></span>
-					</div>
-				{/each}
-			</Carousel>
-
-			<Carousel 				
-				perPage={3} controls={false} dots={false} multipleDrag={false}
-				autoplay={0} duration={0} draggable={false}
-			>
-				{#each refs.logos.slice(6,9) as logo, chunkIndex}
-					<div style="display: flex;" class="cursorable" on:click={() => openModal(chunkIndex+6) } >
-						<span class="logosquare"><img class="resize is-square" src={logo} alt="logo-"/></span>
-					</div>
-				{/each}
-			</Carousel>
 		</div>
 	</div>
 

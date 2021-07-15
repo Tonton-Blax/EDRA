@@ -68,13 +68,18 @@
 </script>
 <div class="svg-container">
     <div class="logo-container">
-		{#if animAssets[headerType].options.siglePointilles === false}
-			<img src="./img/logo.png" class="mb-5 logo-edra" alt="logo edra">
-		{:else}
-			<img src="./img/sigle_pointilles.png" class="mb-5" alt="logo edra" width="128px">
+		{#if animAssets[headerType].options.sigleType === 'plain'}
+			<img src="./img/logo.png" class="mb-5 logo-edra" alt="logo edra" style="margin-top:{isMobile ? "3em" : "0.75em"};">
+		{:else if animAssets[headerType].options.sigleType === 'pointilles'}
+			<img src="./img/sigle_pointilles.png" class="mb-5" alt="logo edra" width="74px" style="margin-top:{isMobile ? "3em" : "0.75em"};">
+		{:else if animAssets[headerType].options.sigleType === 'concept'}
+			<img src="./img/sigle-blanc.png" class="mb-5" alt="logo edra" width="74px" style="margin-top:{isMobile ? "3em" : "0.75em"};">
 		{/if}
 	{#if animAssets[headerType].options.title}
-		<h1 class="title is-2 has-text-weight-bold mb-4" style="color:{animAssets[headerType].options.linesColor};text-transform:uppercase">{animAssets[headerType].options.title}</h1>
+		<h1 class="title is-3 has-text-weight-bold mb-4" 
+			style="color:{animAssets[headerType].options.linesColor};text-transform:uppercase;letter-spacing:0.25rem;">
+			{animAssets[headerType].options.title}
+		</h1>
 	{/if}
     </div>
 
