@@ -1,12 +1,12 @@
 <svelte:window bind:innerWidth={innerWidth} on:popstate={notOk()} />
 <svelte:head>
-	<title>EDRA CONCEPT</title>
+	<title>EDRA Concept</title>
 </svelte:head>
 
 <script>
 	//import {chunk, shuffleArray } from '../utils/utils.js';
 	import IntersectionObserver from "svelte-intersection-observer";
-	import { fly } from 'svelte/transition';
+	import { fly, fade } from 'svelte/transition';
 	import { quadInOut, quadOut } from 'svelte/easing';
 	import Carousel from '@beyonk/svelte-carousel/src/Carousel.svelte'
 	import Modal from 'svelma/src/components/Modal/Modal.svelte'
@@ -15,13 +15,20 @@
 	import { observing } from '../utils/stores.js';
 	import { stores } from '@sapper/app';
 	import { isMobileDevice } from '../utils/utils.js';
-
 	import { tick } from 'svelte';
+	import { goto } from '@sapper/app';
 
 	const { page,preloading } = stores();
 	
 	$: ($page.path || $preloading) && notOk();
 	$: isMobile = isMobileDevice();
+	$: if (active) 
+		onpopstate = () => {
+			active = false;
+			goto('/');
+			const el = document.querySelector('#references');
+			el.scrollIntoView();
+		};
 
 	let ok = true;
 
@@ -33,8 +40,9 @@
 	}
 
 	let innerWidth;
-	let pictoEl, headerEl;
+	let pictoEl, headerEl, blocConcept;
 	let active = false;
+	let blocConceptInView = false;
 	
 	const intersectings = {
 		pictos : undefined,
@@ -43,30 +51,44 @@
 
 	const refs = {
 		logos : [
-			"../img/logos/logo_fondation_rotschild.jpg",
-			"../img/logos/logo_creche_modigliani.jpg",
-			"../img/logos/bichat.png",
-			"../img/logos/blueuts.png",
-			"../img/logos/foch.png",
-			"../img/logos/necker.png",
-			"../img/logos/sainte-anne.png",
-			"../img/logos/tenon.png",
-			"../img/logos/hopital-suisse.png"
+			"../img/logos/logo-chu-bayeux.jpg",
+			"../img/logos/logo-chu-limoges.jpg",
+			"../img/logos/logo-clinique-jouvenet.jpg",
+			"../img/logos/logo-clinique-maussins.jpg",
+			"../img/logos/logo-creche-modigliani.jpg",
+			"../img/logos/logo-fondation-rotschild.jpg",
+			"../img/logos/logo-hopital-ballanger.jpg",
+			"../img/logos/logo-hopital-pompidou.jpg",
+			"../img/logos/logo-maternite-reuilly.jpg"
 		],
 		images : [
-			["image_fondation_rotschild_01.jpg","image_fondation_rotschild_02.jpg","image_fondation_rotschild_03.jpg"],
-			["image_creche_modigliani_01.jpg", "image_creche_modigliani_02.jpg", "image_creche_modigliani_03.jpg", "image_creche_modigliani_04.jpg"],
+			["bayeux-01.jpg"],
+			["limoges-01.jpg"],
+			["jouvenet-01.jpg", "jouvenet-02.jpg", "jouvenet-03.jpg"],
+			["maussins-01.jpg","maussins-02.jpg"],
+			["modigliani-02.jpg", "modigliani-03.jpg","modigliani-04.jpg","modigliani-05.jpg","modigliani-07.jpg","modigliani-08.jpg","modigliani-09.jpg","modigliani-10.jpg","modigliani-11.jpg","modigliani-18.jpg","modigliani-19.jpg","modigliani-21.jpg","modigliani-23.jpg","modigliani-24.jpg","modigliani-27.jpg"],
+			["fondation-rothschild-01.jpg","fondation-rothschild-02.jpg","fondation-rothschild-03.jpg","fondation-rothschild-04.jpg","fondation-rothschild-05.jpg"],
+			["ballanger-01.jpg"],
+			["pompidou-01.jpg"],
+			["reuilly-01.jpg","reuilly-02.jpg","reuilly-03.jpg","reuilly-04.jpg","reuilly-05.jpg","reuilly-06.jpg","reuilly-07.jpg","reuilly-08.jpg","reuilly-09.jpg","reuilly-10.jpg","reuilly-11.jpg","reuilly-12.jpg","reuilly-13.jpg","reuilly-14.jpg","reuilly-15.jpg","reuilly-16.jpg","reuilly-17.jpg"]
 		],
 		alts : [
-			"Fondation rotschild",
-			"Creche Modigliani",
+			"Centre Hospitalier Aunay-Bayeux",
+			"Centre Hospitalier Universitaire Limoges",
+			"Clinique Jouvenet, Groupe Ramsay Santé",
+			"Clinique Maussins Nollet, Groupe Ramsay Santé",
+			"Crèche Modigliani",
+			"Fondation de Rotschild",
+			"Centre Hospitalier Intercommunal Robert Ballanger",
+			"Hôpital Européen Georges Pompidou",
+			"Maternité Reuilly, Groupe Hospitalier Diaconesses Croix Saint-Simon",
 		]
 	}
 
 	const overBlocks = [
 		{
 			index : 0,
-			titre : ["Paillasses endoscopiques", "Postes de change en Kerrock", "Lave-main Ocea"],
+			titre : ["Double vasque la Boétie", "Plan vasque simple", "Vasque porte de Versailles"],
 			liens : ["/produits/paillasses-endoscopiques", "/produits/postes-de-change-en-kerrock", "/produits/lave-main-ocea"],
 			sousTitre : [
 				"Ut velit mauris, egestas sed, gravida nec, ornare ut, mi. Aenean ut orci vel massa suscipit pulvinar. Nulla sollicitudin fusce varius.",
@@ -74,10 +96,12 @@
 				"Consultations, chambres, cabinets dentaires… Utilisation : lavage hygiénique (mains, avant-bras)"
 			],
 			images : [
-				'../img/initial/paillasse_endoscopique.jpg',
-				'../img/uploads/poste-de-change-sur-mesure-01.jpg',
-				'../img/uploads/lave-main-ocea-01.jpg'
-			]
+				'../img/concept/edra-concept-boetie.jpg',
+				'../img/concept/edra-concept-plan-vasque-simple.jpg',
+				'../img/concept/edra-concept-porte-versailles.jpg'
+			],
+			chapoDirection : 1000,
+			autoplay : 7000
 		},
 		{
 			index : 0,
@@ -91,7 +115,9 @@
 				'equipe1',
 				'delais_rapides',
 				'sav_reactif'
-			]
+			],
+			chapoDirection : -1000,
+			autoplay : 7000
 		},
 		{
 			index : 0,
@@ -104,18 +130,23 @@
 				'../img/initial/kerrock_1.jpg',
 				'../img/initial/kerrock_2.jpg',
 				'../img/initial/kerrock_3.jpg',
-			]
+			],
+			chapoDirection : -1000,
+			autoplay : 10000
 		}
 	];
 
 	let currentImageIndex = 0;
 	let wrapperCarousel;
 
+	let changeChapoIndex = async (overBlockIndex, idx) => {
+		overBlocks[overBlockIndex].chapoDirection = idx > overBlocks[overBlockIndex].index || (idx == 0 && overBlocks[overBlockIndex].index == overBlocks[overBlockIndex].images.length -1) ? -1000 : 1000;
+		overBlocks[overBlockIndex].index = idx;
+	}
+
 	let openModal = (idx) => {
 		active = true;
 		currentImageIndex = idx;
-		console.log("prout");
-		console.log(wrapperCarousel);
 	}
 
 </script>
@@ -145,7 +176,6 @@
 </div>
 
 	<!-- HEADER -->
-		
 	<div class="column is-full">
 		<IntersectionObserver element={headerEl} bind:intersecting={$observing}>
 			<div class="{isMobile ? 'edra-full' : 'edra-block'} no-padding has-text-white" bind:this={headerEl}>
@@ -157,30 +187,27 @@
 			</div>
 			
 		</IntersectionObserver>
-	</div>
-
+	</div>	
+	
 	<!-- PRODUITS -->
 
 	<div class="column is-full">
 		<div class="edra-block no-padding has-text-white">
 			{#key overBlocks[0].index}
-			<div class="overblock" in:fly={{x:1000, duration:500}} out:fly={{x:1000, delay:0, easing:quadInOut}}>
-				<div class="block-up">
-						<h3 class="title is-3 has-text-primary has-text-weight-bold">{overBlocks[0].titre[overBlocks[0].index]}</h3>
-					</div>
-				<div class="block-in">
-					<p class="has-text-primary has-text-left">{overBlocks[0].sousTitre[overBlocks[0].index]}</p>
-				</div>
-				<div class="block-bouton">
-					<a class="button is-success" rel="prefetch" href={overBlocks[0].liens[overBlocks[0].index]}>Découvrir</a>
+			<div class="overblock-concept" in:fade={{duration:500}} out:fade={{delay:0, easing:quadInOut}}>
+				<div class="flexbase h100">
+					<p class="m-6 p-6 is-size-5">
+						{overBlocks[0].sousTitre[overBlocks[0].index]}
+					</p>
 				</div>
 			</div>
 			{/key}
 			<div class="carou nomargin bgmm">
 			<Carousel 				
 				perPage={1} controls={true} dots={isMobile} multipleDrag={false}
-				autoplay={5000} duration={500}
-				on:change={ e => overBlocks[0].index = e.detail.currentSlide }
+				easing={"cubic-bezier(.58,0,.49,.99)"}
+				autoplay={overBlocks[0].autoplay} duration={500}
+				on:change={ e => changeChapoIndex(0, e.detail.currentSlide) }
 			>
 				{#each overBlocks[0].images as src (src)}
 					<img {src} class="carou-img" alt="nature" /> 
@@ -195,7 +222,9 @@
 	<div class="column is-full is-hidden-desktop border-bottom-mobile">
 		<div class="edra-block no-padding flexbase">
 		{#key overBlocks[0].index}
-			<div class="overblock-mobile" in:fly={{x:1000, duration:500}} out:fly={{x:-1000, delay:0, easing:quadInOut}}>
+			<div class="overblock-mobile" 
+			in:fly={{x: overBlocks[0].chapoDirection, duration:500}} 
+			out:fly={{x: overBlocks[0].chapoDirection, delay:0, easing:quadInOut}}>
 				<div class="block-up">
 						<h3 class="title is-big-touch has-text-primary has-text-weight-bold">{overBlocks[0].titre[overBlocks[0].index]}</h3>
 					</div>
@@ -247,6 +276,37 @@
 			</div>
 		</div>
 	</div>
+
+	<!-- NOUVEAU BLOC CONCEPT 4IMAGES + 1 A DROITE -->
+
+	<div class="column is-full">
+		<IntersectionObserver element={blocConcept} bind:intersecting={blocConceptInView}>
+			<div class="{isMobile ? 'edra-full' : 'edra-block'} no-padding has-text-white" bind:this={blocConcept}>
+				<div class="columns is-gapless">
+					<div class="column is-half">
+						<div class="columns is-gapless is-multiline">
+							<div class="column is-half h50">
+								<img src="../img/concept/concept-porte-de-versailles-480.jpg" alt="blabla">
+							</div>
+							<div class="column is-half h50">
+								<img src="../img/concept/concept-vasue-double-480.jpg" alt="blabla">						
+							</div>
+							<div class="column is-half h50">
+								<img src="../img/concept/concept-vasque-480.jpg" alt="blabla">
+							</div>
+							<div class="column is-half h50">
+								<img src="../img/concept/concept-double-vasque-480.jpg" alt="blabla">
+							</div>
+					</div>
+					<div class="column is-half">
+						<img src="../img/concept/concept-boertie-carre.jpg" alt="blabla">
+					</div>
+				</div>
+			</div>
+			
+		</IntersectionObserver>
+	</div>	
+
 	<!-- KERROCK TEXTE -->
 	<div class="columns is-multiline is-gapless reverse-columns mb-0">
 		<div class="column is-half is-full-touch">
@@ -254,7 +314,7 @@
 
 				{#key overBlocks[2].index}
 				<a class="flexbase has-text-white mince"  
-					in:fly={{x:1000, duration:500, easing:quadInOut}} out:fly={{x:-1000, easing:quadInOut}} 
+					in:fly={{x:overBlocks[2].chapoDirection, duration:500, easing:quadInOut}} out:fly={{x:overBlocks[2].chapoDirection, easing:quadInOut}} 
 					href='https://www.kerrock.fr/sanitaire'
 				>
 					<h2 class="title is-2 has-text-white mb-0 is-bigger-touch">Kerrock®</h2>
@@ -274,8 +334,9 @@
 				<div class="carou nomargin">
 				<Carousel 				
 					perPage={1} controls={true} dots={true} multipleDrag={false}
-					autoplay={10000} duration={500}
-					on:change={ e => overBlocks[2].index = e.detail.currentSlide }
+					autoplay={overBlocks[2].autoplay} duration={500}
+					easing={"cubic-bezier(.58,0,.49,.99)"}
+					on:change={ e => changeChapoIndex(2, e.detail.currentSlide) }
 				>				
 					{#each overBlocks[2].images as src (src)}
 						<img {src} class="carou-img-half" alt="nature" />
@@ -291,7 +352,7 @@
 	<div class="column is-full bgmm">
 		<div class="{isMobile ? 'edra-full' : 'edra-block'} no-padding has-text-white">
 			{#key overBlocks[1].index}
-			<div class="overtop" in:fly={{x:-1000, duration:500}} out:fly={{x:1000, delay:100, easing:quadInOut}}>
+			<div class="overtop" in:fly={{x:-overBlocks[1].chapoDirection, duration:700, easing:quadInOut}} out:fly={{x: overBlocks[1].chapoDirection, duration : 700, delay:100, easing:quadInOut}}>
 				<img src="../img/svg/hexagone.svg" alt="hexagone" class="hexagone" width="214px">
 					<div class="sub-overtop">
 						<p class="m-0 has-text-left is-size-1-desktop is-big-touch has-text-weight-bold mb-3" >
@@ -306,9 +367,10 @@
 	
 			<div class="carou nomargin">
 				<Carousel 
-					perPage={1} controls={false} dots={true} multipleDrag={false}
-					autoplay={7000} duration={500}
-					on:change={ e => overBlocks[1].index = e.detail.currentSlide }
+					perPage={1} controls={false} dots={true} multipleDrag={true}
+					autoplay={overBlocks[1].autoplay} duration={500}
+					easing={"cubic-bezier(.58,0,.49,.99)"}
+					on:change={ e => changeChapoIndex(1, e.detail.currentSlide) }
 				>
 					{#each overBlocks[1].images as src (src)}
 					<!--
@@ -335,14 +397,14 @@
 		</div>
 	</div>
 	<div class="column is-half is-full-touch">
-		<div class="edra-block no-padding has-background-white has-text-primary carou-ref references" style="margin-left:1px;" bind:this={wrapperCarousel}>
+		<div id="references" class="edra-block no-padding has-background-white has-text-primary carou-ref references" style="margin-left:1px;" bind:this={wrapperCarousel}>
 			<!-- <img class="autoheight" src="../img/kerrock02.jpg" alt="Hall d'accueil avec revêtement en kerrock"> -->
 			<Carousel 				
 				perPage={3} controls={false} dots={false} multipleDrag={false}
 				autoplay={0} duration={0} draggable={false}
 			>
 				{#each refs.logos.slice(0,3) as logo, chunkIndex}
-						<div style="display: flex;" class:cursorable={chunkIndex !== 2} on:click={() => chunkIndex !== 2 ? openModal(chunkIndex) : {} } >
+						<div style="display: flex;" class="cursorable" on:click={() => openModal(chunkIndex) } >
 							<span class="logosquare"><img class="resize is-square" src={logo} alt="logo-"/></span>
 						</div>
 				{/each}
@@ -353,7 +415,7 @@
 				autoplay={0} duration={0} draggable={false}
 			>
 				{#each refs.logos.slice(3,6) as logo, chunkIndex}
-					<div style="display: flex;">
+					<div style="display: flex;" class="cursorable" on:click={() => openModal(chunkIndex+3) } >
 						<span class="logosquare"><img class="resize is-square" src={logo} alt="logo-"/></span>
 					</div>
 				{/each}
@@ -364,7 +426,7 @@
 				autoplay={0} duration={0} draggable={false}
 			>
 				{#each refs.logos.slice(6,9) as logo, chunkIndex}
-					<div style="display: flex;">
+					<div style="display: flex;" class="cursorable" on:click={() => openModal(chunkIndex+6) } >
 						<span class="logosquare"><img class="resize is-square" src={logo} alt="logo-"/></span>
 					</div>
 				{/each}
@@ -373,6 +435,19 @@
 	</div>
 
 <style>
+
+	.overblock-concept {
+		position: absolute;
+		left: 0px;
+		z-index: 1;
+		max-width: 50%;
+		background: rgba(0,0,0,0.2);
+		padding: 30px;
+		height: inherit;
+	}
+	.h100 {
+		height:100%;
+	}
 	.cursorable {
 		cursor : pointer;
 	}
@@ -439,6 +514,9 @@
 		.col-picto img {
 			height: 256px;
 			width:auto;
+		}
+		.modal-carou img {
+			height:75vh;
 		}
 	}
 

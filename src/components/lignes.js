@@ -1,9 +1,12 @@
 export const animAssets = {
 
-    /* Pour les cercles et lignes, il est possible d'ajouter une propriété
+    /*  
+        
+    Pour les cercles et lignes, il est possible d'ajouter une propriété
         debug : true    pour afficher un rectangle orange de la ligne/cercle
         et aussi :
         isHiddenMobile : false      pour cacher la ligne/cercle sur mob/tablette
+
     */
 
 sombre : {
@@ -520,11 +523,11 @@ sombre : {
     },
     get concept () { 
         return {
-            ...this.clair, 
+            ...this.clair,
             options : {
                 siglePointilles : false,
-                bgColor : '#D9E7EC',
-                linesColor : '#005476',
+                bgColor : '#38454b',
+                linesColor : '#fff',
                 title : "Edra Concept",
             }
         }
