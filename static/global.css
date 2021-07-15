@@ -367,7 +367,7 @@ body {
     left: 50%;
     width: fill-available;
   }
-  .overtop img {
+  .overtop img, .overtop svg {
     transform: translateX(-50%);
   }
   .logosquare {
