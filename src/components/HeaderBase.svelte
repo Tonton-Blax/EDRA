@@ -55,7 +55,7 @@
 				cercle.stroke = ([...cercle.stroke, 0, cercle.peri]).join(' ');
 				cercle.el.style.strokeDasharray = cercle.stroke
 				cercle.el.style.strokeDashoffset = cercle.peri
-				cercle.el.style.transform = `rotateZ(${cercle.rotation || Math.round(Math.random()*365)})`;
+				//cercle.el.style.transform = `rotateZ(${cercle.rotation * 1.5 || Math.round(Math.random()*365)})`;
 				await tick();
 			}
 	}
@@ -99,6 +99,7 @@
 						cx={cercle.x}
 						r={cercle.rayon}
 						stroke={animAssets[headerType].options.bgColor}
+						style="transform:rotateZ({cercle.rotation}deg);transform-origin:{cercle.x}px {cercle.y}px"
 					>
 					</circle>
 			{/if}

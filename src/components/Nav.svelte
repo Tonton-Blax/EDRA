@@ -70,7 +70,12 @@
 >
 	<div class="navbar-brand">
 	  <a class="navbar-item unlink" href="/" style="cursor:pointer;">
+		{#if $observing && segment === 'concept'}
+			<img src="../img/logo-sigle-blanc.png" height="28" alt="logo EDRA">
+		{:else}
 			<img src="../img/logo-sigle.png" height="28" alt="logo EDRA">
+		{/if}
+		
 	  </a>
 	  	<button
 			on:click={() => menuIsActive = !menuIsActive}
@@ -87,7 +92,7 @@
 		<a class:forceblue={segment === 'produits'} bind:this={navItems[3]} on:mouseenter={()=>handleIndicator(3)} class="navbar-item" aria-current={segment === 'concept' ? 'page' : undefined} on:click={() => menuIsActive = false} href="concept">EDRA Concept</a>
 		<span class="navbar-indicator" bind:this={indicator}></span>
 
-	</div>  
+	</div>
 	{#if menuIsActive}
 	<div class="navbar-menu" class:is-active={menuIsActive} transition:slide={{easing: quadInOut}} >
 	  <div class="navbar-start">

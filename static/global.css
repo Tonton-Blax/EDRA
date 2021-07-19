@@ -43,6 +43,10 @@ body {
     overflow:hidden;
 }
 
+.cursorable {
+  cursor : pointer;
+}
+
 .autoheight {
     max-width:100%!important;
     object-fit: cover!important;

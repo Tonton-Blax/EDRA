@@ -422,9 +422,6 @@
 	</div>
 
 <style>
-	.cursorable {
-		cursor : pointer;
-	}
 	.col-picto img {
 		height: 128px;
 		width:auto;

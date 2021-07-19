@@ -8,11 +8,13 @@
 	import { fly, fade, scale } from 'svelte/transition';
 	import { quadInOut, quadOut } from 'svelte/easing';
 	import Carousel from '@beyonk/svelte-carousel/src/Carousel.svelte'
+	import Modal from 'svelma/src/components/Modal/Modal.svelte'
+	import { ChevronLeftIcon, ChevronRightIcon } from 'svelte-feather-icons'
 	import Header from '../components/HeaderBase.svelte';
 	import { observing } from '../utils/stores.js';
 	import { stores } from '@sapper/app';
 	import { isMobileDevice } from '../utils/utils.js';
-	import { tick } from 'svelte';
+	import { tick, onMount } from 'svelte';
 	import { goto } from '@sapper/app';
 
 	const { page,preloading } = stores();
@@ -27,7 +29,11 @@
 			el.scrollIntoView();
 		};
 
-	let ok = true;
+	let ok = true; let vids;
+
+	onMount(async()=>{
+		vids = document.querySelectorAll(`.videos-concept`);
+	})
 
 	let notOk = async () => {
 		await tick(); 
@@ -46,6 +52,40 @@
 		header : undefined
 	}
 
+	const refs = {
+		images : [
+			"bureaux-boetie-01.jpg",
+			"bureaux-boetie-02.jpg",
+			"bureaux-boetie-03.jpg",
+			"haute-autorite-concurrence-1.jpg",
+			"haute-autorite-concurrence-2.jpg",
+			"polo-1.jpg",
+			"polo-2.jpg",
+			"polo-3.jpg",
+			"porte-de-versailles-1.jpg",
+			"porte-de-versailles-2.jpg",
+			"porte-de-versailles-3.jpg",
+			"vasque-simple-2.jpg",
+			"vasque-simple.jpg",
+			"viparis.jpg",
+		],
+		alts : [
+			"bureaux-boetie",
+			"bureaux-boetie",
+			"bureaux-boetie",
+			"haute-autorite-concurrence",
+			"haute-autorite-concurrence",
+			"polo",
+			"polo",
+			"polo",
+			"porte-de-versailles",
+			"porte-de-versailles",
+			"porte-de-versailles",
+			"vasque-simple",
+			"vasque-simple",
+			"viparis",
+		]
+	}
 
 	const overBlocks = [
 		{
@@ -54,8 +94,8 @@
 			liens : ["/produits/paillasses-endoscopiques", "/produits/postes-de-change-en-kerrock", "/produits/lave-main-ocea"],
 			sousTitre : [
 				"Ut velit mauris, egestas sed, gravida nec, ornare ut, mi. Aenean ut orci vel massa suscipit pulvinar. Nulla sollicitudin fusce varius.",
-				"Pour une hygiène et un entretien irréprochable",
-				"Consultations, chambres, cabinets dentaires… Utilisation : lavage hygiénique (mains, avant-bras)"
+				"Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
+				"quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas?"
 			],
 			images : [
 				'../img/concept/edra-concept-boetie.jpg',
@@ -73,11 +113,6 @@
 				"Un rappel dans les 4 heures en moyenne pour vous accompagner par téléphone, des interventions rapides sur le terrain si besoin, des pièces détachées toujours en stock",
 				"Un process de fabrication local et maitrisé, capable de produire et déployer rapidement, même dans l’urgence"
 			],
-			color : [
-				'white',
-				'#005476',
-				'white'
-			],
 			images : [
 				'../videos/defonceuse.mp4',
 				'../videos/sav.mp4',
@@ -94,9 +129,9 @@
 				"Ecologique, il est naturellement durable et recyclable. Il peut être rénové, réparé et réutilisé à l’infini. Respectueux de l’environnement et de la santé, il ne contient aucun C.O.V."
 			],
 			images : [
-				'../img/initial/kerrock_1.jpg',
-				'../img/initial/kerrock_2.jpg',
-				'../img/initial/kerrock_3.jpg',
+				'../img/concept/large/kerrock-concept-1.jpg',
+				'../img/concept/large/kerrock-concept-2.jpg',
+				'../img/concept/large/kerrock-concept-3.jpg',
 			],
 			chapoDirection : -1000,
 			autoplay : 10000
@@ -106,13 +141,11 @@
 	let currentImageIndex = 0;
 
 	let changeChapoIndex = async (overBlockIndex, idx) => {
+		if (vids) {
+			[...vids].forEach(v => v.currentTime = 0);
+		}
 		overBlocks[overBlockIndex].chapoDirection = idx > overBlocks[overBlockIndex].index || (idx == 0 && overBlocks[overBlockIndex].index == overBlocks[overBlockIndex].images.length -1) ? -1000 : 1000;
 		overBlocks[overBlockIndex].index = idx;
-	}
-
-	let openModal = (idx) => {
-		active = true;
-		currentImageIndex = idx;
 	}
 
 </script>
@@ -131,6 +164,30 @@
 		</IntersectionObserver>
 	</div>	
 	
+	<!-- MODAL CAROUSEL -->
+
+	<div class="modal-index">
+		<Modal bind:active={active}>
+			{#if active}
+			<div class="modal-carou">
+				<Carousel
+					perPage={1} controls={true} dots={true} autoplay={30000} duration={500}
+				>
+				<span class="control" slot="left-control">
+					<ChevronLeftIcon />
+				</span>
+					{#each refs.images as src (src)}
+							<img src="../img/concept/large/{src}" alt={refs.alts[currentImageIndex]} /> 
+					{/each}
+				<span class="control" slot="right-control">
+					<ChevronRightIcon />
+				</span>
+				</Carousel>
+			</div>
+			{/if}
+		</Modal>
+	</div>
+
 	<!-- PRODUITS -->
 
 	<div class="column is-full">
@@ -138,7 +195,7 @@
 			{#key overBlocks[0].index}
 			<div class="overblock-concept" in:fade={{duration:500}} out:fade={{delay:0, easing:quadInOut}}>
 				<div class="flexbase h100">
-					<p class="m-6 p-6 is-size-5">
+					<p class="m-6 p-6 is-size-4 has-text-left">
 						{overBlocks[0].sousTitre[overBlocks[0].index]}
 					</p>
 				</div>
@@ -184,33 +241,33 @@
 	<!-- 4 PICTOS -->
 
 	<div class="column is-full">
-		<div class="edra-block no-padding has-background-white has-text-primary clear-height-touch" bind:this={pictoEl}>
-			<h2 class="title is-2 has-text-centered has-text-primary has-text-weight-bold mb-6 mmt-3 mmb-6 is-big-touch">EDRA, 30 ans <br>de qualité de Service</h2>
+		<div class="edra-block no-padding has-background-white has-text-info clear-height-touch" bind:this={pictoEl}>
+			<h2 class="title is-2 has-text-centered has-text-info has-text-weight-bold mb-6 mmt-3 mmb-6 is-big-touch">EDRA, 30 ans <br>de qualité de Service</h2>
 			<div class="columns is-mobile is-multiline cols-picto tp-3 full-height">
 				<IntersectionObserver bind:intersecting={intersectings.pictos} element={pictoEl} once={isMobile}>
 					{#if intersectings.pictos}
 					<div out:fly in:fly={{y:200, delay:100, easing:quadOut}} 
 						class="column is-one-fourth is-full-touch has-text-centered col-picto">
-						<img src="../img/pictos/picto_madeinfrance.png" width="auto" alt="Fabrication à partir d'un moule">
-						<h3 class="title is-4 is-size-1-touch has-text-primary mpt-2">Fabrication<br>française</h3>
+						<img src="../img/pictos/picto_madeinfrance-concept.png" width="auto" alt="Fabrication à partir d'un moule">
+						<h3 class="title is-4 is-size-1-touch has-text-info mpt-2">Fabrication<br>française</h3>
 						<p class="is-size-2-touch">EDRA est une entreprise 100% française qui fabrique 100% français.</p>
 					</div>
 					<div out:fly in:fly={{y:200, delay:250, easing:quadOut}} 
 						class="column is-one-fourth is-full-touch has-text-centered col-picto">
-						<img src="../img/pictos/picto_surmesure.png" width="auto" alt="Fabrication à partir d'un moule">
-						<h3 class="title is-4 is-size-1-touch has-text-primary mpt-2">Une production<br>sur mesure</h3>
+						<img src="../img/pictos/picto_surmesure-concept.png" width="auto" alt="Fabrication à partir d'un moule">
+						<h3 class="title is-4 is-size-1-touch has-text-info mpt-2">Une production<br>sur mesure</h3>
 						<p class="is-size-2-touch">Fonctionnalité, ergonomie, hygiène, esthétisme : 4 mots pour nous guider dans la conception de votre projet.</p>
 					</div>
 					<div out:fly  in:fly={{y:200, delay:400, easing:quadOut}} 
 						class="column is-one-fourth is-full-touch has-text-centered col-picto">
-						<img src="../img/pictos/picto_tracking.png" width="auto" alt="Fabrication à partir d'un moule">
-						<h3 class="title is-4 is-size-1-touch has-text-primary mpt-2">Suivi du projet<br>de A à Z</h3>
+						<img src="../img/pictos/picto_tracking-concept.png" width="auto" alt="Fabrication à partir d'un moule">
+						<h3 class="title is-4 is-size-1-touch has-text-info mpt-2">Suivi du projet<br>de A à Z</h3>
 						<p class="is-size-2-touch">De la conception à la mise en service dans vos locaux : plusieurs métiers, un seul interlocuteur.</p>
 					</div>
 					<div out:fly  in:fly={{y:200, delay:550, easing:quadOut}} 
 					class="column is-one-fourth is-full-touch has-text-centered col-picto">
-						<img src="../img/pictos/picto_livraison.png" width="auto" alt="Fabrication à partir d'un moule">
-						<h3 class="title is-4 is-size-1-touch has-text-primary mpt-2">Intervention<br> dans toute la france</h3>
+						<img src="../img/pictos/picto_livraison-concept.png" width="auto" alt="Fabrication à partir d'un moule">
+						<h3 class="title is-4 is-size-1-touch has-text-info mpt-2">Intervention<br> dans toute la france</h3>
 						<p class="is-size-2-touch">Livraison, installation ou maintenance, nous nous déplaçons dans toute la France Métropolitaine.</p>
 					</div>
 					{/if}
@@ -224,7 +281,7 @@
 	<div class="column is-full">
 		<IntersectionObserver element={blocConcept} bind:intersecting={blocConceptInView}>
 			<div class="{isMobile ? 'edra-full' : 'edra-block'} no-padding has-text-white" bind:this={blocConcept} style="place-content: start;">
-				<div class="columns is-gapless">
+				<div class="columns is-gapless cursorable concept-refs" on:click={()=>active=true}>
 					{#if blocConceptInView}
 					<div class="column is-half">
 						<div class="columns is-gapless is-multiline">
@@ -232,13 +289,13 @@
 								<img src="../img/concept/concept-porte-de-versailles-480.jpg" alt="blabla" transition:scale>
 							</div>
 							<div class="column is-half is-flex">
-								<img src="../img/concept/concept-vasue-double-480.jpg" alt="blabla" style="max-width:101%;" in:scale={{delay : 100}}>
+								<img src="../img/concept/concept-vasue-double-480.jpg" alt="blabla" in:scale={{delay : 100}}>
 							</div>
 							<div class="column is-half is-flex">
 								<img src="../img/concept/concept-vasque-480.jpg" alt="blabla" in:scale={{delay : 200}}>
 							</div>
 							<div class="column is-half is-flex">
-								<img src="../img/concept/concept-double-vasque-480.jpg" alt="blabla" style="max-width:101%;" in:scale={{delay : 320}}>
+								<img src="../img/concept/concept-double-vasque-480.jpg" alt="blabla" in:scale={{delay : 320}}>
 							</div>
 						</div>
 					</div>
@@ -302,15 +359,15 @@
 				<svg width="214" height="242" viewBox="0 0 154 174" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path 
 						d="M76.886 169.052C77.6927 169.052 78.497 168.845 79.2184 168.431L146.556 129.751C147.999 128.923 148.886 127.39 148.886 125.732V48.3736C148.886 46.7157 147.999 45.1822 146.556 44.3544L79.2184 5.67353C78.4958 5.25965 77.6915 5.05151 76.886 5.05151C76.0817 5.05151 75.2761 5.25965 74.5536 5.67353L7.21601 44.3544C5.77447 45.1822 4.88599 46.7157 4.88599 48.3736V125.732C4.88599 127.39 5.77447 128.923 7.21601 129.751L74.5536 168.431C75.2749 168.845 76.0793 169.052 76.886 169.052" 
-						stroke="{overBlocks[1].color[overBlocks[1].index]}" stroke-width="9"
+						stroke="white" stroke-width="9"
 					/>
 				</svg>
 
 				<div class="sub-overtop">
-					<p class="m-0 has-text-left is-size-1-desktop is-big-touch has-text-weight-bold mb-3" style="color:{overBlocks[1].color[overBlocks[1].index]}">
+					<p class="m-0 has-text-left is-size-1-desktop is-big-touch has-text-weight-bold mb-3 has-text-white">
 						{@html overBlocks[1].titre[overBlocks[1].index]}
 					</p>
-					<p class="is-size-5-fullhd is-size-6-desktop is-size-2-touch has-text-left m-0" style="color:{overBlocks[1].color[overBlocks[1].index]}">
+					<p class="is-size-5-fullhd is-size-6-desktop is-size-2-touch has-text-left m-0 has-text-white">
 						{@html overBlocks[1].sousTitre[overBlocks[1].index]}
 					</p>
 				</div>
@@ -325,15 +382,8 @@
 					on:change={ e => changeChapoIndex(1, e.detail.currentSlide) }
 				>
 					{#each overBlocks[1].images as src, i (src)}
-					<!--
-						<img
-							alt="{src}"
-							sizes="(max-width: 1345px) 100vw, 1000px"
-							srcset="g/img/initial/{src}-400.webp 480w, g/img/initial/{src}-600.webp 768w, g/img/initial/{src}-1200.webp 1024w"
-						>
-					-->
 						{#if src.endsWith('mp4')}
-							<video no-controls loop autoplay muted="muted" src={src}></video>
+							<video class="videos-concept" no-controls loop autoplay muted="muted" src={src}></video>
 						{:else}
 							<img src={src} class="carou-img" alt="nature"/>
 						{/if}			
@@ -344,7 +394,17 @@
 	</div>
 
 <style>
-
+	:global(polyline) {
+		color:white;
+		cursor: pointer;
+	}
+	.concept-refs div > img {
+		filter:none;
+		transition:0.4s cubic-bezier(.58,0,.49,.99);
+	}
+	.concept-refs div > img:hover {
+		filter:brightness(0.5);
+	}
 	.overblock-concept {
 		position: absolute;
 		left: 0px;
@@ -401,10 +461,18 @@
 			opacity: 1;
 		}
 	}
+	@media screen and (min-width: 1024px) {
+		.modal-carou img {
+			height:85vh;
+		}
+	}
 	@media screen and (max-width: 1024px) {
 		.col-picto img {
 			height: 256px;
 			width:auto;
+		}
+		.modal-carou img {
+			height:75vh;
 		}
 	}
 
