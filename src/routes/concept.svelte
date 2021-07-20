@@ -116,7 +116,7 @@
 			images : [
 				'../videos/defonceuse.mp4',
 				'../videos/sav.mp4',
-				'../img/initial/delais_rapides.jpg',
+				'../videos/pingouin.mp4',
 			],
 			chapoDirection : -1000,
 			autoplay : 7000
@@ -225,10 +225,10 @@
 			in:fly={{x: overBlocks[0].chapoDirection, duration:500}} 
 			out:fly={{x: overBlocks[0].chapoDirection, delay:0, easing:quadInOut}}>
 				<div class="block-up">
-						<h3 class="title is-big-touch has-text-primary has-text-weight-bold">{overBlocks[0].titre[overBlocks[0].index]}</h3>
+						<h3 class="title is-big-touch has-text-info has-text-weight-bold">{overBlocks[0].titre[overBlocks[0].index]}</h3>
 					</div>
 				<div class="block-in">
-					<p class="has-text-primary has-text-left is-size-2">{overBlocks[0].sousTitre[overBlocks[0].index]}</p>
+					<p class="has-text-info has-text-left is-size-2">{overBlocks[0].sousTitre[overBlocks[0].index]}</p>
 				</div>
 				<div class="block-bouton">
 					<a class="button is-success is-size-3 has-text-bold mt-3" rel="prefetch" href={overBlocks[0].liens[overBlocks[0].index]}>Découvrir</a>
@@ -280,28 +280,30 @@
 
 	<div class="column is-full">
 		<IntersectionObserver element={blocConcept} bind:intersecting={blocConceptInView}>
-			<div class="{isMobile ? 'edra-full' : 'edra-block'} no-padding has-text-white" bind:this={blocConcept} style="place-content: start;">
+			<div class="concept-bloc no-padding has-text-white" bind:this={blocConcept} style="place-content: start;">
 				<div class="columns is-gapless cursorable concept-refs" on:click={()=>active=true}>
 					{#if blocConceptInView}
-					<div class="column is-half">
-						<div class="columns is-gapless is-multiline">
-							<div class="column is-half is-flex">
-								<img src="../img/concept/concept-porte-de-versailles-480.jpg" alt="blabla" transition:scale>
-							</div>
-							<div class="column is-half is-flex">
-								<img src="../img/concept/concept-vasue-double-480.jpg" alt="blabla" in:scale={{delay : 100}}>
-							</div>
-							<div class="column is-half is-flex">
-								<img src="../img/concept/concept-vasque-480.jpg" alt="blabla" in:scale={{delay : 200}}>
-							</div>
-							<div class="column is-half is-flex">
-								<img src="../img/concept/concept-double-vasque-480.jpg" alt="blabla" in:scale={{delay : 320}}>
+						<div class="column is-half-desktop is-full-touch">
+							<div class="columns is-gapless is-multiline">
+								<div class="column is-half is-flex">
+									<img src="../img/concept/concept-porte-de-versailles-480.jpg" alt="blabla" transition:scale>
+								</div>
+								<div class="column is-half is-flex">
+									<img src="../img/concept/concept-vasue-double-480.jpg" alt="blabla" in:scale={{delay : 100}}>
+								</div>
+								<div class="column is-half is-flex">
+									<img src="../img/concept/concept-vasque-480.jpg" alt="blabla" in:scale={{delay : 200}}>
+								</div>
+								<div class="column is-half is-flex">
+									<img src="../img/concept/concept-double-vasque-480.jpg" alt="blabla" in:scale={{delay : 320}}>
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="column is-half">
-						<img src="../img/concept/concept-boertie-carre.jpg" alt="blabla" in:scale={{delay : 200}}>
-					</div>
+						{#if !isMobile}
+						<div class="column is-half">
+							<img src="../img/concept/concept-boertie-carre.jpg" alt="blabla" in:scale={{delay : 200}}>
+						</div>
+						{/if}
 					{/if}
 				</div>
 			</div>
@@ -352,16 +354,17 @@
 	<!-- POINTS FORTS -->
 
 	<div class="column is-full bgmm">
-		<div class="{isMobile ? 'edra-full' : 'edra-block'} no-padding has-text-white">
+		<div class="{isMobile ? 'edra-full ontop' : 'edra-block no-padding'} has-text-white">
 			{#key overBlocks[1].index}
 			<div class="overtop" in:fly={{x:-overBlocks[1].chapoDirection, duration:700, easing:quadInOut}} out:fly={{x: overBlocks[1].chapoDirection, duration : 700, delay:100, easing:quadInOut}}>
-				
+				{#if !isMobile}
 				<svg width="214" height="242" viewBox="0 0 154 174" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path 
 						d="M76.886 169.052C77.6927 169.052 78.497 168.845 79.2184 168.431L146.556 129.751C147.999 128.923 148.886 127.39 148.886 125.732V48.3736C148.886 46.7157 147.999 45.1822 146.556 44.3544L79.2184 5.67353C78.4958 5.25965 77.6915 5.05151 76.886 5.05151C76.0817 5.05151 75.2761 5.25965 74.5536 5.67353L7.21601 44.3544C5.77447 45.1822 4.88599 46.7157 4.88599 48.3736V125.732C4.88599 127.39 5.77447 128.923 7.21601 129.751L74.5536 168.431C75.2749 168.845 76.0793 169.052 76.886 169.052" 
 						stroke="white" stroke-width="9"
 					/>
 				</svg>
+				{/if}
 
 				<div class="sub-overtop">
 					<p class="m-0 has-text-left is-size-1-desktop is-big-touch has-text-weight-bold mb-3 has-text-white">
@@ -377,7 +380,7 @@
 			<div class="carou nomargin">
 				<Carousel 
 					perPage={1} controls={false} dots={true} multipleDrag={true}
-					autoplay={overBlocks[1].autoplay} duration={500}
+					autoplay={0} duration={500}
 					easing={"cubic-bezier(.58,0,.49,.99)"}
 					on:change={ e => changeChapoIndex(1, e.detail.currentSlide) }
 				>
@@ -404,6 +407,9 @@
 	}
 	.concept-refs div > img:hover {
 		filter:brightness(0.5);
+	}
+	.concept-bloc {
+		margin-bottom:-7px;
 	}
 	.overblock-concept {
 		position: absolute;
@@ -474,6 +480,19 @@
 		.modal-carou img {
 			height:75vh;
 		}
+		.concept-bloc {
+			margin-bottom:-64px;
+		}
+		.concept-bloc div img  {
+			width:100%!important;
+		}
+		.overtop {
+			margin-top:50%;
+		}
+		.ontop {
+			justify-content: flex-start!important;
+		}
+
 	}
 
 </style>

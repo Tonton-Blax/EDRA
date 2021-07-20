@@ -263,7 +263,7 @@ body {
     .no-padding {
       padding:4em 0em;
     }
-    .overblock {
+    .overblock, .overblock-concept {
       display:none;
     }
     .overblock-mobile {
