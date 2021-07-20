@@ -6,33 +6,36 @@
     import { quadInOut } from 'svelte/easing';
     import { onMount,tick } from 'svelte';
     
-    let sousFamille = false;
-    let lavabos;
+    let currentLevel = 0;
     let card, navCard;
-    $: currentPosts = sousFamille ? lavabos : posts.filter(l => !l.famille || l.famille !== 'lavabo');
+    let currentPosts = []
 
     onMount(async()=>{
-        lavabos = posts.filter(l => l.famille && l.famille == 'lavabo');
-        console.log(card.offsetHeight);
-        navCard.style.height = card.offsetHeight + 'px';
+        currentPosts = posts.filter(l => !l.famille || l.famille === 'normal');
+        if (navCard && navCard.style && navCard.style.height)
+            navCard.style.height = card.offsetHeight + 'px';
     })
 
-    async function changeFamille () {
-        sousFamille = !sousFamille;
+    async function changeLevel (level, filtre) {
+        if (filtre) {
+            currentPosts = posts.filter(l => l.famille && l.famille.includes(filtre))
+        }
+        currentLevel = level;
         await (tick);
-        navCard.style.height = card.offsetHeight + 'px';
+        if (navCard && navCard.style && card && card.offsetHeight)
+            navCard.style.height = card.offsetHeight + 'px';
     }
 
 </script>
-        {#key sousFamille}
+        {#key currentLevel}
 		<div class="colposts" in:fly={{easing : quadInOut, x:2000, duration:500, delay:200}} out:fly={{easing : quadInOut, x:-2000, duration:500}} >
 			<div class="columns is-multiline has-background-primary-light cols-produits is-variable is-1 padding-posts"
                 out:slide={{easing : quadInOut, duration:500 }}
             >
                 <div class="column is-one-third is-half-touch mb-0">
-					<div class="card mb-2 mt-2" on:click={changeFamille} bind:this={navCard} >
-                        {#if !sousFamille}
-                        <div class="card-image">
+					<div class="card mb-2 mt-2" bind:this={navCard} >
+                        {#if !currentLevel}
+                        <div class="card-image" on:click={()=>changeLevel(1)}>
 							<figure class="image">
                                 <div class="card-thumb">
                                     <Image src={"/img/lavabo.svg"} alt={"Section Lavabos"} />
@@ -47,14 +50,82 @@
 						<footer class="card-footer">
 							<div class="button is-success has-text-weight-bold is-uppercase">découvrir</div>
 						</footer>
+
                         {:else}
-						<div class="flexbase" style="height:100%;">
+
+						<div class="flexbase" style="height:100%;" on:click={()=>changeLevel(currentLevel === 2 ? 1 : 0, currentLevel === 1 ? 'normal' : null)}>
                             <img src={"/img/back.png"} alt={"Retour à la liste des produits"} class="retour" />
-                            <h2 class="title is-3 has-text-primary has-text-centered has-text-weight-light" style="position:relative;top:1em;">Retour à la liste<br>des produits</h2>
+                            <h2 class="title is-3 has-text-primary has-text-centered has-text-weight-light" style="position:relative;top:1em;">
+                                {currentLevel === 1 ? "Retour à la liste\ndes produits" : "Retour à la liste\ndes lavabos"}
+                            </h2>
 						</div>
                         {/if}
 					</div>
 				</div>
+
+<!-- GAMME LAVABOS -->
+
+                {#if currentLevel === 1}
+                    <div class="column is-one-third is-half-touch mb-0">
+                        <div class="card mb-2 mt-2" on:click={()=>changeLevel(2, 'alize')} bind:this={card} >
+                            <div class="card-image">
+                                <figure class="image">
+                                    <div class="card-thumb">
+                                        <Image src={"/img/lavabo.svg"} alt={"Section Lavabos"} />
+                                    </div>
+                                </figure>
+                            </div>
+                            <div class="card-content">		  
+                                <div class="content">
+                                    <h2 class="title is-4 has-text-primary has-text-left has-text-weight-bold">Gamme Alizé</h2>
+                                </div>
+                            </div>
+                            <footer class="card-footer">
+                                <div class="button is-success has-text-weight-bold is-uppercase">découvrir</div>
+                            </footer>
+                        </div>
+                    </div>
+                    <div class="column is-one-third is-half-touch mb-0">
+                        <div class="card mb-2 mt-2" on:click={()=>changeLevel(2, 'bloc')} >
+                            <div class="card-image">
+                                <figure class="image">
+                                    <div class="card-thumb">
+                                        <Image src={"/img/lavabo.svg"} alt={"Section Lavabos"} />
+                                    </div>
+                                </figure>
+                            </div>
+                            <div class="card-content">		  
+                                <div class="content">
+                                    <h2 class="title is-4 has-text-primary has-text-left has-text-weight-bold">Auges gamme Bloc</h2>
+                                </div>
+                            </div>
+                            <footer class="card-footer">
+                                <div class="button is-success has-text-weight-bold is-uppercase">découvrir</div>
+                            </footer>
+                        </div>
+                    </div>
+                    <div class="column is-one-third is-half-touch mb-0">
+                        <div class="card mb-2 mt-2"on:click={()=>changeLevel(2, 'ocea')} >
+                            <div class="card-image">
+                                <figure class="image">
+                                    <div class="card-thumb">
+                                        <Image src={"/img/lavabo.svg"} alt={"Section Lavabos"} />
+                                    </div>
+                                </figure>
+                            </div>
+                            <div class="card-content">		  
+                                <div class="content">
+                                    <h2 class="title is-4 has-text-primary has-text-left has-text-weight-bold">Gamme Océa</h2>
+                                </div>
+                            </div>
+                            <footer class="card-footer">
+                                <div class="button is-success has-text-weight-bold is-uppercase">découvrir</div>
+                            </footer>
+                        </div>
+                    </div>
+
+<!-- LISTE FILTREE -->
+                {:else}
 				{#each currentPosts as post}
 				<div class="column is-one-third is-half-touch mb-0">
 					<div class="card mb-2 mt-2" on:click={()=> goto(`produits/${post.slug}`, {noscroll : true})} bind:this={card}>
@@ -66,7 +137,7 @@
 								<!-- <img src={post.thumbnail} alt="{post.title}"> -->
 							</figure>
 						</div>
-						<div class="card-content">		  
+						<div class="card-content">
 							<div class="content">
 								<h2 class="title is-4 has-text-primary has-text-left has-text-weight-bold">{@html post.title}</h2>
 							</div>
@@ -77,6 +148,7 @@
 					</div>
 				</div>
 				{/each}
+                {/if}
 			</div>
 		</div>
         {/key}
