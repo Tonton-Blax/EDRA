@@ -203,7 +203,7 @@
 			{/key}
 			<div class="carou nomargin bgmm">
 			<Carousel 				
-				perPage={1} controls={true} dots={isMobile} multipleDrag={false}
+				perPage={1} controls={true} dots={true} multipleDrag={false}
 				easing={"cubic-bezier(.58,0,.49,.99)"}
 				autoplay={overBlocks[0].autoplay} duration={500}
 				on:change={ e => changeChapoIndex(0, e.detail.currentSlide) }
@@ -354,7 +354,7 @@
 	<!-- POINTS FORTS -->
 
 	<div class="column is-full bgmm">
-		<div class="{isMobile ? 'edra-full ontop' : 'edra-block no-padding'} has-text-white">
+		<div class="{isMobile ? 'edra-full ontop' : 'edra-block no-padding'} has-text-white has-background-info" style="height:auto;">
 			{#key overBlocks[1].index}
 			<div class="overtop" in:fly={{x:-overBlocks[1].chapoDirection, duration:700, easing:quadInOut}} out:fly={{x: overBlocks[1].chapoDirection, duration : 700, delay:100, easing:quadInOut}}>
 				{#if !isMobile}
@@ -377,7 +377,7 @@
 			</div>
 			{/key}
 	
-			<div class="carou nomargin">
+			<div class="carou special-margin">
 				<Carousel 
 					perPage={1} controls={false} dots={true} multipleDrag={true}
 					autoplay={0} duration={500}
@@ -443,9 +443,12 @@
 		width: fit-content;
 		min-width:100%;
 		object-fit:cover;
-		height:695px;
     	margin:0px 0px 0px 0px;
 	}
+	:global(.carou img) {
+		height:695px;
+	}
+
 	p {
 		margin: 1em auto;
 	}
@@ -471,6 +474,10 @@
 		.modal-carou img {
 			height:85vh;
 		}
+		.special-margin {
+			margin : 0px 0px -6px 0px;
+		}
+
 	}
 	@media screen and (max-width: 1024px) {
 		.col-picto img {
@@ -487,10 +494,13 @@
 			width:100%!important;
 		}
 		.overtop {
-			margin-top:50%;
+			margin-top:54vh;
 		}
 		.ontop {
 			justify-content: flex-start!important;
+		}
+		:global(.carou video) {
+			height : 48vh;
 		}
 
 	}
