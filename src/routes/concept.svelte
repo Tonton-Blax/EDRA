@@ -314,7 +314,7 @@
 	<!-- KERROCK TEXTE -->
 	<div class="columns is-multiline is-gapless reverse-columns mb-0">
 		<div class="column is-half is-full-touch">
-			<div class="edra-block has-background-info has-text-white flex-centered" >
+			<div class="edra-block has-background-info has-text-white flex-centered">
 
 				{#key overBlocks[2].index}
 				<a class="flexbase has-text-white mince"  
@@ -353,7 +353,7 @@
 
 	<!-- POINTS FORTS -->
 
-	<div class="column is-full bgmm">
+	<div class="column is-full bgmm snapme">
 		<div class="{isMobile ? 'edra-full ontop' : 'edra-block no-padding'} has-text-white has-background-info" style="height:auto;">
 			{#key overBlocks[1].index}
 			<div class="overtop" in:fly={{x:-overBlocks[1].chapoDirection, duration:700, easing:quadInOut}} out:fly={{x: overBlocks[1].chapoDirection, duration : 700, delay:100, easing:quadInOut}}>
@@ -502,7 +502,16 @@
 		:global(.carou video) {
 			height : 48vh;
 		}
-
+		:global(body) {
+			scroll-snap-type: y proximity;
+  			/* Reserve space for header plus some extra space for sneak peeking. */
+  			overflow-y: scroll;
+			height:100vh;
+		}
+		.snapme {
+			scroll-snap-align: start;
+			scroll-snap-stop: normal
+		}
 	}
 
 </style>
