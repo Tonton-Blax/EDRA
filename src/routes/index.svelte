@@ -354,7 +354,7 @@
 			<div class="carou special-margin">
 				<Carousel 
 					perPage={1} controls={false} dots={true} multipleDrag={true}
-					autoplay={0} duration={500}
+					autoplay={7000} duration={500}
 					easing={"cubic-bezier(.58,0,.49,.99)"}
 					on:change={ e => changeChapoIndex(1, e.detail.currentSlide) }
 				>
