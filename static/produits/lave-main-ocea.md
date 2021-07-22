@@ -2,6 +2,7 @@
 layout: produits
 slug: lave-main-ocea
 title: Lave-main Ocea
+keywords: Lavabos chirurgicaux
 subtitle: "Services : Consultations, chambres, cabinets dentaires… Utilisation :
   lavage hygiénique (mains, avant-bras)"
 famille: ocea_1_poste
