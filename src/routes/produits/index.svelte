@@ -12,13 +12,9 @@
 	import Header from '../../components/HeaderBase.svelte';
 	import {observing} from '../../utils/stores.js';
 	import IntersectionObserver from "svelte-intersection-observer";
-	import { stores } from '@sapper/app';
 	import { tick } from 'svelte';
 	import { isMobileDevice } from '../../utils/utils.js';
 
-	const { page,preloading } = stores();
-	
-	//$: ($page.path || $preloading) && notOk();
 	$: isMobile = isMobileDevice();
 
 	let ok = true;

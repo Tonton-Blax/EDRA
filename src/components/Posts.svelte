@@ -152,8 +152,21 @@
 			</div>
 		</div>
         {/key}
-<style>
+        
+        <div class="invisible-links">
+        {#each posts as post}
+                <a href="produits/{post.slug}">{post.slug}</a>
+        {/each}
+        </div>
 
+
+<style>
+    .invisible-links{
+        opacity: 0;
+        position: absolute;
+        pointer-events: none;
+    }
+    
     .button {
         border-radius:0px;
     }
