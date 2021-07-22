@@ -17,7 +17,6 @@
 	import { isMobileDevice } from '../utils/utils.js';
 	import { tick, onMount } from 'svelte';
 	import { goto } from '@sapper/app';
-	import SvelteSeo from "svelte-seo";
 
 	const { page,preloading } = stores();
 	
@@ -43,15 +42,17 @@
 	let innerWidth;
 	let pictoEl, headerEl;
 	let active = false;
-	let ready;
-	
+
 	const intersectings = {
 		pictos : undefined,
 		header : undefined
 	}
 
+	let SvelteSeo; let ready;
 	onMount(async()=>{
-		ready=true;
+		const module = await import('svelte-seo');
+        SvelteSeo = module.default;
+		ready = true;
 	});
 
 	const refs = {
@@ -161,10 +162,9 @@
 
 </script>
 
-{#if ready}
 <!-- SEO -->
-
-<SvelteSeo
+{#if ready}
+<svelte:component this={SvelteSeo}
     title={"Edra médical"}
     description="Fabrication en France de mobilier médical : paillasses endoscopiques, lavabos pour lavage chirurgical, modules endoscopiques, vasques"
     nofollow={false}

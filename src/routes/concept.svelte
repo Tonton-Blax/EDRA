@@ -16,7 +16,6 @@
 	import { isMobileDevice } from '../utils/utils.js';
 	import { tick, onMount } from 'svelte';
 	import { goto } from '@sapper/app';
-	import SvelteSeo from "svelte-seo";
 
 	const { page,preloading } = stores();
 	
@@ -32,8 +31,12 @@
 
 	let ok = true; let vids;
 
+	let SvelteSeo; let ready;
 	onMount(async()=>{
+		const module = await import('svelte-seo');
+        SvelteSeo = module.default;
 		vids = document.querySelectorAll(`.videos-concept`);
+		ready = true;
 	})
 
 	let notOk = async () => {
@@ -150,8 +153,8 @@
 	}
 
 </script>
-
-<SvelteSeo
+{#if ready}
+<svelte:component this={SvelteSeo}
     title={"Edra concept"}
     description="Fabrication en France sur-mesure de mobilier sanitaire : paillasses, lavabos, vasques, WC, robineterie..."
     nofollow={false}
@@ -172,6 +175,7 @@
         ]
     }}
 />
+{/if}
 
 	<!-- HEADER -->
 	<div class="column is-full">

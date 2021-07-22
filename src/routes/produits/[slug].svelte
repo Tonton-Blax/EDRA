@@ -24,7 +24,6 @@
 	import Modal from 'svelma/src/components/Modal/Modal.svelte'
 	import { ChevronLeftIcon, ChevronRightIcon } from 'svelte-feather-icons'
 	import { goto } from '@sapper/app';
-	import SvelteSeo from "svelte-seo";
 
 	const { page } = stores();
 
@@ -58,11 +57,14 @@
 		active = true;
 	}
 
+	let SvelteSeo;
 	onMount(async() => {
 		$observing = false;
 		produit = postMd;
 		ready = true;
 		await tick();
+		const module = await import('svelte-seo');
+        SvelteSeo = module.default;
 		window.scrollTo({ behavior: "smooth", top: 0 });	
 	});
 
@@ -75,7 +77,7 @@
 
 {#if ready}
 
-<SvelteSeo
+<svelte:component this={SvelteSeo}
     title={produit.title || "Edra médical"}
     description={produit.description || produit.subtitle || produit.famille || produit.slug || "Paillasses endoscopiques, Lavabos, Auges, Bloc"}
     nofollow={false}
