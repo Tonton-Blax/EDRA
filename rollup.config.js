@@ -77,6 +77,10 @@ export default {
 						src: 'node_modules/@fortawesome/fontawesome-free/webfonts',
 						dest: config.client.output().dir,
 					},
+					{
+						src: 'robots.txt',
+						dest: config.client.output().dir,
+					},
 				]
 			}),
 			svelte({
