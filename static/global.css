@@ -351,10 +351,11 @@ body {
 		width: fill-available;
 	}
 	.sub-overtop {
-		width:calc(50% + 7vw);
     align-items:flex-start!important;
-    flex-flow:column; 
-    margin-left: -3vw; 
+    width: 26em;
+    flex-flow: column;
+    position: absolute;
+    left: 10em;
 	}
   .carou-img-half {
 		min-height: var(--desktop-height);

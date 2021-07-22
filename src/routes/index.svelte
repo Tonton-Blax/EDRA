@@ -52,10 +52,11 @@
 		header : undefined
 	}
 
-	let SvelteSeo; let ready;
+	let SvelteSeo; let ready; let vids;
 	onMount(async()=>{
 		const module = await import('svelte-seo');
         SvelteSeo = module.default;
+		vids = document.querySelectorAll(`.videos-concept`);
 		ready = true;
 	});
 
@@ -155,6 +156,11 @@
 	let wrapperCarousel;
 
 	let changeChapoIndex = async (overBlockIndex, idx) => {
+		for (let i = 0; i < vids.length; i++) {
+			if (vids[i]) {
+				vids[i].currentTime = 0;
+			}
+		}
 		overBlocks[overBlockIndex].chapoDirection = idx > overBlocks[overBlockIndex].index || (idx == 0 && overBlocks[overBlockIndex].index == overBlocks[overBlockIndex].images.length -1) ? -1000 : 1000;
 		overBlocks[overBlockIndex].index = idx;
 	}

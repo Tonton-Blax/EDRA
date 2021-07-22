@@ -145,8 +145,10 @@
 	let currentImageIndex = 0;
 
 	let changeChapoIndex = async (overBlockIndex, idx) => {
-		if (vids) {
-			[...vids].forEach(v => v.currentTime = 0);
+		for (let i = 0; i < vids.length; i++) {
+			if (vids[i]) {
+				vids[i].currentTime = 0;
+			}
 		}
 		overBlocks[overBlockIndex].chapoDirection = idx > overBlocks[overBlockIndex].index || (idx == 0 && overBlocks[overBlockIndex].index == overBlocks[overBlockIndex].images.length -1) ? -1000 : 1000;
 		overBlocks[overBlockIndex].index = idx;
@@ -414,7 +416,7 @@
 				>
 					{#each overBlocks[1].images as src, i (src)}
 						{#if src.endsWith('mp4')}
-							<video class="videos-concept" no-controls loop autoplay muted="muted" src={src}></video>
+							<video class="videos-concept" no-controls loop autoplay muted src={src}></video>
 						{:else}
 							<img src={src} class="carou-img" alt="nature"/>
 						{/if}			
