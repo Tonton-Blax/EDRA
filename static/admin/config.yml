@@ -16,9 +16,9 @@ collections:
       - { label: "Layout", name: "layout", widget: "hidden", default: "produits"}
       - { label: "Slug", name: "slug", widget: "string", hint: "IMPORTANT : l'adresse de la page, en minuscule, sans espaces!" }
       - { label: "Titre général", name: "title", widget: "string"}
-      - { label: "Mots-clé", name: "keywords", widget: "select" ,multiple: true, options: ["Lavabos chirurgicaux", "Paillasses sèches et humides en Kerrock", "Postes de change en Kerrock", "Paillasses endoscopiques"] }
+      - { label: "Mots-clé", name: "keywords", widget: "select", options: ["Lavabos chirurgicaux", "Paillasses sèches et humides en Kerrock", "Postes de change en Kerrock", "Paillasses endoscopiques"] }
       - { label: "Sous-titre général", name: "subtitle", widget: "string"}
-      - { label: "Famille de produit", name: "famille", widget: "select", options: ["normal", "bloc_1_poste", "bloc_2_postes", "bloc_3_postes" , "alize_1_poste", "ocea_1_poste"], default : ["normal"] }
+      - { label: "Famille de produit", name: "famille", widget: "select", options: ["normal", "bloc_1_poste", "bloc_2_postes", "bloc_3_postes" , "alize_1_poste", "ocea_1_poste"] }
       - { label: "Image de couverture", name: "thumbnail", widget: "image"}
       - { label: "Date de publication", name: "date", widget: "datetime"}
       - { label: "Tableau (optionnel, pour chaque ligne, séparer les colonnes par des virgules)", name: "tableau", widget: "list", field: {label: ligne, name: ligne, widget: string} }
