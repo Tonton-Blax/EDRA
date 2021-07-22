@@ -2,7 +2,11 @@
 <svelte:head>
 	<title>EDRA Médical</title>
 </svelte:head>
-
+<script context="module">
+	export function preload({ params, query }) {
+	  return this.fetch("sitemap.xml");
+	}
+  </script>
 <script>
 	//import {chunk, shuffleArray } from '../utils/utils.js';
 	import IntersectionObserver from "svelte-intersection-observer";
