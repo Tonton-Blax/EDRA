@@ -157,6 +157,7 @@
 <svelte:component this={SvelteSeo}
     title={"Edra concept"}
     description="Fabrication en France sur-mesure de mobilier sanitaire : paillasses, lavabos, vasques, WC, robineterie..."
+	keywords={"Mobilier sanitaire français sur-mesure, lavabos en Kerrock, urinoirs"}
     nofollow={false}
     noindex={false}
     canonical={window.location.href}
