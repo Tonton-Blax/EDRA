@@ -1,5 +1,5 @@
 <script>
-	export let status;
+	export let status = 'Page non trouvée';
 	export let error;
 
 	const dev = process.env.NODE_ENV === 'development'

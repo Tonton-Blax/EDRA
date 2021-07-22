@@ -16,6 +16,7 @@
 	import { isMobileDevice } from '../utils/utils.js';
 	import { tick, onMount } from 'svelte';
 	import { goto } from '@sapper/app';
+	import SvelteSeo from "svelte-seo";
 
 	const { page,preloading } = stores();
 	
@@ -149,6 +150,28 @@
 	}
 
 </script>
+
+<SvelteSeo
+    title={"Edra concept"}
+    description="Fabrication en France sur-mesure de mobilier sanitaire : paillasses, lavabos, vasques, WC, robineterie..."
+    nofollow={false}
+    noindex={false}
+    canonical={window.location.href}
+    openGraph={{
+        title: `EDRA Médical`,
+        description: "Fabrication en France sur-mesure de mobilier sanitaire : paillasses, lavabos, vasques, WC, robineterie...",
+        url: window.location.href,
+        type: 'website',
+        images: [
+        {
+            url: `${window.location.host}/img/logo/edra-blanc.png`,
+            width: 486,
+            height: 486,
+            alt: "Logo Edra Médical"
+        }
+        ]
+    }}
+/>
 
 	<!-- HEADER -->
 	<div class="column is-full">

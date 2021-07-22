@@ -20,6 +20,7 @@
 		"npm": "^7.19.1",
 		"polka": "next",
 		"sirv": "^1.0.12",
+		"svelte-seo": "^1.2.1",
 		"yaml": "^1.10.2"
 	},
 	"devDependencies": {

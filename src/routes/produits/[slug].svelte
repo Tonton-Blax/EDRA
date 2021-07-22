@@ -24,6 +24,7 @@
 	import Modal from 'svelma/src/components/Modal/Modal.svelte'
 	import { ChevronLeftIcon, ChevronRightIcon } from 'svelte-feather-icons'
 	import { goto } from '@sapper/app';
+	import SvelteSeo from "svelte-seo";
 
 	const { page } = stores();
 
@@ -67,11 +68,34 @@
 
 </script>
 
+
 <Modal bind:active={active}>
 	  <img alt={currentSrc} src={currentSrc} width="100%"/>
 </Modal>
 
 {#if ready}
+
+<SvelteSeo
+    title={produit.title || "Edra médical"}
+    description={produit.description || produit.subtitle || produit.famille || produit.slug || "Paillasses endoscopiques, Lavabos, Auges, Bloc"}
+    nofollow={false}
+    noindex={false}
+    canonical={window.location.href}
+    openGraph={{
+        title: `EDRA Médical : ${produit.title}`,
+        description: produit.description || produit.subtitle || "Paillasses endoscopiques, Lavabos, Auges, Bloc",
+        url: window.location.href,
+        type: 'website',
+        images: [
+        {
+            url: `${window.location.host}/${produit.thumbnail.replace('..','')}`,
+            //width: 405,
+            //height: 70,
+            alt: produit.description || produit.subtitle
+        }
+        ]
+    }}
+/>
 
 	<div class="column is-full mt-6" bind:this={subHeader}>
 		<div class="edra-block no-padding has-text-white">

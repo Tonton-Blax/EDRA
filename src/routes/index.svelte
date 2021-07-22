@@ -15,8 +15,9 @@
 	import { observing } from '../utils/stores.js';
 	import { stores } from '@sapper/app';
 	import { isMobileDevice } from '../utils/utils.js';
-	import { tick } from 'svelte';
+	import { tick, onMount } from 'svelte';
 	import { goto } from '@sapper/app';
+	import SvelteSeo from "svelte-seo";
 
 	const { page,preloading } = stores();
 	
@@ -42,11 +43,16 @@
 	let innerWidth;
 	let pictoEl, headerEl;
 	let active = false;
+	let ready;
 	
 	const intersectings = {
 		pictos : undefined,
 		header : undefined
 	}
+
+	onMount(async()=>{
+		ready=true;
+	});
 
 	const refs = {
 		logos : [
@@ -154,6 +160,32 @@
 	}
 
 </script>
+
+{#if ready}
+<!-- SEO -->
+
+<SvelteSeo
+    title={"Edra médical"}
+    description="Fabrication en France de mobilier médical : paillasses endoscopiques, lavabos pour lavage chirurgical, modules endoscopiques, vasques"
+    nofollow={false}
+    noindex={false}
+    canonical={window.location.href}
+    openGraph={{
+        title: `EDRA Médical`,
+        description: "Fabrication en France de mobilier médical : paillasses endoscopiques, lavabos pour lavage chirurgical, modules endoscopiques, vasques",
+        url: window.location.href,
+        type: 'website',
+        images: [
+        {
+            url: `${window.location.host}/img/logo/edra-blanc.png`,
+            width: 486,
+            height: 486,
+            alt: "Logo Edra Médical"
+        }
+        ]
+    }}
+/>
+{/if}
 
 <!-- MODAL -->
 
