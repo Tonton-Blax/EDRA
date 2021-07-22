@@ -1,7 +1,8 @@
 ---
 layout: produits
 slug: lavabo-test
-title: Test d'un produit Lavabo
+title: Auge Bloc 2 postes
+keywords: Lavabos chirurgicaux
 subtitle: "Services : Consultations, chambres, cabinets dentaires… Utilisation :
   lavage hygiénique (mains, avant-bras)"
 famille: bloc_2_postes
