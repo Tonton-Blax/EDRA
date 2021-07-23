@@ -35,6 +35,9 @@
                 <p class="is-size-6" style="align-self:flex-start   ">© EDRA 2021<br>
                     Mention légaless RGPD
                 </p>
+				<h1 class="is-size-6" style="align-self:flex-start   ">© EDRA 2021<br>
+                    Réalisation : Maxime et Tibo Redval
+                </h1>
             </div>
         </div>
         <div class="column is-half">
