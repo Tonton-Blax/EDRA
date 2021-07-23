@@ -21,7 +21,7 @@ const responsiveImages= [
 		optimizeAll: true, // optimize all images discovered in img tags
 		inlineBelow: 10000, // inline all images in img tags below 10kb
 		compressionLevel: 5, // png quality level
-		quality: 50, // jpeg/webp quality level
+		quality: 65, // jpeg/webp quality level
 		tagName: "Image", // default component name
 		sizes: [400, 600, 1200], // array of sizes for srcset in pixels
 		breakpoints: [480, 768, 1024], // array of screen size breakpoints at which sizes above will be applied
