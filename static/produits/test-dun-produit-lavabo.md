@@ -1,12 +1,13 @@
 ---
 layout: produits
-slug: lavabo-test
+slug: auge-bloc-2-postes
 title: Auge Bloc 2 postes
-keywords: Lavabos chirurgicaux
 subtitle: "Services : Consultations, chambres, cabinets dentaires… Utilisation :
   lavage hygiénique (mains, avant-bras)"
+keywords: Lavabos chirurgicaux
 famille: bloc_2_postes
 thumbnail: ../img/uploads/paillasse-sur-mesure-05.jpg
+decalage: 1
 date: 2021-04-23T22:21:51.911Z
 tableau: []
 contenu:
