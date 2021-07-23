@@ -6,6 +6,7 @@ subtitle: Lavage chirurgical (mains et avant-bras)
 keywords: Lavabos chirurgicaux
 famille: alize_1_poste
 thumbnail: ../img/uploads/gamme-alize-thumb.jpg
+decalage: 46
 date: 2021-07-22T21:40:14.452Z
 tableau: []
 contenu:
