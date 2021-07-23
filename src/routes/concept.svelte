@@ -145,11 +145,6 @@
 	let currentImageIndex = 0;
 
 	let changeChapoIndex = async (overBlockIndex, idx) => {
-		for (let i = 0; i < vids.length; i++) {
-			if (vids[i]) {
-				vids[i].currentTime = 0;
-			}
-		}
 		overBlocks[overBlockIndex].chapoDirection = idx > overBlocks[overBlockIndex].index || (idx == 0 && overBlocks[overBlockIndex].index == overBlocks[overBlockIndex].images.length -1) ? -1000 : 1000;
 		overBlocks[overBlockIndex].index = idx;
 	}
@@ -408,6 +403,7 @@
 			{/key}
 	
 			<div class="carou special-margin">
+				{#if ready}
 				<Carousel 
 					perPage={1} controls={false} dots={true} multipleDrag={true}
 					autoplay={7000} duration={500}
@@ -415,13 +411,10 @@
 					on:change={ e => changeChapoIndex(1, e.detail.currentSlide) }
 				>
 					{#each overBlocks[1].images as src, i (src)}
-						{#if src.endsWith('mp4')}
 							<video class="videos-concept" no-controls loop autoplay muted src={src}></video>
-						{:else}
-							<img src={src} class="carou-img" alt="nature"/>
-						{/if}			
 					{/each}
 				</Carousel>
+				{/if}
 			</div>
 		</div>
 	</div>

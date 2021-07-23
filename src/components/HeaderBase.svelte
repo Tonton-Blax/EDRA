@@ -69,7 +69,7 @@
 <div class="svg-container">
     <div class="logo-container">
 		{#if animAssets[headerType].options.sigleType === 'plain'}
-			<img src="./img/logo.png" class="mb-5 logo-edra" alt="logo edra" style="margin-top:{isMobile ? "3em" : "0.75em"};">
+			<img src="./img/logo.png" width="74" class="mb-5 logo-edra" alt="logo edra" style="margin-top:{isMobile ? "3em" : "0.75em"};">
 		{:else if animAssets[headerType].options.sigleType === 'pointilles'}
 			<img src="./img/sigle_pointilles.png" class="mb-5" alt="logo edra" width="74px" style="margin-top:{isMobile ? "3em" : "0.75em"};">
 		{:else if animAssets[headerType].options.sigleType === 'concept'}
