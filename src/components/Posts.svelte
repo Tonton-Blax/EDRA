@@ -71,7 +71,7 @@
                             <div class="card-image">
                                 <figure class="image">
                                     <div class="card-thumb">
-                                        <Image src={"/img/lavabo.svg"} alt={"Section Lavabos"} />
+                                        <Image src={"/img/initial/gamme-alize.jpg"} alt={"Section Lavabos"} />
                                     </div>
                                 </figure>
                             </div>
@@ -90,7 +90,7 @@
                             <div class="card-image">
                                 <figure class="image">
                                     <div class="card-thumb">
-                                        <Image src={"/img/lavabo.svg"} alt={"Section Lavabos"} />
+                                        <Image src={"/img/initial/gamme-bloc.jpg"} alt={"Section Lavabos"} />
                                     </div>
                                 </figure>
                             </div>
@@ -109,7 +109,7 @@
                             <div class="card-image">
                                 <figure class="image">
                                     <div class="card-thumb">
-                                        <Image src={"/img/lavabo.svg"} alt={"Section Lavabos"} />
+                                        <Image src={"/img/initial/gamme-ocea.jpg"} alt={"Section Lavabos"} />
                                     </div>
                                 </figure>
                             </div>

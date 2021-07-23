@@ -1,6 +1,9 @@
 <svelte:window bind:innerWidth={innerWidth} on:popstate={notOk()} />
 <svelte:head>
 	<title>EDRA Médical</title>
+	<link rel="preload" as="video" href="../videos/defonceuse.mp4">
+	<link rel="preload" as="video" href="../videos/sav.mp4">
+	<link rel="preload" as="video" href="../videos/pingouin.mp4">
 </svelte:head>
 <script context="module">
 	export function preload({ params, query }) {
