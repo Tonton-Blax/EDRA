@@ -20,6 +20,7 @@ collections:
       - { label: "Mots-clé", name: "keywords", widget: "select", options: ["Lavabos chirurgicaux", "Paillasses sèches et humides en Kerrock", "Postes de change en Kerrock", "Paillasses endoscopiques", "Mobilier sanitaire"], default: ["Mobilier sanitaire"]}
       - { label: "Famille de produit", name: "famille", widget: "select", options: ["normal", "bloc_1_poste", "bloc_2_postes", "bloc_3_postes" , "alize_1_poste", "ocea_1_poste", "normal"], default: ["normal"] }
       - { label: "Image de couverture", name: "thumbnail", widget: "image"}
+      - { label: "Décalage de l'image de couverture", name: "decalage", widget: "number", default: 0, value_type: "int", min: 1, max: 100, step: 1 }
       - { label: "Date de publication", name: "date", widget: "datetime"}
       - { label: "Tableau (optionnel, pour chaque ligne, séparer les colonnes par des virgules)", name: "tableau", widget: "list", field: {label: ligne, name: ligne, widget: string} }
       - label: 'Le contenu'

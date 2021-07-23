@@ -24,6 +24,9 @@
 	import Modal from 'svelma/src/components/Modal/Modal.svelte'
 	import { ChevronLeftIcon, ChevronRightIcon } from 'svelte-feather-icons'
 	import { goto } from '@sapper/app';
+	import { isMobileDevice } from '../../utils/utils.js';
+
+	$: isMobile = isMobileDevice();
 
 	const { page } = stores();
 
@@ -44,6 +47,7 @@
 	let ready;
 	let active = false;
 	let currentSrc;
+	let chapoImage;
 
 	let resetStuff = async () => {
 		if (!ready || !subHeader)
@@ -62,6 +66,10 @@
 		$observing = false;
 		produit = postMd;
 		ready = true;
+
+		if (isMobile && produit && produit.decalage)
+			chapoImage.style.bottom = `${produit.decalage}%`
+
 		await tick();
 		const module = await import('svelte-seo');
         SvelteSeo = module.default;
@@ -110,15 +118,7 @@
 			<!-- END -->
 			<div class="img-container fit-header bgmm">
 				{#if produit.thumbnail.length}
-				<img 
-					on:error={()=>this.src=produit.slug}
-					srcset="{produit.thumbnail.replace('../img', '../g/img').replace('.jpg', '-400.jpg')} 400w,
-					{produit.thumbnail.replace('../img', '../g/img').replace('.jpg', '-600.jpg')} 768w,
-					{produit.thumbnail.replace('../img', '../g/img').replace('.jpg', '-1200.jpg')} 1200w"
-					src="{produit.thumbnail}"
-					alt="produit.slug"
-				>
-					<!-- <img src={produit.thumbnail} class="fit-header" alt="{produit.slug}"/> -->
+					<img on:error={()=>this.src=produit.thumbnail} src={produit.thumbnail.replace('../img', '../g/img').replace('.jpg', '-1200.jpg')} class="fit-header" alt="{produit.slug}"/>
 				{/if}
 			</div>
 		</div>
@@ -242,6 +242,11 @@
 {/if}
 
 <style>
+
+.fit-header {
+	position:relative;
+}
+
 .container {
 	background:white!important;
 }
@@ -268,7 +273,7 @@
 	padding:2.5rem;
 }
 .edra-heading > * {
-	line-height: 1rem;
+	margin-top: -0.75rem;
 }
 :global(.edra-heading strong) {
 	font-weight:700;
