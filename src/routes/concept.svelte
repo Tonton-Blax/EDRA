@@ -120,7 +120,7 @@
 			images : [
 				'../videos/defonceuse.mp4',
 				'../videos/sav.mp4',
-				'../videos/pingouin.mp4',
+				'../videos/livraison.mp4',
 			],
 			chapoDirection : -1000,
 			autoplay : 7000

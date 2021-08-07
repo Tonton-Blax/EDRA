@@ -3,7 +3,7 @@
 	<title>EDRA Médical</title>
 	<link rel="preload" as="video" href="../videos/defonceuse.mp4">
 	<link rel="preload" as="video" href="../videos/sav.mp4">
-	<link rel="preload" as="video" href="../videos/pingouin.mp4">
+	<link rel="preload" as="video" href="../videos/livraison.mp4">
 </svelte:head>
 <script context="module">
 	export function preload({ params, query }) {
@@ -133,7 +133,7 @@
 			images : [
 				'../videos/defonceuse.mp4',
 				'../videos/sav.mp4',
-				'../videos/pingouin.mp4',
+				'../videos/livraison.mp4',
 			],
 			chapoDirection : -1000,
 			autoplay : 0
