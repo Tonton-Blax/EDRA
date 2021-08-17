@@ -73,5 +73,5 @@ contenu:
 
       * Distributeur de savon (commande par cellule ou commande au coude)
 
-      * Robinetterie en acier inoxydable 316L (qualité chirurgicale) déclipsable et autoclavable
+      * Robinetterie en acier inoxydable 316L (qualité chirurgicale) déclipsable et autoclavable.
 ---
