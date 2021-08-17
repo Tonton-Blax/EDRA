@@ -173,9 +173,9 @@
 <!-- SEO -->
 {#if ready}
 <svelte:component this={SvelteSeo}
-    title={"Edra médical"}
-    description="Fabrication en France de mobilier médical : paillasses endoscopiques, lavabos pour lavage chirurgical, modules endoscopiques, vasques"
-	keywords="Lavabos chirurgicaux, Paillasses sèches et humides en Kerrock, Postes de change en Kerrock,Paillasses endoscopiques, matériel médical sur-mesure fabrication française, fabrication de mobilier sanitaire en urgence"
+    title={"EDRA Médical : fabrication française et agencement médical sur mesure depuis 1983"}
+    description="EDRA Médical conçoit, fabrique, installe des paillasses sur mesure, plans-vasques, meubles à langer, auges, lavabos chirurgicaux pour les établissements de santé, maternité, crèches"
+	keywords="Paillasses humides, paillasses sèches, paillasses endoscopiques, plans-vasques, meuble à langer, tables à langer, postes de change, lavabos aseptiques, lavabos chirurgicaux, auges"
     nofollow={false}
     noindex={false}
     canonical={window.location.href}

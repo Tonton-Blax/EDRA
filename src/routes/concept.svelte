@@ -152,8 +152,8 @@
 </script>
 {#if ready}
 <svelte:component this={SvelteSeo}
-    title={"Edra concept"}
-    description="Fabrication en France sur-mesure de mobilier sanitaire : paillasses, lavabos, vasques, WC, robineterie..."
+    title={"EDRA CONCEPT : fabricant français de mobilier sanitaire design sur mesure"}
+    description="EDRA CONCEPT conçoit, fabrique, installe meubles et plans-vasques design en résine de synthèse"
 	keywords={"Mobilier sanitaire français sur-mesure, lavabos en Kerrock, urinoirs"}
     nofollow={false}
     noindex={false}
