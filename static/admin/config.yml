@@ -5,10 +5,10 @@ backend:
 publish_mode: editorial_workflow #editorial_workflow Allows you to save drafts before publishing them
 media_folder: "static/img/uploads" # Media files will be stored in the repo under static/images/uploads
 public_folder: "../img/uploads" # The src attribute for uploaded media will begin with /images/uploads
-preview_path: produits/{{slug}}
 
 collections:
   - name: "produits" # Used in routes, e.g., /admin/collections/blog
+    preview_path: produits/{{slug}}
     label: "Produits" # Used in the UI
     folder: "static/produits" # The path to the folder where our blog posts are stored
     create: true # Allow users to create new documents in this collection
