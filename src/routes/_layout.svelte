@@ -1,15 +1,12 @@
 <script>
 	import Nav from '../components/Nav.svelte'
-	import { onMount } from 'svelte'
 	import Footer from '../components/Footer.svelte'
 	import Transition from '../components/Transition.svelte';
 	import GdprBanner from '@beyonk/gdpr-cookie-consent-banner'
 	import '../styles/cookies.css' // import optional styles
 	export let segment;
 
-	function initAnalytics () {
-		console.log("kikou lol")
-  	}
+	let initAnalytics = () => {}
 
 </script>
 <GdprBanner cookieName="foo"
