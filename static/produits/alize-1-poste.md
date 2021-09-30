@@ -68,7 +68,7 @@ contenu:
     interbig: Options
   - type: textblock
     body: >-
-      * Préfiltration de l’eau : dispositif placé sous l’auge et comprenant un
+      * Préfiltration de l’eau : dispositif placé sous l’auge ; il comprend un
       carter de préfiltration 10’’ et une cartouche 0,5µ
 
       * Distributeur de savon (commande par cellule ou commande au coude)
