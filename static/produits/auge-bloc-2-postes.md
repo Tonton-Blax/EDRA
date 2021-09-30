@@ -1,7 +1,7 @@
 ---
 layout: produits
 slug: auge-bloc-1-poste
-title: Auge Bloc 2 postes
+title: Auge Bloc 1 poste
 subtitle: "Services : Consultations, chambres, cabinets dentaires… Utilisation :
   lavage hygiénique (mains, avant-bras)"
 keywords: Lavabos chirurgicaux
