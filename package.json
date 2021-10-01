@@ -3,7 +3,7 @@
 	"version": "0.9.5",
 	"scripts": {
 		"dev": "svelte-kit dev",
-		"build": "node processimages.cjs & svelte-kit build",
+		"build": "svelte-kit build",
 		"preview": "svelte-kit preview"
 	},
 	"devDependencies": {
