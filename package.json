@@ -1,5 +1,5 @@
 {
-	"name": "edra version sveltekit",
+	"name": "edraversionsveltekit",
 	"version": "0.9.5",
 	"scripts": {
 		"dev": "svelte-kit dev",
