@@ -1,11 +1,10 @@
 ---
 layout: produits
 slug: auge-bloc-1-poste
-title: Auge Bloc 2 postes
-subtitle: "Services : Consultations, chambres, cabinets dentaires… Utilisation :
-  lavage hygiénique (mains, avant-bras)"
+title: Auge Bloc 1 poste
+subtitle: "Services : SAS de bloc opératoire"
 keywords: Lavabos chirurgicaux
-famille: bloc_2_postes
+famille: bloc_1_poste
 thumbnail: ../img/uploads/paillasse-sur-mesure-05.jpg
 decalage: 1
 date: 2021-07-23T13:03:54.568Z
@@ -15,18 +14,17 @@ contenu:
     interbig: Matériaux et procédé de fabrication
   - type: textblock
     body: >-
-      * Coque : polyester armé fibre de verre et gelcoat de qualité sanitaire
+      * Coque en polyester armé fibre de verre et gelcoat de qualité sanitaire
 
-      * Cadre de support en résine HPL et pattes de fixation murale inox
+      * Châssis en acier inoxydable 304L avec pattes de fixation murale
 
-      * Procédé de fabrication : Le gelcoat est « pistolé » dans le moule, et non pas appliqué comme une peinture, ce qui garantit une résistance bien plus importante.
+      * Procédé de fabrication : le gelcoat est "pistolé" dans le moule, et non pas appliqué comme une peinture, ce qui garantit une résistance bien plus importante
 
       * Application manuelle de 3 couches de fibre de verre imprégnée de résine écologique à faible teneur en styrène teintée dans la masse, pour une épaisseur finale de 4 mm
 
-
-      L’opération de démoulage de la pièce est réalisée après 24H.
+      * L'opération de démoulage de la pièce est réalisée après 24 heures.
   - type: intertitrebigobject
-    interbig: Caractéristiques
+    interbig: Caractéristiques générales
   - type: textblock
     body: >-
       * Coque monobloc sans joint ni angle vif
@@ -37,20 +35,21 @@ contenu:
 
       * Siphon PVC à joint intégré
 
-      * Robinetterie droite
+      * Robinetterie col de cygne en laiton chromé EDRA avec raccord rapide pour adaptation d'un filtre terminal, ou robinetterie droite
 
-      * Dimensions : 500 500 x 450 mm
+      * Dimensions : 950 x 550 x 620 mm
 
       * 3 types de commande :
 
-        * Commande au coud
+        * Commande au coude
         * Commande fémorale
         * Commande par cellule infrarouge
   - type: intertitrebigobject
-    interbig: Equipement de base (lavabo à commande par cellule)
+    interbig: Equipement de base du lavabo à commande par cellule infrarouge
   - type: textblock
     body: >-
-      * Robinetterie droite
+      * Col de cygne en laiton chromé muni d'un raccord rapide pour adaptation
+      d'un filtre
 
       * Commande de l’eau par détecteur d’approche infrarouge avec électrovanne bistable 1/2" 6Vcc
 
@@ -64,5 +63,11 @@ contenu:
   - type: intertitrebigobject
     interbig: Options
   - type: textblock
-    body: Distributeur de savon (commande par cellule ou commande au coude)
+    body: >-
+      * Préfiltration de l'eau : dispositif placé sous l’auge et comprenant un
+      carter de préfiltration 10’’ et une cartouche 0,5µ
+
+      * Distributeur de savon (commande par cellule ou commande au coude)
+
+      * Robinetterie en acier inoxydable 316L (qualité chirurgicale) déclipsable et autoclavable.
 ---
