@@ -14,16 +14,15 @@ contenu:
     interbig: Matériaux et procédé de fabrication
   - type: textblock
     body: >-
-      * Coque : polyester armé fibre de verre et gelcoat de qualité sanitaire
+      * Coque en polyester armé fibre de verre et gelcoat de qualité sanitaire
 
-      * Cadre de support en résine HPL et pattes de fixation murale inox
+      * Châssis en acier inoxydable 304L avec pattes de fixation murale
 
-      * Procédé de fabrication : Le gelcoat est « pistolé » dans le moule, et non pas appliqué comme une peinture, ce qui garantit une résistance bien plus importante.
+      * Procédé de fabrication : le gelcoat est "pistolé" dans le moule, et non pas appliqué comme une peinture, ce qui garantit une résistance bien plus importante
 
       * Application manuelle de 3 couches de fibre de verre imprégnée de résine écologique à faible teneur en styrène teintée dans la masse, pour une épaisseur finale de 4 mm
 
-
-      L’opération de démoulage de la pièce est réalisée après 24H.
+      * L'opération de démoulage de la pièce est réalisée après 24 heures.
   - type: intertitrebigobject
     interbig: Caractéristiques
   - type: textblock
