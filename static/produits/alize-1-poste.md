@@ -11,6 +11,9 @@ decalage: 46
 date: 2021-07-22T21:40:14.452Z
 tableau: []
 contenu:
+  - type: sectionmeta
+    sectiontitle: La Gamme compacte des auges EDRA
+    sectionsubtitle: Disponible en 1 poste, avec 3 types de commandes de l'eau
   - type: intertitrebigobject
     interbig: Matériaux et procédé de fabrication
   - type: textblock
