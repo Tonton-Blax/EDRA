@@ -25,7 +25,7 @@ contenu:
 
       * L’opération de démoulage de la pièce est réalisée après 24H.
   - type: intertitrebigobject
-    interbig: Caractéristiques
+    interbig: Caractéristiques générales
   - type: textblock
     body: >-
       * Coque monobloc sans joint ni angle vif
