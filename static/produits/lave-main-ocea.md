@@ -11,6 +11,9 @@ decalage: 1
 date: 2021-04-01T12:53:26.222Z
 tableau: []
 contenu:
+  - type: sectionmeta
+    sectiontitle: Pour le lavage hygiénique des mains
+    sectionsubtitle: Hygiène maximale, encombrement réduit
   - type: intertitrebigobject
     interbig: Matériaux et procédé de fabrication
   - type: textblock
