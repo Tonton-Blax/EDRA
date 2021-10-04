@@ -1,7 +1,7 @@
 ---
 layout: produits
 slug: poste-change-kerrock
-title: Postes de change en&nbsp;Kerrock
+title: Postes de change en&nbsp; Kerrock®
 subtitle: Pour une hygiène et un entretien irréprochable
 keywords: Mobilier sanitaire
 famille: normal
