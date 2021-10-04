@@ -7,7 +7,7 @@ subtitle: "Services : Consultations, chambres, cabinets dentaires… Utilisation
 keywords: Lavabos chirurgicaux
 famille: ocea_1_poste
 thumbnail: ../img/uploads/lave-main-ocea-01.jpg
-decalage: 0
+decalage: 1
 date: 2021-04-01T12:53:26.222Z
 tableau: []
 contenu:
