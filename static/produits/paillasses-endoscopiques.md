@@ -18,14 +18,14 @@ contenu:
     interbig: Configuration de base de la paillasse
   - type: textblock
     body: >-
-      * plan de travail sur-mesure avec bacs gradués moulés dans le plan
-      :ensemble monobloc n Corian® de dupont de nemours, sans joint ni angle vif
+      * Plan de travail sur-mesure avec bacs gradués moulés dans le plan :
+      ensemble monobloc en résine de synthèse Kerrock®, sans joint ni angle vif
 
-      * nombre et dimensions des bacs déterminés en fonction de l’activité
+      * Nombre et dimensions des bacs déterminés en fonction de l’activité et de la place disponible
 
-      * robinetterie adaptée et traitement de l’eau selon le niveau de désinfection requis
+      * Robinetterie adaptée et traitement de l’eau selon le niveau de désinfection requis
 
-      * support au choix : piètements ou mobilier autoporteur avec aménagements sur-mesure
+      * Support au choix : piètements ou mobilier autoporteur avec aménagements sur-mesure
   - type: leplusobject
     leplus: |-
       Du sur-mesure pour répondre à vos besoins.
@@ -53,32 +53,29 @@ contenu:
       **Les accessoires de base**
 
 
-      * trop-pleins amovibles et autoclavables
+      * Trop-pleins amovibles et autoclavables
 
       * Vanne d’arrêt sous le bac de désinfection pour éviter toute fuite accidentelle du produit
 
       * Couvercles en polycarbonate avec poignée centrale
 
-      * Poissonnières moulées avec poignées rétractables permettant une immersion totale, pour le transport en toute sécurité des endoscopes de bac en bac
+      * Poissonnières moulées avec poignées rétractables permettant une immersion totale, pour le passage en toute sécurité des endoscopes de bac en bac
 
 
       **Les accessoires optionnels**
 
 
-      * Pour les sondes eto : support sur-mesure en Corian
+      * Pour les sondes ETO : support sur-mesure en Kerrock®
 
-      * Pour le rinçage stérile : ceinture en acier inoxydable
-
-      * autour du bac de rinçage final pour permettre
-        l’adaptation de housses stériles à usage unique
-        bacs amovibles autoclavables
+      * Pour le rinçage stérile : ceinture en acier inoxydable autour du bac de rinçage final pour permettre
+        l’adaptation de housses stériles à usage unique bacs amovibles autoclavables
 
       **Les autres options**
 
 
       * Système de désinfection automatique des siphons
 
-      * Préfiltration adaptée à la qualité de l’eau
+      * Préfiltration adaptée à la qualité de votre eau (nous consulter)
   - type: imagesobject
     images:
       - ../img/uploads/paillasse-endoscopique_02_1.jpg
