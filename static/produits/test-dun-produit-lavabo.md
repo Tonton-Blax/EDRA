@@ -14,18 +14,18 @@ contenu:
     interbig: Matériaux et procédé de fabrication
   - type: textblock
     body: >-
-      * Coque : polyester armé fibre de verre et gelcoat de qualité sanitaire
+      * Coque en en polyester armé fibre de verre et gelcoat de qualité
+      sanitaire
 
-      * Cadre de support en résine HPL et pattes de fixation murale inox
+      * Châssis en acier inoxydable 304L avec pattes de fixation murale
 
-      * Procédé de fabrication : Le gelcoat est « pistolé » dans le moule, et non pas appliqué comme une peinture, ce qui garantit une résistance bien plus importante.
+      * Procédé de fabrication : le gelcoat est « pistolé » dans le moule, et non pas appliqué comme une peinture, ce qui garantit une résistance bien plus importante
 
       * Application manuelle de 3 couches de fibre de verre imprégnée de résine écologique à faible teneur en styrène teintée dans la masse, pour une épaisseur finale de 4 mm
 
-
-      L’opération de démoulage de la pièce est réalisée après 24H.
+      * L’opération de démoulage de la pièce est réalisée après 24H.
   - type: intertitrebigobject
-    interbig: Caractéristiques
+    interbig: Caractéristiques générales
   - type: textblock
     body: >-
       * Coque monobloc sans joint ni angle vif
@@ -36,13 +36,13 @@ contenu:
 
       * Siphon PVC à joint intégré
 
-      * Robinetterie droite
+      * Robinetterie col de cygne en laiton chromé EDRA avec raccord rapide pour adaptation d’un filtre terminal ou robinetterie droite
 
-      * Dimensions : 500 500 x 450 mm
+      * Dimensions : 1570 x 550 x 620 mm
 
       * 3 types de commande :
 
-        * Commande au coud
+        * Commande au coude
         * Commande fémorale
         * Commande par cellule infrarouge
   - type: intertitrebigobject
