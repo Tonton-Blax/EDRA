@@ -12,8 +12,8 @@ date: 2021-02-03T22:36:16.750Z
 tableau: []
 contenu:
   - type: sectionmeta
-    sectiontitle: Le module endoscopique
-    sectionsubtitle: Une solution adaptée à votre structure
+    sectiontitle: Paillasse endoscopique sur mesure
+    sectionsubtitle: Une solution adaptée à votre organisation
   - type: intertitrebigobject
     interbig: Configuration de base de la paillasse
   - type: textblock
