@@ -14,15 +14,11 @@ contenu:
     interbig: Matériaux et procédé de fabrication
   - type: textblock
     body: >-
-      * Ensemble monobloc en Kerrock 12 mm comprenant :
+      * Ensemble monobloc sans joint en Kerrock 12 mm comprenant :
 
         * Le plan de travail linéaire ou en angle avec bords arrondis ou droits
         * La crédence arrière et latérale le long des cloisons
         * Les éviers / cuves / vasques dans le même matériau assemblés par polymérisation
-
-      Le tout formant un ensemble monobloc sans joint perceptible pour des environnements exigeants.
-
-
       * Support :  
 
         * Châssis en acier peint époxy
