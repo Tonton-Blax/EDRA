@@ -2,7 +2,7 @@
 layout: produits
 slug: auges-bloc-3-postes
 title: Auge Bloc 3 postes
-subtitle: "Services : SAS de bloc opératoire"
+subtitle: "Destination : SAS de bloc opératoire"
 keywords: Lavabos chirurgicaux
 famille: bloc_3_postes
 thumbnail: ../img/uploads/paillasse-sur-mesure-05.jpg
