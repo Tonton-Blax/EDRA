@@ -1,10 +1,12 @@
 ---
 layout: produits
 slug: paillasse-en-solid-surface
-title: "Paillasses en solid surface "
+title: Paillasses en KERROCK®
 subtitle: Le choix KERROCK®, seul Solid Surface européen
+keywords: Paillasses sèches et humides en Kerrock
 famille: normal
 thumbnail: ../img/uploads/paillasse-sur-mesure-01.jpg
+decalage: 1
 date: 2021-04-01T12:25:55.049Z
 tableau: []
 contenu:
@@ -12,16 +14,16 @@ contenu:
     interbig: Matériaux et procédé de fabrication
   - type: textblock
     body: >-
-      * Ensemble monobloc en Kerrock 12 mm comprenant :
+      * Ensemble monobloc sans joint en Kerrock 12 mm comprenant :
 
         * Le plan de travail linéaire ou en angle avec bords arrondis ou droits
         * La crédence arrière et latérale le long des cloisons
         * Les éviers / cuves / vasques dans le même matériau assemblés par polymérisation
+      * Support :  
 
-      Le tout formant un ensemble monobloc sans joint perceptible pour des environnements exigeants.
-
-
-      * Support : Châssis en acier peint époxy ou en acier inoxydable 304 L
+        * Châssis en acier peint époxy
+        * Châssis en acier inoxydable 304L
+        * Mobilier autoporteur
   - type: intertitrebigobject
     interbig: Le plus large choix d’éléments moulés de tous les Solid Surface existants
   - type: imagesobject
