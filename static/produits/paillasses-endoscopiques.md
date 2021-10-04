@@ -34,7 +34,7 @@ contenu:
     images:
       - ../img/uploads/paillasse-endoscopique_01.jpg
   - type: intertitrebigobject
-    interbig: Le traitement des vapeurs de désinfectant
+    interbig: Le traitement des vapeurs de désinfectant (acide péracétique - APA)
   - type: textblock
     body: >-
       * captation à la source sous le ou les bacs de désinfection pour un
