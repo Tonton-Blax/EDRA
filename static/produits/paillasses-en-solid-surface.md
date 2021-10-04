@@ -1,7 +1,7 @@
 ---
 layout: produits
 slug: paillasse-en-solid-surface
-title: "Paillasses en solid surface "
+title: Paillasses en KERROCK®
 subtitle: Le choix KERROCK®, seul Solid Surface européen
 keywords: Paillasses sèches et humides en Kerrock
 famille: normal
@@ -23,7 +23,11 @@ contenu:
       Le tout formant un ensemble monobloc sans joint perceptible pour des environnements exigeants.
 
 
-      * Support : Châssis en acier peint époxy ou en acier inoxydable 304 L
+      * Support :  
+
+        * Châssis en acier peint époxy
+        * Châssis en acier inoxydable 304L
+        * Mobilier autoporteur
   - type: intertitrebigobject
     interbig: Le plus large choix d’éléments moulés de tous les Solid Surface existants
   - type: imagesobject
