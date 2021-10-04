@@ -23,10 +23,9 @@ contenu:
 
       * Application manuelle de 3 couches de fibre de verre imprégnée de résine écologique à faible teneur en styrène teintée dans la masse, pour une épaisseur finale de 4 mm
 
-
-      L’opération de démoulage de la pièce est réalisée après 24H.
+      * L’opération de démoulage de la pièce est réalisée après 24H.
   - type: intertitrebigobject
-    interbig: Caractéristiques
+    interbig: Caractéristiques générales
   - type: textblock
     body: >-
       * Coque monobloc sans joint ni angle vif
@@ -39,15 +38,15 @@ contenu:
 
       * Robinetterie droite
 
-      * Dimensions : 500 500 x 450 mm
+      * Dimensions : 500 x 500 x 450 mm
 
       * 3 types de commande :
 
-        * Commande au coud
+        * Commande au coude
         * Commande fémorale
         * Commande par cellule infrarouge
   - type: intertitrebigobject
-    interbig: Equipement de base (lavabo à commande par cellule)
+    interbig: Equipement de base du lavabo à commande par cellule
   - type: textblock
     body: >-
       * Robinetterie droite
