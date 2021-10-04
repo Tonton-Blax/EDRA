@@ -5,7 +5,7 @@ title: Auge Bloc 3 postes
 subtitle: "Services : Consultations, chambres, cabinets dentaires… Utilisation :
   lavage hygiénique (mains, avant-bras)"
 keywords: Lavabos chirurgicaux
-famille: bloc_2_postes
+famille: bloc_3_postes
 thumbnail: ../img/uploads/paillasse-sur-mesure-05.jpg
 decalage: 1
 date: 2021-07-23T13:02:25.748Z
