@@ -8,7 +8,7 @@ keywords: Paillasses endoscopiques
 famille: normal
 thumbnail: ../img/uploads/endo1.jpg
 decalage: 1
-date: 2021-02-03T22:36:16.750Z
+date: 2021-10-04T15:15:31.592Z
 tableau: []
 contenu:
   - type: sectionmeta
