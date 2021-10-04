@@ -1,9 +1,8 @@
 ---
 layout: produits
 slug: auge-bloc-1-poste
-title: Auge Bloc 2 postes
-subtitle: "Services : Consultations, chambres, cabinets dentaires… Utilisation :
-  lavage hygiénique (mains, avant-bras)"
+title: Auge Bloc 1 poste
+subtitle: "Services : SAS de bloc opératoire"
 keywords: Lavabos chirurgicaux
 famille: bloc_2_postes
 thumbnail: ../img/uploads/paillasse-sur-mesure-05.jpg
