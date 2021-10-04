@@ -37,38 +37,45 @@ contenu:
     interbig: Le traitement des vapeurs de désinfectant (acide péracétique - APA)
   - type: textblock
     body: >-
-      * captation à la source sous le ou les bacs de désinfection pour un
+      * Captation à la source sous le ou les bacs de désinfection pour un
       traitement ciblé
 
-      * filtration par charbon actif
+      * Filtration par charbon actif
 
       * Couvercle du bac de désinfection muni d’un capteur permettant un ajustement automatique de la vitesse d’extraction.
   - type: leplusobject
     leplus: Mesures des valeurs moyenne et limite d’exposition (VME et VLE) par un
       laboratoire indépendant
   - type: intertitrebigobject
-    interbig: Les accessoires – les options
+    interbig: "Automatisation et traçabilité "
   - type: textblock
     body: >-
-      **Les accessoires de base**
+      **Automatisation du nettoyage : Les pompes péristaltiques** 
 
 
-      * Trop-pleins amovibles et autoclavables
+      * Pompes péristaltiques encastrées dans le dosseret de la paillasses ou posées sur des étagères murales
 
-      * Vanne d’arrêt sous le bac de désinfection pour éviter toute fuite accidentelle du produit
+      * Pilotées par un écran tactile permettant de sélectionner l'endoscope et l'étape
 
-      * Couvercles en polycarbonate avec poignée centrale
+      * Adaptation automatique de la vitesse en fonction de l'endoscope sélectionné
 
-      * Poissonnières moulées avec poignées rétractables permettant une immersion totale, pour le passage en toute sécurité des endoscopes de bac en bac
+      * Arrêt automatique en fonction de l'étape choisie
+
+      * Traçabilité-ticket : la pompe peut être associée à une imprimante-ticket pour la validation de l'étape
 
 
-      **Les accessoires optionnels**
+      **La traçabilité informatique : pour la gestion du cycle complet**
 
 
-      * Pour les sondes ETO : support sur-mesure en Kerrock®
+      * Un écran tactile gère les fonctions suivantes :
 
-      * Pour le rinçage stérile : ceinture en acier inoxydable autour du bac de rinçage final pour permettre
-        l’adaptation de housses stériles à usage unique bacs amovibles autoclavables
+        * Identification
+        * Etanchéité
+        * Contrôle, suivi et supervision des étapes
+        * Traçabilité des produits
+        * Enregistrement et impression d'un rapport de traçabilité
+      * Programmation sur mesure en fonction de l'activité endoscopique, de l'organisation du service, de l'existence de LDE, etc...
+
 
       **Les autres options**
 
