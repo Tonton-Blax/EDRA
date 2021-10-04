@@ -35,13 +35,13 @@ contenu:
 
       * Siphon PVC à joint intégré
 
-      * Robinetterie droite
+      * Robinetterie col de cygne en laiton chromé EDRA avec raccord rapide pour adaptation d'un filtre terminal, ou robinetterie droite
 
-      * Dimensions : 500 500 x 450 mm
+      * Dimensions : 950 x 550 x 620 mm
 
       * 3 types de commande :
 
-        * Commande au coud
+        * Commande au coude
         * Commande fémorale
         * Commande par cellule infrarouge
   - type: intertitrebigobject
