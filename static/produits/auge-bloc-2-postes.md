@@ -24,7 +24,7 @@ contenu:
 
       * L'opération de démoulage de la pièce est réalisée après 24 heures.
   - type: intertitrebigobject
-    interbig: Caractéristiques
+    interbig: Caractéristiques générales
   - type: textblock
     body: >-
       * Coque monobloc sans joint ni angle vif
@@ -45,10 +45,11 @@ contenu:
         * Commande fémorale
         * Commande par cellule infrarouge
   - type: intertitrebigobject
-    interbig: Equipement de base (lavabo à commande par cellule)
+    interbig: Equipement de base du lavabo à commande par cellule infrarouge
   - type: textblock
     body: >-
-      * Robinetterie droite
+      * Col de cygne en laiton chromé muni d'un raccord rapide pour adaptation
+      d'un filtre
 
       * Commande de l’eau par détecteur d’approche infrarouge avec électrovanne bistable 1/2" 6Vcc
 
@@ -62,5 +63,11 @@ contenu:
   - type: intertitrebigobject
     interbig: Options
   - type: textblock
-    body: Distributeur de savon (commande par cellule ou commande au coude)
+    body: >-
+      * Préfiltration de l'eau : dispositif placé sous l’auge et comprenant un
+      carter de préfiltration 10’’ et une cartouche 0,5µ
+
+      * Distributeur de savon (commande par cellule ou commande au coude)
+
+      * Robinetterie en acier inoxydable 316L (qualité chirurgicale) déclipsable et autoclavable.
 ---
