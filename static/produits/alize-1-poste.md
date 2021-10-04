@@ -2,7 +2,8 @@
 layout: produits
 slug: auges-gamme-alize
 title: Auges Gamme Alize
-subtitle: Lavage chirurgical (mains et avant-bras)
+subtitle: "Services : Réanimation, SSPI, Maternités, Urgences, Dialyse, Bloc
+  opératoire, Cliniques dentaires, vétérinaires, ophtalmologiques"
 keywords: Lavabos chirurgicaux
 famille: alize_1_poste
 thumbnail: ../img/uploads/gamme-alize-thumb.jpg
