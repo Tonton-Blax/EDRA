@@ -71,4 +71,7 @@ contenu:
       * Distributeur de savon (commande par cellule ou commande au coude)
 
       * Robinetterie en acier inoxydable 316L (qualité chirurgicale) déclipsable et autoclavable.
+  - type: sectionmeta
+    sectiontitle: La Gamme compacte des auges EDRA
+    sectionsubtitle: Disponible en 1 poste, avec 3 types de commandes de l'eau
 ---
