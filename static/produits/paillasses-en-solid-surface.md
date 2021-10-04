@@ -1,8 +1,8 @@
 ---
 layout: produits
 slug: paillasse-en-solid-surface
-title: Paillasses en KERROCK®
-subtitle: Le choix KERROCK®, seul Solid Surface européen
+title: Paillasses humides et sèches en Kerrock®
+subtitle: Le choix Kerrock®, seul Solid Surface européen
 keywords: Paillasses sèches et humides en Kerrock
 famille: normal
 thumbnail: ../img/uploads/paillasse-sur-mesure-01.jpg
