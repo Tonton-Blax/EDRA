@@ -28,11 +28,11 @@ contenu:
       * **Conçu pour durer** : grâce à sa technologie innovante, le solid surface Kerrock est naturellement résistant aux chocs physiques et thermiques, aux produits chimiques et aux variations de température. Il est en plus réparable, rénovable et par nature durable.
 
       * **Esthétique** : grâce à sa structure unique et ses facilités d'usinage, il peut prendre toutes les formes sans aucun joint apparent et les couleurs les plus innovantes.
-  - type: intertitrebigobject
-    interbig: "Configuration sur mesure : les points essentiels "
   - type: imagesobject
     images:
       - ../img/uploads/paillasse-sur-mesure-05.jpg
+  - type: intertitrebigobject
+    interbig: "Configuration sur mesure : les points essentiels "
   - type: textblock
     body: >-
       * **Les dimensions et la forme** : un plan de travail ergonomique et
