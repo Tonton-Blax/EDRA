@@ -99,4 +99,5 @@ contenu:
       - ../img/uploads/annecy-3-copie.jpg
       - ../img/uploads/paillasse-avec-pompes-intégrées-sans-traçabilité.jpg
       - ../img/uploads/paillasses-avec-pompes-autonomes.jpg
+      - ../img/uploads/img_2557-2-.jpeg
 ---
