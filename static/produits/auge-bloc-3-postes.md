@@ -12,7 +12,7 @@ tableau: []
 contenu:
   - type: sectionmeta
     sectiontitle: La Gamme Bloc Opératoire
-    sectionsubtitle: "Dimensions : 1950 x 575 x 600 mm"
+    sectionsubtitle: Dimensions 1950 x 575 x 600 mm
   - type: intertitrebigobject
     interbig: Matériaux et procédé de fabrication
   - type: textblock
