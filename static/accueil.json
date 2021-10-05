@@ -1,0 +1,19 @@
+{
+  "images": [
+    {
+      "headimage": "../img/uploads/paillasse_endoscopique.jpg",
+      "headtitle": "Paillasses endoscopiques",
+      "headlegend": "Ut velit mauris, egestas sed, gravida nec, ornare ut, mi. Aenean ut orci vel massa suscipit pulvinar. Nulla sollicitudin fusce varius"
+    },
+    {
+      "headimage": "../img/uploads/poste-de-change-sur-mesure-01.jpg",
+      "headtitle": "Postes de change en Kerrock",
+      "headlegend": "Pour une hygiène et un entretien irréprochable"
+    },
+    {
+      "headtitle": "Lavabos asceptiques",
+      "headlegend": "Consultations, chambres, cabinets dentaires… Utilisation : lavage hygiénique (mains, avant-bras)  naturenaturenaturenature",
+      "headimage": "../img/uploads/gamme-alize.jpg"
+    }
+  ]
+}
