@@ -17,14 +17,14 @@ contenu:
     interbig: Etude personnalisée de votre projet
   - type: textblock
     body: >-
-      1. Analyse de vos besoins : prise de cotes, analyse des flux /
+      * Analyse de vos besoins : prise de cotes, analyse des flux /
       configuration des locaux,  identification des besoins des utilisateurs
 
-      2. Elaboration d'un dossier technique et financier personnalisé : fiches techniques, fiches matériaux, plans, nuanciers coloris et devis détaillé
+      * Elaboration d'un dossier technique et financier personnalisé : fiches techniques, fiches matériaux, plans, nuanciers coloris et devis détaillé
 
-      3. Fabrication : La fabrication des paillasses en résine et des meubles est assurée à Montreuil, en région parisienne. Tous nos techniciens ont reçu une formation agréée Kerrock pour acquérir le savoir-faire unique nécessaire dans la transformation de la résine.
+      * Fabrication : La fabrication des paillasses en résine et des meubles est assurée à Montreuil, en région parisienne. Tous nos techniciens ont reçu une formation agréée Kerrock pour acquérir le savoir-faire unique nécessaire dans la transformation de la résine.
 
-      4. Installation, raccordement et mise en service : Une équipe dédiée à votre projet, habituée à travailler dans les établissements hospitaliers, en site occupé, pour une maîtrise de A à Z de votre projet.
+      * Installation, raccordement et mise en service : Une équipe dédiée à votre projet, habituée à travailler dans les établissements hospitaliers, en site occupé, pour une maîtrise de A à Z de votre projet.
   - type: intertitrebigobject
     interbig: "La résine de synthèse Kerrock "
   - type: intertitresmallobject
