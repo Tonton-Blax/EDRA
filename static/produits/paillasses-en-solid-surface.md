@@ -48,6 +48,7 @@ contenu:
   - type: imagesobject
     images:
       - ../img/uploads/ch-bayeux.jpg
+      - ../img/uploads/img_2560-2-.jpeg
   - type: intertitrebigobject
     interbig: Le plus large choix d’éléments moulés de tous les Solid Surface existants
   - type: imagesobject
