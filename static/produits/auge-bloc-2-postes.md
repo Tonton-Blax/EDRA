@@ -5,7 +5,7 @@ title: Auge Chirurgicale 1 poste
 subtitle: "Destination : SAS de bloc opératoire"
 keywords: Lavabos chirurgicaux
 famille: bloc_1_poste
-thumbnail: ../img/uploads/paillasse-sur-mesure-05.jpg
+thumbnail: ../img/uploads/lavabo-1-poste-large-automatique-web.jpg
 decalage: 1
 date: 2021-07-23T13:03:54.568Z
 tableau: []
@@ -74,5 +74,7 @@ contenu:
       * Robinetterie en acier inoxydable 316L (qualité chirurgicale) déclipsable et autoclavable.
   - type: imagesobject
     images:
-      - ../img/uploads/lavabo-1-poste-large-automatique-web.jpg
+      - ../img/uploads/lavabo-1-poste-small-automatique-web.jpg
+      - ../img/uploads/lavabo-1-poste-small-commande-fémorale-01-web.jpg
+      - ../img/uploads/lavabo-1-poste-small-commande-fémorale-02-web.jpg
 ---
