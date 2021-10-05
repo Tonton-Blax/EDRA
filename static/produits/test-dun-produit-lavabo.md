@@ -34,10 +34,6 @@ contenu:
 
       * Grille de bonde moulée dans la masse
 
-      * Siphon PVC à joint intégré
-
-      * Robinetterie col de cygne en laiton chromé EDRA avec raccord rapide pour adaptation d’un filtre terminal ou robinetterie droite
-
       * Dimensions : 1570 x 550 x 620 mm
 
       * 3 types de commande :
@@ -49,8 +45,7 @@ contenu:
     interbig: Equipement de base du lavabo à commande par cellule infrarouge
   - type: textblock
     body: >-
-      * Col de cygne en laiton chromé muni d’un raccord rapide pour adaptation
-      d’un filtre
+      * Col de cygne en laiton chromé ou robinetterie droite
 
       * Commande de l’eau par détecteur d’approche infrarouge avec électrovanne bistable 1/2" 6Vcc
 
@@ -60,6 +55,8 @@ contenu:
 
       * Mitigeur thermostatique avec clapets anti-retour
 
+      * Siphon PVC à joint intégré
+
       * Flexibles de raccordement
   - type: intertitrebigobject
     interbig: Options
@@ -67,6 +64,8 @@ contenu:
     body: >-
       * Préfiltration de l’eau : dispositif placé sous l’auge et comprenant un
       carter de préfiltration 10’’ et une cartouche 0,5µ
+
+      * Filtration finale : filtre terminal autoclavable ou à usage unique avec raccord rapide pour adaptation sur le col de cygne
 
       * Distributeur de savon (commande par cellule ou commande au coude)
 
