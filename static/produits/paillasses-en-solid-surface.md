@@ -17,14 +17,14 @@ contenu:
     interbig: Etude personnalisée de votre projet
   - type: textblock
     body: >-
-      * Analyse de vos besoins : prise de cotes, analyse des flux /
+      * **Analyse de vos besoins** : prise de cotes, analyse des flux /
       configuration des locaux,  identification des besoins des utilisateurs
 
-      * Elaboration d'un dossier technique et financier personnalisé : fiches techniques, fiches matériaux, plans, nuanciers coloris et devis détaillé
+      * **Elaboration d'un dossier technique et financier personnalisé** : fiches techniques, fiches matériaux, plans, nuanciers coloris et devis détaillé
 
-      * Fabrication : la fabrication des paillasses en résine et des meubles est assurée à Montreuil, en région parisienne. Tous nos techniciens ont reçu une formation agréée Kerrock pour acquérir le savoir-faire unique nécessaire dans la transformation de la résine.
+      * **Fabrication** : la fabrication des paillasses en résine et des meubles est assurée à Montreuil, en région parisienne. Tous nos techniciens ont reçu une formation agréée Kerrock pour acquérir le savoir-faire unique nécessaire dans la transformation de la résine.
 
-      * Installation, raccordement et mise en service : une équipe dédiée à votre projet, habituée à travailler dans les établissements hospitaliers, en site occupé, pour une maîtrise de A à Z de votre projet.
+      * **Installation, raccordement et mise en service** : une équipe dédiée à votre projet, habituée à travailler dans les établissements hospitaliers, en site occupé, pour une maîtrise de A à Z de votre projet.
   - type: intertitrebigobject
     interbig: "La résine de synthèse Kerrock : un choix responsable"
   - type: textblock
@@ -35,8 +35,8 @@ contenu:
       hospitalier. Kerrock est le parfait garant de la qualité sanitaire de
       votre établissement.
 
-      * **Ecologique** : il est naturellement durable et recyclable. Il peut être rénové, réparé et réutilisé à l’infini. Respectueux de l’environnement et de la santé, il ne contient aucun C.O.V. Kerrock est par ailleurs produit en Europe. La proximité du site de production favorise la réduction des transports routiers. L'impact est direct sur l'écologie par la baisse significative des émanations de CO2. La production européenne permet également une meilleure rationalisation des coûts directs et des taxes douanières.
-
+      * **Ecologique** : Mélange d'hydroxyde d'aluminium et d'un polymère acrylique, le solid surface Kerrock est un matériau composite durable et recyclable à l'infini.\
+        Respectueux de l’environnement et de la santé, il ne contient aucun C.O.V. (Composés Organiques Volatils). Kerrock est par ailleurs produit en Europe favorisant la réduction des transports routiers et de l'impact carbone. La production européenne permet également une meilleure rationalisation des coûts directs et des taxes douanières. 
       * **Conçu pour durer** : grâce à sa technologie innovante, le solid surface Kerrock est naturellement résistant aux chocs physiques et thermiques, aux produits chimiques et aux variations de température. Il est en plus réparable, rénovable et par nature durable.
 
       * **Esthétique** : grâce à sa structure unique et ses facilités d'usinage, il peut prendre toutes les formes sans aucun joint apparent et les couleurs les plus innovantes.
