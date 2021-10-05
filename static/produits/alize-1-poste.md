@@ -1,7 +1,7 @@
 ---
 layout: produits
 slug: auges-gamme-alize
-title: Auges Gamme Alize
+title: Auges Gamme Alizé
 subtitle: "Destination : Réanimation, SSPI, Maternités, Urgences, Dialyse, Bloc
   opératoire, Cliniques dentaires, vétérinaires, ophtalmologiques"
 keywords: Lavabos chirurgicaux
