@@ -44,6 +44,9 @@ contenu:
         * Commande au coude
         * Commande fémorale
         * Commande par cellule infrarouge
+  - type: imagesobject
+    images:
+      - ../img/uploads/lavabo-2-postes-automatique-web.jpg
   - type: intertitrebigobject
     interbig: Equipement de base du lavabo à commande par cellule infrarouge
   - type: textblock
@@ -75,6 +78,5 @@ contenu:
       * Robinetterie en acier inoxydable 316L (qualité chirurgicale) déclipsable et autoclavable.
   - type: imagesobject
     images:
-      - ../img/uploads/lavabo-2-postes-automatique-web.jpg
       - ../img/uploads/lavabo-2-postes-commande-fémorale-web.jpg
 ---
