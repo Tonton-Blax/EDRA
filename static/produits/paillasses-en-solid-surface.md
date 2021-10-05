@@ -11,8 +11,8 @@ date: 2021-04-01T12:25:55.049Z
 tableau: []
 contenu:
   - type: sectionmeta
-    sectiontitle: Paillasses sur mesure
-    sectionsubtitle: sèches ou humides
+    sectiontitle: Aménagements hospitalier sur mesure
+    sectionsubtitle: Paillasses sèches ou humides et mobilier de soin
   - type: intertitrebigobject
     interbig: Votre projet en 4 étapes
   - type: textblock
