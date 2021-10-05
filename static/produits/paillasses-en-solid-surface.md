@@ -14,46 +14,17 @@ contenu:
     sectiontitle: Aménagements hospitalier sur mesure
     sectionsubtitle: Paillasses sèches ou humides et mobilier de soin
   - type: intertitrebigobject
-    interbig: Votre projet en 4 étapes
-  - type: textblock
-    body: |-
-      1. Analyse de vos besoins
-
-      * Prise de cotes 
-      * Analyse des flux / configuration des locaux
-      * Identification des besoins des utilisateurs
-      * Prise en compte des spécificités internes
+    interbig: Etude personnalisée de votre projet
   - type: textblock
     body: >-
-      2. Elaboration d'un dossier personnalisé
+      1. Analyse de vos besoins : prise de cotes, analyse des flux /
+      configuration des locaux,  identification des besoins des utilisateurs
 
+      2. Elaboration d'un dossier technique et financier personnalisé : fiches techniques, fiches matériaux, plans, nuanciers coloris et devis détaillé
 
-      * Fiches techniques (matériaux / produits complémentaires)
+      3. Fabrication : La fabrication des paillasses en résine et des meubles est assurée à Montreuil, en région parisienne. Tous nos techniciens ont reçu une formation agréée Kerrock pour acquérir le savoir-faire unique nécessaire dans la transformation de la résine.
 
-      * Plans
-
-      * Nuanciers coloris
-
-      * Rédaction du projet financier avec détails des postes pour une meilleure analyse de l'offre
-  - type: textblock
-    body: >-
-      3 Fabrication
-
-
-      La fabrication des paillasses en résine et des meubles est assurée à Montreuil, en région parisienne. Tous nos techniciens ont reçu une formation agréée Kerrock pour acquérir le savoir-faire unique nécessaire dans la transformation de la résine.
-  - type: textblock
-    body: >-
-      4. Installation
-
-
-      Une équipe dédiée à votre projet, habituée à travailler dans les établissements hospitaliers, en site occupé pour une maîtrise de A à Z de votre projet :
-
-
-      * Pose / ajustements
-
-      * Raccordement
-
-      * Formation
+      4. Installation, raccordement et mise en service : Une équipe dédiée à votre projet, habituée à travailler dans les établissements hospitaliers, en site occupé, pour une maîtrise de A à Z de votre projet.
   - type: intertitrebigobject
     interbig: Le plus large choix d’éléments moulés de tous les Solid Surface existants
   - type: imagesobject
