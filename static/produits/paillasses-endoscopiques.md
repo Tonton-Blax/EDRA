@@ -97,4 +97,5 @@ contenu:
       - ../img/uploads/paillasse-endoscopique_02_2.jpg
       - ../img/uploads/paillasse-endoscopique_02_3.jpg
       - ../img/uploads/annecy-3-copie.jpg
+      - ../img/uploads/paillasse-avec-pompes-intégrées-sans-traçabilité.jpg
 ---
