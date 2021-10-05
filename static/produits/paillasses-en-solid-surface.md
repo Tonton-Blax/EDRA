@@ -51,7 +51,7 @@ contenu:
     images:
       - ../img/uploads/paillasse-sur-mesure-02.png
   - type: intertitrebigobject
-    interbig: Etude personnalisée de votre projet
+    interbig: Etude personnalisée de votre projet en 4 points-clés
   - type: textblock
     body: >-
       * **Analyse de vos besoins** : prise de cotes, analyse des flux /
