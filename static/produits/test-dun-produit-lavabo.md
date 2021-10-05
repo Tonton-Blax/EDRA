@@ -73,4 +73,8 @@ contenu:
       * Distributeur de savon (commande par cellule ou commande au coude)
 
       * Robinetterie en acier inoxydable 316L (qualité chirurgicale) déclipsable et autoclavable.
+  - type: imagesobject
+    images:
+      - ../img/uploads/lavabo-2-postes-automatique-web.jpg
+      - ../img/uploads/lavabo-2-postes-commande-fémorale-web.jpg
 ---
