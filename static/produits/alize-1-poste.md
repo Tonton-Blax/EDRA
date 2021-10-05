@@ -53,7 +53,7 @@ contenu:
 
       * 1 commande de l’eau par détecteur d’approche infrarouge avec électrovanne bistable 1/2" 6Vcc
 
-      * Avec système de purge automatique programmable
+      * Avec système de purge automatique inclus
 
       * 1 raccord de réglage de débit
 
