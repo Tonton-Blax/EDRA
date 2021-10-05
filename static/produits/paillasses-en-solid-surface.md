@@ -45,6 +45,10 @@ contenu:
       * **Finitions / détails** : avec dosseret arrondi le long des cloisons ou crédence jusqu'au meuble, sans dosseret, avec retombée anti-goutte ou simplement arrondie, avec incrustations de couleur, passe-câbles, séparation zone sèche/zone humide, égouttoir rainuré dans la masse, etc...
 
       * **Support** : châssis en acier peint époxy ou acier inoxydable, mobilier autoporteur ou sur roulettes, suspendues
+  - type: imagesobject
+    images:
+      - ../img/uploads/ch-bayeux.jpg
+      - ../img/uploads/img_2560-2-.jpeg
   - type: intertitrebigobject
     interbig: Le plus large choix d’éléments moulés de tous les Solid Surface existants
   - type: imagesobject
@@ -67,8 +71,9 @@ contenu:
       stratifié à choisir parmi plus de 156 coloris
   - type: imagesobject
     images:
-      - ../img/uploads/maussins-02.jpg
+      - ../img/uploads/pharmacie-hop-st-phillibert-ghicl.jpg
+      - ../img/uploads/c440e754-ee22-4348-889d-c2f43319c333.jpg
       - ../img/uploads/paillasse-sur-mesure-04.jpg
       - ../img/uploads/reuilly-08.jpg
-      - ../img/uploads/ch-bayeux.jpg
+      - ../img/uploads/paillasse-1-bac-mouchetee-avec-decoupes-2-.jpeg
 ---
