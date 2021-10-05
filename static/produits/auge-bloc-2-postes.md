@@ -5,7 +5,7 @@ title: Auge Chirurgicale 1 poste
 subtitle: "Destination : SAS de bloc opératoire"
 keywords: Lavabos chirurgicaux
 famille: bloc_1_poste
-thumbnail: ../img/uploads/lavabo-3-postes-commande-automatique-web.jpg
+thumbnail: ../img/uploads/paillasse-sur-mesure-05.jpg
 decalage: 1
 date: 2021-07-23T13:03:54.568Z
 tableau: []
