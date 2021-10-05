@@ -64,6 +64,8 @@ contenu:
       * Traçabilité-ticket : la pompe peut être associée à une imprimante-ticket pour la validation de l'étape
 
 
+
+
       **La traçabilité informatique : pour la gestion du cycle complet**
 
 
@@ -74,15 +76,21 @@ contenu:
         * Contrôle, suivi et supervision des étapes
         * Traçabilité des produits
         * Enregistrement et impression d'un rapport de traçabilité
+
+
       * Programmation sur mesure en fonction de l'activité endoscopique, de l'organisation du service, de l'existence de LDE, etc...
 
 
-      **Les autres options**
+
+
+      **Les options**
 
 
       * Système de désinfection automatique des siphons
 
       * Préfiltration adaptée à la qualité de votre eau (nous consulter)
+
+      * Kit de rinçage stérile
   - type: imagesobject
     images:
       - ../img/uploads/paillasse-endoscopique_02_1.jpg
