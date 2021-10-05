@@ -70,4 +70,5 @@ contenu:
       - ../img/uploads/maussins-02.jpg
       - ../img/uploads/paillasse-sur-mesure-04.jpg
       - ../img/uploads/reuilly-08.jpg
+      - ../img/uploads/ch-bayeux.jpg
 ---
