@@ -28,7 +28,7 @@ contenu:
       * Support au choix : piètements ou mobilier autoporteur avec aménagements sur-mesure
   - type: leplusobject
     leplus: |-
-      Du sur-mesure pour répondre à vos besoins.
+      Du sur mesure pour répondre à vos besoins.
       Nos experts sont à votre disposition pour vous conseiller
   - type: imagesobject
     images:
