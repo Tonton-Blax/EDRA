@@ -39,9 +39,7 @@ contenu:
 
       * Siphon PVC à joint intégré
 
-      * Robinetterie col de cygne en laiton chromé EDRA MEDICAL avec raccord rapide pour adaptation d’un filtre terminal ou robinetterie droite
-
-      * Dimensions : 600 540 x 550 mm
+      * Dimensions : 600 x 540 x 550 mm
 
       * 3 types de commande :
 
