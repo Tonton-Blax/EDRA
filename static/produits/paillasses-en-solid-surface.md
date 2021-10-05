@@ -23,8 +23,8 @@ contenu:
       hospitalier. Kerrock est le parfait garant de la qualité sanitaire de
       votre établissement.
 
-      * **Ecologique** : Mélange d'hydroxyde d'aluminium et d'un polymère acrylique, le solid surface Kerrock est un matériau composite durable et recyclable à l'infini.\
-        Respectueux de l’environnement et de la santé, il ne contient aucun C.O.V. (Composés Organiques Volatils). Kerrock est par ailleurs produit en Europe favorisant la réduction des transports routiers et de l'impact carbone. La production européenne permet également une meilleure rationalisation des coûts directs et des taxes douanières. 
+      * **Ecologique** : Mélange d'hydroxyde d'aluminium et d'un polymère acrylique, le solid surface Kerrock est un matériau composite durable et recyclable à l'infini. Respectueux de l’environnement et de la santé, il ne contient aucun C.O.V. (Composés Organiques Volatils). Kerrock est par ailleurs produit en Europe favorisant la réduction des transports routiers et de l'impact carbone. La production européenne permet également une meilleure rationalisation des coûts directs et des taxes douanières. 
+
       * **Conçu pour durer** : grâce à sa technologie innovante, le solid surface Kerrock est naturellement résistant aux chocs physiques et thermiques, aux produits chimiques et aux variations de température. Il est en plus réparable, rénovable et par nature durable.
 
       * **Esthétique** : grâce à sa structure unique et ses facilités d'usinage, il peut prendre toutes les formes sans aucun joint apparent et les couleurs les plus innovantes.
