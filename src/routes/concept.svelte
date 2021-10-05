@@ -3,6 +3,34 @@
 	<title>EDRA Concept</title>
 </svelte:head>
 
+<script context="module">
+
+	export async function load({ fetch }) {
+		const res = await fetch(`/concept.json`);
+		if (res.status === 200) {
+			return {
+				props: {
+					concept: await res.json(),
+				}
+			};
+		}
+		if (res.status == 404) {
+			return {
+				status: res.status,
+				error: new Error('This page does not exist')
+			}
+		}
+		else {
+			return {
+				props : {posts : null},
+				status: res.status,
+				error: new Error(`There was an error while loading the article`)
+			}
+		};
+	}
+</script>
+
+
 <script>
 	import IntersectionObserver from "svelte-intersection-observer";
 	import { fly, fade, scale } from 'svelte/transition';
@@ -13,9 +41,12 @@
 	import ChevronRightIcon from '$lib/layout/ChevronRightIcon.svelte'
 	import Header from '$lib/layout/HeaderBase.svelte';
 	import { observing } from '$lib/utils/stores.js';
-	import { isMobileDevice } from '$lib/utils/utils.js';
+	import { isMobileDevice, getFileName } from '$lib/utils/utils.js';
+	import lazyload from 'vanilla-lazyload';
+	import { browser } from "$app/env";
 	import { onMount } from 'svelte';
 	import { navigating } from "$app/stores";
+	export let concept;
 
 	$: $navigating && header && header.$destroy();
 	$: isMobile = isMobileDevice();
@@ -23,10 +54,16 @@
 	let vids;
 
 	let SvelteSeo; let ready;
-	let header;
+	let header, lazyloadInstance;
+
+	if (browser) {
+		lazyloadInstance = new lazyload();
+	}
+
 	onMount(async()=>{
 		const module = await import('svelte-seo');
         SvelteSeo = module.default;
+		console.log(concept)
 		vids = document.querySelectorAll(`.videos-concept`);
 		ready = true;
 	})
@@ -201,7 +238,7 @@
 			<div class="overblock-concept" in:fade={{duration:500}} out:fade={{delay:0, easing:quadInOut}}>
 				<div class="flexbase h100">
 					<p class="m-6 p-6 is-size-4 has-text-left">
-						{overBlocks[0].sousTitre[overBlocks[0].index]}
+						{concept.images[overBlocks[0].index].headlegend}
 					</p>
 				</div>
 			</div>
@@ -213,8 +250,8 @@
 				autoplay={overBlocks[0].autoplay} duration={500}
 				on:change={ e => changeChapoIndex(0, e.detail.currentSlide) }
 			>
-				{#each overBlocks[0].images as src (src)}
-					<img {src} class="carou-img" alt="nature" /> 
+				{#each concept.images as src (src)}
+					<img src={src.headimage} data-src="/img/lowres/{getFileName(src.headimage)}__400.webp" class="lazy carou-img" alt="nature" /> 
 				{/each}
 			</Carousel>
 			</div>

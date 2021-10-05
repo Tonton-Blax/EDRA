@@ -36,14 +36,18 @@
 	import ChevronRightIcon from '$lib/layout/ChevronRightIcon.svelte'
 	import Header from '$lib/layout/HeaderBase.svelte'
 	import { observing } from '$lib/utils/stores.js';
-	import { isMobileDevice } from '$lib/utils/utils.js';
+	import { isMobileDevice, getFileName } from '$lib/utils/utils.js';
+	import lazyload from 'vanilla-lazyload';
+	import { browser } from "$app/env";
 	import { onMount } from 'svelte';
 	import { navigating } from "$app/stores";
 	export let accueil;	
 	
+	
 	$: isMobile = isMobileDevice();
 	$: $navigating && header && header.$destroy();
-
+	
+	let lazyloadInstance;
 	let pictoEl, headerEl, header;
 	let active = false;
 
@@ -53,11 +57,17 @@
 	}
 
 	let SvelteSeo; let ready; let vids;
+
+	if (browser) {
+		lazyloadInstance = new lazyload();
+	}
+
 	onMount(async()=>{
 		const module = await import('svelte-seo');
         SvelteSeo = module.default;
 		vids = document.querySelectorAll(`.videos-concept`);
 		ready = true;
+		//lazyloadInstance.update();
 	});
 
 	const refs = {
@@ -235,13 +245,13 @@
 			{#key overBlocks[0].index}
 			<div class="overblock" in:fly={{x:1000, duration:500}} out:fly={{x:1000, delay:0, easing:quadInOut}}>
 				<div class="block-up">
-						<h3 class="title is-3 has-text-primary has-text-weight-bold">{overBlocks[0].titre[overBlocks[0].index]}</h3>
+						<h3 class="title is-3 has-text-primary has-text-weight-bold">{accueil.images[overBlocks[0].index].headtitle}</h3>
 					</div>
 				<div class="block-in">
-					<p class="has-text-primary has-text-left">{overBlocks[0].sousTitre[overBlocks[0].index]}</p>
+					<p class="has-text-primary has-text-left">{accueil.images[overBlocks[0].index].headlegend}</p>
 				</div>
 				<div class="block-bouton">
-					<a class="button is-success" rel="prefetch" href={overBlocks[0].liens[overBlocks[0].index]}>Découvrir</a>
+					<a class="button is-success" rel="prefetch" href={accueil.images[overBlocks[0].index].headlink}>Découvrir</a>
 				</div>
 			</div>
 			{/key}
@@ -252,8 +262,8 @@
 				autoplay={overBlocks[0].autoplay} duration={500}
 				on:change={ e => changeChapoIndex(0, e.detail.currentSlide) }
 			>
-				{#each overBlocks[0].images as src (src)}
-					<img {src} class="carou-img" alt="nature" /> 
+				{#each accueil.images as src (src)}
+					<img src={src.headimage} data-src="/img/lowres/{getFileName(src.headimage)}__400.webp" class="lazy carou-img" alt="nature" /> 
 				{/each}
 			</Carousel>
 			</div>
