@@ -44,6 +44,9 @@ contenu:
       * **Support** : châssis en acier peint époxy ou acier inoxydable, mobilier autoporteur ou sur roulettes, suspendues
   - type: intertitrebigobject
     interbig: Le plus large choix d’éléments moulés de tous les Solid Surface existants
+  - type: imagesobject
+    images:
+      - ../img/uploads/paillasse-sur-mesure-02.png
   - type: intertitrebigobject
     interbig: Etude personnalisée de votre projet
   - type: textblock
@@ -56,9 +59,6 @@ contenu:
       * **Fabrication** : la fabrication des paillasses en résine et des meubles est assurée à Montreuil, en région parisienne. Tous nos techniciens ont reçu une formation agréée Kerrock pour acquérir le savoir-faire unique nécessaire dans la transformation de la résine.
 
       * **Installation, raccordement et mise en service** : une équipe dédiée à votre projet, habituée à travailler dans les établissements hospitaliers, en site occupé, pour une maîtrise de A à Z de votre projet.
-  - type: imagesobject
-    images:
-      - ../img/uploads/paillasse-sur-mesure-02.png
   - type: intertitrebigobject
     interbig: Combinaison esthétique et fonctionnelles avec du mobilier en stratifié
       à choisir parmi 156 coloris.
