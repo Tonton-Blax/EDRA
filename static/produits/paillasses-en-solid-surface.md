@@ -10,20 +10,54 @@ decalage: 1
 date: 2021-04-01T12:25:55.049Z
 tableau: []
 contenu:
+  - type: sectionmeta
+    sectiontitle: Paillasses sur mesure
+    sectionsubtitle: sèches ou humides
   - type: intertitrebigobject
-    interbig: Matériaux et procédé de fabrication
+    interbig: Votre projet en 4 étapes
+  - type: intertitresmallobject
+    intersmall: 1. Analyse de vos besoins
+  - type: textblock
+    body: |-
+      * Prise de cotes 
+      * Analyse des flux / configuration des locaux
+      * Identification des besoins des utilisateurs
+      * Prise en compte des spécificités internes
+  - type: intertitresmallobject
+    intersmall: 2. Elaboration d'un dossier personnalisé
   - type: textblock
     body: >-
-      * Ensemble monobloc sans joint en Kerrock 12 mm comprenant :
+      * Elaboration d'un dossier technique sur mesure
 
-        * Le plan de travail linéaire ou en angle avec bords arrondis ou droits
-        * La crédence arrière et latérale le long des cloisons
-        * Les éviers / cuves / vasques dans le même matériau assemblés par polymérisation
-      * Support :  
+        * Fiches techniques (matériaux / produits complémentaires)
+        * Plans
+        * Nuanciers coloris
+      * Rédaction du projet financier avec détails des postes pour une meilleure analyse de l'offre
+  - type: intertitresmallobject
+    intersmall: 3. Fabrication
+  - type: textblock
+    body: La fabrication des paillasses en résine et des meubles est assurée à
+      Montreuil, en région parisienne. Tous nos techniciens ont reçu une
+      formation agréée Kerrock pour acquérir le savoir-faire unique nécessaire
+      dans la transformation de la résine.
+  - type: intertitresmallobject
+    intersmall: 4. Installation
+  - type: textblock
+    body: >-
+      Une équipe dédiée à votre projet, habituée à travailler dans les
+      établissements hospitaliers, en site occupé pour :
 
-        * Châssis en acier peint époxy
-        * Châssis en acier inoxydable 304L
-        * Mobilier autoporteur
+
+      * Poser
+
+      * Ajuster
+
+      * Raccorder
+
+      * Former
+
+
+      Pour une maîtrise de A à Z de votre projet.
   - type: intertitrebigobject
     interbig: Le plus large choix d’éléments moulés de tous les Solid Surface existants
   - type: imagesobject
