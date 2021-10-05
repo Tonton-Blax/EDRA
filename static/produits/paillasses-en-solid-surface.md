@@ -26,6 +26,10 @@ contenu:
 
       4. Installation, raccordement et mise en service : Une équipe dédiée à votre projet, habituée à travailler dans les établissements hospitaliers, en site occupé, pour une maîtrise de A à Z de votre projet.
   - type: intertitrebigobject
+    interbig: "La résine de synthèse Kerrock "
+  - type: intertitresmallobject
+    intersmall: exemple
+  - type: intertitrebigobject
     interbig: Le plus large choix d’éléments moulés de tous les Solid Surface existants
   - type: imagesobject
     images:
