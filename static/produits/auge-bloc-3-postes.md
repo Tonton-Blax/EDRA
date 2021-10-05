@@ -1,7 +1,7 @@
 ---
 layout: produits
 slug: auges-bloc-3-postes
-title: Auge Bloc 3 postes
+title: Auge Chirurgicale 3 postes
 subtitle: "Destination : SAS de bloc opératoire"
 keywords: Lavabos chirurgicaux
 famille: bloc_3_postes
