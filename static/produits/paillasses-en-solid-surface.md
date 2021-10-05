@@ -15,49 +15,45 @@ contenu:
     sectionsubtitle: sèches ou humides
   - type: intertitrebigobject
     interbig: Votre projet en 4 étapes
-  - type: intertitresmallobject
-    intersmall: 1. Analyse de vos besoins
   - type: textblock
     body: |-
+      1. Analyse de vos besoins
+
       * Prise de cotes 
       * Analyse des flux / configuration des locaux
       * Identification des besoins des utilisateurs
       * Prise en compte des spécificités internes
-  - type: intertitresmallobject
-    intersmall: 2. Elaboration d'un dossier personnalisé
   - type: textblock
     body: >-
-      * Elaboration d'un dossier technique sur mesure
+      2. Elaboration d'un dossier personnalisé
 
-        * Fiches techniques (matériaux / produits complémentaires)
-        * Plans
-        * Nuanciers coloris
+
+      * Fiches techniques (matériaux / produits complémentaires)
+
+      * Plans
+
+      * Nuanciers coloris
+
       * Rédaction du projet financier avec détails des postes pour une meilleure analyse de l'offre
-  - type: intertitresmallobject
-    intersmall: 3. Fabrication
-  - type: textblock
-    body: La fabrication des paillasses en résine et des meubles est assurée à
-      Montreuil, en région parisienne. Tous nos techniciens ont reçu une
-      formation agréée Kerrock pour acquérir le savoir-faire unique nécessaire
-      dans la transformation de la résine.
-  - type: intertitresmallobject
-    intersmall: 4. Installation
   - type: textblock
     body: >-
-      Une équipe dédiée à votre projet, habituée à travailler dans les
-      établissements hospitaliers, en site occupé pour :
+      3 Fabrication
 
 
-      * Poser
-
-      * Ajuster
-
-      * Raccorder
-
-      * Former
+      La fabrication des paillasses en résine et des meubles est assurée à Montreuil, en région parisienne. Tous nos techniciens ont reçu une formation agréée Kerrock pour acquérir le savoir-faire unique nécessaire dans la transformation de la résine.
+  - type: textblock
+    body: >-
+      4. Installation
 
 
-      Pour une maîtrise de A à Z de votre projet.
+      Une équipe dédiée à votre projet, habituée à travailler dans les établissements hospitaliers, en site occupé pour une maîtrise de A à Z de votre projet :
+
+
+      * Pose / ajustements
+
+      * Raccordement
+
+      * Formation
   - type: intertitrebigobject
     interbig: Le plus large choix d’éléments moulés de tous les Solid Surface existants
   - type: imagesobject
@@ -74,6 +70,8 @@ contenu:
   - type: imagesobject
     images:
       - ../img/uploads/paillasse-sur-mesure-04.jpg
+      - ../img/uploads/maussins-02.jpg
+      - ../img/uploads/reuilly-08.jpg
       - ../img/uploads/paillasse-sur-mesure-05.jpg
       - ../img/uploads/paillasse-sur-mesure-03.jpg
 ---
