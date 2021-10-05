@@ -3,17 +3,20 @@
     {
       "headimage": "../img/uploads/paillasse_endoscopique.jpg",
       "headtitle": "Paillasses endoscopiques",
-      "headlegend": "Ut velit mauris, egestas sed, gravida nec, ornare ut, mi. Aenean ut orci vel massa suscipit pulvinar. Nulla sollicitudin fusce varius"
+      "headlegend": "Pour le traitement manuel des endoscopes thermosensibles avec ou sans traçabilité informatique",
+      "headlink": "https://edra-wip.netlify.app/produits/paillasses-endoscopiques"
     },
     {
       "headimage": "../img/uploads/poste-de-change-sur-mesure-01.jpg",
       "headtitle": "Postes de change en Kerrock",
-      "headlegend": "Pour une hygiène et un entretien irréprochable"
+      "headlegend": "Pour une hygiène et un entretien irréprochable",
+      "headlink": "https://edra-wip.netlify.app/produits/poste-change-kerrock"
     },
     {
       "headtitle": "Lavabos asceptiques",
-      "headlegend": "Consultations, chambres, cabinets dentaires… Utilisation : lavage hygiénique (mains, avant-bras)  naturenaturenaturenature",
-      "headimage": "../img/uploads/gamme-alize.jpg"
+      "headlegend": "Consultations, chambres, cabinets dentaires… Utilisation : lavage hygiénique (mains, avant-bras)",
+      "headimage": "../img/uploads/gamme-alize.jpg",
+      "headlink": "/produits?level=2"
     }
   ]
 }
