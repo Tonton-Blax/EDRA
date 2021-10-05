@@ -14,18 +14,6 @@ contenu:
     sectiontitle: Aménagements hospitalier sur mesure
     sectionsubtitle: Paillasses sèches ou humides et mobilier de soin
   - type: intertitrebigobject
-    interbig: Etude personnalisée de votre projet
-  - type: textblock
-    body: >-
-      * **Analyse de vos besoins** : prise de cotes, analyse des flux /
-      configuration des locaux,  identification des besoins des utilisateurs
-
-      * **Elaboration d'un dossier technique et financier personnalisé** : fiches techniques, fiches matériaux, plans, nuanciers coloris et devis détaillé
-
-      * **Fabrication** : la fabrication des paillasses en résine et des meubles est assurée à Montreuil, en région parisienne. Tous nos techniciens ont reçu une formation agréée Kerrock pour acquérir le savoir-faire unique nécessaire dans la transformation de la résine.
-
-      * **Installation, raccordement et mise en service** : une équipe dédiée à votre projet, habituée à travailler dans les établissements hospitaliers, en site occupé, pour une maîtrise de A à Z de votre projet.
-  - type: intertitrebigobject
     interbig: "La résine de synthèse Kerrock : un choix responsable"
   - type: textblock
     body: >-
@@ -41,10 +29,36 @@ contenu:
 
       * **Esthétique** : grâce à sa structure unique et ses facilités d'usinage, il peut prendre toutes les formes sans aucun joint apparent et les couleurs les plus innovantes.
   - type: intertitrebigobject
+    interbig: "Configuration sur mesure : les points essentiels "
+  - type: textblock
+    body: >-
+      * **Les dimensions et la forme** : un plan de travail ergonomique et
+      dimensionné en fonction du local et de l'usage.
+
+      * **Coloris** : uni, mouchetés, marbré, terrazzo, classique ou tendance, plus de 100 coloris sont à votre disposition
+
+      * **Les éléments moulés** : éviers, vasques, cuves, baignoires, avec le plus grand choix de tailles standards sur le marché. Si vous ne trouvez pas la taille et la forme idéale, nous vous proposerons une solution sur mesure. Avec Kerrock, rien n'est impossible.
+
+      * **Finitions / détails** : avec dosseret arrondi le long des cloisons ou crédence jusqu'au meuble, sans dosseret, avec retombée anti-goutte ou simplement arrondie, avec incrustations de couleur, passe-câbles, séparation zone sèche/zone humide, égouttoir rainuré dans la masse, etc...
+
+      * **Support** : châssis en acier peint époxy ou acier inoxydable, mobilier autoporteur ou sur roulettes, suspendues
+  - type: intertitrebigobject
     interbig: Le plus large choix d’éléments moulés de tous les Solid Surface existants
   - type: imagesobject
     images:
       - ../img/uploads/paillasse-sur-mesure-02.png
+  - type: intertitrebigobject
+    interbig: Etude personnalisée de votre projet
+  - type: textblock
+    body: >-
+      * **Analyse de vos besoins** : prise de cotes, analyse des flux /
+      configuration des locaux,  identification des besoins des utilisateurs
+
+      * **Elaboration d'un dossier technique et financier personnalisé** : fiches techniques, fiches matériaux, plans, nuanciers coloris et devis détaillé
+
+      * **Fabrication** : la fabrication des paillasses en résine et des meubles est assurée à Montreuil, en région parisienne. Tous nos techniciens ont reçu une formation agréée Kerrock pour acquérir le savoir-faire unique nécessaire dans la transformation de la résine.
+
+      * **Installation, raccordement et mise en service** : une équipe dédiée à votre projet, habituée à travailler dans les établissements hospitaliers, en site occupé, pour une maîtrise de A à Z de votre projet.
   - type: intertitrebigobject
     interbig: Combinaison esthétique et fonctionnelles avec du mobilier en stratifié
       à choisir parmi 156 coloris.
