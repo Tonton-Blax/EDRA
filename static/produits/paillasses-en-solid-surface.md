@@ -11,7 +11,7 @@ date: 2021-04-01T12:25:55.049Z
 tableau: []
 contenu:
   - type: sectionmeta
-    sectiontitle: Aménagements hospitalier sur mesure
+    sectiontitle: Aménagements hospitaliers sur mesure
     sectionsubtitle: Paillasses sèches ou humides et mobilier de soin
   - type: intertitrebigobject
     interbig: "La résine de synthèse Kerrock® : un choix responsable"
@@ -63,8 +63,8 @@ contenu:
 
       * **Installation, raccordement et mise en service** : une équipe dédiée à votre projet, habituée à travailler dans les établissements hospitaliers, en site occupé, pour une maîtrise de A à Z de votre projet.
   - type: intertitrebigobject
-    interbig: Combinaison esthétique et fonctionnelles avec du mobilier en stratifié
-      à choisir parmi 156 coloris.
+    interbig: Combinaison esthétiques et fonctionnelles avec du mobilier en
+      stratifié à choisir parmi plus de 156 coloris
   - type: imagesobject
     images:
       - ../img/uploads/paillasse-sur-mesure-04.jpg
