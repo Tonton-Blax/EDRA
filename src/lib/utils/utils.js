@@ -39,7 +39,6 @@ export function longpress(node, threshold = 500) {
 }
 
 export const theRightDef = (w) => {
-  console.log(typeof window !== undefined, w);  
   let res = 400;
     switch (w) {
 			case w >= 1344 :

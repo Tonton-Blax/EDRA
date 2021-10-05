@@ -1,3 +1,31 @@
+<script context="module">
+
+	export async function load({ fetch }) {
+		const res = await fetch(`/accueil.json`);
+		if (res.status === 200) {
+			return {
+				props: {
+					accueil: await res.json(),
+				}
+			};
+		}
+		if (res.status == 404) {
+			return {
+				status: res.status,
+				error: new Error('This page does not exist')
+			}
+		}
+		else {
+			return {
+				props : {posts : null},
+				status: res.status,
+				error: new Error(`There was an error while loading the article`)
+			}
+		};
+	}
+</script>
+
+
 <script>
 	import IntersectionObserver from "svelte-intersection-observer";
 	import { fly } from 'svelte/transition';
@@ -11,7 +39,7 @@
 	import { isMobileDevice } from '$lib/utils/utils.js';
 	import { onMount } from 'svelte';
 	import { navigating } from "$app/stores";
-	
+	export let accueil;	
 	
 	$: isMobile = isMobileDevice();
 	$: $navigating && header && header.$destroy();

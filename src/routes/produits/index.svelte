@@ -1,7 +1,8 @@
 <svelte:window on:popstate={notOk()} />
 <script context="module">
 
-	export async function load({ fetch }) {
+	export async function load({ fetch, page }) {
+		const {query} = page;
 		const res = await fetch(`/produits.json`);
 		if (res.status === 200) {
 			return {
@@ -34,10 +35,11 @@
 	import { tick } from 'svelte';
 	import { navigating } from "$app/stores";
 	import { isMobileDevice } from '$lib/utils/utils.js';
+	import { page } from '$app/stores';
 
 	$: isMobile = isMobileDevice();
 	$: $navigating && header && header.$destroy();
-
+	$: currentLevel = $page.query.get('level') || 0;
 	let ok = true; 
 	let header;
 
@@ -71,7 +73,7 @@
 
 <div class="spacer" />
 <div style="background:var(--lightblue);width:100%;">
-	<Posts {posts} />
+	<Posts {posts} {currentLevel} />
 </div>
 
 

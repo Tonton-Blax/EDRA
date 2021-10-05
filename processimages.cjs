@@ -29,13 +29,11 @@ function processImages(images, res = 400) {
 			|| !fs.existsSync(path.resolve(__dirname, 'static/img/lowres', `${fileName}__${res}.webp`))) {
 			sharp(path.resolve(__dirname, 'static/img/uploads', `${fileName}.${fileExt}`))
 				.resize({ width: res })
-				.blur()
 				[toSameFileExt]({ quality: 70 })
 				.toFile(path.resolve(__dirname, 'static/img/lowres', `${fileName}__${res}.${fileExt}`));
 
 			sharp(path.resolve(__dirname, 'static/img/uploads', `${fileName}.${fileExt}`))
 				.resize({ width: res })
-				.blur()
 				.webp({ quality: 85 })
 				.toFile(path.resolve(__dirname, 'static/img/lowres', `${fileName}__${res}.webp`));
 
