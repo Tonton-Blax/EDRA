@@ -27,8 +27,7 @@ contenu:
     interbig: Caractéristiques générales
   - type: textblock
     body: >-
-      * Coque monobloc en polyester armé fibre de verre, finition gelcoat de
-      qualité sanitaire
+      * Coque monobloc sans joint ni angle vif 
 
       * Dosseret arrière légèrement incliné pour éviter toute stagnation de l’eau
 
