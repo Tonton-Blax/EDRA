@@ -12,7 +12,7 @@ tableau: []
 contenu:
   - type: sectionmeta
     sectiontitle: La Gamme Bloc Opératoire
-    sectionsubtitle: "Dimensions : 1570 x 550 x 620 mm"
+    sectionsubtitle: "Dimensions : 1950 x 575 x 600 mm"
   - type: intertitrebigobject
     interbig: Matériaux et procédé de fabrication
   - type: textblock
@@ -50,19 +50,19 @@ contenu:
     interbig: Equipement de base du lavabo à commande par cellule infrarouge
   - type: textblock
     body: >-
-      * Cols de cygne en laiton chromé ou robinetteries droites 
+      * 3 cols de cygne en laiton chromé ou robinetteries droites 
 
-      * Commandes de l’eau par détecteur d’approche infrarouge avec électrovanne bistable 1/2" 6Vcc
+      * 3 commandes de l’eau par détecteur d’approche infrarouge avec électrovanne bistable 1/2" 6Vcc
 
-      * Système de purge automatique programmable
+      * Avec système de purge automatique programmable
 
-      * Raccord de réglage de débit
+      * 1 raccord de réglage de débit
 
-      * Mitigeur thermostatique avec clapets anti-retour
+      * 1 mitigeur thermostatique avec clapets anti-retour
 
-      * Siphon PVC à joint intégré
+      * 1 siphon PVC à joint intégré
 
-      * Flexibles de raccordement
+      * Flexibles de raccordement fournis
   - type: intertitrebigobject
     interbig: Les options
   - type: textblock
