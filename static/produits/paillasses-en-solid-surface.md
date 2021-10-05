@@ -14,7 +14,7 @@ contenu:
     sectiontitle: Aménagements hospitalier sur mesure
     sectionsubtitle: Paillasses sèches ou humides et mobilier de soin
   - type: intertitrebigobject
-    interbig: "La résine de synthèse Kerrock : un choix responsable"
+    interbig: "La résine de synthèse Kerrock® : un choix responsable"
   - type: textblock
     body: >-
       * **Hygiénique** : l'une des grandes qualités du solid surface Kerrock est
@@ -35,9 +35,9 @@ contenu:
       * **Les dimensions et la forme** : un plan de travail ergonomique et
       dimensionné en fonction du local et de l'usage.
 
-      * **Coloris** : uni, mouchetés, marbré, terrazzo, classique ou tendance, plus de 100 coloris sont à votre disposition
+      * **Les coloris** : uni, mouchetés, marbré, terrazzo, classique ou tendance, plus de 100 coloris sont à votre disposition
 
-      * **Les éléments moulés** : éviers, vasques, cuves, baignoires, avec le plus grand choix de tailles standards sur le marché. Si vous ne trouvez pas la taille et la forme idéale, nous vous proposerons une solution sur mesure. Avec Kerrock, rien n'est impossible.
+      * **Les éléments moulés** : éviers, vasques, cuves carrées, rondes, ovales, le plus grand choix de tailles standards sur le marché. Si vous ne trouvez pas la taille et la forme idéale, nous vous proposerons une solution sur mesure. Avec Kerrock, rien n'est impossible.
 
       * **Finitions / détails** : avec dosseret arrondi le long des cloisons ou crédence jusqu'au meuble, sans dosseret, avec retombée anti-goutte ou simplement arrondie, avec incrustations de couleur, passe-câbles, séparation zone sèche/zone humide, égouttoir rainuré dans la masse, etc...
 
