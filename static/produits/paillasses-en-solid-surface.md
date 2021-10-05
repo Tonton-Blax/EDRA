@@ -22,23 +22,29 @@ contenu:
 
       * Elaboration d'un dossier technique et financier personnalisé : fiches techniques, fiches matériaux, plans, nuanciers coloris et devis détaillé
 
-      * Fabrication : La fabrication des paillasses en résine et des meubles est assurée à Montreuil, en région parisienne. Tous nos techniciens ont reçu une formation agréée Kerrock pour acquérir le savoir-faire unique nécessaire dans la transformation de la résine.
+      * Fabrication : la fabrication des paillasses en résine et des meubles est assurée à Montreuil, en région parisienne. Tous nos techniciens ont reçu une formation agréée Kerrock pour acquérir le savoir-faire unique nécessaire dans la transformation de la résine.
 
-      * Installation, raccordement et mise en service : Une équipe dédiée à votre projet, habituée à travailler dans les établissements hospitaliers, en site occupé, pour une maîtrise de A à Z de votre projet.
+      * Installation, raccordement et mise en service : une équipe dédiée à votre projet, habituée à travailler dans les établissements hospitaliers, en site occupé, pour une maîtrise de A à Z de votre projet.
   - type: intertitrebigobject
-    interbig: "La résine de synthèse Kerrock "
-  - type: intertitresmallobject
-    intersmall: exemple
+    interbig: "La résine de synthèse Kerrock : un choix responsable"
+  - type: textblock
+    body: >-
+      * **Hygiénique** : l'une des grandes qualités du solid surface Kerrock est
+      sa nature antibactérienne. Non poreux, sans joint, il est très facile à
+      nettoyer avec les produits d'entretien couramment utilisés en milieu
+      hospitalier. Kerrock est le parfait garant de la qualité sanitaire de
+      votre établissement.
+
+      * **Ecologique** : il est naturellement durable et recyclable. Il peut être rénové, réparé et réutilisé à l’infini. Respectueux de l’environnement et de la santé, il ne contient aucun C.O.V. Kerrock est par ailleurs produit en Europe. La proximité du site de production favorise la réduction des transports routiers. L'impact est direct sur l'écologie par la baisse significative des émanations de CO2. La production européenne permet également une meilleure rationalisation des coûts directs et des taxes douanières.
+
+      * **Conçu pour durer** : grâce à sa technologie innovante, le solid surface Kerrock est naturellement résistant aux chocs physiques et thermiques, aux produits chimiques et aux variations de température. Il est en plus réparable, rénovable et par nature durable.
+
+      * **Esthétique** : grâce à sa structure unique et ses facilités d'usinage, il peut prendre toutes les formes sans aucun joint apparent et les couleurs les plus innovantes.
   - type: intertitrebigobject
     interbig: Le plus large choix d’éléments moulés de tous les Solid Surface existants
   - type: imagesobject
     images:
       - ../img/uploads/paillasse-sur-mesure-02.png
-  - type: textblock
-    body: Nombreuses dimensions et formes disponibles. Si aucun élément standard ne
-      vous convient, nous fabriquons les éléments à vos mesures en respectant
-      les normes d’hygiène essentielles, à savoir un assemblage monobloc sans
-      angle droit, avec un rayon minimum de 6 mm.
   - type: intertitrebigobject
     interbig: Combinaison esthétique et fonctionnelles avec du mobilier en stratifié
       à choisir parmi 156 coloris.
