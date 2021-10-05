@@ -70,6 +70,8 @@ contenu:
   - type: imagesobject
     images:
       - ../img/uploads/paillasse-sur-mesure-04.jpg
+      - ../img/uploads/maussins-02.jpg
+      - ../img/uploads/reuilly-08.jpg
       - ../img/uploads/paillasse-sur-mesure-05.jpg
       - ../img/uploads/paillasse-sur-mesure-03.jpg
 ---
