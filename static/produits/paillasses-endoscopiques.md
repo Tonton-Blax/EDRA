@@ -63,9 +63,8 @@ contenu:
 
       * Traçabilité-ticket : la pompe peut être associée à une imprimante-ticket pour la validation de l'étape
   - type: textblock
-    body: >-
+    body: |-
       **La traçabilité informatique : pour la gestion du cycle complet**
-
 
       * Un écran tactile gère les fonctions suivantes :
 
@@ -74,9 +73,9 @@ contenu:
         * Contrôle, suivi et supervision des étapes
         * Traçabilité des produits
         * Enregistrement et impression d'un rapport de traçabilité
-
-
-      * Programmation sur mesure en fonction de l'activité endoscopique, de l'organisation du service, de l'existence de LDE, etc...
+  - type: leplusobject
+    leplus: Programmation sur mesure en fonction de l'activité endoscopique, de
+      l'organisation du service, de l'existence de LDE, etc...
   - type: textblock
     body: |-
       **Les options**
