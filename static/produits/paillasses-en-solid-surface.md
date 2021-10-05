@@ -71,7 +71,8 @@ contenu:
       stratifié à choisir parmi plus de 156 coloris
   - type: imagesobject
     images:
-      - ../img/uploads/maussins-02.jpg
+      - ../img/uploads/pharmacie-hop-st-phillibert-ghicl.jpg
+      - ../img/uploads/c440e754-ee22-4348-889d-c2f43319c333.jpg
       - ../img/uploads/paillasse-sur-mesure-04.jpg
       - ../img/uploads/reuilly-08.jpg
       - ../img/uploads/ch-bayeux.jpg
