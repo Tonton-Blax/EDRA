@@ -60,3 +60,31 @@ collections:
             widget: object
             fields: 
               - { label: "Images", name: images, widget: list, field: { label: Image, name: image, widget: image }}
+  - name: "pages"
+    label: "Pages"
+    extension: "json"
+    editor:
+      preview: false
+    files:
+      - label: "Accueil EDRA"
+        name: "accueil"
+        file: "static/accueil.json"
+        fields:
+          - label: "Images"
+            name: 'images'
+            widget: list
+            fields:
+            - {name: headimage, label: Image, widget: image}
+            - {name: headtitle, label: Titre d'accompagnement, widget: string }
+            - {name: headlegend, label: Texte d'accompagnement, widget: string }
+      - label: "EDRA Concept"
+        name: "concept"
+        file: "static/concept.json"
+        fields:
+          - label: "Images"
+            name: 'images'
+            widget: list
+            fields:
+            - {name: headimage, label: Image, widget: image}
+            - {name: headtitle, label: Titre d'accompagnement, widget: string }
+            - {name: headlegend, label: Texte d'accompagnement, widget: string }
