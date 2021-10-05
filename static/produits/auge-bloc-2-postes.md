@@ -10,6 +10,9 @@ decalage: 1
 date: 2021-07-23T13:03:54.568Z
 tableau: []
 contenu:
+  - type: sectionmeta
+    sectiontitle: La Gamme Bloc Opératoire
+    sectionsubtitle: Dimensions 950 x 550 x 620 mm
   - type: intertitrebigobject
     interbig: Matériaux et procédé de fabrication
   - type: textblock
