@@ -37,10 +37,6 @@ contenu:
 
       * Grille de bonde moulée dans la masse
 
-      * Siphon PVC à joint intégré
-
-      * Robinetterie droite
-
       * Dimensions : 500 x 500 x 450 mm
 
       * 3 types de commande :
@@ -52,17 +48,17 @@ contenu:
     interbig: Equipement de base du lavabo à commande par cellule
   - type: textblock
     body: >-
-      * Robinetterie droite
+      * Robinetterie droite  
 
-      * Commande de l’eau par détecteur d’approche infrarouge avec électrovanne bistable 1/2" 6Vcc
+      * 1 commande de l’eau par détecteur d’approche infrarouge avec électrovanne bistable 1/2" 6Vcc
 
-      * Système de purge automatique programmable
+      * Avec système de purge automatique inclus
 
-      * Raccord de réglage de débit
+      * 1 raccord de réglage de débit
 
-      * Mitigeur thermostatique avec clapets anti-retour
+      * 1 mitigeur thermostatique avec clapets anti-retour
 
-      * Flexibles de raccordement
+      * Flexibles de raccordement fournis
   - type: intertitrebigobject
     interbig: Options
   - type: textblock
