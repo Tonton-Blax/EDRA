@@ -18,7 +18,8 @@ contenu:
     interbig: Matériaux et procédé de fabrication
   - type: textblock
     body: >-
-      * Coque en polyester armé fibre de verre et gelcoat de qualité sanitaire
+      * Coque monobloc en polyester armé fibre de verre finition gelcoat de
+      qualité sanitaire
 
       * Châssis en acier inoxydable 304L avec pattes de fixation murale
 
@@ -37,8 +38,6 @@ contenu:
 
       * Grille de bonde moulée dans la masse
 
-      * Siphon PVC à joint intégré
-
       * Dimensions : 600 x 540 x 550 mm
 
       * 3 types de commande :
@@ -50,8 +49,7 @@ contenu:
     interbig: Equipement de base du lavabo à commande par cellule infrarouge
   - type: textblock
     body: >-
-      * Col de cygne en laiton chromé muni d’un raccord rapide pour adaptation
-      d’un filtre
+      * Col de cygne en laiton chromé ou robinetterie droite  
 
       * Commande de l’eau par détecteur d’approche infrarouge avec électrovanne bistable 1/2" 6Vcc
 
@@ -61,13 +59,17 @@ contenu:
 
       * Mitigeur thermostatique avec clapets anti-retour
 
+      * Siphon PVC à joint intégré
+
       * Flexibles de raccordement
   - type: intertitrebigobject
-    interbig: Options
+    interbig: Les options
   - type: textblock
     body: >-
       * Préfiltration de l’eau : dispositif placé sous l’auge et comprenant un
       carter de préfiltration 10’’ et une cartouche 0,5µ
+
+      * Filtration finale : filtre terminal autoclavable ou à usage unique avec raccord rapide pour adaptation sur le col de cygne
 
       * Distributeur de savon (commande par cellule ou commande au coude)
 
