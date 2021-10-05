@@ -5,7 +5,7 @@ title: Auge Chirurgicale 3 postes
 subtitle: "Destination : SAS de bloc opératoire"
 keywords: Lavabos chirurgicaux
 famille: bloc_3_postes
-thumbnail: ../img/uploads/paillasse-sur-mesure-05.jpg
+thumbnail: ../img/uploads/lavabo-3-postes-commande-automatique-web.jpg
 decalage: 1
 date: 2021-07-23T13:02:25.748Z
 tableau: []
@@ -75,4 +75,7 @@ contenu:
       * Distributeur de savon (commande par cellule ou commande au coude)
 
       * Robinetterie en acier inoxydable 316L (qualité chirurgicale) déclipsable et autoclavable.
+  - type: imagesobject
+    images:
+      - ../img/uploads/lavabo-3-postes-commande-fémorale-web.jpg
 ---
