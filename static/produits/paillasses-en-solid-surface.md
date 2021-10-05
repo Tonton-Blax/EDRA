@@ -30,6 +30,9 @@ contenu:
       * **Esthétique** : grâce à sa structure unique et ses facilités d'usinage, il peut prendre toutes les formes sans aucun joint apparent et les couleurs les plus innovantes.
   - type: intertitrebigobject
     interbig: "Configuration sur mesure : les points essentiels "
+  - type: imagesobject
+    images:
+      - ../img/uploads/paillasse-sur-mesure-05.jpg
   - type: textblock
     body: >-
       * **Les dimensions et la forme** : un plan de travail ergonomique et
@@ -42,9 +45,6 @@ contenu:
       * **Finitions / détails** : avec dosseret arrondi le long des cloisons ou crédence jusqu'au meuble, sans dosseret, avec retombée anti-goutte ou simplement arrondie, avec incrustations de couleur, passe-câbles, séparation zone sèche/zone humide, égouttoir rainuré dans la masse, etc...
 
       * **Support** : châssis en acier peint époxy ou acier inoxydable, mobilier autoporteur ou sur roulettes, suspendues
-  - type: imagesobject
-    images:
-      - ../img/uploads/paillasse-sur-mesure-05.jpg
   - type: intertitrebigobject
     interbig: Le plus large choix d’éléments moulés de tous les Solid Surface existants
   - type: imagesobject
