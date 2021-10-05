@@ -1,7 +1,7 @@
 ---
 layout: produits
 slug: auges-bloc-3-postes
-title: Auge Bloc 3 postes
+title: Auge Chirurgicale 3 postes
 subtitle: "Destination : SAS de bloc opératoire"
 keywords: Lavabos chirurgicaux
 famille: bloc_3_postes
@@ -54,7 +54,7 @@ contenu:
 
       * 3 commandes de l’eau par détecteur d’approche infrarouge avec électrovanne bistable 1/2" 6Vcc
 
-      * Avec système de purge automatique programmable
+      * Avec système de purge automatique inclus
 
       * 1 raccord de réglage de débit
 
