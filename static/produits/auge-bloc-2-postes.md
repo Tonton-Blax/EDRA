@@ -5,7 +5,7 @@ title: Auge Chirurgicale 1 poste
 subtitle: "Destination : SAS de bloc opératoire"
 keywords: Lavabos chirurgicaux
 famille: bloc_1_poste
-thumbnail: ../img/uploads/lavabo-1-poste-large-automatique-web.jpg
+thumbnail: ../img/uploads/lavabo-1-poste-large-commande-fémorale-web.jpg
 decalage: 1
 date: 2021-07-23T13:03:54.568Z
 tableau: []
@@ -47,6 +47,9 @@ contenu:
         * Commande par cellule infrarouge
   - type: leplusobject
     leplus: Grille de bonde moulée dans la masse pour un ensemble parfaitement monobloc
+  - type: imagesobject
+    images:
+      - ../img/uploads/lavabo-1-poste-large-automatique-web.jpg
   - type: intertitrebigobject
     interbig: Equipement de base du lavabo à commande par cellule infrarouge
   - type: textblock
@@ -76,8 +79,4 @@ contenu:
       * Distributeur de savon (commande par cellule ou commande au coude)
 
       * Robinetterie en acier inoxydable 316L (qualité chirurgicale) déclipsable et autoclavable.
-  - type: imagesobject
-    images:
-      - ../img/uploads/lavabo-1-poste-large-automatique-web.jpg
-      - ../img/uploads/lavabo-1-poste-large-commande-fémorale-web.jpg
 ---
