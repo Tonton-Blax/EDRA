@@ -21,11 +21,19 @@ contenu:
       sa nature antibactérienne. Non poreux, sans joint, il est très facile à
       nettoyer avec les produits d'entretien couramment utilisés en milieu
       hospitalier. Kerrock est le parfait garant de la qualité sanitaire de
-      votre établissement.
+      votre établissement
 
-      * **Ecologique** : Mélange d'hydroxyde d'aluminium et d'un polymère acrylique, le solid surface Kerrock est un matériau composite durable et recyclable à l'infini. Respectueux de l’environnement et de la santé, il ne contient aucun C.O.V. (Composés Organiques Volatils). Kerrock est par ailleurs produit en Europe favorisant la réduction des transports routiers et de l'impact carbone. La production européenne permet également une meilleure rationalisation des coûts directs et des taxes douanières.
+      * **Esthétique** : grâce à sa structure unique et ses facilités d'usinage, il peut prendre toutes les formes sans aucun joint apparent et les couleurs les plus innovantes
+
+      * **Flexible et ergonomique** : Il intègre tous les éléments nécessaires à la prise en charge des nourrissons en respectant hygiène, confort, ergonomie et sécurité 
+
+      * **Ecologique** : Mélange d'hydroxyde d'aluminium et d'un polymère acrylique, le solid surface Kerrock est un matériau composite durable et recyclable à l'infini. Respectueux de l’environnement et de la santé, il ne contient aucun C.O.V. (Composés Organiques Volatils). Kerrock est par ailleurs produit en Europe favorisant la réduction des transports routiers et de l'impact carbone. La production européenne permet également une meilleure rationalisation des coûts directs et des taxes douanières
 
       * **Conçu pour durer** : grâce à sa technologie innovante, le solid surface Kerrock est naturellement résistant aux chocs physiques et thermiques, aux produits chimiques et aux variations de température. Il est en plus réparable, rénovable et par nature durable.
+  - type: leplusobject
+    leplus: Une vasque pour le lavage des mains, une baignoire, deux plans de
+      change, un tiroir pèse-bébé, une poubelle à ouverture automatique...
+      Faites nous part de vos attentes et nous réaliserons votre projet
   - type: intertitrebigobject
     interbig: Les éléments du plans de change
   - type: textblock
