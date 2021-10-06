@@ -78,7 +78,6 @@ contenu:
       * Robinetterie en acier inoxydable 316L (qualité chirurgicale) déclipsable et autoclavable.
   - type: imagesobject
     images:
-      - ../img/uploads/lavabo-1-poste-small-automatique-web.jpg
-      - ../img/uploads/lavabo-1-poste-small-commande-fémorale-01-web.jpg
-      - ../img/uploads/lavabo-1-poste-small-commande-fémorale-02-web.jpg
+      - ../img/uploads/lavabo-1-poste-large-automatique-web.jpg
+      - ../img/uploads/lavabo-1-poste-large-commande-fémorale-web.jpg
 ---
