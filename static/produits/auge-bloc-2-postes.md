@@ -19,13 +19,15 @@ contenu:
     body: >-
       * Coque en polyester armé fibre de verre et gelcoat de qualité sanitaire
 
-      * Châssis en acier inoxydable 304L avec pattes de fixation murale
+      * Châssis en acier inoxydable 304L avec pattes de fixation murale  
 
       * Procédé de fabrication : le gelcoat est "pistolé" dans le moule, et non pas appliqué comme une peinture, ce qui garantit une résistance bien plus importante
 
       * Application manuelle de 3 couches de fibre de verre imprégnée de résine écologique à faible teneur en styrène teintée dans la masse, pour une épaisseur finale de 4 mm
 
       * L'opération de démoulage de la pièce est réalisée après 24 heures.
+  - type: leplusobject
+    leplus: Livré entièrement monté sur châssis, prêt à poser
   - type: intertitrebigobject
     interbig: Caractéristiques générales
   - type: textblock
