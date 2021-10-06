@@ -41,17 +41,17 @@ contenu:
       * **Les dimensions et la forme** : un plan de travail ergonomique et
       dimensionné en fonction du local et de l'usage
 
-      * **Les coloris** : uni, mouchetés, marbré, terrazzo, classique ou tendance, plus de 100 coloris sont à votre disposition
+      * **Le mobilier** : portes, tiroirs ou casiers, un ensemble d'aménagements sur mesure pour plus de confort et de sécurité  
 
-      * **Les éléments moulés** : vasque, baignoires, le plus grand choix de tailles standards sur le marché. Si vous ne trouvez pas la taille et la forme idéale, nous vous proposerons une solution sur mesure. Avec Kerrock, rien n'est impossible
+      * **Les coloris** : un plan de change blanc, pastel ou moucheté, à associer au mobilier sous plan avec plus de 100 couleurs au choix, sans oublier le matelas : des couleurs à combiner pour un poste de change unique. Classique ou tendance, c'est à vous de choisir
 
-      * **Robinetterie au choix** avec ou sans douchette
+      * **Les éléments moulés** : vasques et/ou baignoires, le plus grand choix de tailles standards sur le marché. Si vous ne trouvez pas la taille et la forme idéale, nous vous proposerons une solution sur mesure. Avec Kerrock, rien n'est impossible
 
-      * **Finitions / détails** : avec dosseret arrondi le long des cloisons ou crédence jusqu'au meuble, sans dosseret, avec retombée anti-goutte ou simplement arrondie, avec incrustations de couleur, avec séparation zone sèche/zone humide...
+      * **La robinetterie au choix** avec ou sans douchette
 
-      * **Mobilier** : portes, tiroirs, casiers, à choisir parmi plus de 150 coloris
+      * **Les matelas** spécial maternité, standard ou sur mesure, plats ou galbés sont fabriqués en France en mousse polyéther 24kg/m3 recouvert d'une toile enduite sans phtalates
 
-      * **Matelas** standard ou sur mesure, plat ou galbé à choisir parmi 15 coloris
+      * **Finitions / détails** : avec dosseret arrondi, sans dosseret, retombée anti-goutte ou simplement arrondie, avec incrustations de couleur, séparation zone sèche/zone humide...
   - type: leplusobject
     leplus: "Matelas protégé par la technologie Agivir(TM) qui élimine en moins
       d'une heure plus de 99,9% des virus et bactéries présents sur sa surface.
@@ -62,6 +62,4 @@ contenu:
       - ../img/uploads/reuilly-04.jpg
       - ../img/uploads/poste-de-change-sur-mesure-02.jpg
       - ../img/uploads/reuilly-01.jpg
-  - type: imagesobject
-    images: []
 ---
