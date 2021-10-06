@@ -16,15 +16,11 @@ contenu:
   - type: intertitrebigobject
     interbig: "La résine de synthèse Kerrock : pour une solution flexible"
   - type: textblock
-    body: >-
-      * Ensemble monobloc en Kerrock 12 mm comprenant.
-
-        * Le plan de travail avec bords arrondis ou droits
-        * La crédence arrière et latérale le long des cloison.
-        * La baignoire et/ou vasque de lavage des mains dans le même matériau assemblés par polymérisation
-
-        Le tout formant un ensemble monobloc sans joint perceptible pour des environnements exigeants.
-      * Support : Mobilier sur mesure conçu en réponse à vos attentes
+    body: "* **Hygiénique** : l'une des grandes qualités du solid surface Kerrock
+      est sa nature antibactérienne. Non poreux, sans joint, il est très facile
+      à nettoyer avec les produits d'entretien couramment utilisés en milieu
+      hospitalier. Kerrock est le parfait garant de la qualité sanitaire de
+      votre établissement."
   - type: intertitrebigobject
     interbig: Les éléments du plans de change
   - type: textblock
