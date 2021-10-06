@@ -16,11 +16,14 @@ contenu:
   - type: intertitrebigobject
     interbig: "La résine de synthèse Kerrock : pour une solution flexible"
   - type: textblock
-    body: "* **Hygiénique** : l'une des grandes qualités du solid surface Kerrock
-      est sa nature antibactérienne. Non poreux, sans joint, il est très facile
-      à nettoyer avec les produits d'entretien couramment utilisés en milieu
+    body: >-
+      * **Hygiénique** : l'une des grandes qualités du solid surface Kerrock est
+      sa nature antibactérienne. Non poreux, sans joint, il est très facile à
+      nettoyer avec les produits d'entretien couramment utilisés en milieu
       hospitalier. Kerrock est le parfait garant de la qualité sanitaire de
-      votre établissement."
+      votre établissement.
+
+      * **Ecologique** : Mélange d'hydroxyde d'aluminium et d'un polymère acrylique, le solid surface Kerrock est un matériau composite durable et recyclable à l'infini. Respectueux de l’environnement et de la santé, il ne contient aucun C.O.V. (Composés Organiques Volatils). Kerrock est par ailleurs produit en Europe favorisant la réduction des transports routiers et de l'impact carbone. La production européenne permet également une meilleure rationalisation des coûts directs et des taxes douanières.
   - type: intertitrebigobject
     interbig: Les éléments du plans de change
   - type: textblock
