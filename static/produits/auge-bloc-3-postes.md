@@ -5,7 +5,7 @@ title: Auge Chirurgicale 3 postes
 subtitle: "Destination : SAS de bloc opératoire"
 keywords: Lavabos chirurgicaux
 famille: bloc_3_postes
-thumbnail: ../img/uploads/paillasse-sur-mesure-05.jpg
+thumbnail: ../img/uploads/lavabo-3-postes-commande-automatique-web.jpg
 decalage: 1
 date: 2021-07-23T13:02:25.748Z
 tableau: []
@@ -29,6 +29,8 @@ contenu:
       * Application manuelle de 3 couches de fibre de verre imprégnée de résine écologique à faible teneur en styrène teintée dans la masse, pour une épaisseur finale de 4 mm
 
       * L’opération de démoulage de la pièce est réalisée après 24 heures.
+  - type: leplusobject
+    leplus: Livré entièrement monté sur châssis, prêt à poser
   - type: intertitrebigobject
     interbig: Caractéristiques générales
   - type: textblock
@@ -37,8 +39,6 @@ contenu:
 
       * Dosseret arrière légèrement incliné pour éviter toute stagnation de l’eau
 
-      * Grille de bonde moulée dans la masse
-
       * Dimensions : 1950 x 575 x 600 mm
 
       * 3 types de commande :
@@ -46,6 +46,8 @@ contenu:
         * Commande au coude
         * Commande fémorale
         * Commande par cellule infrarouge
+  - type: leplusobject
+    leplus: Grille de bonde moulée dans la masse pour un ensemble parfaitement monobloc
   - type: intertitrebigobject
     interbig: Equipement de base du lavabo à commande par cellule infrarouge
   - type: textblock
