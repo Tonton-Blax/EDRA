@@ -18,7 +18,7 @@ contenu:
     interbig: Matériaux et procédé de fabrication
   - type: textblock
     body: >-
-      * Coque : polyester armé fibre de verre et gelcoat de qualité sanitaire
+      * Coque en polyester armé fibre de verre et gelcoat de qualité sanitaire
 
       * Cadre de support en résine HPL et pattes de fixation murale en acier inoxydable
 
