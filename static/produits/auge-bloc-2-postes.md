@@ -79,4 +79,9 @@ contenu:
       * Distributeur de savon (commande par cellule ou commande au coude)
 
       * Robinetterie en acier inoxydable 316L (qualité chirurgicale) déclipsable et autoclavable.
+  - type: imagesobject
+    images:
+      - ../img/uploads/_mg_6338.jpg
+      - ../img/uploads/endo03_02.jpg
+      - ../img/uploads/col-de-cygne-clipsable.jpg
 ---
