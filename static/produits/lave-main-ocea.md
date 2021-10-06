@@ -20,13 +20,15 @@ contenu:
     body: >-
       * Coque : polyester armé fibre de verre et gelcoat de qualité sanitaire
 
-      * Cadre de support en résine HPL et pattes de fixation murale inox
+      * Cadre de support en résine HPL et pattes de fixation murale en acier inoxydable
 
       * Procédé de fabrication : Le gelcoat est « pistolé » dans le moule, et non pas appliqué comme une peinture, ce qui garantit une résistance bien plus importante.
 
       * Application manuelle de 3 couches de fibre de verre imprégnée de résine écologique à faible teneur en styrène teintée dans la masse, pour une épaisseur finale de 4 mm
 
       * L’opération de démoulage de la pièce est réalisée après 24H.
+  - type: leplusobject
+    leplus: Mêmes matériaux, même procédé de fabrication que les auges chirurgicales
   - type: intertitrebigobject
     interbig: Caractéristiques générales
   - type: textblock
