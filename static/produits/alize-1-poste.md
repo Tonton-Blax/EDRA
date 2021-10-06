@@ -36,6 +36,8 @@ contenu:
     body: >-
       * Coque monobloc sans joint ni angle vif
 
+      * Coloris blanc bleuté
+
       * Dosseret arrière légèrement incliné pour éviter toute stagnation de l’eau
 
       * Dimensions : 600 x 540 x 550 mm
