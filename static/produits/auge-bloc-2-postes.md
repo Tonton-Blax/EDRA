@@ -77,4 +77,8 @@ contenu:
       - ../img/uploads/lavabo-1-poste-small-automatique-web.jpg
       - ../img/uploads/lavabo-1-poste-small-commande-fémorale-01-web.jpg
       - ../img/uploads/lavabo-1-poste-small-commande-fémorale-02-web.jpg
+  - type: leplusobject
+    leplus: Grille de bonde moulée dans la masse pour un ensemble parfaitement monobloc
+  - type: leplusobject
+    leplus: Monté sur châssis en acier inoxydable, prêt à poser
 ---
