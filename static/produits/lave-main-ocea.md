@@ -35,8 +35,6 @@ contenu:
 
       * Dosseret arrière légèrement incliné pour éviter toute stagnation de l’eau
 
-      * Grille de bonde moulée dans la masse
-
       * Dimensions : 500 x 500 x 450 mm
 
       * 3 types de commande :
@@ -44,6 +42,8 @@ contenu:
         * Commande au coude
         * Commande fémorale
         * Commande par cellule infrarouge
+  - type: leplusobject
+    leplus: Grille de bonde moulée dans la masse pour un ensemble parfaitement monobloc
   - type: intertitrebigobject
     interbig: Equipement de base du lavabo à commande par cellule
   - type: textblock
