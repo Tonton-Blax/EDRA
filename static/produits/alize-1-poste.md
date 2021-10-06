@@ -29,8 +29,7 @@ contenu:
 
       * L’opération de démoulage de la pièce est réalisée après 24H.
   - type: leplusobject
-    leplus: Livré entièrement monté sur châssis, avec ses pattes de fixation, prêt à
-      poser
+    leplus: Livré entièrement monté sur châssis, prêt à poser
   - type: intertitrebigobject
     interbig: Caractéristiques générales
   - type: textblock
