@@ -14,7 +14,7 @@ contenu:
     sectiontitle: Aménagements sur mesure pour maternités
     sectionsubtitle: Postes de change avec baignoire, vasque et mobilier de soin
   - type: intertitrebigobject
-    interbig: Matériaux et procédé de fabrication
+    interbig: "La résine de synthèse Kerrock : pour une solution flexible"
   - type: textblock
     body: >-
       * Ensemble monobloc en Kerrock 12 mm comprenant.
