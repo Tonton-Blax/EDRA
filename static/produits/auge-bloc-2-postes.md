@@ -34,8 +34,6 @@ contenu:
 
       * Dosseret arrière légèrement incliné pour éviter toute stagnation de l’eau
 
-      * Grille de bonde moulée dans la masse
-
       * Dimensions : 950 x 550 x 620 mm
 
       * 3 types de commande :
@@ -43,6 +41,8 @@ contenu:
         * Commande au coude
         * Commande fémorale
         * Commande par cellule infrarouge
+  - type: leplusobject
+    leplus: Grille de bonde moulée dans la masse pour un ensemble parfaitement monobloc
   - type: intertitrebigobject
     interbig: Equipement de base du lavabo à commande par cellule infrarouge
   - type: textblock
@@ -77,8 +77,4 @@ contenu:
       - ../img/uploads/lavabo-1-poste-small-automatique-web.jpg
       - ../img/uploads/lavabo-1-poste-small-commande-fémorale-01-web.jpg
       - ../img/uploads/lavabo-1-poste-small-commande-fémorale-02-web.jpg
-  - type: leplusobject
-    leplus: Grille de bonde moulée dans la masse pour un ensemble parfaitement monobloc
-  - type: leplusobject
-    leplus: Monté sur châssis en acier inoxydable, prêt à poser
 ---
