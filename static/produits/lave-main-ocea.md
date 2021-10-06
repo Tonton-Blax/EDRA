@@ -49,10 +49,10 @@ contenu:
   - type: leplusobject
     leplus: Grille de bonde moulée dans la masse pour un ensemble parfaitement monobloc
   - type: intertitrebigobject
-    interbig: Equipement de base du lavabo à commande par cellule
+    interbig: Equipement de base du lave-mains Ocea à commande par cellule
   - type: textblock
     body: >-
-      * Robinetterie droite  
+      * 1 robinetterie droite  
 
       * 1 commande de l’eau par détecteur d’approche infrarouge avec électrovanne bistable 1/2" 6Vcc
 
@@ -64,7 +64,7 @@ contenu:
 
       * Flexibles de raccordement fournis
   - type: intertitrebigobject
-    interbig: Options
+    interbig: Les options
   - type: textblock
     body: Distributeur de savon (commande par cellule ou commande au coude)
 ---
