@@ -41,15 +41,15 @@ contenu:
       * **Les dimensions et la forme** : un plan de travail ergonomique et
       dimensionné en fonction du local et de l'usage
 
-      * **Les coloris** : uni, mouchetés, marbré, terrazzo, classique ou tendance, plus de 100 coloris sont à votre disposition
+      * **Le mobilier** : portes, tiroirs ou casiers, un ensemble d'aménagements sur mesure pour plus de confort et de sécurité  
+
+      * **Les coloris** : le plan de change blanc, pastel ou moucheté, à associer au mobilier sous plan avec plus de 100 couleurs au choix, sans oublier le matelas : des couleurs à combiner pour un poste de change unique. Classique ou tendance, c'est à vous de choisir
 
       * **Les éléments moulés** : vasque, baignoires, le plus grand choix de tailles standards sur le marché. Si vous ne trouvez pas la taille et la forme idéale, nous vous proposerons une solution sur mesure. Avec Kerrock, rien n'est impossible
 
       * **Robinetterie au choix** avec ou sans douchette
 
       * **Finitions / détails** : avec dosseret arrondi le long des cloisons ou crédence jusqu'au meuble, sans dosseret, avec retombée anti-goutte ou simplement arrondie, avec incrustations de couleur, avec séparation zone sèche/zone humide...
-
-      * **Mobilier** : portes, tiroirs, casiers, à choisir parmi plus de 150 coloris
 
       * **Matelas** standard ou sur mesure, plat ou galbé à choisir parmi 15 coloris
   - type: leplusobject
