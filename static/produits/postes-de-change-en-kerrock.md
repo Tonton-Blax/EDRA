@@ -62,4 +62,5 @@ contenu:
       - ../img/uploads/reuilly-07.jpg
       - ../img/uploads/reuilly-01.jpg
       - ../img/uploads/reuilly-04.jpg
+      - ../img/uploads/img_8224-copie.jpg
 ---
