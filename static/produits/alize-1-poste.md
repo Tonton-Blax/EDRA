@@ -7,7 +7,7 @@ subtitle: "Destination : Réanimation, SSPI, Maternités, Urgences, Dialyse, Blo
 keywords: Lavabos chirurgicaux
 famille: alize_1_poste
 thumbnail: ../img/uploads/gamme-alize.jpg
-decalage: 46
+decalage: 20
 date: 2021-07-22T21:40:14.452Z
 tableau: []
 contenu:
