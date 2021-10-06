@@ -83,4 +83,5 @@ contenu:
   - type: imagesobject
     images:
       - ../img/uploads/lavabo-2-postes-commande-fémorale-web.jpg
+      - ../img/uploads/lavabo-2-postes-automatique-web.jpg
 ---
