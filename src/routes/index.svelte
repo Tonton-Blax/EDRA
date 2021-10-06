@@ -166,6 +166,7 @@
 	let wrapperCarousel;
 
 	let changeChapoIndex = async (overBlockIndex, idx) => {
+		lazyload.update();
 		overBlocks[overBlockIndex].chapoDirection = idx > overBlocks[overBlockIndex].index || (idx == 0 && overBlocks[overBlockIndex].index == overBlocks[overBlockIndex].images.length -1) ? -1000 : 1000;
 		overBlocks[overBlockIndex].index = idx;
 	}
