@@ -5,7 +5,7 @@ title: Auge Chirurgicale 2 postes
 subtitle: "Destination : SAS de bloc opératoire"
 keywords: Lavabos chirurgicaux
 famille: bloc_2_postes
-thumbnail: ../img/uploads/paillasse-sur-mesure-05.jpg
+thumbnail: ../img/uploads/lavabo-2-postes-automatique-web.jpg
 decalage: 1
 date: 2021-04-23T22:21:51.911Z
 tableau: []
@@ -27,6 +27,8 @@ contenu:
       * Application manuelle de 3 couches de fibre de verre imprégnée de résine écologique à faible teneur en styrène teintée dans la masse, pour une épaisseur finale de 4 mm
 
       * L’opération de démoulage de la pièce est réalisée après 24H.
+  - type: leplusobject
+    leplus: Livré entièrement monté sur châssis, prêt à poser
   - type: intertitrebigobject
     interbig: Caractéristiques générales
   - type: textblock
@@ -35,8 +37,6 @@ contenu:
 
       * Dosseret arrière légèrement incliné pour éviter toute stagnation de l’eau
 
-      * Grille de bonde moulée dans la masse
-
       * Dimensions : 1570 x 550 x 620 mm
 
       * 3 types de commande :
@@ -44,6 +44,8 @@ contenu:
         * Commande au coude
         * Commande fémorale
         * Commande par cellule infrarouge
+  - type: leplusobject
+    leplus: Grille de bonde moulée dans la masse pour un ensemble parfaitement monobloc
   - type: imagesobject
     images:
       - ../img/uploads/lavabo-2-postes-automatique-web.jpg
