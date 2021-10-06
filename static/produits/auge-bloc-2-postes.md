@@ -5,7 +5,7 @@ title: Auge Chirurgicale 1 poste
 subtitle: "Destination : SAS de bloc opératoire"
 keywords: Lavabos chirurgicaux
 famille: bloc_1_poste
-thumbnail: ../img/uploads/paillasse-sur-mesure-05.jpg
+thumbnail: ../img/uploads/lavabo-1-poste-large-automatique-web.jpg
 decalage: 1
 date: 2021-07-23T13:03:54.568Z
 tableau: []
@@ -34,8 +34,6 @@ contenu:
 
       * Dosseret arrière légèrement incliné pour éviter toute stagnation de l’eau
 
-      * Grille de bonde moulée dans la masse
-
       * Dimensions : 950 x 550 x 620 mm
 
       * 3 types de commande :
@@ -43,6 +41,8 @@ contenu:
         * Commande au coude
         * Commande fémorale
         * Commande par cellule infrarouge
+  - type: leplusobject
+    leplus: Grille de bonde moulée dans la masse pour un ensemble parfaitement monobloc
   - type: intertitrebigobject
     interbig: Equipement de base du lavabo à commande par cellule infrarouge
   - type: textblock
