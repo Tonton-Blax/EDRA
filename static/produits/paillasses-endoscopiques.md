@@ -18,14 +18,14 @@ contenu:
     interbig: Configuration de base de la paillasse
   - type: textblock
     body: >-
-      * Plan de travail sur-mesure avec bacs gradués moulés dans le plan :
+      * Plan de travail sur mesure avec bacs gradués moulés dans le plan :
       ensemble monobloc en résine de synthèse Kerrock®, sans joint ni angle vif
 
       * Nombre et dimensions des bacs déterminés en fonction de l’activité et de la place disponible
 
       * Robinetterie adaptée et traitement de l’eau selon le niveau de désinfection requis
 
-      * Support au choix : piètements ou mobilier autoporteur avec aménagements sur-mesure
+      * Support au choix : piètements ou mobilier autoporteur avec aménagements sur mesure
   - type: leplusobject
     leplus: |-
       Du sur mesure pour répondre à vos besoins.
