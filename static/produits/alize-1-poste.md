@@ -28,6 +28,9 @@ contenu:
       * Application manuelle de 3 couches de fibre de verre imprégnée de résine écologique à faible teneur en styrène teintée dans la masse, pour une épaisseur finale de 4 mm
 
       * L’opération de démoulage de la pièce est réalisée après 24H.
+  - type: leplusobject
+    leplus: Livré entièrement monté sur châssis, avec ses pattes de fixation, prêt à
+      poser
   - type: intertitrebigobject
     interbig: Caractéristiques générales
   - type: textblock
