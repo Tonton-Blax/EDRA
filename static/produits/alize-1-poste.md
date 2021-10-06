@@ -21,7 +21,7 @@ contenu:
       * Coque monobloc en polyester armé fibre de verre finition gelcoat de
       qualité sanitaire
 
-      * Châssis en acier inoxydable 304L
+      * Châssis en acier inoxydable 304L avec pattes de fixation murale
 
       * Procédé de fabrication : le gelcoat est « pistolé » dans le moule, et non pas appliqué comme une peinture, ce qui garantit une résistance bien plus importante.
 
