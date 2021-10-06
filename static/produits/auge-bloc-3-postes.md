@@ -20,8 +20,6 @@ contenu:
       * Coque monobloc en polyester armé fibre de verre finition gelcoat de
       qualité sanitaire
 
-      * Coloris blanc bleuté
-
       * Châssis en acier inoxydable 304L avec pattes de fixation murale
 
       * Procédé de fabrication : Le gelcoat est « pistolé » dans le moule, et non pas appliqué comme une peinture, ce qui garantit une résistance bien plus importante.
@@ -36,6 +34,8 @@ contenu:
   - type: textblock
     body: >-
       * Coque monobloc sans joint ni angle vif
+
+      * Coloris blanc bleuté
 
       * Dosseret arrière légèrement incliné pour éviter toute stagnation de l’eau
 
