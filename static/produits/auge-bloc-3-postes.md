@@ -80,4 +80,5 @@ contenu:
   - type: imagesobject
     images:
       - ../img/uploads/lavabo-3-postes-commande-fémorale-web.jpg
+      - ../img/uploads/lavabo-3-postes-commande-automatique-web.jpg
 ---
