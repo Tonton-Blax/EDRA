@@ -5,7 +5,7 @@ title: Auge Chirurgicale 2 postes
 subtitle: "Destination : SAS de bloc opératoire"
 keywords: Lavabos chirurgicaux
 famille: bloc_2_postes
-thumbnail: ../img/uploads/lavabo-2-postes-automatique-web.jpg
+thumbnail: ../img/uploads/lavabo-2-postes-commande-fémorale-web.jpg
 decalage: 1
 date: 2021-04-23T22:21:51.911Z
 tableau: []
