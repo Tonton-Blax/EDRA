@@ -35,16 +35,7 @@ contenu:
       change, un tiroir pèse-bébé, une poubelle à ouverture automatique...
       Faites nous part de vos attentes et nous réaliserons votre projet
   - type: intertitrebigobject
-    interbig: Les éléments du plans de change
-  - type: textblock
-    body: |-
-      **Les baignoires**
-
-      Différentes dimensions en fonction de l’âge
-
-      * La baignoire Sofia : 700 x 400 x P262 mm
-      * La baignoire Ada : 850 x 450 x P262 mm
-      * La baignoire Heidi : 550 x 350 x P150/184 mm
+    interbig: "Configuration sur mesure : les points essentiels"
   - type: textblock
     body: |-
       **Les vasques**
