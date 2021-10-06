@@ -10,6 +10,9 @@ decalage: 0
 date: 2021-04-01T09:20:06.078Z
 tableau: []
 contenu:
+  - type: sectionmeta
+    sectiontitle: Aménagements sur mesure pour maternités
+    sectionsubtitle: Postes de change avec baignoire, vasque et mobilier de soin
   - type: intertitrebigobject
     interbig: Matériaux et procédé de fabrication
   - type: textblock
