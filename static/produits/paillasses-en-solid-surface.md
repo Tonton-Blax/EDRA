@@ -42,6 +42,8 @@ contenu:
 
       * **Les éléments moulés** : éviers, vasques, cuves carrées, rondes, ovales, le plus grand choix de tailles standards sur le marché. Si vous ne trouvez pas la taille et la forme idéale, nous vous proposerons une solution sur mesure. Avec Kerrock, rien n'est impossible.
 
+      * **La robinetterie** : nous vous proposons la robinetterie la mieux adaptée en fonction de votre usage
+
       * **Finitions / détails** : avec dosseret arrondi le long des cloisons ou crédence jusqu'au meuble, sans dosseret, avec retombée anti-goutte ou simplement arrondie, avec incrustations de couleur, passe-câbles, séparation zone sèche/zone humide, égouttoir rainuré dans la masse, etc...
 
       * **Support** : châssis en acier peint époxy ou acier inoxydable, mobilier autoporteur ou sur roulettes, suspendues
