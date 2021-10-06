@@ -37,33 +37,25 @@ contenu:
   - type: intertitrebigobject
     interbig: "Configuration sur mesure : les points essentiels"
   - type: textblock
-    body: |-
-      **Les vasques**
-
-      * Un large choix en fonction de la place disponible
-  - type: textblock
-    body: |-
-      **Le change**
-
-      * Matériau : Mousse densité 24Kg/m³ et toile enduite sans phtalates
-      * Matelas incurvé sur les côtés pour plus de sécurité
-      * Surface lisse et douce au toucher
-      * Classé non feu M2, toile recyclable à 100%
-      * Déhoussable
-      * Dimensions standard : 500 x 600 ou 500 x 700 mm
-      * Epaisseur : 50 mm – Bords : 100 mm
-      * 16 coloris au choix
-  - type: textblock
     body: >-
-      **Combinaison esthétique et fonctionnelles avec du mobilier en stratifié à
-      choisir parmi 156 coloris**
+      * **Les dimensions et la forme** : un plan de travail ergonomique et
+      dimensionné en fonction du local et de l'usage
 
+      * **Les coloris** : uni, mouchetés, marbré, terrazzo, classique ou tendance, plus de 100 coloris sont à votre disposition
 
-      * Placard avec étagères
+      * **Les éléments moulés** : vasque, baignoires, le plus grand choix de tailles standards sur le marché. Si vous ne trouvez pas la taille et la forme idéale, nous vous proposerons une solution sur mesure. Avec Kerrock, rien n'est impossible
 
-      * Tiroirs, toutes dimensions au choix
+      * **Robinetterie au choix** avec ou sans douchette
 
-      * Casiers pour un libre accès…
+      * **Finitions / détails** : avec dosseret arrondi le long des cloisons ou crédence jusqu'au meuble, sans dosseret, avec retombée anti-goutte ou simplement arrondie, avec incrustations de couleur, avec séparation zone sèche/zone humide...
+
+      * **Mobilier** : portes, tiroirs, casiers, à choisir parmi plus de 150 coloris
+
+      * **Matelas** standard ou sur mesure, plat ou galbé à choisir parmi 15 coloris
+  - type: leplusobject
+    leplus: "Matelas protégé par la technologie Agivir(TM) qui élimine en moins
+      d'une heure plus de 99,9% des virus et bactéries présents sur sa surface.
+      "
   - type: imagesobject
     images:
       - ../img/uploads/reuilly-07.jpg
