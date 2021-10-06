@@ -63,6 +63,5 @@ contenu:
       - ../img/uploads/poste-de-change-sur-mesure-02.jpg
       - ../img/uploads/reuilly-01.jpg
   - type: imagesobject
-    images:
-      - ../img/uploads/poste-de-change-sec.jpg
+    images: []
 ---
