@@ -20,13 +20,15 @@ contenu:
     body: >-
       * Coque : polyester armé fibre de verre et gelcoat de qualité sanitaire
 
-      * Cadre de support en résine HPL et pattes de fixation murale inox
+      * Cadre de support en résine HPL et pattes de fixation murale en acier inoxydable
 
       * Procédé de fabrication : Le gelcoat est « pistolé » dans le moule, et non pas appliqué comme une peinture, ce qui garantit une résistance bien plus importante.
 
       * Application manuelle de 3 couches de fibre de verre imprégnée de résine écologique à faible teneur en styrène teintée dans la masse, pour une épaisseur finale de 4 mm
 
       * L’opération de démoulage de la pièce est réalisée après 24H.
+  - type: leplusobject
+    leplus: Mêmes matériaux, même procédé de fabrication que les auges chirurgicales
   - type: intertitrebigobject
     interbig: Caractéristiques générales
   - type: textblock
@@ -35,8 +37,6 @@ contenu:
 
       * Dosseret arrière légèrement incliné pour éviter toute stagnation de l’eau
 
-      * Grille de bonde moulée dans la masse
-
       * Dimensions : 500 x 500 x 450 mm
 
       * 3 types de commande :
@@ -44,6 +44,8 @@ contenu:
         * Commande au coude
         * Commande fémorale
         * Commande par cellule infrarouge
+  - type: leplusobject
+    leplus: Grille de bonde moulée dans la masse pour un ensemble parfaitement monobloc
   - type: intertitrebigobject
     interbig: Equipement de base du lavabo à commande par cellule
   - type: textblock
