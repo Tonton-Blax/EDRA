@@ -5,7 +5,7 @@ title: Auge Chirurgicale 3 postes
 subtitle: "Destination : SAS de bloc opératoire"
 keywords: Lavabos chirurgicaux
 famille: bloc_3_postes
-thumbnail: ../img/uploads/lavabo-3-postes-commande-fémorale-web.jpg
+thumbnail: ../img/uploads/chirurgien-redimensionnée.jpeg
 decalage: 1
 date: 2021-07-23T13:02:25.748Z
 tableau: []
