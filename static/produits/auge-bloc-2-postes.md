@@ -7,7 +7,7 @@ keywords: Lavabos chirurgicaux
 famille: bloc_1_poste
 thumbnail: ../img/uploads/ch-bayeux.jpg
 decalage: 0
-date: 2021-10-07T10:32:33.046Z
+date: 2021-10-07T10:40:57.950Z
 tableau: []
 contenu:
   - type: sectionmeta
