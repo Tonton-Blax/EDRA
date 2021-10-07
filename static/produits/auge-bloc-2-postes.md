@@ -1,7 +1,7 @@
 ---
 layout: produits
 slug: auge-bloc-1-poste
-title: Auge Chirurgicale&nbsp;  1 poste
+title: Auge Chirurgicale 1 poste
 subtitle: "Destination : SAS de bloc opératoire"
 keywords: Lavabos chirurgicaux
 famille: bloc_1_poste
