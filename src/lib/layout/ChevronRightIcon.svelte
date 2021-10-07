@@ -3,6 +3,8 @@
   export let strokeWidth = 2;
   let customClass = "";
   export { customClass as class };
+  export let color = "#ffffff";
+  export let show=true;
 
   if (size !== "100%") {
     size = size.slice(-1) === 'x' 
@@ -10,5 +12,6 @@
           : parseInt(size) + 'px';
   }
 </script>
-
-<svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} fill="none" viewBox="0 0 24 24"  stroke="currentColor" stroke-width="{strokeWidth}" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right {customClass}"><polyline points="9 18 15 12 9 6"></polyline></svg>
+{#if show}
+<svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} fill="none" viewBox="0 0 24 24"  stroke="{color}" stroke-width="{strokeWidth}" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right {customClass}"><polyline points="9 18 15 12 9 6"></polyline></svg>
+{/if}

@@ -42,7 +42,7 @@
 	import Header from '$lib/layout/HeaderBase.svelte';
 	import { observing } from '$lib/utils/stores.js';
 	import { isMobileDevice, getFileName } from '$lib/utils/utils.js';
-	import lazyload from 'vanilla-lazyload';
+	//import lazyload from 'vanilla-lazyload';
 	import { browser } from "$app/env";
 	import { onMount } from 'svelte';
 	import { navigating } from "$app/stores";
@@ -56,9 +56,11 @@
 	let SvelteSeo; let ready;
 	let header, lazyloadInstance;
 
-	if (browser) {
-		lazyloadInstance = new lazyload();
+	/*
+		if (browser) {
+			lazyloadInstance = new lazyload();
 	}
+	*/
 
 	onMount(async()=>{
 		const module = await import('svelte-seo');
@@ -167,7 +169,7 @@
 	let currentImageIndex = 0;
 
 	let changeChapoIndex = async (overBlockIndex, idx) => {
-		lazyload.update()
+		//lazyloadInstance.update()
 		overBlocks[overBlockIndex].chapoDirection = idx > overBlocks[overBlockIndex].index || (idx == 0 && overBlocks[overBlockIndex].index == overBlocks[overBlockIndex].images.length -1) ? -1000 : 1000;
 		overBlocks[overBlockIndex].index = idx;
 	}
@@ -252,7 +254,7 @@
 				on:change={ e => changeChapoIndex(0, e.detail.currentSlide) }
 			>
 				{#each concept.images as src (src)}
-					<img src={src.headimage} data-src="/img/lowres/{getFileName(src.headimage)}__400.webp" class="lazy carou-img" alt="nature" /> 
+					<img src={src.headimage} class="carou-img" alt="nature" /> 
 				{/each}
 			</Carousel>
 			</div>

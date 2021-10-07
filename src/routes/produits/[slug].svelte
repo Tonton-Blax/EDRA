@@ -174,7 +174,7 @@ onMount(async() => {
 								<Carousel perPage={contenu.images.length >= 2 ? 2 : 1} controls={true} dots={false} multipleDrag={false} 
 								autoplay={3000} duration={500} draggable={false} >
 									<span class="control" slot="left-control" class:invisible={active}>
-										<ChevronLeftIcon />
+										<ChevronLeftIcon color={"#005476"} show={contenu.images && contenu.images.length > 2} />
 									</span>
 									{#each contenu.images as src, idx}
 									<div class="slide-content-wrapper">
@@ -184,7 +184,7 @@ onMount(async() => {
 									</div>
 									{/each}
 									<span class="control" slot="right-control" class:invisible={active}>
-										<ChevronRightIcon />
+										<ChevronRightIcon color={"#005476"} show={contenu.images && contenu.images.length > 2} />
 									</span>
 								</Carousel>
 

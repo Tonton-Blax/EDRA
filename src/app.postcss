@@ -149,19 +149,26 @@ body {
 
 .gallerie {
 	width: 100%;
-    display: flex;
-    align-items: center;
-    place-self: center;
+  display: flex;
+  align-items: center;
+  place-self: center;
 }
-.gallerie img {
+.gallerie img:not(.slide-unique img) {
 	height:300px;
+  display: flex;
+  object-fit:cover;
 }
 .slide-unique {
 	width:100%;
+  max-height: 600px;
+  display: flex;
+  overflow-y:hidden;
 }
 .slide-unique img {
 	object-fit: cover;
-    width: 100%;
+  width: 100%;
+  place-self: center;
+  height:100%;
 }
 .slide-content {
 	max-width:416px;
