@@ -7,7 +7,7 @@ keywords: Lavabos chirurgicaux
 famille: bloc_3_postes
 thumbnail: ../img/uploads/chirurgien-redimensionnée.jpeg
 decalage: 1
-date: 2021-07-23T13:02:25.748Z
+date: 2021-10-07T10:31:52.382Z
 tableau: []
 contenu:
   - type: sectionmeta
