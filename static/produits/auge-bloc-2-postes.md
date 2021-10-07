@@ -6,7 +6,7 @@ subtitle: "Destination : SAS de bloc opératoire"
 keywords: Lavabos chirurgicaux
 famille: bloc_1_poste
 thumbnail: ../img/uploads/chirurgien-redimensionnée.jpeg
-decalage: 1
+decalage: 0
 date: 2021-07-23T13:03:54.568Z
 tableau: []
 contenu:
