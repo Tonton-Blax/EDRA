@@ -88,10 +88,10 @@ collections:
             fields:
             - {name: headimage, label: Image, widget: image}
             - {name: headlegend, label: Texte d'accompagnement, widget: markdown }
-        - label: "Mentions légales"
-          name: "mentionslegales"
-          file: "static/mentions.json"
-          fields:
-            - label: "Contenu"
-              name: 'contenu'
-              widget: markdown
+      - label: "Mentions légales"
+        name: "mentionslegales"
+        file: "static/mentions.json"
+        fields:
+          - label: "Contenu"
+            name: 'contenu'
+            widget: markdown
