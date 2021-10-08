@@ -8,6 +8,7 @@ subtitle: "Usage : lavage chirurgical - Destination : Réanimation, SSPI,
 keywords: Lavabos chirurgicaux
 famille: alize_1_poste
 thumbnail: ../img/uploads/lavabos.jpg
+vignette: ../img/uploads/gamme-alize.jpg
 decalage: 0
 date: 2021-07-22T21:40:14.452Z
 tableau: []
