@@ -2,8 +2,8 @@
 layout: produits
 slug: poste-change-kerrock
 title: Postes de change en&nbsp; Kerrock®
-subtitle: "Aménagements sur mesure pour maternité et crèches : des postes de
-  soins avec baignoire, vasque, espace change et mobilier. "
+subtitle: La solution Kerrock pour des plans de change sur mesure sans aucun
+  joint apparent alliant esthétisme et hygiène
 keywords: Mobilier sanitaire
 famille: normal
 thumbnail: ../img/uploads/poste-de-change-sur-mesure-01.jpg
