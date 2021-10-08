@@ -1,9 +1,10 @@
 ---
 layout: produits
 slug: auges-gamme-alize
-title: Auges Gamme Alizé
-subtitle: "Destination : Réanimation, SSPI, Maternités, Urgences, Dialyse, Bloc
-  opératoire, Cliniques dentaires, vétérinaires, ophtalmologiques"
+title: Auges Chirurgicales Gamme Alizé
+subtitle: "Usage : lavage chirurgical - Destination : Réanimation, SSPI,
+  Maternités, Urgences, Dialyse, Bloc opératoire, Cliniques dentaires,
+  vétérinaires, ophtalmologiques"
 keywords: Lavabos chirurgicaux
 famille: alize_1_poste
 thumbnail: ../img/uploads/lavabos.jpg
