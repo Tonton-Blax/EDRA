@@ -66,7 +66,6 @@
 	onMount(async()=>{
 		const module = await import('svelte-seo');
         SvelteSeo = module.default;
-		console.log(concept)
 		vids = document.querySelectorAll(`.videos-concept`);
 		ready = true;
 	})

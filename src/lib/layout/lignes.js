@@ -267,7 +267,7 @@ sombre : {
                 sigleType : 'pointilles',
                 bgColor : '#D9E7EC',
                 linesColor : '#005476',
-                title : "Fiches Techniques",
+                title : "Fiches Produits",
             }
         }
     },
@@ -518,7 +518,7 @@ sombre : {
             sigleType : 'pointilles',
             bgColor : '#D9E7EC',
             linesColor : '#005476',
-            title : "Fiches Techniques",
+            title : "Fiches Produits",
         }
     },
     get concept () { 

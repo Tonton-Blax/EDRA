@@ -15,8 +15,6 @@
     let currentPosts = []
     let lazyloadInstance;
     $: $page.paramas, lazyloadInstance && setTimeout(()=>lazyloadInstance.update(),100);
-    $: console.log(currentLevel);
-
     if (browser) {
         lazyloadInstance = new lazyload();
         window.onbeforeunload = ()=> {refresh=true; return undefined};
@@ -88,7 +86,7 @@
 						<div class="card-image">
 							<figure class="image">
                                 <div class="card-thumb">
-                                    <img class="lazy" src="/img/lowres/{getFileName(post.thumbnail)}__400.webp" data-src="/img/lowres/{getFileName(post.thumbnail)}__400.webp" alt={post.title} />
+                                    <img class="lazy" src="/img/lowres/{getFileName(post.vignette && post.vignette.length ? post.vignette : post.thumbnail)}__400.webp" data-src="/img/lowres/{getFileName(post.thumbnail)}__400.webp" alt={post.title} />
                                 </div>
 								<!-- <img class="lazy" src={post.thumbnail} alt="{post.title}"> -->
 							</figure>

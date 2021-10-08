@@ -21,9 +21,10 @@ collections:
       - { label: "Mots-clé", name: "keywords", widget: "select", options: ["Lavabos chirurgicaux", "Paillasses sèches et humides en Kerrock", "Postes de change en Kerrock", "Paillasses endoscopiques", "Mobilier sanitaire"], default: ["Mobilier sanitaire"]}
       - { label: "Famille de produit", name: "famille", widget: "select", options: ["normal", "bloc_1_poste", "bloc_2_postes", "bloc_3_postes" , "alize_1_poste", "ocea_1_poste", "normal"], default: ["normal"] }
       - { label: "Image de couverture", name: "thumbnail", widget: "image"}
+      - { label: "Image de vignette", name: "vignette", widget: "image", required : false, hint : "Optionnel : si vide, sera identique à l'image de couverture" }
       - { label: "Décalage de l'image de couverture", name: "decalage", widget: "number", default: 0, value_type: "int", min: -100, max: 100, step: 1 }
       - { label: "Date de publication", name: "date", widget: "datetime"}
-      - { label: "Tableau (optionnel, pour chaque ligne, séparer les colonnes par des virgules)", name: "tableau", widget: "list", field: {label: ligne, name: ligne, widget: string} }
+      - { label: "Tableau (optionnel, pour chaque ligne, séparer les colonnes par des virgules)", name: "tableau", widget: "list", required: false, field: {label: ligne, name: ligne, widget: string} }
       - label: 'Le contenu'
         name: 'contenu'
         widget: 'list'
@@ -43,20 +44,24 @@ collections:
           - label: "Intertitre petit"
             name: "intertitresmallobject"
             widget: object
+            required : false
             fields: 
               - { label: "Intertitre petit", name: "intersmall", widget: string, hint : "Interitre bleu SANS fond (petit)" }
           - label: "Bloc de texte"
             name: "textblock"
             widget: object
+            required : false
             fields: 
               - { label: "Corps", name: "body", widget: "markdown" }
           - label: "Le +"
             name: "leplusobject"
             widget: object
+            required : false
             fields: 
               - { label: "Le +", name: "leplus", widget: text, hint : "ne pas écire 'le + ', il sera généré automatiquement"}
           - label: "Images"
             name: "imagesobject"
+            required : false
             widget: object
             fields: 
               - { label: "Images", name: images, widget: list, field: { label: Image, name: image, widget: image }}

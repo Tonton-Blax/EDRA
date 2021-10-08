@@ -20,6 +20,7 @@ export const getAllPosts = (tableOnly) => {
 				title: mattered.data.title, 
 				slug : mattered.data.slug,
 				thumbnail : mattered.data.thumbnail,
+				vignette : mattered.data.vignette || null,
 				famille : mattered.data.famille
 			} : mattered.data;
 		});

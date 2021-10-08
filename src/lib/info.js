@@ -1,3 +1,3 @@
-export const name = 'Dorothée Redval : rédractrice web et seo'
+export const name = 'EDRA Médical'
 
-export const website = 'https://sitedo.netlify.app'
+export const website = 'https://www.edramedical.fr'
