@@ -38,7 +38,8 @@
 	import { observing } from '$lib/utils/stores.js';
 	import { isMobileDevice, getFileName } from '$lib/utils/utils.js';
 	//import lazyload from 'vanilla-lazyload';
-	import { browser } from "$app/env";
+	//import { browser } from "$app/env";
+	import marked from 'marked'
 	import { onMount } from 'svelte';
 	import { navigating } from "$app/stores";
 	export let accueil;	
@@ -248,7 +249,7 @@
 						<h3 class="title is-3 has-text-primary has-text-weight-bold">{accueil.images[overBlocks[0].index].headtitle}</h3>
 					</div>
 				<div class="block-in">
-					<p class="has-text-primary has-text-left">{accueil.images[overBlocks[0].index].headlegend}</p>
+					<p class="has-text-primary has-text-left">{@html marked(accueil.images[overBlocks[0].index].headlegend)}</p>
 				</div>
 				<div class="block-bouton">
 					<a class="button is-success" rel="prefetch" href={accueil.images[overBlocks[0].index].headlink}>Découvrir</a>

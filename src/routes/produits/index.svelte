@@ -39,7 +39,7 @@
 
 	$: isMobile = isMobileDevice();
 	$: $navigating && header && header.$destroy();
-	$: currentLevel = $page.query.get('level') || 0;
+	$: currentLevel = $page.query && $page.query.get('level') || 0;
 	let ok = true; 
 	let header;
 

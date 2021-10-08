@@ -42,6 +42,7 @@
 	import Header from '$lib/layout/HeaderBase.svelte';
 	import { observing } from '$lib/utils/stores.js';
 	import { isMobileDevice, getFileName } from '$lib/utils/utils.js';
+	import marked from 'marked'
 	//import lazyload from 'vanilla-lazyload';
 	import { browser } from "$app/env";
 	import { onMount } from 'svelte';
@@ -241,7 +242,7 @@
 			<div class="overblock-concept" in:fade={{duration:500}} out:fade={{delay:0, easing:quadInOut}}>
 				<div class="flexbase h100">
 					<p class="m-6 p-6 is-size-4 has-text-left">
-						{concept.images[overBlocks[0].index].headlegend}
+						{@html marked(concept.images[overBlocks[0].index].headlegend)}
 					</p>
 				</div>
 			</div>

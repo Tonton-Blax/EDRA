@@ -76,7 +76,7 @@ collections:
             fields:
             - {name: headimage, label: Image, widget: image}
             - {name: headtitle, label: Titre d'accompagnement, widget: string }
-            - {name: headlegend, label: Texte d'accompagnement, widget: text }
+            - {name: headlegend, label: Texte d'accompagnement, widget: markdown }
             - {name: headlink, label: Lien vers quelle page ?, widget: string }
       - label: "EDRA Concept"
         name: "concept"
@@ -87,4 +87,4 @@ collections:
             widget: list
             fields:
             - {name: headimage, label: Image, widget: image}
-            - {name: headlegend, label: Texte d'accompagnement, widget: text }
+            - {name: headlegend, label: Texte d'accompagnement, widget: markdown }

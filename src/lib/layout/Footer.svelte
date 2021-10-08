@@ -33,7 +33,7 @@
 		<div class="column is-half">
 			<div class="edra-footer has-text-white">
                 <p class="is-size-6" style="align-self:flex-start   ">© EDRA 2021<br>
-                    Mention légaless RGPD
+                    Mention légales RGPD
                 </p>
 				<h1 class="is-size-6" style="align-self:flex-start   ">© EDRA 2021<br>
                     Réalisation : Maxime et Tibo Redval

@@ -15,6 +15,7 @@
     let currentPosts = []
     let lazyloadInstance;
     $: $page.paramas, lazyloadInstance && setTimeout(()=>lazyloadInstance.update(),100);
+    $: console.log(currentLevel);
 
     if (browser) {
         lazyloadInstance = new lazyload();
@@ -22,22 +23,20 @@
     }
 
     onMount(async()=>{
-        currentPosts = posts.filter(l => !l.famille || l.famille === 'normal');
+        currentPosts = posts.filter(l => currentLevel == 1 ? (l.famille !== 'normal') : (!l.famille || l.famille === 'normal'));
+        await tick();
         if (navCard && navCard.style && navCard.style.height)
             navCard.style.height = card.offsetHeight + 'px';
     });
 
     onDestroy(()=> lazyloadInstance && lazyloadInstance.destroy())
 
-    async function changeLevel (level, filtre) {
-        if (filtre) {
-            currentPosts = posts.filter(l => l.famille && l.famille.includes(filtre))
-        }
+    async function changeLevel (level) {
         currentLevel = level;
+        currentPosts = posts.filter(l => level == 1 ? l.famille !== 'normal' : (!l.famille || l.famille === 'normal'));
         await (tick);
         if (navCard && navCard.style && card && card.offsetHeight)
             navCard.style.height = card.offsetHeight + 'px';
-
         setTimeout(()=>lazyloadInstance.update(),50)
     }
 
@@ -51,7 +50,7 @@
             >
                 <div class="column is-one-third is-half-touch mb-0">
 					<div class="card mb-2 mt-2" bind:this={navCard} >
-                        {#if !currentLevel}
+                        {#if currentLevel==0}
                         <div class="card-image" on:click={()=>changeLevel(1)}>
 							<figure class="image">
                                 <div class="card-thumb">
@@ -70,10 +69,10 @@
 
                         {:else}
 
-						<div class="flexbase" style="height:374.8px;" on:click={()=>changeLevel(currentLevel === 2 ? 1 : 0, currentLevel === 1 ? 'normal' : null)}>
+						<div class="flexbase" style="height:374.8px;" on:click={()=>changeLevel(0)}>
                             <img class="retour" src={"/img/back.png"} alt={"Retour à la liste des produits"} />
                             <h2 class="title is-3 has-text-primary has-text-centered has-text-weight-light" style="position:relative;top:1em;">
-                                {currentLevel === 1 ? "Retour à la liste\ndes produits" : "Retour à la liste\ndes lavabos"}
+                                {currentLevel === 1 ? "Retour à la liste\ndes produits" : "Retour à la liste\ndes produits"}
                             </h2>
 						</div>
                         {/if}
@@ -82,67 +81,7 @@
 
 <!-- GAMME LAVABOS -->
 
-                {#if currentLevel === 1}
-                    <div class="column is-one-third is-half-touch mb-0">
-                        <div class="card mb-2 mt-2" on:click={()=>changeLevel(2, 'bloc')} >
-                            <div class="card-image">
-                                <figure class="image">
-                                    <div class="card-thumb">
-                                        <img class="lazy" data-src={"/img/initial/gamme-bloc.jpg"} alt={"Section Lavabos"} />
-                                    </div>
-                                </figure>
-                            </div>
-                            <div class="card-content">		  
-                                <div class="content">
-                                    <h2 class="title is-4 has-text-primary has-text-left has-text-weight-bold">Auges gamme Bloc</h2>
-                                </div>
-                            </div>
-                            <footer class="card-footer">
-                                <div class="button is-success has-text-weight-bold is-uppercase">découvrir</div>
-                            </footer>
-                        </div>
-                    </div>
-                    <div class="column is-one-third is-half-touch mb-0">
-                        <div class="card mb-2 mt-2" on:click={()=>changeLevel(2, 'alize')} bind:this={card} >
-                            <div class="card-image">
-                                <figure class="image">
-                                    <div class="card-thumb">
-                                        <img class="lazy" data-src={"/img/initial/gamme-alize.jpg"} alt={"Section Lavabos"} />
-                                    </div>
-                                </figure>
-                            </div>
-                            <div class="card-content">		  
-                                <div class="content">
-                                    <h2 class="title is-4 has-text-primary has-text-left has-text-weight-bold">Gamme Alizé</h2>
-                                </div>
-                            </div>
-                            <footer class="card-footer">
-                                <div class="button is-success has-text-weight-bold is-uppercase">découvrir</div>
-                            </footer>
-                        </div>
-                    </div>
-                    <div class="column is-one-third is-half-touch mb-0">
-                        <div class="card mb-2 mt-2"on:click={()=>changeLevel(2, 'ocea')} >
-                            <div class="card-image">
-                                <figure class="image">
-                                    <div class="card-thumb">
-                                        <img class="lazy" src={"/img/initial/gamme-ocea.jpg"} alt={"Section Lavabos"} />
-                                    </div>
-                                </figure>
-                            </div>
-                            <div class="card-content">		  
-                                <div class="content">
-                                    <h2 class="title is-4 has-text-primary has-text-left has-text-weight-bold">Gamme Océa</h2>
-                                </div>
-                            </div>
-                            <footer class="card-footer">
-                                <div class="button is-success has-text-weight-bold is-uppercase">découvrir</div>
-                            </footer>
-                        </div>
-                    </div>
-
 <!-- LISTE FILTREE -->
-                {:else}
 				{#each currentPosts as post}
 				<div class="column is-one-third is-half-touch mb-0">
 					<div class="card mb-2 mt-2" on:click={()=> goto(`/produits/${post.slug}`, { replaceState : true})} bind:this={card}>
@@ -165,7 +104,6 @@
 					</div>
 				</div>
 				{/each}
-                {/if}
 			</div>
 		</div>
         {/key}
