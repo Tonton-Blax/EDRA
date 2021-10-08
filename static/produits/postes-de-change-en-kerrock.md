@@ -28,7 +28,7 @@ contenu:
 
       * **Flexible et ergonomique** : Il intègre tous les éléments nécessaires à la prise en charge des nourrissons en respectant hygiène, confort, ergonomie et sécurité 
 
-      * **Ecologique** : Mélange d'hydroxyde d'aluminium et d'un polymère acrylique, le solid surface Kerrock est un matériau composite durable et recyclable à l'infini. Respectueux de l’environnement et de la santé, il ne contient aucun C.O.V. (Composés Organiques Volatils). Kerrock est par ailleurs produit en Europe favorisant la réduction des transports routiers et de l'impact carbone. La production européenne permet également une meilleure rationalisation des coûts directs et des taxes douanières
+      * **Ecologique** : Mélange d'hydroxyde d'aluminium et d'un polymère acrylique, le solid surface Kerrock est un matériau composite durable et recyclable à l'infini. Respectueux de l’environnement et de la santé, il ne contient aucun C.O.V. (Composés Organiques Volatils) et a obtenu la certification ISO 14001. Kerrock est par ailleurs produit en Europe favorisant la réduction des transports routiers et de l'impact carbone. La production européenne permet également une meilleure rationalisation des coûts directs et des taxes douanières
 
       * **Conçu pour durer** : grâce à sa technologie innovante, le solid surface Kerrock est naturellement résistant aux chocs physiques et thermiques, aux produits chimiques et aux variations de température. Il est en plus réparable, rénovable et par nature durable.
   - type: leplusobject
@@ -40,28 +40,28 @@ contenu:
   - type: textblock
     body: >-
       * **Les dimensions et la forme** : un plan de travail ergonomique et
-      dimensionné en fonction du local et de l'usage
+      dimensionné en fonction du local et de votre usage
 
       * **Le mobilier** : portes, tiroirs ou casiers, un ensemble d'aménagements sur mesure pour plus de confort et de sécurité  
 
-      * **Les coloris** : un plan de change blanc, pastel ou moucheté, à associer au mobilier sous plan avec plus de 100 couleurs au choix, sans oublier le matelas : des couleurs à combiner pour un poste de change unique. Classique ou tendance, c'est à vous de choisir
+      * **Les coloris** : un plan de change blanc, pastel ou moucheté, à associer au mobilier sous plan avec plus de 100 couleurs au choix, sans oublier le ou les matelas : des couleurs à combiner pour un poste de change unique. Classique ou tendance, c'est à vous de choisir
 
       * **Les éléments moulés** : vasques et/ou baignoires, le plus grand choix de tailles standards sur le marché. Si vous ne trouvez pas la taille et la forme idéale, nous vous proposerons une solution sur mesure. Avec Kerrock, rien n'est impossible
 
       * **La robinetterie au choix** avec ou sans douchette
 
-      * **Les matelas** spécial maternité, standard ou sur mesure, plats ou galbés sont fabriqués en France en mousse polyéther 24kg/m3 recouvert d'une toile enduite sans phtalates
+      * **Les matelas** spécial maternité, standards ou sur mesure, plats ou galbés sont fabriqués en France en mousse polyéther 24kg/m3 recouverte d'une toile enduite sans phtalates
 
-      * **Finitions / détails** : avec dosseret arrondi, sans dosseret, retombée anti-goutte ou simplement arrondie, avec incrustations de couleur, séparation zone sèche/zone humide...
+      * **Finitions / détails** : plan arrondi ou droit, avec ou sans dosseret, retombée anti-goutte ou simplement arrondie, avec incrustations de couleur, séparation zone sèche/zone humide...
   - type: leplusobject
-    leplus: "Matelas protégé par la technologie Agivir(TM) qui élimine en moins
-      d'une heure plus de 99,9% des virus et bactéries présents sur sa surface.
-      "
+    leplus: Matelas protégé par la technologie Agivir(TM) qui élimine en moins d'une
+      heure plus de 99,9% des virus et bactéries présents sur sa surface
   - type: imagesobject
     images:
       - ../img/uploads/poste-de-change-sur-mesure-02.jpg
       - ../img/uploads/reuilly-07.jpg
       - ../img/uploads/reuilly-01.jpg
+      - ../img/uploads/poste-de-change-sec.jpg
       - ../img/uploads/reuilly-04.jpg
       - ../img/uploads/img_8224-copie.jpg
       - ../img/uploads/img_8226-copie-2-.jpg
