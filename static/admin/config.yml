@@ -100,12 +100,9 @@ collections:
           - label: "Contenu"
             name: 'contenu'
             widget: markdown
-  - name: ordre
-     label: Ordre des posts
-     files:
-      - name: collectionOrder
-        label: Collection Order
-        file: static/ordre.md
+      - label: Collection Order
+        name: collectionOrder
+        file: "static/ordre.json"
         fields:
           - label: Tous les produits
             name: collection
