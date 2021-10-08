@@ -5,7 +5,7 @@ title: Auge Chirurgicale 1 poste
 subtitle: "Destination : SAS de bloc opératoire"
 keywords: Lavabos chirurgicaux
 famille: bloc_1_poste
-thumbnail: ../img/uploads/ch-bayeux.jpg
+thumbnail: ../img/uploads/chirurgien-redimensionnée.jpeg
 decalage: 0
 date: 2021-10-07T10:40:57.950Z
 tableau: []
