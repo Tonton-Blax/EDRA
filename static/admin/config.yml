@@ -100,3 +100,20 @@ collections:
           - label: "Contenu"
             name: 'contenu'
             widget: markdown
+  - name: ordre
+     label: Ordre des posts
+     files:
+      - name: collectionOrder
+        label: Collection Order
+        file: static/ordre.md
+        fields:
+          - label: Tous les produits
+            name: collection
+            widget: list
+            fields: 
+              - label: Nom du produit 
+                name: idproduit
+                widget: relation
+                collection: collections
+                searchFields: [title]
+                valueField: title
