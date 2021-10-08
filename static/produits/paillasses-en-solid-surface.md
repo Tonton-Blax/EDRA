@@ -79,4 +79,5 @@ contenu:
       - ../img/uploads/paillasse-sur-mesure-04.jpg
       - ../img/uploads/reuilly-08.jpg
       - ../img/uploads/paillasse-1-bac-mouchetee-avec-decoupes-2-.jpeg
+      - ../img/uploads/reuilly-10.jpg
 ---
