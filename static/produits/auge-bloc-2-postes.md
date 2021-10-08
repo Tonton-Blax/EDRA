@@ -1,8 +1,8 @@
 ---
 layout: produits
 slug: auge-bloc-1-poste
-title: Auge Chirurgicale 1 poste
-subtitle: "Destination : SAS de bloc opératoire"
+title: Auges Chirurgicales disponibles en 1 - 2 - 3 postes
+subtitle: "Usage : Lavage chirurgical - Destination : SAS de bloc opératoire  "
 keywords: Lavabos chirurgicaux
 famille: bloc_1_poste
 thumbnail: ../img/uploads/chirurgien-redimensionnée.jpeg
@@ -12,7 +12,7 @@ tableau: []
 contenu:
   - type: sectionmeta
     sectiontitle: La Gamme Bloc Opératoire
-    sectionsubtitle: Dimensions 950 x 550 x 620 mm
+    sectionsubtitle: Pour le lavage chirurgical des mains et avant-bras
   - type: intertitrebigobject
     interbig: Matériaux et procédé de fabrication
   - type: textblock
@@ -38,7 +38,11 @@ contenu:
 
       * Dosseret arrière légèrement incliné pour éviter toute stagnation de l’eau
 
-      * Dimensions : 950 x 550 x 620 mm
+      * Dimensions 1 poste : 950 x 550 x 620 mm
+
+      * Dimensions 2 postes : 1570 x 550 x 620 mm
+
+      * Dimensions 3 postes : 1950 x 575 x 600 mm
 
       * 3 types de commande :
 
@@ -54,9 +58,9 @@ contenu:
     interbig: Equipement de base du lavabo à commande par cellule infrarouge
   - type: textblock
     body: >-
-      * 1 col de cygne en laiton chromé ou robinetterie droite
+      * 1-2 ou 3 cols de cygne en laiton chromé ou robinetterie droite
 
-      * 1 commande de l’eau par détecteur d’approche infrarouge avec électrovanne bistable 1/2" 6Vcc
+      * 1, 2 ou 3 commandes de l’eau par détecteur d’approche infrarouge avec électrovanne bistable 1/2" 6Vcc
 
       * Avec système de purge automatique inclus
 
@@ -74,7 +78,7 @@ contenu:
       * Préfiltration de l'eau : dispositif placé sous l’auge et comprenant un
       carter de préfiltration 10’’ et une cartouche 0,5µ
 
-      * Filtration finale : filtre terminal autoclavable ou à usage unique avec raccord rapide pour adaptation sur le col de cygne
+      * Filtration finale : filtre terminal autoclavable ou à usage unique avec raccord rapide pour adaptation sur chaque col de cygne
 
       * Distributeur de savon (commande par cellule ou commande au coude)
 
