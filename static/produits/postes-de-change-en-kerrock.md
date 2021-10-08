@@ -40,23 +40,22 @@ contenu:
   - type: textblock
     body: >-
       * **Les dimensions et la forme** : un plan de travail ergonomique et
-      dimensionné en fonction du local et de l'usage
+      dimensionné en fonction du local et de votre usage
 
       * **Le mobilier** : portes, tiroirs ou casiers, un ensemble d'aménagements sur mesure pour plus de confort et de sécurité  
 
-      * **Les coloris** : un plan de change blanc, pastel ou moucheté, à associer au mobilier sous plan avec plus de 100 couleurs au choix, sans oublier le matelas : des couleurs à combiner pour un poste de change unique. Classique ou tendance, c'est à vous de choisir
+      * **Les coloris** : un plan de change blanc, pastel ou moucheté, à associer au mobilier sous plan avec plus de 100 couleurs au choix, sans oublier le ou les matelas : des couleurs à combiner pour un poste de change unique. Classique ou tendance, c'est à vous de choisir
 
       * **Les éléments moulés** : vasques et/ou baignoires, le plus grand choix de tailles standards sur le marché. Si vous ne trouvez pas la taille et la forme idéale, nous vous proposerons une solution sur mesure. Avec Kerrock, rien n'est impossible
 
       * **La robinetterie au choix** avec ou sans douchette
 
-      * **Les matelas** spécial maternité, standard ou sur mesure, plats ou galbés sont fabriqués en France en mousse polyéther 24kg/m3 recouvert d'une toile enduite sans phtalates
+      * **Les matelas** spécial maternité, standards ou sur mesure, plats ou galbés sont fabriqués en France en mousse polyéther 24kg/m3 recouverte d'une toile enduite sans phtalates
 
-      * **Finitions / détails** : avec dosseret arrondi, sans dosseret, retombée anti-goutte ou simplement arrondie, avec incrustations de couleur, séparation zone sèche/zone humide...
+      * **Finitions / détails** : plan arrondi ou droit, avec ou sans dosseret, retombée anti-goutte ou simplement arrondie, avec incrustations de couleur, séparation zone sèche/zone humide...
   - type: leplusobject
-    leplus: "Matelas protégé par la technologie Agivir(TM) qui élimine en moins
-      d'une heure plus de 99,9% des virus et bactéries présents sur sa surface.
-      "
+    leplus: Matelas protégé par la technologie Agivir(TM) qui élimine en moins d'une
+      heure plus de 99,9% des virus et bactéries présents sur sa surface
   - type: imagesobject
     images:
       - ../img/uploads/poste-de-change-sur-mesure-02.jpg
