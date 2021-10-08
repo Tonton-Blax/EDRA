@@ -52,13 +52,13 @@
                         <div class="card-image" on:click={()=>changeLevel(1)}>
 							<figure class="image">
                                 <div class="card-thumb">
-                                    <img class="lazy" data-src={"/img/initial/gamme-alize.jpg"} alt={"Section Lavabos"} />
+                                    <img class="lazy" data-src={"/img/initial/ch-bayeux__400.jpg"} alt={"Section Lavabos"} />
                                 </div>
 							</figure>
 						</div>
 						<div class="card-content">		  
 							<div class="content">
-								<h2 class="title is-4 has-text-primary has-text-left has-text-weight-bold">Lavabos aseptiques</h2>
+								<h2 class="title is-4 has-text-primary has-text-left has-text-weight-bold">Lavabos aseptiques<br>&nbsp;<br></h2>
 							</div>
 						</div>
 						<footer class="card-footer">
@@ -86,7 +86,7 @@
 						<div class="card-image">
 							<figure class="image">
                                 <div class="card-thumb">
-                                    <img class="lazy" src="/img/lowres/{getFileName(post.vignette && post.vignette.length ? post.vignette : post.thumbnail)}__400.webp" data-src="/img/lowres/{getFileName(post.thumbnail)}__400.webp" alt={post.title} />
+                                    <img class="lazy" src="/img/lowres/{getFileName(post.vignette && post.vignette.length ? post.vignette : post.thumbnail)}__400.webp" data-src="/img/lowres/{getFileName(post.vignette && post.vignette.length ? post.vignette : post.thumbnail)}__400.webp" alt={post.title} />
                                 </div>
 								<!-- <img class="lazy" src={post.thumbnail} alt="{post.title}"> -->
 							</figure>
