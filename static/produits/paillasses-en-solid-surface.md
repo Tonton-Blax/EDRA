@@ -3,7 +3,7 @@ layout: produits
 slug: paillasse-en-solid-surface
 title: Paillasses humides et sèches en Kerrock®
 subtitle: Paillasses sur mesure sans aucun joint apparent. Kerrock allie
-  esthétisme, hygiène, résistance et ergonomie.
+  esthétisme, hygiène, résistance et ergonomie
 keywords: Paillasses sèches et humides en Kerrock
 famille: normal
 thumbnail: ../img/uploads/paillasse-sur-mesure-01b.jpg
