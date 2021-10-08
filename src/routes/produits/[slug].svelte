@@ -246,7 +246,7 @@ onMount(async() => {
 			</div>
 		</div>
 		<div style="background:var(--lightblue);width:100%">
-			<Posts {posts} />
+			<Posts {posts} currentLevel={!produit.famille || produit.famille == 'normal' ? '0' : '1'} />
 		</div>
 	</div>
 <style>
