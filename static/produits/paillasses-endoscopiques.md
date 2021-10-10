@@ -1,6 +1,7 @@
 ---
 layout: produits
 slug: paillasses-endoscopiques
+ordre: 3
 title: Paillasses endoscopiques
 subtitle: Pour le traitement manuel des endoscopes thermosensibles avec ou sans
   traçabilité informatique
