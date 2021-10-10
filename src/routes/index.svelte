@@ -279,13 +279,13 @@
 			in:fly={{x: overBlocks[0].chapoDirection, duration:500}} 
 			out:fly={{x: overBlocks[0].chapoDirection, delay:0, easing:quadInOut}}>
 				<div class="block-up">
-						<h3 class="title is-big-touch has-text-primary has-text-weight-bold">{overBlocks[0].titre[overBlocks[0].index]}</h3>
+						<h3 class="title is-big-touch has-text-primary has-text-weight-bold">{accueil.images[overBlocks[0].index].headtitle}</h3>
 					</div>
 				<div class="block-in">
-					<p class="has-text-primary has-text-left is-size-2">{overBlocks[0].sousTitre[overBlocks[0].index]}</p>
+					<p class="has-text-primary has-text-left is-size-2">{@html marked(accueil.images[overBlocks[0].index].headlegend)}</p>
 				</div>
 				<div class="block-bouton">
-					<a class="button is-success is-size-3 has-text-bold mt-3" rel="prefetch" href={overBlocks[0].liens[overBlocks[0].index]}>Découvrir</a>
+					<a class="button is-success is-size-3 has-text-bold mt-3" rel="prefetch" href={accueil.images[overBlocks[0].index].headlink}>Découvrir</a>
 				</div>
 			</div>
 			{/key}

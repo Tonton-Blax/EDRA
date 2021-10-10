@@ -269,15 +269,19 @@
 			<div class="overblock-mobile" 
 			in:fly={{x: overBlocks[0].chapoDirection, duration:500}} 
 			out:fly={{x: overBlocks[0].chapoDirection, delay:0, easing:quadInOut}}>
+				<!--
 				<div class="block-up">
 						<h3 class="title is-big-touch has-text-info has-text-weight-bold">{overBlocks[0].titre[overBlocks[0].index]}</h3>
-					</div>
-				<div class="block-in">
-					<p class="has-text-info has-text-left is-size-2">{overBlocks[0].sousTitre[overBlocks[0].index]}</p>
 				</div>
+				-->
+				<div class="block-in" style="margin-top:-5em;">
+					<p class="has-text-info has-text-left is-size-1">{@html marked(concept.images[overBlocks[0].index].headlegend)}</p>
+				</div>
+				<!-- 
 				<div class="block-bouton">
 					<a class="button is-success is-size-3 has-text-bold mt-3" rel="prefetch" href={overBlocks[0].liens[overBlocks[0].index]}>Découvrir</a>
 				</div>
+				-->
 			</div>
 			{/key}
 		</div>
