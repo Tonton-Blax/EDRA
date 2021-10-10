@@ -1,6 +1,7 @@
 ---
 layout: produits
 slug: auges-gamme-alize
+ordre: 4
 title: Gamme Alizé - Version compacte 1 poste
 subtitle: "Usage : lavage chirurgical - Destination : Réanimation, SSPI,
   Maternités, Urgences, Dialyse, Bloc opératoire, Cliniques dentaires,
