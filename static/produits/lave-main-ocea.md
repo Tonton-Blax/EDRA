@@ -1,6 +1,7 @@
 ---
 layout: produits
 slug: lave-main-ocea
+ordre: 5
 title: Gamme Ocea - Lave-mains
 subtitle: "Usage : lavage hygiénique - Services : Consultations, chambres,
   cabinets dentaires… "
