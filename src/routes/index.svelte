@@ -5,7 +5,7 @@
 		if (res.status === 200) {
 			return {
 				props: {
-					accueil: await res.json(),
+					accueil: res.status === 200  ?await res.json() : null,
 				}
 			};
 		}
@@ -43,7 +43,6 @@
 	import { onMount } from 'svelte';
 	import { navigating } from "$app/stores";
 	export let accueil;	
-	
 	
 	$: isMobile = isMobileDevice();
 	$: $navigating && header && header.$destroy();

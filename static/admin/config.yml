@@ -16,6 +16,7 @@ collections:
     fields: # The fields for each document
       - { label: "Layout", name: "layout", widget: "hidden", default: "produits"}
       - { label: "Slug", name: "slug", widget: "string", hint: "IMPORTANT : l'adresse de la page, en minuscule, sans espaces!" }
+      - { label: "Ordre", name: "ordre", widget: "number",  value_type: "int", min: 1, hint: "N° du produit pour l'ordonnancement", required: true }
       - { label: "Titre général", name: "title", widget: "string"}
       - { label: "Sous-titre général", name: "subtitle", widget: "string"}
       - { label: "Mots-clé", name: "keywords", widget: "select", options: ["Lavabos chirurgicaux", "Paillasses sèches et humides en Kerrock", "Postes de change en Kerrock", "Paillasses endoscopiques", "Mobilier sanitaire"], default: ["Mobilier sanitaire"]}
@@ -100,17 +101,3 @@ collections:
           - label: "Contenu"
             name: 'contenu'
             widget: markdown
-      - label: Ordre des collections
-        name: collectionOrder
-        file: "static/ordre.json"
-        fields:
-          - label: Tous les produits
-            name: collection
-            widget: list
-            fields: 
-              - label: Nom du produit 
-                name: produit
-                widget: relation
-                collection: produits
-                searchFields: [title]
-                valueField: title
