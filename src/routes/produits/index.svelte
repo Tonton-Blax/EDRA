@@ -37,10 +37,15 @@
 	import { isMobileDevice } from '$lib/utils/utils.js';
 	import { page } from '$app/stores';
 
+	export let posts;
+	posts.sort( (a, b)  => (a.ordre || 1) - (b.ordre || 0) )
+
 	$: isMobile = isMobileDevice();
 	$: $navigating && header && header.$destroy();
 	$: currentLevel = $page.query && $page.query.get('level') || 0;
-	let ok = true; 
+	
+	let ok = true;
+	let headerEl;
 	let header;
 
 	let notOk = async () => {
@@ -49,9 +54,7 @@
 		await tick(); 
 		ok = true
 	}
-	export let posts;
 
-	let headerEl;
 </script>
 
 <svelte:head>

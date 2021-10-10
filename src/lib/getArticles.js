@@ -21,7 +21,8 @@ export const getAllPosts = (tableOnly) => {
 				slug : mattered.data.slug,
 				thumbnail : mattered.data.thumbnail,
 				vignette : mattered.data.vignette || null,
-				famille : mattered.data.famille
+				famille : mattered.data.famille,
+				ordre : mattered.data.ordre
 			} : mattered.data;
 		});
 	} catch (e) {

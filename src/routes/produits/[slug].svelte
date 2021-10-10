@@ -44,6 +44,7 @@ import SvelteSeo from "svelte-seo";
 import { page } from '$app/stores';
 
 export let produit, posts;
+posts.sort( (a, b)  => (a.ordre || 1) - (b.ordre || 0) )
 
 let lazyloadInstance;
 

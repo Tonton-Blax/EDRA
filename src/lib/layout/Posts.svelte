@@ -46,41 +46,7 @@
 			<div class="columns is-multiline has-background-primary-light cols-produits is-variable is-1 padding-posts"
                 out:slide={{easing : quadInOut, duration:500 }}
             >
-                <div class="column is-one-third is-half-touch mb-0">
-					<div class="card mb-2 mt-2" bind:this={navCard} >
-                        {#if currentLevel==0}
-                        <div class="card-image" on:click={()=>changeLevel(1)}>
-							<figure class="image">
-                                <div class="card-thumb">
-                                    <img class="lazy" data-src={"/img/initial/ch-bayeux__400.jpg"} alt={"Section Lavabos"} />
-                                </div>
-							</figure>
-						</div>
-						<div class="card-content">		  
-							<div class="content">
-								<h2 class="title is-4 has-text-primary has-text-left has-text-weight-bold">Lavabos aseptiques<br>&nbsp;<br></h2>
-							</div>
-						</div>
-						<footer class="card-footer">
-							<div class="button is-success has-text-weight-bold is-uppercase">découvrir</div>
-						</footer>
-
-                        {:else}
-
-						<div class="flexbase" style="height:374.8px;" on:click={()=>changeLevel(0)}>
-                            <img class="retour" src={"/img/back.png"} alt={"Retour à la liste des produits"} />
-                            <h2 class="title is-3 has-text-primary has-text-centered has-text-weight-light" style="position:relative;top:1em;">
-                                {currentLevel === 1 ? "Retour à la liste\ndes produits" : "Retour à la liste\ndes produits"}
-                            </h2>
-						</div>
-                        {/if}
-					</div>
-				</div>
-
-<!-- GAMME LAVABOS -->
-
-<!-- LISTE FILTREE -->
-				{#each currentPosts as post}
+            {#each currentPosts as post}
 				<div class="column is-one-third is-half-touch mb-0">
 					<div class="card mb-2 mt-2" on:click={()=> goto(`/produits/${post.slug}`, { replaceState : true})} bind:this={card}>
 						<div class="card-image">
@@ -101,7 +67,42 @@
 						</footer>
 					</div>
 				</div>
-				{/each}
+            {/each}
+                <div class="column is-one-third is-half-touch mb-0">
+					<div class="card mb-2 mt-2" bind:this={navCard} >
+                        {#if currentLevel==0}
+                        <div class="card-image" on:click={()=>changeLevel(1)}>
+							<figure class="image">
+                                <div class="card-thumb">
+                                    <img class="lazy" data-src={"/img/initial/gamme-alize.jpg"} alt={"Section Lavabos"} />
+                                </div>
+							</figure>
+						</div>
+						<div class="card-content">		  
+							<div class="content">
+								<h2 class="title is-4 has-text-primary has-text-left has-text-weight-bold">Lavabos aseptiques<br>&nbsp;<br></h2>
+							</div>
+						</div>
+						<footer class="card-footer">
+							<div on:click={()=>changeLevel(1)} class="button is-success has-text-weight-bold is-uppercase">découvrir</div>
+						</footer>
+
+                        {:else}
+
+						<div class="flexbase" style="height:374.8px;" on:click={()=>changeLevel(0)}>
+                            <img class="retour" src={"/img/back.png"} alt={"Retour à la liste des produits"} />
+                            <h2 class="title is-3 has-text-primary has-text-centered has-text-weight-light" style="position:relative;top:1em;">
+                                {currentLevel === 1 ? "Retour à la liste\ndes produits" : "Retour à la liste\ndes produits"}
+                            </h2>
+						</div>
+                        {/if}
+					</div>
+				</div>
+
+<!-- GAMME LAVABOS -->
+
+<!-- LISTE FILTREE -->
+				
 			</div>
 		</div>
         {/key}
@@ -141,6 +142,8 @@
     }
     .card {
         cursor: pointer;
+        height:385px;
+        border-radius: 4px;
     }
 
     .colposts {
@@ -172,6 +175,9 @@
             padding-right:0px;
             padding-top:0px;
             padding-bottom:48px;
+        }
+        .card {
+            margin-bottom:2.5em!important;
         }
     }
 
