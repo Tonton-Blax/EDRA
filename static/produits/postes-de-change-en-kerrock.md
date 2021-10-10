@@ -1,6 +1,7 @@
 ---
 layout: produits
 slug: poste-change-kerrock
+ordre: 2
 title: Postes de change en&nbsp; Kerrock®
 subtitle: La solution Kerrock pour des plans de change sur mesure sans aucun
   joint apparent alliant esthétisme et hygiène
