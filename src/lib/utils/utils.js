@@ -59,7 +59,7 @@ export const theRightDef = (w) => {
 
 export const isMobileDevice = () => {
   if(browser)
-    return (screen.width <= 640) ||  (window.matchMedia && window.matchMedia('only screen and (max-width: 640px)').matches)
+    return (screen.width <= 801) ||  (window.matchMedia && window.matchMedia('only screen and (max-width: 801px)').matches)
 //  return (typeof window !== 'undefined') && (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent))
 }
 
