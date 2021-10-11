@@ -290,7 +290,7 @@
 	<!-- 4 PICTOS -->
 
 	<div class="column is-full">
-		<div class="edra-block no-padding has-background-white has-text-info clear-height-touch" bind:this={pictoEl}>
+		<div class="no-padding has-background-white has-text-info clear-height-touch" bind:this={pictoEl} class:edra-block={!isMobile}>
 			<h2 class="title is-2 has-text-centered has-text-info has-text-weight-bold mb-6 mmt-3 mmb-6 is-big-touch">EDRA, 30 ans <br>de qualité de Service</h2>
 			<div class="columns is-mobile is-multiline cols-picto tp-3 full-height">
 				<IntersectionObserver bind:intersecting={intersectings.pictos} element={pictoEl} once={isMobile}>
@@ -550,15 +550,17 @@
 			height : 48vh;
 		}
 		:global(body) {
-			scroll-snap-type: y proximity;
+			/* scroll-snap-type: y proximity; */
   			/* Reserve space for header plus some extra space for sneak peeking. */
   			overflow-y: scroll;
 			height:100vh;
 		}
+		/*
 		.snapme {
 			scroll-snap-align: start;
 			scroll-snap-stop: normal
 		}
+		*/
 	}
 
 </style>
