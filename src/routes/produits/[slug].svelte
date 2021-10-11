@@ -70,8 +70,7 @@ let open = (src) => {
 
 onDestroy(()=>lazyloadInstance && lazyloadInstance.destroy());
 
-onMount(() => {
-	//await tick();
+onMount(async() => {
 	$observing = false;
 
 	if (isMobile && produit && produit.decalage)
@@ -80,11 +79,11 @@ onMount(() => {
 	if (isMobile) {
 		document.documentElement.style.overflowX = 'auto'
 		document.body.style.overflowX = 'auto';
-		setTimeout( () => {
-            window.scrollTo(0, 3);
-			document.documentElement.style.overflowX = 'hidden'
-			document.body.style.overflowX = 'hidden';
-        },20);
+		await tick();
+		window.scrollTo(0, 3);
+		await tick();
+		document.documentElement.style.overflowX = 'clip';
+		document.body.style.overflowX = 'clip';
 
 	} else {
 		window.scrollTo({ behavior: "smooth", top: 0 });
