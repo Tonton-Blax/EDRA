@@ -20,7 +20,6 @@
 	}
 
 	const handleScroll = async () => {
-		console.log(isMobile)
 		if (isMobile) {			
 			if (window.document.scrollLeft != 0) {
 				document.scrollLeft = 0;
