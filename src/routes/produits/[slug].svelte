@@ -86,8 +86,17 @@ onMount(async() => {
 	if (isMobile && produit && produit.decalage)
 		chapoImage.style.bottom = `${produit.decalage}%`
 	
-		
-	window.scrollTo({ behavior: "smooth", top: 0 });
+	if (isMobile) {
+		document.documentElement.style.overflowX = 'auto'
+		document.body.style.overflowX = 'auto';
+		await tick();
+		window.scroll(0,0);
+		await tick();
+		document.documentElement.style.overflowX = 'hidden'
+		document.body.style.overflowX = 'hidden';
+	} else {
+		window.scrollTo({ behavior: "smooth", top: 0 });
+	}
 });
 
 </script>
