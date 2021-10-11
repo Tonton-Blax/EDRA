@@ -435,7 +435,7 @@
 					on:change={ e => changeChapoIndex(1, e.detail.currentSlide) }
 				>
 					{#each overBlocks[1].images as src, i (src)}
-							<video class="videos-concept" no-controls loop autoplay muted src={src}></video>
+							<video playsinline class="videos-concept" no-controls loop autoplay muted src={src}></video>
 					{/each}
 				</Carousel>
 				{/if}
