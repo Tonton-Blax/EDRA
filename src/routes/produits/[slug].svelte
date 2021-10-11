@@ -75,19 +75,7 @@ onMount(async() => {
 
 	if (isMobile && produit && produit.decalage)
 		chapoImage.style.bottom = `${produit.decalage}%`
-	
-	if (isMobile) {
-		document.documentElement.style.overflowX = 'auto'
-		document.body.style.overflowX = 'auto';
-		await tick();
-		window.scrollTo(0, 3);
-		await tick();
-		document.documentElement.style.overflowX = 'clip';
-		document.body.style.overflowX = 'clip';
-
-	} else {
-		window.scrollTo({ behavior: "smooth", top: 0 });
-	}
+	//window.scrollTo({ behavior: "smooth", top: 0 });
 });
 
 </script>
@@ -119,7 +107,7 @@ onMount(async() => {
         ]
     }}
 />
-	<div class="column is-full mt-6" bind:this={subHeader}>
+	<div class="column is-full mt-6" bind:this={subHeader} id="#headerpost">
 		<div class="edra-block no-padding has-text-white">
 			<!-- CHAPO DESKTOP -->
 			<div class="overblock flexbase">

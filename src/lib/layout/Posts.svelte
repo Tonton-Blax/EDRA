@@ -48,7 +48,7 @@
             >
             {#each currentPosts as post}
 				<div class="column is-one-third is-half-touch mb-0">
-					<div class="card mb-2 mt-2" on:click={()=> goto(`/produits/${post.slug}`, { replaceState : true})} bind:this={card}>
+					<div class="card mb-2 mt-2" on:click={()=> goto(`/produits/${post.slug}#headerpost`, { replaceState : true})} bind:this={card}>
 						<div class="card-image">
 							<figure class="image">
                                 <div class="card-thumb">
@@ -63,7 +63,7 @@
 							</div>
 						</div>
 						<footer class="card-footer">
-							<a href="/produits/{post.slug}" class="button is-success has-text-weight-bold is-uppercase">découvrir</a>
+							<a href="/produits/{post.slug}#headerpost" class="button is-success has-text-weight-bold is-uppercase">découvrir</a>
 						</footer>
 					</div>
 				</div>
@@ -127,7 +127,7 @@
         
         <div class="invisible-links">
         {#each posts as post}
-                <a href="/produits/{post.slug}">{post.slug}</a>
+                <a href="/produits/{post.slug}##headerpost">{post.slug}</a>
         {/each}
         </div>
 {/if}
