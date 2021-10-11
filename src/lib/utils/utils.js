@@ -1,3 +1,4 @@
+import { browser } from "$app/env";
 export const chunk = (input, size) => {
     return input.reduce((arr, item, idx) => {
       return idx % size === 0
@@ -57,7 +58,9 @@ export const theRightDef = (w) => {
 };
 
 export const isMobileDevice = () => {
-  return (typeof window !== 'undefined') && (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent))
+  if(browser)
+    return (screen.width <= 640) ||  (window.matchMedia && window.matchMedia('only screen and (max-width: 640px)').matches)
+//  return (typeof window !== 'undefined') && (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent))
 }
 
 export function getFileName(str){
