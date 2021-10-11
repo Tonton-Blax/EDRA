@@ -20,8 +20,13 @@
 	}
 
 	const handleScroll = async () => {
-		if (isMobile)
+		console.log(isMobile)
+		if (isMobile) {			
+			if (window.document.scrollLeft != 0) {
+				document.scrollLeft = 0;
+			}
 			return;
+		}
 		isIdle = false;
 		window.clearTimeout( isScrolling );
 		isScrolling = setTimeout(function() {

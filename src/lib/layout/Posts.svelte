@@ -89,12 +89,30 @@
 
                         {:else}
 
+                        <div class="card-image" on:click={()=>changeLevel(0)}>
+							<figure class="image">
+                                <div class="card-thumb">
+                                    <img class="lazy" data-src={"/img/initial/back.jpg"} alt={"Section Lavabos"} />
+                                </div>
+							</figure>
+						</div>
+						<div class="card-content">		  
+							<div class="content">
+								<h2 class="title is-4 has-text-primary has-text-left has-text-weight-bold">Retour à la liste<br>des produits</h2>
+							</div>
+						</div>
+						<footer class="card-footer">
+							<div on:click={()=>changeLevel(0)} class="button is-success has-text-weight-bold is-uppercase">RETOUR</div>
+						</footer>
+<!--
+
 						<div class="flexbase" style="height:374.8px;" on:click={()=>changeLevel(0)}>
                             <img class="retour" src={"/img/back.png"} alt={"Retour à la liste des produits"} />
                             <h2 class="title is-3 has-text-primary has-text-centered has-text-weight-light" style="position:relative;top:1em;">
                                 {currentLevel === 1 ? "Retour à la liste\ndes produits" : "Retour à la liste\ndes produits"}
                             </h2>
 						</div>
+-->
                         {/if}
 					</div>
 				</div>
