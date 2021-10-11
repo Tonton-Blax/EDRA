@@ -70,17 +70,8 @@ let open = (src) => {
 
 onDestroy(()=>lazyloadInstance && lazyloadInstance.destroy());
 
-onMount(async() => {
-	await tick();
-	/*
-	let pouet = document.querySelectorAll('.pouet');
-	if (pouet.length && pouet.length > 1) {
-		for (let i = pouet.length - 2; i >= 0; i--) {
-			pouet[i] && pouet[i].remove();
-		}
-	}
-	*/
-	
+onMount(() => {
+	//await tick();
 	$observing = false;
 
 	if (isMobile && produit && produit.decalage)
@@ -89,11 +80,12 @@ onMount(async() => {
 	if (isMobile) {
 		document.documentElement.style.overflowX = 'auto'
 		document.body.style.overflowX = 'auto';
-		await tick();
-		window.scroll(0,0);
-		await tick();
-		document.documentElement.style.overflowX = 'hidden'
-		document.body.style.overflowX = 'hidden';
+		setTimeout( () => {
+            window.scrollTo(0, 3);
+			document.documentElement.style.overflowX = 'hidden'
+			document.body.style.overflowX = 'hidden';
+        },20);
+
 	} else {
 		window.scrollTo({ behavior: "smooth", top: 0 });
 	}
