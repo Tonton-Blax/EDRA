@@ -549,12 +549,6 @@
 		:global(.carou video) {
 			height : 48vh;
 		}
-		:global(body) {
-			/* scroll-snap-type: y proximity; */
-  			/* Reserve space for header plus some extra space for sneak peeking. */
-  			overflow-y: scroll;
-			height:100vh;
-		}
 		/*
 		.snapme {
 			scroll-snap-align: start;
