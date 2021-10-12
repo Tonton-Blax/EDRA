@@ -6,7 +6,15 @@
 	import '$lib/layout/cookies.css' // import optional styles
 	import "../app.postcss";
 	import { page } from '$app/stores';
+	import { isMobileDevice } from '$lib/utils/utils.js';
+	import { browser } from "$app/env";
 	
+	if (browser && isMobileDevice()) {
+		const edra = document.querySelector('#edra');
+		console.log(window.innerWidth);
+		edra.style.maxWidth = window.innerWidth + 'px';
+		console.log(edra.style.maxWidth );
+	}
 	$: segment = $page.params.slug ? undefined : $page.path.split(/[\/]/)[1] || '/';
 	let initAnalytics = () => {}
 

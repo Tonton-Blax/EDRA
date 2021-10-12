@@ -62,7 +62,6 @@ let subHeader;
 let active = false;
 let currentSrc;
 let chapoImage;
-
 let open = (src) => {
 	currentSrc = src;
 	active = true;
@@ -75,14 +74,11 @@ onMount(async() => {
 
 	if (isMobile && produit && produit.decalage)
 		chapoImage.style.bottom = `${produit.decalage}%`
-	//window.scrollTo({ behavior: "smooth", top: 0 });
-	window.scroll(0,0);
-	console.log("_")
 });
 
 let refreshPage = () => {
+	console.log("__")
 	chapoImage.src=produit.thumbnail;
-	console.log("_")
 	chapoImage.scrollIntoView();
 }
 
