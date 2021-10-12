@@ -268,7 +268,6 @@ let refreshPage = () => {
 	justify-content: center;
 	height: auto;
 	padding:1rem 2rem;
-	overflow-x:hidden;
 	overflow-y:auto;
 }
 .edra-heading {
