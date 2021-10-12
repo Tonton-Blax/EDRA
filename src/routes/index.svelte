@@ -251,7 +251,7 @@
 					<p class="has-text-primary has-text-left">{@html marked(accueil.images[overBlocks[0].index].headlegend)}</p>
 				</div>
 				<div class="block-bouton">
-					<a class="button is-success" rel="prefetch" href={accueil.images[overBlocks[0].index].headlink}>Découvrir</a>
+					<a sveltekit:noscroll class="button is-success" href={accueil.images[overBlocks[0].index].headlink}>Découvrir</a>
 				</div>
 			</div>
 			{/key}
