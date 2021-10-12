@@ -46,7 +46,7 @@
             >
             {#each currentPosts as post}
 				<div class="column is-one-third is-half-touch mb-0">
-					<a href="/produits/{post.slug}#headerpost">
+					<a sveltekit:noscroll href="/produits/{post.slug}">
                     <div class="card" bind:this={card}>
 						<div class="card-image">
 							<figure class="image">
@@ -127,7 +127,7 @@
         
         <div class="invisible-links">
         {#each posts as post}
-                <a href="/produits/{post.slug}#headerpost">{post.slug}</a>
+                <a sveltekit:noscroll href="/produits/{post.slug}">{post.slug}</a>
         {/each}
         </div>
 {/if}
