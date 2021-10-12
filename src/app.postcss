@@ -26,10 +26,6 @@ body {
 	background:#efefef;
 }
 
-body {
-    background:#efefef;
-}
-
 .invisible {
   opacity: 0;
 }
@@ -201,8 +197,15 @@ body {
 /* MOBILE TOUCH TABLET */
 
 @media screen and (max-width: 1024px) {
-    #edra {
-      overflow-x: hidden;
+    html {
+        height  : 100%;
+        overflow: hidden;
+        position: relative;
+    }
+    body {
+        height  : 100%;
+        overflow: auto;
+        position: relative;
     }
     .modal-content, .modal-carou {
       width:95vw!important;
