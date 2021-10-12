@@ -11,7 +11,7 @@ export async function get() {
   }
   return {
     headers,
-    ,
+    body,
   }
 }
 
