@@ -78,8 +78,14 @@ onMount(async() => {
 	//window.scrollTo({ behavior: "smooth", top: 0 });
 });
 
-</script>
+let refreshPage = () => {
+	chapoImage.src=produit.thumbnail;
+	chapoImage.scrollIntoView();
+	console.log("uouou")
+}
 
+</script>
+{#key $page.params.slug}
 <Modal bind:active={active}>
 	  <img alt={currentSrc} src={currentSrc} width="100%"/>
 </Modal>
@@ -117,7 +123,7 @@ onMount(async() => {
 			<!-- END -->
 			<div class="img-container fit-header bgmm">
 				{#if produit.thumbnail.length}
-					<img data-src={produit.thumbnail} width="1343" height="672" src="/img/lowres/{getFileName(produit.thumbnail)}__400.webp" class="lazy fit-header" alt="{produit.slug}" bind:this={chapoImage} />
+					<img on:load|once={refreshPage} width="1343" height="672" src="/img/lowres/{getFileName(produit.thumbnail)}__400.webp" class="lazy fit-header" alt="{produit.slug}" bind:this={chapoImage} />
 				{/if}
 			</div>
 		</div>
@@ -238,6 +244,7 @@ onMount(async() => {
 			<Posts {posts} currentLevel={!produit.famille || produit.famille == 'normal' ? '0' : '1'} />
 		</div>
 	</div>
+{/key}
 <style>
 
 .fit-header {

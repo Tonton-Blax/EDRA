@@ -5,7 +5,7 @@
 	import Banner from '$lib/layout/Banner.svelte'
 	import '$lib/layout/cookies.css' // import optional styles
 	import "../app.postcss";
-	import { navigating, page } from '$app/stores';
+	import { page } from '$app/stores';
 	
 	$: segment = $page.params.slug ? undefined : $page.path.split(/[\/]/)[1] || '/';
 	let initAnalytics = () => {}
@@ -35,10 +35,10 @@
 <body>
 
 <div class="container">
-	<Transition refresh={$navigating && !page.slug}>
-	<div class="columns is-gapless is-multiline">
-			<slot></slot>
-	</div>
+	<Transition refresh={$page.path && !$page.params.slug} >
+		<div class="columns is-gapless is-multiline">
+				<slot></slot>
+		</div>
 	</Transition>
 </div>
 

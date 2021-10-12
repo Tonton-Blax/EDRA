@@ -47,7 +47,7 @@
             {#each currentPosts as post}
 				<div class="column is-one-third is-half-touch mb-0">
 					<a href="/produits/{post.slug}#headerpost">
-                    <div class="card mb-2 mt-2" bind:this={card}>
+                    <div class="card" bind:this={card}>
 						<div class="card-image">
 							<figure class="image">
                                 <div class="card-thumb">
@@ -62,14 +62,14 @@
 							</div>
 						</div>
 						<footer class="card-footer">
-							<a href="/produits/{post.slug}#headerpost" class="button is-success has-text-weight-bold is-uppercase">découvrir</a>
+							<div class="button is-success has-text-weight-bold is-uppercase">découvrir</div>
 						</footer>
 					</div>
                     </a>
 				</div>
             {/each}
                 <div class="column is-one-third is-half-touch mb-0">
-					<div class="card mb-2 mt-2" bind:this={navCard} >
+					<div class="card" bind:this={navCard} >
                         {#if currentLevel==0}
                         <div class="card-image" on:click={()=>changeLevel(1)}>
 							<figure class="image">
@@ -175,6 +175,13 @@
     }
     .card-content {
         min-height: 7.3em;
+    }
+
+    @media screen and (min-width: 1024px) {
+        .card {
+            margin-top:0px;
+            margin-bottom:0px;
+        }
     }
 
     @media screen and (max-width: 1024px) {

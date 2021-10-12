@@ -4,13 +4,13 @@
       "headimage": "../img/uploads/paillasse_endoscopique.jpg",
       "headtitle": "Paillasses endoscopiques",
       "headlegend": "Pour le traitement manuel des endoscopes thermosensibles avec ou sans traçabilité informatique",
-      "headlink": "https://edra-wip.netlify.app/produits/paillasses-endoscopiques"
+      "headlink": "/produits/paillasses-endoscopiques"
     },
     {
       "headimage": "../img/uploads/poste-de-change-sur-mesure-01.jpg",
       "headtitle": "Postes de change en Kerrock",
       "headlegend": "Aménagements sur mesure pour maternité et crèches : des postes de soins avec baignoire, vasque, espace change et mobilier. ",
-      "headlink": "https://edra-wip.netlify.app/produits/poste-change-kerrock"
+      "headlink": "/produits/poste-change-kerrock"
     },
     {
       "headtitle": "Lavabos aseptiques",
@@ -21,7 +21,7 @@
     {
       "headimage": "../img/uploads/paillasse-sur-mesure-01b.jpg",
       "headtitle": "Paillasses humides et sèches en Kerrock®",
-      "headlink": "https://edra-wip.netlify.app/produits/paillasse-en-solid-surface",
+      "headlink": "/produits/paillasse-en-solid-surface",
       "headlegend": "Paillasses sur mesure sans aucun joint apparent\\\nKerrock allie esthétisme, hygiène, résistance et ergonomie"
     }
   ]

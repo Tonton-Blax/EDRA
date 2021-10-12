@@ -5,10 +5,7 @@
   </script>
   
   {#key refresh}
-<main
-      in:fly="{{ y: -1000, duration: 350, delay: 250,  easing: quadInOut }}"
-      out:fly="{{ y: 1000, duration: 350, easing: quadInOut }}" 
-      >
+    <main transition:fly|local="{{ y: 1000, duration: 350, easing: quadInOut }}" >
       <slot/>
-</main>
+    </main>
   {/key}
