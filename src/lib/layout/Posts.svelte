@@ -40,9 +40,9 @@
 </script>
 {#if posts && posts.length}
         {#key currentLevel}
-		<div class="colposts" in:fly={{easing : quadInOut, x:2000, duration:500, delay:200}} out:fly={{easing : quadInOut, x:-2000, duration:500}} >
+		<div class="colposts" in:fly|local={{easing : quadInOut, x:2000, duration:500, delay:200}} out:fly={{easing : quadInOut, x:-2000, duration:500}} >
 			<div class="columns is-multiline has-background-primary-light cols-produits is-variable is-1 padding-posts"
-                out:slide={{easing : quadInOut, duration:500 }}
+                out:slide|local={{easing : quadInOut, duration:500 }}
             >
             {#each currentPosts as post}
 				<div class="column is-one-third is-half-touch mb-0">
