@@ -50,7 +50,6 @@
 	</Transition>
 </div>
 
-
 <Footer {segment} />
 </body>
 

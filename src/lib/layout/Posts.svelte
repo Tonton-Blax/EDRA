@@ -8,8 +8,8 @@
     import { browser } from '$app/env';
     import { getFileName } from '$lib/utils/utils'
 
-
     export let currentLevel = 0;
+
     let card, navCard;
     let currentPosts = []
     let lazyloadInstance;
@@ -43,10 +43,12 @@
 		<div class="colposts" in:fly|local={{easing : quadInOut, x:2000, duration:500, delay:200}} out:fly={{easing : quadInOut, x:-2000, duration:500}} >
 			<div class="columns is-multiline has-background-primary-light cols-produits is-variable is-1 padding-posts"
                 out:slide|local={{easing : quadInOut, duration:500 }}
+                on:outroend={()=>console.log('outroend')}
+                on:introend={()=>console.log('introend')}
             >
             {#each currentPosts as post}
 				<div class="column is-one-third is-half-touch mb-0">
-					<a href="/produits/{post.slug}">
+					<a sveltekit:noscroll href="/produits/{post.slug}">
                     <div class="card" bind:this={card}>
 						<div class="card-image">
 							<figure class="image">
@@ -127,7 +129,7 @@
         
         <div class="invisible-links">
         {#each posts as post}
-                <a href="/produits/{post.slug}">{post.slug}</a>
+                <a sveltekit:noscroll href="/produits/{post.slug}">{post.slug}</a>
         {/each}
         </div>
 {/if}
