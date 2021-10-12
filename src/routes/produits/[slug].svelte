@@ -81,7 +81,6 @@ onMount(async() => {
 let refreshPage = () => {
 	chapoImage.src=produit.thumbnail;
 	chapoImage.scrollIntoView();
-	console.log("uouou")
 }
 
 </script>
