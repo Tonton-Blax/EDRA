@@ -19,19 +19,19 @@ contenu:
     interbig: "La résine de synthèse Kerrock® : pour une solution flexible"
   - type: textblock
     body: >-
-      * **Hygiénique** : l'une des grandes qualités du solid surface Kerrock est
-      sa nature antibactérienne. Non poreux, sans joint, il est très facile à
-      nettoyer avec les produits d'entretien couramment utilisés en milieu
-      hospitalier. Kerrock est le parfait garant de la qualité sanitaire de
+      * **Hygiénique** : l'une des grandes qualités du solid surface Kerrock®
+      est sa nature antibactérienne. Non poreux, sans joint, il est très facile
+      à nettoyer avec les produits d'entretien couramment utilisés en milieu
+      hospitalier. Kerrock® est le parfait garant de la qualité sanitaire de
       votre établissement
 
       * **Esthétique** : grâce à sa structure unique et ses facilités d'usinage, il peut prendre toutes les formes sans aucun joint apparent et les couleurs les plus innovantes
 
       * **Flexible et ergonomique** : Il intègre tous les éléments nécessaires à la prise en charge des nourrissons en respectant hygiène, confort, ergonomie et sécurité 
 
-      * **Ecologique** : Mélange d'hydroxyde d'aluminium et d'un polymère acrylique, le solid surface Kerrock est un matériau composite durable et recyclable à l'infini. Respectueux de l’environnement et de la santé, il ne contient aucun C.O.V. (Composés Organiques Volatils) et a obtenu la certification ISO 14001. Kerrock est par ailleurs produit en Europe favorisant la réduction des transports routiers et de l'impact carbone. La production européenne permet également une meilleure rationalisation des coûts directs et des taxes douanières
+      * **Ecologique** : Mélange d'hydroxyde d'aluminium et d'un polymère acrylique, le solid surface Kerrock® est un matériau composite durable et recyclable à l'infini. Respectueux de l’environnement et de la santé, il ne contient aucun C.O.V. (Composés Organiques Volatils) et a obtenu la certification ISO 14001. Kerrock® est par ailleurs produit en Europe favorisant la réduction des transports routiers et de l'impact carbone. La production européenne permet également une meilleure rationalisation des coûts directs et des taxes douanières
 
-      * **Conçu pour durer** : grâce à sa technologie innovante, le solid surface Kerrock est naturellement résistant aux chocs physiques et thermiques, aux produits chimiques et aux variations de température. Il est en plus réparable, rénovable et par nature durable
+      * **Conçu pour durer** : grâce à sa technologie innovante, le solid surface Kerrock® est naturellement résistant aux chocs physiques et thermiques, aux produits chimiques et aux variations de température. Il est en plus réparable, rénovable et par nature durable
   - type: leplusobject
     leplus: Une vasque pour le lavage des mains, une baignoire, deux plans de
       change, un tiroir pèse-bébé, une poubelle à ouverture automatique...
@@ -47,7 +47,7 @@ contenu:
 
       * **Les coloris** : un plan de change blanc, pastel ou moucheté, à associer au mobilier sous plan avec plus de 100 couleurs au choix, sans oublier le ou les matelas : des couleurs à combiner pour un poste de change unique. Classique ou tendance, c'est à vous de choisir
 
-      * **Les éléments moulés** : vasques et/ou baignoires, le plus grand choix de tailles standards sur le marché. Si vous ne trouvez pas la taille et la forme idéale, nous vous proposerons une solution sur mesure. Avec Kerrock, rien n'est impossible
+      * **Les éléments moulés** : vasques et/ou baignoires, le plus grand choix de tailles standards sur le marché. Si vous ne trouvez pas la taille et la forme idéale, nous vous proposerons une solution sur mesure. Avec Kerrock®, rien n'est impossible
 
       * **La robinetterie au choix** avec ou sans douchette
 
