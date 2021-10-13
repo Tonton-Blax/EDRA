@@ -1,8 +1,7 @@
 ---
 layout: produits
 slug: auge-bloc-1-poste
-ordre: 4
-title: Gamme Bloc - Auges chirurgicales 1 - 2 - 3 postes
+title: "Gamme Bloc : Auges chirurgicales en 1, 2 ou 3 postes"
 subtitle: "Usage : Lavage chirurgical - Destination : SAS de bloc opératoire  "
 keywords: Lavabos chirurgicaux
 famille: bloc_1_poste
@@ -10,6 +9,7 @@ thumbnail: ../img/uploads/chirurgien-redimensionnée.jpeg
 decalage: 0
 date: 2021-10-07T10:40:57.950Z
 tableau: []
+ordre: 4
 contenu:
   - type: sectionmeta
     sectiontitle: La Gamme Bloc Opératoire
