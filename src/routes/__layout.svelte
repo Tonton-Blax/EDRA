@@ -1,3 +1,6 @@
+<svelte:head>
+	<script>history.scrollRestoration = "manual"</script>
+</svelte:head>
 <script>
 	import Footer from '$lib/layout/Footer.svelte'
 	import Nav from '$lib/layout/Nav.svelte'
