@@ -42,7 +42,7 @@ contenu:
 
       * **Les coloris** : uni, mouchetés, marbré, terrazzo, classique ou tendance, plus de 100 coloris à votre disposition
 
-      * **Les éléments moulés** : éviers, vasques, cuves carrées, rondes, ovales, le plus grand choix de tailles standards sur le marché. Si vous ne trouvez pas la taille et la forme idéale, nous vous proposerons une solution sur mesure. Avec Kerrock®, rien n'est impossible
+      * **Les éléments moulés** : éviers, vasques, cuves carrées, rondes, ovales, le plus grand choix de tailles standards du marché. Si vous ne trouvez pas la taille et la forme idéale, nous vous proposerons une solution sur mesure. Avec Kerrock®, rien n'est impossible
 
       * **La robinetterie** : nous vous proposons la robinetterie la mieux adaptée en fonction de votre usage
 
