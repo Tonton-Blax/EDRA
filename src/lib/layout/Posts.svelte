@@ -43,8 +43,6 @@
 		<div class="colposts" in:fly|local={{easing : quadInOut, x:2000, duration:500, delay:200}} out:fly={{easing : quadInOut, x:-2000, duration:500}} >
 			<div class="columns is-multiline has-background-primary-light cols-produits is-variable is-1 padding-posts"
                 out:slide|local={{easing : quadInOut, duration:500 }}
-                on:outroend={()=>console.log('outroend')}
-                on:introend={()=>console.log('introend')}
             >
             {#each currentPosts as post}
 				<div class="column is-one-third is-half-touch mb-0">
@@ -76,7 +74,7 @@
                         <div class="card-image" on:click={()=>changeLevel(1)}>
 							<figure class="image">
                                 <div class="card-thumb">
-                                    <img class="lazy" data-src={"/img/initial/gamme-alize.jpg"} alt={"Section Lavabos"} />
+                                    <img src={"/img/initial/gamme-alize.jpg"} alt={"Section Lavabos"} />
                                 </div>
 							</figure>
 						</div>
@@ -191,7 +189,7 @@
             font-size:2.1em;
             line-height:1.25em;
 	    }
-        a.button, div.button {
+        div.button {
             font-size:1.2em;
         }
         .card-content {

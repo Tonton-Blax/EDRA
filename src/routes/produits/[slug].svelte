@@ -77,7 +77,8 @@ onMount(async() => {
 
 let refreshPage = () => {
 	chapoImage.src=produit.thumbnail;
-	chapoImage.scrollIntoView();
+	document.body.scrollTop = 0;
+	//chapoImage.scrollIntoView();
 }
 
 </script>

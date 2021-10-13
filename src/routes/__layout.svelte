@@ -1,4 +1,3 @@
-<svelte:window on:hashchange={handlehash} />
 <script>
 	import Footer from '$lib/layout/Footer.svelte'
 	import Nav from '$lib/layout/Nav.svelte'
@@ -9,13 +8,14 @@
 	import { page } from '$app/stores';
 	import { isMobileDevice } from '$lib/utils/utils.js';
 	import { browser } from "$app/env";
-	
+
 	$: isMobile = isMobileDevice();
 	
 	if (browser && isMobile) {
 		const edra = document.querySelector('#edra');
 		edra.style.maxWidth = window.innerWidth + 'px';
 	}
+
 	$: segment = $page.params.slug ? undefined : $page.path.split(/[\/]/)[1] || '/';
 	let initAnalytics = () => {}
 	
