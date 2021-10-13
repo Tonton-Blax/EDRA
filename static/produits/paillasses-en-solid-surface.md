@@ -40,7 +40,7 @@ contenu:
       * **Les dimensions et la forme** : un plan de travail ergonomique et
       dimensionné en fonction du local et de l'usage
 
-      * **Les coloris** : uni, mouchetés, marbré, terrazzo, classique ou tendance, plus de 100 coloris sont à votre disposition
+      * **Les coloris** : uni, mouchetés, marbré, terrazzo, classique ou tendance, plus de 100 coloris à votre disposition
 
       * **Les éléments moulés** : éviers, vasques, cuves carrées, rondes, ovales, le plus grand choix de tailles standards sur le marché. Si vous ne trouvez pas la taille et la forme idéale, nous vous proposerons une solution sur mesure. Avec Kerrock®, rien n'est impossible
 
