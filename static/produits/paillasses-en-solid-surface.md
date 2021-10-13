@@ -81,4 +81,5 @@ contenu:
       - ../img/uploads/reuilly-08.jpg
       - ../img/uploads/paillasse-1-bac-mouchetee-avec-decoupes-2-.jpeg
       - ../img/uploads/reuilly-10.jpg
+      - ../img/uploads/ch-bayeux-2-paillasse-et-chariot-assorti-redimensionnee.jpg
 ---
