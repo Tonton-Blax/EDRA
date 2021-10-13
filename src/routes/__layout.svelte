@@ -1,6 +1,4 @@
-<svelte:head>
-	<script>history.scrollRestoration = "manual"</script>
-</svelte:head>
+<svelte:window on:hashchange={handlehash} />
 <script>
 	import Footer from '$lib/layout/Footer.svelte'
 	import Nav from '$lib/layout/Nav.svelte'
@@ -12,15 +10,15 @@
 	import { isMobileDevice } from '$lib/utils/utils.js';
 	import { browser } from "$app/env";
 	
-	if (browser && isMobileDevice()) {
+	$: isMobile = isMobileDevice();
+	
+	if (browser && isMobile) {
 		const edra = document.querySelector('#edra');
-		console.log(window.innerWidth);
 		edra.style.maxWidth = window.innerWidth + 'px';
-		console.log(edra.style.maxWidth );
 	}
 	$: segment = $page.params.slug ? undefined : $page.path.split(/[\/]/)[1] || '/';
 	let initAnalytics = () => {}
-
+	
 </script>
 
 <Banner cookieName="foo"

@@ -53,7 +53,6 @@ $: $page.paramas, lazyloadInstance && setTimeout(()=>lazyloadInstance.update(),1
 
 if (browser) {
 	lazyloadInstance = new lazyload();
-	window.onbeforeunload = ()=> {refresh=true; return undefined};
 }
 
 
@@ -77,7 +76,6 @@ onMount(async() => {
 });
 
 let refreshPage = () => {
-	console.log("__")
 	chapoImage.src=produit.thumbnail;
 	chapoImage.scrollIntoView();
 }
