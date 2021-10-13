@@ -1,6 +1,7 @@
 ---
 layout: produits
 slug: poste-change-kerrock
+ordre: 2
 title: Postes de change en&nbsp; Kerrock®
 subtitle: La solution Kerrock® pour des plans de change sur mesure sans aucun
   joint apparent alliant esthétisme et hygiène
@@ -10,10 +11,9 @@ thumbnail: ../img/uploads/poste-de-change-sur-mesure-01.jpg
 decalage: 0
 date: 2021-04-01T09:20:06.078Z
 tableau: []
-ordre: 2
 contenu:
   - type: sectionmeta
-    sectiontitle: Aménagements sur mesure pour maternités
+    sectiontitle: Aménagements sur mesure pour maternités et crèches
     sectionsubtitle: Postes de change avec baignoire, vasque et mobilier de soin
   - type: intertitrebigobject
     interbig: "La résine de synthèse Kerrock® : pour une solution flexible"
@@ -47,11 +47,11 @@ contenu:
 
       * **Les coloris** : un plan de change blanc, pastel ou moucheté, à associer au mobilier sous plan avec plus de 100 couleurs au choix, sans oublier le ou les matelas : des couleurs à combiner pour un poste de change unique. Classique ou tendance, c'est à vous de choisir
 
-      * **Les éléments moulés** : vasques et/ou baignoires, le plus grand choix de tailles standards sur le marché. Si vous ne trouvez pas la taille et la forme idéale, nous vous proposerons une solution sur mesure. Avec Kerrock®, rien n'est impossible
+      * **Les éléments moulés** : vasques et/ou baignoires, le plus grand choix de tailles standards du marché. Si vous ne trouvez pas la taille et la forme idéale, nous vous proposerons une solution sur mesure. Avec Kerrock®, rien n'est impossible
 
       * **La robinetterie au choix** avec ou sans douchette
 
-      * **Les matelas** spécial maternité, standards ou sur mesure, plats ou galbés sont fabriqués en France en mousse polyéther 24kg/m3 recouverte d'une toile enduite sans phtalates
+      * **Les matelas** spécial maternité, standards ou sur mesure, plats ou galbés, nos matelas sont fabriqués en France en mousse polyéther 24kg/m3 recouverte d'une toile enduite sans phtalates
 
       * **Finitions / détails** : plan arrondi ou droit, avec ou sans dosseret, retombée anti-goutte ou simplement arrondie, avec incrustations de couleur, séparation zone sèche/zone humide...
   - type: leplusobject
