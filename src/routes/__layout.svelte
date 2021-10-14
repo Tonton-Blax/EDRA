@@ -44,7 +44,7 @@
 <body>
 
 <div class="container">
-	<Transition refresh={$page.path && !$page.params.slug} >
+	<Transition>
 		<div class="columns is-gapless is-multiline">
 				<slot></slot>
 		</div>
