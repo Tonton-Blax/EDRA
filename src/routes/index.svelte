@@ -36,7 +36,7 @@
 	import ChevronRightIcon from '$lib/layout/ChevronRightIcon.svelte'
 	import Header from '$lib/layout/HeaderBase.svelte'
 	import { observing } from '$lib/utils/stores.js';
-	import { isMobileDevice, getFileName } from '$lib/utils/utils.js';
+	import { isMobileDevice /*, getFileName */ } from '$lib/utils/utils.js';
 	//import lazyload from 'vanilla-lazyload';
 	//import { browser } from "$app/env";
 	import marked from 'marked'

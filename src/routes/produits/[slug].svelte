@@ -44,12 +44,11 @@ import SvelteSeo from "svelte-seo";
 import { page } from '$app/stores';
 
 export let produit, posts;
-posts.sort( (a, b)  => (a.ordre || 1) - (b.ordre || 0) )
 
 let lazyloadInstance;
 
 $: isMobile = isMobileDevice();
-$: $page.paramas, lazyloadInstance && setTimeout(()=>lazyloadInstance.update(),100);
+$: $page.params, lazyloadInstance && setTimeout(()=>lazyloadInstance.update(),100);
 
 if (browser) {
 	lazyloadInstance = new lazyload();

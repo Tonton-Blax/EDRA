@@ -13,12 +13,13 @@
     let card, navCard;
     let currentPosts = []
     let lazyloadInstance;
-    $: $page.paramas, lazyloadInstance && lazyloadInstance.update()
+    $: $page.params, lazyloadInstance && lazyloadInstance.update()
     
     if (browser)
         lazyloadInstance = new lazyload();
 
     onMount(async()=>{
+        posts.sort( (a, b)  => a.ordre - b.ordre )
         currentPosts = posts.filter(l => currentLevel == 1 ? (l.famille !== 'normal') : (!l.famille || l.famille === 'normal'));
         await tick();
         if (navCard && navCard.style && navCard.style.height)
@@ -44,7 +45,7 @@
 			<div class="columns is-multiline has-background-primary-light cols-produits is-variable is-1 padding-posts"
                 out:slide|local={{easing : quadInOut, duration:500 }}
             >
-            {#each currentPosts as post}
+            {#each currentPosts as post, idx (post.ordre)}
 				<div class="column is-one-third is-half-touch mb-0">
 					<a sveltekit:noscroll href="/produits/{post.slug}">
                     <div class="card" bind:this={card}>
