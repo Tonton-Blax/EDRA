@@ -1,7 +1,6 @@
 ---
 layout: produits
 slug: poste-change-kerrock
-ordre: 2
 title: Postes de change en&nbsp; Kerrock®
 subtitle: La solution Kerrock® pour des plans de change sur mesure sans aucun
   joint apparent alliant esthétisme et hygiène
@@ -11,9 +10,10 @@ thumbnail: ../img/uploads/poste-de-change-sur-mesure-01.jpg
 decalage: 0
 date: 2021-04-01T09:20:06.078Z
 tableau: []
+ordre: 2
 contenu:
   - type: sectionmeta
-    sectiontitle: Aménagements sur mesure pour maternités et crèches
+    sectiontitle: "Aménagements sur mesure pour maternités "
     sectionsubtitle: Postes de change avec baignoire, vasque et mobilier de soin
   - type: intertitrebigobject
     interbig: "La résine de synthèse Kerrock® : pour une solution flexible"
