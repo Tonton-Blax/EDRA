@@ -1,7 +1,6 @@
 ---
 layout: produits
 slug: paillasse-en-solid-surface
-ordre: 1
 title: Paillasses humides et sèches en Kerrock®
 subtitle: Paillasses sur mesure sans aucun joint apparent, Kerrock® allie
   esthétisme, hygiène, résistance et ergonomie
@@ -11,6 +10,7 @@ thumbnail: ../img/uploads/paillasse-sur-mesure-01b.jpg
 decalage: 1
 date: 2021-04-01T12:25:55.049Z
 tableau: []
+ordre: 1
 contenu:
   - type: sectionmeta
     sectiontitle: Aménagements hospitaliers sur mesure
@@ -82,4 +82,5 @@ contenu:
       - ../img/uploads/paillasse-1-bac-mouchetee-avec-decoupes-2-.jpeg
       - ../img/uploads/reuilly-10.jpg
       - ../img/uploads/ch-bayeux-2-paillasse-et-chariot-assorti-redimensionnee.jpg
+      - ../img/uploads/bloc-endoscopie-ch-challans-85.jpg
 ---
