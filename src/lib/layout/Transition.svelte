@@ -6,8 +6,8 @@
   
   {#key $navigating && !$page.params.slug}
     <main
-      in:fly={{  x:-5, duration: 500, delay: 500 }}
-      out:fly={{ x: 5, duration: 500             }}
+      in:fly={{  x:-5, duration: 200, delay: 200 }}
+      out:fly={{ x: 5, duration: 200             }}
     >
       <slot/>
     </main>

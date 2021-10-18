@@ -74,8 +74,10 @@ onMount(async() => {
 		chapoImage.style.bottom = `${produit.decalage}%`
 	
 	document.body.scrollTop = 0;
-	if (!isMobile)
-		chapoImage.scrollIntoView();
+	if (!isMobile) {
+		//chapoImage.scrollIntoView();
+		setTimeout(()=>window.scroll(0,0),250);
+	}
 });
 
 let refreshPage = () => {
