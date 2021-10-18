@@ -59,7 +59,7 @@ contenu:
     interbig: Equipement de base du lavabo à commande par cellule infrarouge
   - type: textblock
     body: >-
-      * 1-2 ou 3 cols de cygne en laiton chromé ou robinetterie droite
+      * 1, 2 ou 3 cols de cygne en laiton chromé ou robinetterie droite
 
       * 1, 2 ou 3 commandes de l’eau par détecteur d’approche infrarouge avec électrovanne bistable 1/2" 6Vcc
 
