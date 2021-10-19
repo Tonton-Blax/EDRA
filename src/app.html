@@ -7,6 +7,15 @@
 		<meta name="viewport" content="width=auto">
 		<link rel="stylesheet" href="/edra-min.css?123" media="print" onload="this.media='all'">
 		%svelte.head%
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-505TM6VLMV"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-505TM6VLMV');
+		</script>
 	</head>
 	<body>
 		<div id="edra">%svelte.body%</div>
