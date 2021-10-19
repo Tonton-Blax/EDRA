@@ -36,6 +36,7 @@
 	import { navigating } from "$app/stores";
 	import { isMobileDevice } from '$lib/utils/utils.js';
 	import { page } from '$app/stores';
+	import SvelteSeo from "svelte-seo";
 
 	export let posts;
 	posts.sort( (a, b)  => (a.ordre || 1) - (b.ordre || 0) )
@@ -60,6 +61,26 @@
 <svelte:head>
 	<title>Produits EDRA Médical</title>
 </svelte:head>
+
+<SvelteSeo
+    title={"Edra Médical : fabrication française et agencement médical sur mesure depuis 1983"}
+	canonical={ "https://www.edramedical.fr/produits"}
+    description={"Edra Médical conçoit, fabrique, installe des paillasses sur mesure, plans-vasques, meubles à langer, auges, lavabos chirurgicaux pour les établissements de santé, maternité, crèches"}
+	openGraph={{
+        title: "Edra Médical : fabrication française et agencement médical sur mesure depuis 1983",
+        description: "Edra Médical conçoit, fabrique, installe des paillasses sur mesure, plans-vasques, meubles à langer, auges, lavabos chirurgicaux pour les établissements de santé, maternité, crèches",
+        url: "https://www.edramedical.fr/produits",
+        type: 'website',
+        images: [
+        {
+            url: `https://www.edramedical.fr/img/initial/bloctop.jpg`,
+            width: 1151,
+            height: 575,
+            alt: "Logo Edra Médical sur fond graphique"
+        }
+        ]
+    }}
+/>
 
 <div class="column is-full">
 	<IntersectionObserver element={headerEl} bind:intersecting={$observing}>

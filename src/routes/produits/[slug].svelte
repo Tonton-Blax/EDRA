@@ -98,9 +98,7 @@ let refreshPage = () => {
     description={produit.description || produit.subtitle || produit.famille || produit.slug || "Paillasses endoscopiques, Lavabos, Auges, Bloc"}
     nofollow={false}
     noindex={false}
-	keywords={produit.keywords || "Mobilier médical français sur-mesure"}
-    canonical={ browser ? window.location.href : ""}
-    
+	keywords={produit.keywords || "Mobilier médical français sur-mesure"}    
 	openGraph={{
         title: `EDRA Médical : ${produit.title}`,
         description: produit.description || produit.subtitle || "Paillasses endoscopiques, Lavabos, Auges, Bloc",
