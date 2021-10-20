@@ -12,5 +12,17 @@
   to = "/produits"
 
 [[redirects]]
-  from = "m/nous-contacter"
+  from = "/m/nous-contacter"
   to = "/contact"
+
+[[redirects]]
+  from = "/produits/lavabos-aseptiques"
+  to = "/produits?level=1"
+
+[[redirects]]
+  from = "/mentions-legales"
+  to = "/mentions"
+
+[[redirects]]
+  from = "/documentations"
+  to = "/"

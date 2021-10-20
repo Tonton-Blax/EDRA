@@ -20,6 +20,7 @@
 
     onMount(async()=>{
         posts.sort( (a, b)  => a.ordre - b.ordre )
+        currentLevel = $page.query.get('level');
         currentPosts = posts.filter(l => currentLevel == 1 ? (l.famille !== 'normal') : (!l.famille || l.famille === 'normal'));
         await tick();
         if (navCard && navCard.style && navCard.style.height)
@@ -71,7 +72,7 @@
             {/each}
                 <div class="column is-one-third is-half-touch mb-0">
 					<div class="card" bind:this={navCard} >
-                        {#if currentLevel==0}
+                        {#if currentLevel!=1}
                         <div class="card-image" on:click={()=>changeLevel(1)}>
 							<figure class="image">
                                 <div class="card-thumb">
