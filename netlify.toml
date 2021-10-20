@@ -6,3 +6,11 @@
   
 [dev]
   command = "svelte-kit dev"
+
+[[redirects]]
+  from = "/m"
+  to = "/produits"
+
+[[redirects]]
+  from = "m/nous-contacter"
+  to = "/contact"
