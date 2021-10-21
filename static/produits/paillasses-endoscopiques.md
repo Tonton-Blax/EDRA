@@ -92,4 +92,5 @@ contenu:
       - ../img/uploads/annecy-3-copie.jpg
       - ../img/uploads/paillasse-avec-pompes-intégrées-sans-traçabilité.jpg
       - ../img/uploads/paillasses-avec-pompes-autonomes.jpg
+      - ../img/uploads/chu-limoges-2-x-6-bacs-dos-à-dos.jpg
 ---
