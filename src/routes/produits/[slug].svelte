@@ -10,7 +10,7 @@
 		if (res.ok) {
 			const stuff = await res.json();
 			return {
-				props: { produit: stuff.post, posts : stuff.posts }
+				props: { produit: stuff.post }
 			};
 		}
 		if (res.status == 404) {
@@ -30,7 +30,6 @@
 
 import marked from 'marked';
 import { onMount, tick, onDestroy } from 'svelte';
-import Posts from '$lib/layout/Posts.svelte'	
 import ContactForm from '$lib/layout/ContactForm.svelte'
 import {observing} from '$lib/utils/stores.js';
 import Carousel from '@beyonk/svelte-carousel/src/Carousel.svelte'
@@ -38,22 +37,13 @@ import Modal from '$lib/layout/Modal.svelte'
 import ChevronLeftIcon from '$lib/layout/ChevronLeftIcon.svelte'
 import ChevronRightIcon from '$lib/layout/ChevronRightIcon.svelte'
 import { isMobileDevice, getFileName } from '$lib/utils/utils.js';
-import lazyload from 'vanilla-lazyload';
 import { browser } from '$app/env';
 import SvelteSeo from "svelte-seo";
 import { page } from '$app/stores';
 
-export let produit, posts;
-
-let lazyloadInstance;
+export let produit;
 
 $: isMobile = isMobileDevice();
-$: $page.params, lazyloadInstance && setTimeout(()=>lazyloadInstance.update(),100);
-
-if (browser) {
-	lazyloadInstance = new lazyload();
-}
-
 
 let gal;
 let subHeader;
@@ -65,26 +55,16 @@ let open = (src) => {
 	active = true;
 }
 
-onDestroy(()=>lazyloadInstance && lazyloadInstance.destroy());
-
 onMount(async() => {
 	$observing = false;
 
 	if (isMobile && produit && produit.decalage)
 		chapoImage.style.bottom = `${produit.decalage}%`
 	
-	document.body.scrollTop = 0;
-	if (!isMobile) {
-		//chapoImage.scrollIntoView();
-		setTimeout(()=>window.scroll(0,0),250);
-	}
 });
 
 let refreshPage = () => {
-	chapoImage.src=produit.thumbnail;
-	document.body.scrollTop = 0;
-	if (!isMobile)
-		chapoImage.scrollIntoView();
+	chapoImage.src= isMobile && $page.params.slug && $page.params.slug.includes('alize') ? '/static/img/initial/gamme-alize.jpg' : produit.thumbnail;
 }
 
 </script>
@@ -232,19 +212,6 @@ let refreshPage = () => {
 	<ContactForm />
 	</div>
 
-	<div class="container">
-
-		<div class="columns has-background-primary ml-0 mr-0 mb-0">	
-			<div class="column is-full centered-block">
-				<h1 class="title is-1 has-text-white has-text-centered p-8">
-					Découvrir le reste de la gamme
-				</h1>
-			</div>
-		</div>
-		<div style="background:var(--lightblue);width:100%">
-			<Posts {posts} currentLevel={!produit.famille || produit.famille == 'normal' ? '0' : '1'} />
-		</div>
-	</div>
 {/key}
 <style>
 
@@ -252,9 +219,6 @@ let refreshPage = () => {
 	position:relative;
 }
 
-.container {
-	background:white!important;
-}
 .subcontainer {
 	padding: 0% 14%;
 }

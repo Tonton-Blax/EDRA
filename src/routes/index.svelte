@@ -2,10 +2,12 @@
 
 	export async function load({ fetch }) {
 		const res = await fetch(`/accueil.json`);
+		const json = await res.json();
+		const accueil = shuffleArray(json.images);
 		if (res.status === 200) {
 			return {
 				props: {
-					accueil: res.status === 200  ?await res.json() : null,
+					accueil
 				}
 			};
 		}
@@ -36,9 +38,7 @@
 	import ChevronRightIcon from '$lib/layout/ChevronRightIcon.svelte'
 	import Header from '$lib/layout/HeaderBase.svelte'
 	import { observing } from '$lib/utils/stores.js';
-	import { isMobileDevice /*, getFileName */ } from '$lib/utils/utils.js';
-	//import lazyload from 'vanilla-lazyload';
-	//import { browser } from "$app/env";
+	import { isMobileDevice, shuffleArray } from '$lib/utils/utils.js';
 	import marked from 'marked'
 	import { onMount } from 'svelte';
 	import { navigating } from "$app/stores";
@@ -47,7 +47,6 @@
 	$: isMobile = isMobileDevice();
 	$: $navigating && header && header.$destroy();
 	
-	let lazyloadInstance;
 	let pictoEl, headerEl, header;
 	let active = false;
 
@@ -57,11 +56,7 @@
 	}
 
 	let SvelteSeo; let ready; let vids;
-/*
-	if (browser) {
-		lazyloadInstance = new lazyload();
-	}
-*/
+
 	onMount(async()=>{
 		const module = await import('svelte-seo');
         SvelteSeo = module.default;
@@ -178,22 +173,21 @@
 </script>
 
 <!-- SEO -->
-{#if ready}
 <svelte:component this={SvelteSeo}
     title={"EDRA Médical : fabrication française et agencement médical sur mesure depuis 1983"}
     description="EDRA Médical conçoit, fabrique, installe des paillasses sur mesure, plans-vasques, meubles à langer, auges, lavabos chirurgicaux pour les établissements de santé, maternité, crèches"
 	keywords="Paillasses humides, paillasses sèches, paillasses endoscopiques, plans-vasques, meuble à langer, tables à langer, postes de change, lavabos aseptiques, lavabos chirurgicaux, auges"
     nofollow={false}
     noindex={false}
-    canonical={window.location.href}
+    canonical="https://www.edramedical.fr"
     openGraph={{
         title: `EDRA Médical`,
         description: "Fabrication en France de mobilier médical : paillasses endoscopiques, lavabos pour lavage chirurgical, modules endoscopiques, vasques",
-        url: window.location.href,
+        url: "https://www.edramedical.fr",
         type: 'website',
         images: [
         {
-            url: `${window.location.host}/img/logo/edra-blanc.png`,
+            url: `https://www.edramedical.fr/img/logo/edra-blanc.png`,
             width: 486,
             height: 486,
             alt: "Logo Edra Médical"
@@ -201,7 +195,6 @@
         ]
     }}
 />
-{/if}
 
 <!-- MODAL -->
 
@@ -245,13 +238,13 @@
 			{#key overBlocks[0].index}
 			<div class="overblock" in:fly={{x:1000, duration:500}} out:fly={{x:1000, delay:0, easing:quadInOut}}>
 				<div class="block-up">
-						<h3 class="title is-3 has-text-primary has-text-weight-bold">{accueil.images[overBlocks[0].index].headtitle}</h3>
+						<h3 class="title is-3 has-text-primary has-text-weight-bold">{accueil[overBlocks[0].index].headtitle}</h3>
 					</div>
 				<div class="block-in">
-					<p class="has-text-primary has-text-left">{@html marked(accueil.images[overBlocks[0].index].headlegend)}</p>
+					<p class="has-text-primary has-text-left">{@html marked(accueil[overBlocks[0].index].headlegend)}</p>
 				</div>
 				<div class="block-bouton">
-					<a sveltekit:noscroll class="button is-success" href={accueil.images[overBlocks[0].index].headlink}>Découvrir</a>
+					<a class="button is-success" href={accueil[overBlocks[0].index].headlink}>Découvrir</a>
 				</div>
 			</div>
 			{/key}
@@ -262,7 +255,7 @@
 				autoplay={overBlocks[0].autoplay} duration={500}
 				on:change={ e => changeChapoIndex(0, e.detail.currentSlide) }
 			>
-				{#each accueil.images as src (src)}
+				{#each accueil as src (src)}
 					<img src={src.headimage} class="carou-img" alt="nature" /> 
 				{/each}
 			</Carousel>
@@ -279,13 +272,13 @@
 			in:fly={{x: overBlocks[0].chapoDirection, duration:500}} 
 			out:fly={{x: overBlocks[0].chapoDirection, delay:0, easing:quadInOut}}>
 				<div class="block-up">
-						<h3 class="title is-big-touch has-text-primary has-text-weight-bold">{accueil.images[overBlocks[0].index].headtitle}</h3>
+						<h3 class="title is-big-touch has-text-primary has-text-weight-bold">{accueil[overBlocks[0].index].headtitle}</h3>
 					</div>
 				<div class="block-in">
-					<p class="has-text-primary has-text-left is-size-2">{@html marked(accueil.images[overBlocks[0].index].headlegend)}</p>
+					<p class="has-text-primary has-text-left is-size-2">{@html marked(accueil[overBlocks[0].index].headlegend)}</p>
 				</div>
 				<div class="block-bouton">
-					<a class="button is-success is-size-3 has-text-bold mt-3" rel="prefetch" href={accueil.images[overBlocks[0].index].headlink}>Découvrir</a>
+					<a class="button is-success is-size-3 has-text-bold mt-3" rel="prefetch" href={accueil[overBlocks[0].index].headlink}>Découvrir</a>
 				</div>
 			</div>
 			{/key}
@@ -416,7 +409,7 @@
 
 	<div class="column is-half is-full-touch bgmm">
 		<div class="edra-block has-background-primary has-text-white p-0">
-			<h2 class="title is-2 has-text-white has-text-centered mb-0 is-bigger-touch">Ils nous font<br>confiance</h2>
+			<h2 class="title is-2 has-text-white has-text-centered mb-0 is-bigger-touch">Nos réalisations<br>récentes</h2>
 		</div>
 	</div>
 	<div class="column is-half is-full-touch">
@@ -473,6 +466,7 @@
 		z-index:5000;
 		cursor:pointer;
 	}
+
 	p {
 		text-align: center;
 		margin: 0 auto;

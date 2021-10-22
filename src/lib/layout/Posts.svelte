@@ -1,23 +1,16 @@
 <script>
-    export let posts = [];
     import { fly, slide } from 'svelte/transition'
     import { quadInOut } from 'svelte/easing';
-    import { onMount, onDestroy, tick } from 'svelte';
-    import lazyload from 'vanilla-lazyload'
+    import { onMount, tick, createEventDispatcher } from 'svelte';
     import { page } from '$app/stores';
-    import { browser } from '$app/env';
     import { getFileName } from '$lib/utils/utils'
-
     export let currentLevel = 0;
+    export let posts = [];
 
     let card, navCard;
     let currentPosts = []
-    let lazyloadInstance;
-    $: $page.params, lazyloadInstance && lazyloadInstance.update()
+    const dispatch = createEventDispatcher  ();
     
-    if (browser)
-        lazyloadInstance = new lazyload();
-
     onMount(async()=>{
         posts.sort( (a, b)  => a.ordre - b.ordre )
         currentLevel = $page.query.get('level');
@@ -27,15 +20,14 @@
             navCard.style.height = card.offsetHeight + 'px';
     });
 
-    onDestroy(()=> lazyloadInstance && lazyloadInstance.destroy())
-
     async function changeLevel (level) {
+        
         currentLevel = level;
+        dispatch('updatelazy');
         currentPosts = posts.filter(l => level == 1 ? l.famille !== 'normal' : (!l.famille || l.famille === 'normal'));
         await (tick);
         if (navCard && navCard.style && card && card.offsetHeight)
             navCard.style.height = card.offsetHeight + 'px';
-        setTimeout(()=>lazyloadInstance.update(),50)
     }
 
 
@@ -48,7 +40,7 @@
             >
             {#each currentPosts as post, idx (post.ordre)}
 				<div class="column is-one-third is-half-touch mb-0">
-					<a sveltekit:noscroll href="/produits/{post.slug}">
+					<a href="/produits/{post.slug}">
                     <div class="card" bind:this={card}>
 						<div class="card-image">
 							<figure class="image">
@@ -94,7 +86,7 @@
                         <div class="card-image" on:click={()=>changeLevel(0)}>
 							<figure class="image">
                                 <div class="card-thumb">
-                                    <img class="lazy" data-src={"/img/initial/back.jpg"} alt={"Section Lavabos"} />
+                                    <img src={"/img/initial/back.jpg"} alt={"Section Lavabos"} />
                                 </div>
 							</figure>
 						</div>
@@ -106,15 +98,6 @@
 						<footer class="card-footer">
 							<div on:click={()=>changeLevel(0)} class="button is-success has-text-weight-bold is-uppercase">RETOUR</div>
 						</footer>
-<!--
-
-						<div class="flexbase" style="height:374.8px;" on:click={()=>changeLevel(0)}>
-                            <img class="retour" src={"/img/back.png"} alt={"Retour à la liste des produits"} />
-                            <h2 class="title is-3 has-text-primary has-text-centered has-text-weight-light" style="position:relative;top:1em;">
-                                {currentLevel === 1 ? "Retour à la liste\ndes produits" : "Retour à la liste\ndes produits"}
-                            </h2>
-						</div>
--->
                         {/if}
 					</div>
 				</div>
@@ -129,7 +112,7 @@
         
         <div class="invisible-links">
         {#each posts as post}
-                <a sveltekit:noscroll href="/produits/{post.slug}">{post.slug}</a>
+                <a href="/produits/{post.slug}">{post.slug}</a>
         {/each}
         </div>
 {/if}

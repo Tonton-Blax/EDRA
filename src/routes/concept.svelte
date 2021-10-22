@@ -43,8 +43,6 @@
 	import { observing } from '$lib/utils/stores.js';
 	import { isMobileDevice, getFileName } from '$lib/utils/utils.js';
 	import marked from 'marked'
-	//import lazyload from 'vanilla-lazyload';
-	import { browser } from "$app/env";
 	import { onMount } from 'svelte';
 	import { navigating } from "$app/stores";
 	export let concept;
@@ -52,21 +50,13 @@
 	$: $navigating && header && header.$destroy();
 	$: isMobile = isMobileDevice();
 
-	let vids;
-
 	let SvelteSeo; let ready;
-	let header, lazyloadInstance;
+	let header;
 
-	/*
-		if (browser) {
-			lazyloadInstance = new lazyload();
-	}
-	*/
 
 	onMount(async()=>{
 		const module = await import('svelte-seo');
         SvelteSeo = module.default;
-		vids = document.querySelectorAll(`.videos-concept`);
 		ready = true;
 	})
 
@@ -169,7 +159,6 @@
 	let currentImageIndex = 0;
 
 	let changeChapoIndex = async (overBlockIndex, idx) => {
-		//lazyloadInstance.update()
 		overBlocks[overBlockIndex].chapoDirection = idx > overBlocks[overBlockIndex].index || (idx == 0 && overBlocks[overBlockIndex].index == overBlocks[overBlockIndex].images.length -1) ? -1000 : 1000;
 		overBlocks[overBlockIndex].index = idx;
 	}
@@ -205,7 +194,7 @@
 		<IntersectionObserver element={headerEl} bind:intersecting={$observing}>
 			<div class="{isMobile ? 'edra-full' : 'edra-block'} no-padding has-text-white" bind:this={headerEl}>
 				<Header headerType={'concept'} bind:this={header} />
-			</div>			
+			</div>
 		</IntersectionObserver>
 	</div>	
 	
@@ -240,7 +229,7 @@
 			{#key overBlocks[0].index}
 			<div class="overblock-concept" in:fade={{duration:500}} out:fade={{delay:0, easing:quadInOut}}>
 				<div class="flexbase h100">
-					<p class="m-6 p-6 is-size-4 has-text-left">
+					<p class="m-6 p-6 is-size-4 has-text-left" style="max-width:50%;">
 						{@html marked(concept.images[overBlocks[0].index].headlegend)}
 					</p>
 				</div>
@@ -461,12 +450,15 @@
 	.overblock-concept {
 		position: absolute;
 		left: 0px;
-		z-index: 1;
-		max-width: 50%;
-		background: rgba(0,0,0,0.2);
+		/* max-width: 50%; */
+		/* background: rgba(0,0,0,0.2); */
 		padding: 30px;
+		background : linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 50%)!important;
+		z-index: 1;
+		pointer-events: none;
 		height: inherit;
 	}
+
 	.h100 {
 		height:100%;
 	}
@@ -488,12 +480,16 @@
 	}
 	:global(.carou img), :global(.carou video) {
 		width: fit-content;
+		pointer-events:all;
 		min-width:100%;
 		object-fit:cover;
     	margin:0px 0px 0px 0px;
 	}
 	:global(.carou img) {
 		height:695px;
+	}
+	:global(.carou ul) {
+		z-index:19;
 	}
 
 	p {

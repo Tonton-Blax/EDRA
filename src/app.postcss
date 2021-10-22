@@ -84,10 +84,11 @@ body {
 .overblock {
     position: absolute;
     left: 50%;
-    height: 300px;
+    min-height: 300px;
+    max-height:400px;
     z-index: 1;
     max-width: 40%;
-    width: 35%;
+    width: 40%;
     background: white;
     padding: 30px;		
 }
@@ -116,7 +117,7 @@ body {
     border-top:none!important;
 }
 .card {
-    margin : 30px 15px;
+    margin : 25px 15px!important;
     border-radius: 0px;
 }
 .card-content {
@@ -145,6 +146,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.logosquare img {
+  transition: transform 1s ease-out;
+}
+.logosquare img:hover {
+  transform: scale(1.11);
 }
 
 .gallerie {

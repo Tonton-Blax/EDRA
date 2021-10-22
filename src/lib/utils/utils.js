@@ -7,7 +7,7 @@ export const chunk = (input, size) => {
     }, []);
   };
 
-export const shuffleArray = arr => {    
+export const shuffleArray = arr => {
     return arr.map(a => [Math.random(), a])
         .sort((a, b) => a[0] - b[0])
         .map(a => a[1]);
@@ -60,6 +60,7 @@ export const theRightDef = (w) => {
 export const isMobileDevice = () => {
   if(browser)
     return (screen.width <= 801) ||  (window.matchMedia && window.matchMedia('only screen and (max-width: 801px)').matches)
+  else return false;
 //  return (typeof window !== 'undefined') && (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent))
 }
 
@@ -68,3 +69,4 @@ export function getFileName(str){
   const file = str.split('/').pop();
   return file.substr(0,file.lastIndexOf('.'))
 }
+
