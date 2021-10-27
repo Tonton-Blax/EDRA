@@ -58,10 +58,12 @@
 	let SvelteSeo; let ready; let vids;
 
 	onMount(async()=>{
+		window.scroll(0,0);
+		document.documentElement.scrollTop = 9;
 		const module = await import('svelte-seo');
         SvelteSeo = module.default;
 		vids = document.querySelectorAll(`.videos-concept`);
-		ready = true;
+		setTimeout(()=>ready = true, 200);
 		//lazyloadInstance.update();
 	});
 
@@ -158,7 +160,6 @@
 	];
 
 	let currentImageIndex = 0;
-	let wrapperCarousel;
 
 	let changeChapoIndex = async (overBlockIndex, idx) => {
 		overBlocks[overBlockIndex].chapoDirection = idx > overBlocks[overBlockIndex].index || (idx == 0 && overBlocks[overBlockIndex].index == overBlocks[overBlockIndex].images.length -1) ? -1000 : 1000;
@@ -221,7 +222,7 @@
 </div>
 
 	<!-- HEADER -->
-	{#if ready && $navigating===null}
+	{#if $navigating===null}
 	<div class="column is-full">
 		<IntersectionObserver element={headerEl} bind:intersecting={$observing}>
 			<div class="{isMobile ? 'edra-full' : 'edra-block'} no-padding has-text-white" bind:this={headerEl}>
@@ -413,8 +414,9 @@
 		</div>
 	</div>
 	<div class="column is-half is-full-touch">
-		<div id="references" class="edra-block no-padding has-background-white has-text-primary carou-ref references" style="margin-left:1px;" bind:this={wrapperCarousel}>
+		<div id="references" class="edra-block no-padding has-background-white has-text-primary carou-ref references" style="margin-left:1px;">
 			<!-- <img class="autoheight" src="../img/kerrock02.jpg" alt="Hall d'accueil avec revêtement en kerrock"> -->
+			{#if ready}
 			<Carousel 				
 				perPage={3} controls={false} dots={false} multipleDrag={false}
 				autoplay={0} duration={0} draggable={false}
@@ -447,6 +449,7 @@
 					</div>
 				{/each}
 			</Carousel>
+			{/if}
 		</div>
 	</div>
 

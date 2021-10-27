@@ -64,7 +64,7 @@ onMount(async() => {
 });
 
 let refreshPage = () => {
-	chapoImage.src= isMobile && $page.params.slug && $page.params.slug.includes('alize') ? '/static/img/initial/gamme-alize.jpg' : produit.thumbnail;
+	chapoImage.src= isMobile && $page.params.slug && $page.params.slug.includes('alize') ? '/img/initial/gamme-alize.jpg' : produit.thumbnail;
 }
 
 </script>
