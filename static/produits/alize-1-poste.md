@@ -1,17 +1,18 @@
 ---
 layout: produits
 slug: auges-gamme-alize
+ordre: 5
 title: "Gamme Alizé : Version compacte 1 poste"
 subtitle: "Usage : lavage chirurgical - Destination : Réanimation, SSPI,
-  Maternités, Urgences, Dialyse, Bloc opératoire, Cliniques dentaires,
-  vétérinaires, ophtalmologiques"
+  Maternités, Urgences, Bloc opératoire, Cliniques dentaires, vétérinaires,
+  ophtalmologiques"
 keywords: Lavabos chirurgicaux
 famille: alize_1_poste
 thumbnail: ../img/uploads/lavabos.jpg
+vignette: ../img/uploads/gamme-alize.jpg
 decalage: 0
 date: 2021-07-22T21:40:14.452Z
 tableau: []
-ordre: 5
 contenu:
   - type: sectionmeta
     sectiontitle: La Gamme compacte des auges EDRA
@@ -85,5 +86,4 @@ contenu:
       - ../img/uploads/lavabo-1-poste-small-automatique-web.jpg
       - ../img/uploads/lavabo-1-poste-small-commande-fémorale-01-web.jpg
       - ../img/uploads/lavabo-1-poste-small-commande-fémorale-02-web.jpg
-vignette: ../img/uploads/gamme-alize.jpg
 ---
