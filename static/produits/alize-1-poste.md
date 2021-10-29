@@ -2,10 +2,10 @@
 layout: produits
 slug: auges-gamme-alize
 ordre: 5
-title: Gamme Alizé - Version compacte 1 poste
+title: "Gamme Alizé : Version compacte 1 poste"
 subtitle: "Usage : lavage chirurgical - Destination : Réanimation, SSPI,
-  Maternités, Urgences, Dialyse, Bloc opératoire, Cliniques dentaires,
-  vétérinaires, ophtalmologiques"
+  Maternités, Urgences, Bloc opératoire, Cliniques dentaires, vétérinaires,
+  ophtalmologiques"
 keywords: Lavabos chirurgicaux
 famille: alize_1_poste
 thumbnail: ../img/uploads/lavabos.jpg
