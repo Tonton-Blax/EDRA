@@ -331,7 +331,7 @@
 				{#key overBlocks[2].index}
 				<a class="flexbase has-text-white mince"  
 					in:fly={{x:overBlocks[2].chapoDirection, duration:500, easing:quadInOut}} out:fly={{x:overBlocks[2].chapoDirection, easing:quadInOut}} 
-					href='https://www.kerrock.fr/sanitaire'
+					href='/'
 				>
 					<h2 class="title is-2 has-text-white mb-0 is-bigger-touch">Kerrock®</h2>
 					<p class="is-size-6-desktop is-size-3-tablet is-med-mob has-text-left">
