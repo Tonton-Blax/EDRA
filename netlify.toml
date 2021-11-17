@@ -26,3 +26,7 @@
 [[redirects]]
   from = "/documentations"
   to = "/"
+
+[[redirects]]
+  from = "/produits/postes-de-change-en-kerrock"
+  to = "/produits/poste-change-kerrock"
