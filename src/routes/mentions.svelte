@@ -53,4 +53,9 @@ onMount(async()=>{
     .content {
         padding:10%;
     }
+	@media screen and (max-width : 1024px)  {
+		.content {
+			font-size:xx-large;
+		}
+	}
 </style>
