@@ -40,8 +40,10 @@
 		if (isMobile)
 			return;
 		navItems.forEach(function (item) {
-			item.classList.remove('active-item');
-			item.removeAttribute('style');
+			if (item && item.classList) {
+				item.classList.remove('active-item');
+				item.removeAttribute('style');
+			}
 		});
 		indicator.style.width = "".concat(navItems[idx].offsetWidth, "px");
 		indicator.style.left = "".concat(navItems[idx].offsetLeft, "px");
@@ -92,7 +94,9 @@
 		<a class:forceblue={segment === 'produits' || segment === 'contact'} bind:this={navItems[0]} on:mouseenter={()=>handleIndicator(0)} class="navbar-item active-item" aria-current={segment === undefined ? 'page' : undefined} href="/" on:click={() => menuIsActive = false}>EDRA Médical</a>
 		<a class:forceblue={segment === 'produits' || segment === 'contact'} bind:this={navItems[1]} on:mouseenter={()=>handleIndicator(1)} rel="prefetch" class="navbar-item" aria-current={segment === 'produits' ? 'page' : undefined} href="/produits" on:click={() => menuIsActive = false}>Produits</a>
 		<a class:forceblue={segment === 'produits' || segment === 'contact'} bind:this={navItems[2]} on:mouseenter={()=>handleIndicator(2)} class="navbar-item" aria-current={segment === 'contact' ? 'page' : undefined} on:click={() => menuIsActive = false} href="/contact">Contact</a>
-		<a class:forceblue={segment === 'produits' || segment === 'contact'} bind:this={navItems[3]} on:mouseenter={()=>handleIndicator(3)} class="navbar-item" aria-current={segment === 'concept' ? 'page' : undefined} on:click={() => menuIsActive = false} href="/concept">EDRA Concept</a>
+		{#if segment !== "concept"}
+			<a class:forceblue={segment === 'produits' || segment === 'contact'} bind:this={navItems[3]} on:mouseenter={()=>handleIndicator(3)} class="navbar-item concept-item" aria-current={segment === 'concept' ? 'page' : undefined} on:click={() => menuIsActive = false} href="/concept">Nouveau : EDRA Concept</a>
+		{/if}
 		<span class="navbar-indicator" bind:this={indicator}></span>
 
 	</div>
@@ -102,7 +106,7 @@
 		<a class:forceblue={segment === 'produits' || segment === 'contact'} rel="prefetch" class="navbar-item moblink" aria-current={segment === 'produits' ? 'page' : undefined} href="/produits" on:click={() => menuIsActive = false}>Produits</a>
 		<a class:forceblue={segment === 'produits' || segment === 'contact'} class="navbar-item moblink" aria-current={segment === undefined ? 'page' : undefined} href="/" on:click={() => menuIsActive = false}>EDRA Médical</a>
 		<a class:forceblue={segment === 'produits' || segment === 'contact'} class="navbar-item moblink" aria-current={segment === 'contact' ? 'page' : undefined} on:click={() => menuIsActive = false} href="/contact">Contact</a>
-		<a class:forceblue={segment === 'produits' || segment === 'contact'} class="navbar-item moblink" aria-current={segment === 'concept' ? 'page' : undefined} on:click={() => menuIsActive = false} href="/concept">EDRA Concept</a>
+		<a class:forceblue={segment === 'produits' || segment === 'contact'} class="navbar-item moblink" class:concept-item={segment !== 'concept'} aria-current={segment === 'concept' ? 'page' : undefined} on:click={() => menuIsActive = false} href="/concept">{segment !== 'concept' ? "Nouveau : EDRA Concept" : "EDRA Concept"}</a>
 		<span class="navbar-indicator"></span>
 
 	  </div>  
@@ -118,6 +122,10 @@
 
 * {
 	 box-sizing: border-box;
+}
+
+.concept-item, .concept-item:hover {
+	font-weight:500!important;
 }
 
 .navbar-burger {

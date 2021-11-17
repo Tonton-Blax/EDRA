@@ -144,6 +144,20 @@ async function submitForm (event) {
                     <p class="help is-danger">N° non valide</p>
                     {/if}
                 </div>
+
+                <div class="field nocol">
+                    <div class="control has-icons-left has-icons-right">
+                    <input class="input is-primary" name="societe" placeholder="Société" bind:value={form.societe} type="text" >
+                    {#if formessage.societe}
+                    <span class="icon is-small is-right">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </span>
+                    {/if}
+                    </div>
+                    {#if formessage.societe}
+                    <p class="help is-danger">Ce champ est obligatoire</p>
+                    {/if}                 
+                </div>
                 
                 <div class="field nocol">
                     <div class="control">
