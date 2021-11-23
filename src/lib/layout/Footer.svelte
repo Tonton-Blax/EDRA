@@ -38,6 +38,9 @@
 	<div class="columns is-gapless is-multiline" class:has-background-primary={segment !== 'concept'} class:has-background-info={segment === 'concept'}>
 		<div class="column is-half">
 			<div class="edra-footer has-text-white">
+				{#if segment === 'concept'}
+				<a class="is-size-2 is-size-3-touch" style="align-self:flex-start; overflow-x:visible; width:max-content;" href="/contact">CONTACTEZ-NOUS</a><br>
+				{/if}
                 <p class="is-size-6" style="align-self:flex-start   ">© EDRA 2021<br>
                     <a href='/mentions'>Mentions légales RGPD</a>
                 </p>

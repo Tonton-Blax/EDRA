@@ -431,7 +431,6 @@
 				{/if}
 			</div>
 		</div>
-			<ContactForm deplieForm={true} />
 	</div>
 
 
