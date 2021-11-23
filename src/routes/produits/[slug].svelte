@@ -29,7 +29,7 @@
 <script>
 
 import marked from 'marked';
-import { onMount, tick, onDestroy } from 'svelte';
+import { onMount } from 'svelte';
 import ContactForm from '$lib/layout/ContactForm.svelte'
 import {observing} from '$lib/utils/stores.js';
 import Carousel from '@beyonk/svelte-carousel/src/Carousel.svelte'

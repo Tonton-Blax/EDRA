@@ -94,9 +94,9 @@
 	<div class="navbar-end is-hidden-touch" >
 		<a class:forceblue={segment === 'produits' || segment === 'contact'} bind:this={navItems[0]} on:mouseenter={()=>handleIndicator(0)} class="navbar-item active-item" aria-current={segment === undefined ? 'page' : undefined} href="/" on:click={() => menuIsActive = false}>EDRA Médical</a>
 		<a class:forceblue={segment === 'produits' || segment === 'contact'} bind:this={navItems[1]} on:mouseenter={()=>handleIndicator(1)} rel="prefetch" class="navbar-item" aria-current={segment === 'produits' ? 'page' : undefined} href="/produits" on:click={() => menuIsActive = false}>Produits</a>
-		{#if segment !== "concept"}
 		<a class:forceblue={segment	 === 'produits' || segment === 'contact'} bind:this={navItems[2]} on:mouseenter={()=>handleIndicator(2)} class="navbar-item" aria-current={segment === 'contact' ? 'page' : undefined} on:click={() => menuIsActive = false} href="/contact">Contact</a>
-		<a class:forceblue={segment === 'produits' || segment === 'contact'} bind:this={navItems[3]} on:mouseenter={()=>handleIndicator(3)} class="navbar-item concept-item" aria-current={segment === 'concept' ? 'page' : undefined} on:click={() => menuIsActive = false} href="/concept">Nouveau : EDRA Concept</a>
+		{#if segment !== "concept"}
+			<a class:forceblue={segment === 'produits' || segment === 'contact'} bind:this={navItems[3]} on:mouseenter={()=>handleIndicator(3)} class="navbar-item concept-item" aria-current={segment === 'concept' ? 'page' : undefined} on:click={() => menuIsActive = false} href="/concept">Nouveau : EDRA Concept</a>
 		{/if}
 		<span class="navbar-indicator" bind:this={indicator}></span>
 

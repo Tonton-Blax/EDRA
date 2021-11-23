@@ -37,6 +37,7 @@
 	import { quadInOut, quadOut } from 'svelte/easing';
 	import Carousel from '@beyonk/svelte-carousel/src/Carousel.svelte'
 	import Modal from '$lib/layout/Modal.svelte'
+	import ContactForm from '$lib/layout/ContactForm.svelte'
 	import ChevronLeftIcon from '$lib/layout/ChevronLeftIcon.svelte'
 	import ChevronRightIcon from '$lib/layout/ChevronRightIcon.svelte'
 	import Header from '$lib/layout/HeaderBase.svelte';
@@ -430,7 +431,9 @@
 				{/if}
 			</div>
 		</div>
+			<ContactForm deplieForm={true} />
 	</div>
+
 
 <style>
 	:global(polyline) {
