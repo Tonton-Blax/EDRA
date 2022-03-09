@@ -1,7 +1,6 @@
 ---
 layout: produits
 slug: lave-main-ocea
-ordre: 6
 title: Gamme Ocea<br>Lave-mains
 subtitle: "Usage : lavage hygiénique - Services : Consultations, chambres,
   cabinets dentaires… "
@@ -11,6 +10,7 @@ thumbnail: ../img/uploads/lave-main-ocea-01.jpg
 decalage: 1
 date: 2021-04-01T12:53:26.222Z
 tableau: []
+ordre: 6
 contenu:
   - type: sectionmeta
     sectiontitle: Pour le lavage hygiénique des mains
@@ -27,7 +27,7 @@ contenu:
 
       * Application manuelle de 3 couches de fibre de verre imprégnée de résine écologique à faible teneur en styrène teintée dans la masse, pour une épaisseur finale de 4 mm
 
-      * L’opération de démoulage de la pièce est réalisée après 24H.
+      * L’opération de démoulage de la pièce est réalisée après 24H
   - type: leplusobject
     leplus: Mêmes matériaux, même procédé de fabrication que les auges chirurgicales
   - type: intertitrebigobject
@@ -50,7 +50,7 @@ contenu:
   - type: leplusobject
     leplus: Grille de bonde moulée dans la masse pour un ensemble parfaitement monobloc
   - type: intertitrebigobject
-    interbig: Equipement de base du lave-mains Ocea à commande par cellule
+    interbig: Equipement de base du lave-mains à commande infrarouge
   - type: textblock
     body: >-
       * 1 robinetterie droite  
